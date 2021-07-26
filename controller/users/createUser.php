@@ -4,19 +4,30 @@ require('../models/dbConnect.php');
 require('../models/users/createUser.php');
 
 function addUser(){
-    $login = $_POST['Uti_Login'];
-    $pseudo = $_POST['Uti_Pseudo'];
-    $mdp = $_POST['Uti_Mdp'];
-    $verif_mdp = $_POST['Uti_Verif_Mdp'];
     // Vérification du formulaire bien remplie
-    if (isset($pseudo) && isset($login) && isset($mdp) && isset($verif_mdp)){
-        // Pseudo et login déjà pris ou non ?
-        getUser_ByPseudo($pseudo);
-        getUser_ByLogin($login);
+    if (isset($pseudo) 
+    && isset($mailUser) 
+    && isset($mdp) 
+    && isset($verif_mdp)){
+        
+        $mailUser = $_POST['Uti_Login'];
+        $pseudo = $_POST['Uti_Pseudo'];
+        $mdp = $_POST['Uti_Mdp'];
+        $verif_mdp = $_POST['Uti_Verif_Mdp'];
+        htmlspecialchars($mailUser, $pseudo,$mdp, $verif_mdp);
+        
+        if (strlen($mdp) >= 8){
+            if($mdp !== $verif_mdp){
+                echo 'les mots de passes doivent être identiques';
+                return;
+            }                        
+        }else{ 
+            echo 'le mots de passe doit faire minimum 8 caractères';
+            return;
+        }
 
-            // Mot de passe correcte
-                // Mot de passe correspondant à la confirmation du mot de passe
-    else{
-        echo "Erreur ! Tous les champs doivent être remplis"
+        // Pseudo et login déjà pris ou non ?
+        getUsers_ByPseudo($pseudo);
+        getUser_ByMail($mailUser);
     }
 }
