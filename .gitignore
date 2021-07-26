@@ -1,2 +1,2 @@
-model/
-model/dbConnect.php
+models/
+models/dbConnect.php
