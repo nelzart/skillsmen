@@ -1,15 +1,20 @@
 <?php
 
-$db = require("./dbConnect.php");
+require("./dbConnect.php");
+require("../controller/users/createUsers.php");
+
+function getUsers_ByPseudo($pseudo_exist){
+    $
+}
 
 function createUser()
 {
     $db = dbConnect();
 
-    $UtiPseudo = 'Uti_Pseudo';
+    /*$UtiPseudo = 'Uti_Pseudo';
     $UtiLogin = 'Uti_Login';
     $UtiMdp = 'Uti_Mdp';
-    $UtiDroit = 'Uti_Droit';
+    $UtiDroit = 'Uti_Droit';*/
 
     $user = $db->prepare("INSERT INTO utilisateurs `Uti_Pseudo`, `Uti_Login`, `Uti_Mdp`, `Uti_Droit` VALUES (?, ?, ?, ?)");
 
