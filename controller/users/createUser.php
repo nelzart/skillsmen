@@ -25,9 +25,8 @@ function addUser(){
             echo 'le mots de passe doit faire minimum 8 caractères';
             return;
         }
-
         // Pseudo et login déjà pris ou non ?
         getUsers_ByPseudo($pseudo);
-        getUser_ByMail($mailUser);
+        getUsers_ByMail($mailUser);
     }
 }
