@@ -1,5 +1,5 @@
 <?php
-    require('.../controller/users/createUser.php'); 
+    require('../../controller/users/createUser.php'); 
 ?>
     
     <!DOCTYPE html>
@@ -12,7 +12,7 @@
     </head>
 
     <body>
-        <form action=".../controller/users/createUser.php" method="POST">
+        <form action="../../controller/users/createUser.php" method="POST">
             <h1>Modification de votre compte utilisateur</h1>
             
             <label for="avatar">Choisir une image de profil</label>
