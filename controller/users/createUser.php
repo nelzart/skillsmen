@@ -1,19 +1,20 @@
 <?php
 
-require('../models/dbConnect.php');
-require('../models/users/createUser.php');
+require('../../models/users/createUser.php');
 
 function addUser(){
     // Vérification du formulaire bien remplie
-    if (isset($pseudo) 
-    && isset($mailUser) 
-    && isset($mdp) 
-    && isset($verif_mdp)){
-        
-        $mailUser = $_POST['Uti_Login'];
-        $pseudo = $_POST['Uti_Pseudo'];
-        $mdp = $_POST['Uti_Mdp'];
-        $verif_mdp = $_POST['Uti_Verif_Mdp'];
+    if (
+        isset($_POST['Uti_Pseudo']) 
+        && isset($_POST['Uti_Login']) 
+        && isset($_POST['Uti_Mdp']) 
+        && isset($_POST['Uti_Verif_Mdp'])
+        ){            
+            $pseudo = $_POST['Uti_Pseudo'];
+            $mailUser = $_POST['Uti_Login'];
+            $mdp = $_POST['Uti_Mdp'];
+            $verif_mdp = $_POST['Uti_Verif_Mdp'];
+            
         htmlspecialchars($mailUser, $pseudo,$mdp, $verif_mdp);
         
         if (strlen($mdp) >= 8){
