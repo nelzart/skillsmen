@@ -1,6 +1,10 @@
 <?php
 
+echo '<br> couco zeaf u';
+
 require('../../models/users/createUser.php');
+
+echo '<br> coucou';
 
 function addUser(){
     // Vérification du formulaire bien remplie

@@ -1,7 +1,8 @@
 <?php
 
-require('../../models/dbConnect.php');
-require('../../controller/users/createUser.php');
+require '../../models/dbConnect.php';
+
+echo ' <br> bite dans ton cul ligne 5';
 
 function getUsers_ByPseudo($pseudo){
     $db = dbConnect();
