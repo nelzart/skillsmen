@@ -26,16 +26,6 @@ CREATE TABLE Ingredients(
 )ENGINE=InnoDB;
 
 
-#------------------------------------------------------------
-# Table: Droits
-#------------------------------------------------------------
-
-CREATE TABLE Droits(
-        Drt_Id      Int  Auto_increment  NOT NULL ,
-        Drt_Libelle Varchar (50) NOT NULL ,
-        Drt_Niveau  Int NOT NULL
-	,CONSTRAINT Droits_PK PRIMARY KEY (Drt_Id)
-)ENGINE=InnoDB;
 
 
 #------------------------------------------------------------
@@ -46,13 +36,13 @@ CREATE TABLE Utilisateurs(
         Uti_Id              Int  Auto_increment  NOT NULL ,
         Uti_Pseudo          Varchar (50) NOT NULL ,
         Uti_Login           Varchar (50) NOT NULL ,
-        Uti_Mdp             Varchar (50) NOT NULL ,
-        Uti_Droit           Int NOT NULL ,
-        Uti_DateInscription Date NOT NULL ,
-        Drt_Id              Int NOT NULL
+        Uti_Mdp             Varchar (255) NOT NULL ,
+        Uti_Droit           Varchar (50) NOT NULL ,
+        Uti_DateInscription TimeStamp NOT NULL 
+      
 	,CONSTRAINT Utilisateurs_PK PRIMARY KEY (Uti_Id)
 
-	,CONSTRAINT Utilisateurs_Droits_FK FOREIGN KEY (Drt_Id) REFERENCES Droits(Drt_Id)
+
 )ENGINE=InnoDB;
 
 
