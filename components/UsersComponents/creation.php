@@ -12,7 +12,7 @@
     </head>
 
     <body>
-        <form action="../../controller/users/createUser.php" method="POST">
+        <form action="<?= addUser()?>" method="POST">
             <h1>Création d'un compte Utilisateur</h1>
             
             <label for='Uti_Login'><b>Votre e-mail</b></label>
@@ -27,8 +27,7 @@
             <label for='Uti_Mdp2'><b>Vérification de votre mot de passe</b></label>
             <input type="password" placeholder="Entrer le mot de passe" name="Uti_Mdp2" required>
 
-            <input type="submit" id='submit' value="s'enregistrer" >
-            
+            <input type="submit" id='submit' value="s'enregistrer">            
         </form>        
     </body>
 </html>
