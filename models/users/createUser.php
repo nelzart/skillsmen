@@ -1,32 +1,39 @@
 <?php
 
 require '../../models/dbConnect.php';
+echo 'coucou';
 
-function getUsers_ByPseudo($pseudo){
+function getUsers_ByPseudo($userName){
     $db = dbConnect();
+    $lycos = $userName;
 
-    $findPseudo = $db->prepare("SELECT * FROM utilisateurs WHERE Uti_Pseudo = ?");
-
-    $findPseudo->execute($pseudo);
+    $search = $db->prepare("SELECT Uti_Pseudo FROM utilisateurs WHERE Uti_Pseudo = ?");
+    $search->execute(array(
+        'Uti_Pseudo' => $userName,
+    ));
+    var_dump($lycos);
+    var_dump($userName);
     
-    if(isset($findPseudo)){
-        echo "Désolé, ce pseudo existe déjà ;)";
-    } 
+    return $lycos;
 }
 
-function getUsers_ByMail($mailUser){
+getUsers_ByPseudo('nelzart');
+
+function getUsers_ByMail($userMail){
     $db = dbConnect();
+    $lycos = $userMail;
 
-    $findMail = $db->prepare("SELECT * FROM utilisateurs WHERE Uti_Login = ?");
-
-    $findMail->execute($mailUser);
+    $search = $db->prepare("SELECT Uti_Login FROM utilisateurs WHERE Uti_Login = ?");
+    $search->execute(array(
+        'Uti_Login' => $lycos,
+    ));
     
-    if(isset($findMail)){
-        echo "Désolé, ce mail existe déjà ;)";
-        return;
-    } 
+    if($lycos === $userMail){
+        echo 'désolé, cet e-mail d\'utilisateur existe déjà'; 
+    } else{
+        return $userMail;
+    }
 }
-
 
 function createUser($userMail, $userName, $mdp, $utiDroit)
 {

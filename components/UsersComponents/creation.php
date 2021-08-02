@@ -16,16 +16,16 @@
             <h1>Création d'un compte Utilisateur</h1>
             
             <label for='Uti_Login'><b>Votre e-mail</b></label>
-            <input type="email" name='Uti_Login' placeholder="E-mail" required>
+            <input type="email" name='Uti_Login' placeholder="E-mail" required value="dorian.bleynie@mail.com">
             
             <label for='Uti_Pseudo'><b>Choix de votre nom d'utilisateur</b></label>
             <input type="text" name='Uti_Pseudo' placeholder="Votre nom d'utilisateur" required>
             
             <label for="Uti_Mdp"><b>Choisissez votre mot de passe (8 caracteres minimum)</b></label>
-            <input type="password" placeholder="Entrer le mot de passe" name="Uti_Mdp" required>
+            <input type="password" placeholder="Entrer le mot de passe" name="Uti_Mdp" required value="12345678">
             
             <label for='Uti_Mdp2'><b>Vérification de votre mot de passe</b></label>
-            <input type="password" placeholder="Entrer le mot de passe" name="Uti_Mdp2" required>
+            <input type="password" placeholder="Entrer le mot de passe" name="Uti_Mdp2" required value="12345678">
 
             <input type="submit" id='submit' value="s'enregistrer">            
         </form>        
