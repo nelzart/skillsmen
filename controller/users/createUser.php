@@ -21,14 +21,24 @@ function addUser(){
         $test = 0;
 
         if($testMail !== FALSE){
-            $test += 1;
-            echo 'Ce mail éxiste déjà <br>';
+            $test++;
+            echo "
+                <div>
+                    <p><strong>Ce mail éxiste déjà !</strong></p>
+                </div>
+                ";
+                header('location: creation.php');
         } 
         
         if($testName !== FALSE){
-            $test += 1;
-            echo 'Ce pseudo éxiste déjà <br>';
-        } 
+            $test++;
+            echo "
+                <div>
+                    <p><strong>Ce nom éxiste déjà !</strong></p>
+                </div>
+                ";
+                header('location: creation.php');
+        }
 
         // on vérifie que le mot de passe répété soit correct
         if (($_POST['Uti_Mdp'] == $_POST['Uti_Mdp2']) && ($test == 0) )
@@ -38,6 +48,8 @@ function addUser(){
             
             // Ajouter a la DB
             createUser($userMail, $userName, $mdp, $utiDroit);
+            echo 'coucou';
+            header('location: creation.php');
 
             // header('skillsmen/components/UsersComponents/creation.php');
         }

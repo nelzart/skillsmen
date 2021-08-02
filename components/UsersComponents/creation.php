@@ -16,7 +16,7 @@
             <h1>Création d'un compte Utilisateur</h1>
             
             <label for='Uti_Login'><b>Votre e-mail</b></label>
-            <input type="email" name='Uti_Login' placeholder="E-mail" required value="dorian.bleynie@mail.com">
+            <input type="email" name='Uti_Login' placeholder="E-mail" required >
             
             <label for='Uti_Pseudo'><b>Choix de votre nom d'utilisateur</b></label>
             <input type="text" name='Uti_Pseudo' placeholder="Votre nom d'utilisateur" required>

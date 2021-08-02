@@ -2,31 +2,28 @@
 
 require '../../models/dbConnect.php';
 
-function getUsers_ByPseudo($userName){
+function getUsers_ByPseudo($userName)
+{
     $db = dbConnect();
-
     $search = $db->prepare("SELECT Uti_Pseudo FROM utilisateurs WHERE Uti_Pseudo = :Uti_Pseudo");
     $search->execute(array(
         ':Uti_Pseudo' => $userName
     ));
 
-    $lycos = $search->fetch();
-    
+    $lycos = $search->fetch();   
     return $lycos; 
 }
 
 
-function getUsers_ByMail($userMail){
+function getUsers_ByMail($userMail)
+{
     $db = dbConnect();
-    $lycos = $userMail;
-
     $search = $db->prepare("SELECT Uti_Login FROM utilisateurs WHERE Uti_Login = :Uti_Login");
     $search->execute(array(
         ':Uti_Login' => $userMail
     ));
-    
-    $lycos = $search->fetch();
-    
+
+    $lycos = $search->fetch();    
     return $lycos;
 }
 
