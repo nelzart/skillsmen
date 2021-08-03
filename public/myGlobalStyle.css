@@ -1,0 +1,106 @@
+body {
+    display: flex;
+    justify-content: center;
+    background-color: #102838;
+    color : #DAA160;
+    font-family: serif;
+}
+.container {
+    width: 1100px;
+    height: 100%;
+    border: 1px solid #DAA160;
+    flex-direction: column;
+}
+
+input {
+    border: 0;
+    width: 318px;
+    max-width: 318px;
+    height: 40px;
+    border-radius: 7px;
+    background-color: #0C1D28;
+    margin: 20px;
+    color: #585243;
+    outline: none !important;
+}
+
+input[value]{
+    box-sizing: border-box;
+    padding: 0px 20px;
+}
+
+h2 {
+    font-size : 20pt;
+}
+
+.tuiles {
+    width: 168pt;
+    height: 214pt;
+    border: 1px solid #DAA160;
+    border-radius: 27pt;
+    margin: 20px;
+    text-align: center;
+    box-shadow: 0px 3px 6px #00000029;
+}
+
+.tuiles > h2 {
+    margin: 10px 20px;
+}
+
+.whichBase {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    max-width: 370px;
+}
+
+.selectBase {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    height: 96px;
+    width: 96px;
+    margin: 10px;
+    padding-bottom: 5px;
+    font-size: 13px;
+    border-radius: 27px;
+    border: 1px solid #DAA160;
+    background-color: #0C1D28;
+    box-shadow: 0px 3px 6px #00000029;
+}
+
+.active {
+    color : #0C1D28;
+    background-color: #DAA160;
+    border: 1px solid #DAA160;
+}
+
+button{
+    width: 150px;
+    height: 40px;
+    margin: 20px;
+    border-radius: 7px;
+    background-color: #0C1D28;
+    color: #DAA160;
+    border: 0px solid #DAA160;  
+    box-shadow: 0px 3px 6px #00000029;
+    outline: none !important;
+}
+
+.userCard{
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    height: 200px;
+    width: 200px;
+    border-radius: 27px;
+    box-shadow: 0px 3px 6px #00000029;
+    border: 1px solid #DAA160;
+    object-fit: cover;
+    margin: 20px;
+}
+.userCard > span {
+    font-size: 27px;
+}
