@@ -34,8 +34,12 @@ h2 {
 }
 
 .tuiles {
-    width: 168pt;
-    height: 214pt;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    width: 162pt;
+    height: 228pt;
     border: 1px solid #DAA160;
     border-radius: 27pt;
     margin: 20px;
