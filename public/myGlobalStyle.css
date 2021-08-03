@@ -108,3 +108,12 @@ button{
 .userCard > span {
     font-size: 27px;
 }
+
+.iconCircle{
+    height: 44px;
+    width: 44px;
+    border-radius: 44px;
+    border: 1px solid #DAA160;
+    box-shadow: 0px 3px 6px #00000029;
+    margin: 20px;
+}
