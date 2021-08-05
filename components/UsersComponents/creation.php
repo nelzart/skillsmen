@@ -1,8 +1,8 @@
 <?php
     require('../../controller/users/createUser.php'); 
 ?>
-    
-    <!DOCTYPE html>
+
+<!DOCTYPE html>
     <html lang="en">
     <head>
         <meta charset="UTF-8">
@@ -14,22 +14,30 @@
     </head>
 
     <body>
-        <form action="<?= addUser()?>" method="POST">
+    <?php if(!empty($message)) : ?>
+      <p><?php echo $message; ?></p>
+    <?php endif; ?>
+        <form action="<?php echo htmlspecialchars($_SERVER['REQUEST_URI'], ENT_QUOTES); ?>" method="post">
             <h1>Création d'un compte Utilisateur</h1>
             
             <label for='Uti_Login'><b>Votre e-mail</b></label>
-            <input type="email" name='Uti_Login' placeholder="E-mail" required >
+            <input type="email" name='Uti_Login' placeholder="E-mail" required value="<?php if(!empty($_POST['Uti_Login']) && $testMail == FALSE) { echo htmlspecialchars($_POST['Uti_Login'], ENT_QUOTES); } ?>">
             
             <label for='Uti_Pseudo'><b>Choix de votre nom d'utilisateur</b></label>
-            <input type="text" name='Uti_Pseudo' placeholder="Votre nom d'utilisateur" required>
+            <input type="text" name='Uti_Pseudo' placeholder="Votre nom d'utilisateur" required value="<?php if(!empty($_POST['Uti_Pseudo']) && $testName == FALSE) { echo htmlspecialchars($_POST['Uti_Pseudo'], ENT_QUOTES); } ?>">
             
             <label for="Uti_Mdp"><b>Choisissez votre mot de passe (8 caracteres minimum)</b></label>
-            <input type="password" placeholder="Entrer le mot de passe" name="Uti_Mdp" required value="12345678">
+            <input type="password" placeholder="Entrer le mot de passe" name="Uti_Mdp" required value="<?php if(!empty($_POST['Uti_Mdp']) && ($_POST['Uti_Mdp'] == $_POST['Uti_Mdp2'])) { echo htmlspecialchars($_POST['Uti_Mdp'], ENT_QUOTES); } ?>">
             
             <label for='Uti_Mdp2'><b>Vérification de votre mot de passe</b></label>
-            <input type="password" placeholder="Entrer le mot de passe" name="Uti_Mdp2" required value="12345678">
+            <input type="password" placeholder="Entrer le mot de passe" name="Uti_Mdp2" required value="<?php if(!empty($_POST['Uti_Mdp2']) && ($_POST['Uti_Mdp'] == $_POST['Uti_Mdp2'])) { echo htmlspecialchars($_POST['Uti_Mdp2'], ENT_QUOTES); } ?>">
 
-            <input type="submit" id='submit' value="s'enregistrer">            
+            <input type="submit" id='submit' value="s'enregistrer">        
+            
+           
         </form>        
+
+            
+
     </body>
 </html>
