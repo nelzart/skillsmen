@@ -17,13 +17,13 @@ if(
         
 
         $test = 0;
-        $message ="";
+        $message1 ="";   $message2 ="";   $message3 ="";   $message4 ="";
         
         //on test l'existence du mail
         $testMail = getUsers_ByMail($userMail);
         if($testMail !== FALSE){
             $test ++;
-            $message = "Ce mail éxiste déjà !<br/>"."\n";
+            $message1 = "Ce mail éxiste déjà !";
 
         } 
         
@@ -31,14 +31,14 @@ if(
         $testName = getUsers_ByPseudo($userName);
         if($testName !== FALSE){
             $test++;
-            $message .= "Ce nom éxiste déjà !<br/>"."\n";
+            $message2 = "Ce nom éxiste déjà !";
 
         }
 
         // on verifie que les deux mdp sont identiques
         if (($_POST['Uti_Mdp'] != $_POST['Uti_Mdp2']) ){
             $test++;
-            $message .= "Les mots de passe doivent etre identiques";
+            $message3 = "Les mots de passe doivent etre identiques";
         }
 
         //si aucun pb on insere en base
@@ -46,6 +46,6 @@ if(
             // on hache le mot de passe avant de le stocker en bdd
             $mdp = password_hash($_POST['Uti_Mdp'], PASSWORD_DEFAULT);
             createUser($userMail, $userName, $mdp, $utiDroit);
-            $message = "Vous etes enregistré";
+            $message4 = "Vous etes enregistré";
         }
     }
