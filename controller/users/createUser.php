@@ -1,5 +1,6 @@
 <?php
-require('../../models/users/createUser.php');
+require('../models/users/createUser.php');
+
 if(
     isset($_POST['Uti_Login']) &&
     isset($_POST['Uti_Pseudo']) &&

@@ -1,6 +1,6 @@
 <?php
 
-require '../../models/dbConnect.php';
+require '../models/dbConnect.php';
 
 function getUsers_ByPseudo($userName)
 {
