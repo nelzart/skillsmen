@@ -15,7 +15,8 @@ $title = "créer recette";
 </head>
 <body>
     
-<div class="writeIn">
+<div class="container">
+    <div class="writeIn">
 
     <div class="title">
         <label for="title">Changer titre</label>
@@ -25,49 +26,58 @@ $title = "créer recette";
 <br>
 
     <div id="addIngredient">
-
-        <label for="title">Ingrédient</label>
-        <input name="title" type="text" placeholder="Old Fashioned" value=""></input>
-        
-        <label for="title">Ingrédient</label>
-        <input name="title" type="text" placeholder="Old Fashioned" value=""></input>
-        
+        <div class="row">
+            <input type="text" name="quantity" style="width:40px; margin-right:-15px; padding:10px;" value="" />
+            <input type="text" name="value" value="" />
+            <button class="iconCircle" value="enlever" onclick="removeRow(this)">X</button>
+        </div>
 
     </div>
-    <button onclick="delIngredient()" >Supprimer ingrédient</button>
-    <button onclick="addIngredient()" class="active">Ajouter ingrédient</button>
-
+    <button class="iconCircle" type="button" value="ajouter" onclick="addRow()">+</button>
 </div>
 
     <script>
-        function addIngredient() {
-            document.getElementById("addIngredient").innerHTML += 
-                  "<label for='ingredient'>Ingrédient</label><input style='width: 40px; margin-right: -15px'></input><input name='ingredient' type='text' placeholder='ingredient ' value=''></input>"
+        function addRow () {
+            document.querySelector('#addIngredient').insertAdjacentHTML(
+                'beforeend',
+                `<div class="row">
+                    <input type="text" name="quantity" style="width:10px; margin-right:-15px;" value="" />
+                    <input type="text" name="value" value="" />
+                    <button class="iconCircle" value="enlever" onclick="removeRow(this)">X</button>
+                </div>`      
+            )
         }
 
-        function delIngredient() {
-            document.getElementById("addIngredient").innerHTML -= 
-                  "<label for='ingredient'>Ingrédient</label><input name='ingredient' type='text' placeholder='ingredient ' value=''></input>"
+        function removeRow (input) {
+            input.parentNode.remove()
         }
+        
     </script>
 
 
-    <div class="whichBase">
-        <div class="selectBase"> test</div>
-        <div class="selectBase"> test</div>
-        <div class="selectBase active"> test actif</div>
-        <div class="selectBase"> test</div>
-        <div class="selectBase"> test</div>
-        <div class="selectBase"> test</div>
-        <div class="selectBase"> test</div>
-        <div class="selectBase"> test</div>
-        <div class="selectBase"> test</div>
+    <div>
+        <div class="whichBase">
+        <div class="selectBase">•  tequila • </div>
+        <div class="selectBase">•  whiskey • </div>
+        <div class="selectBase active">• gin • </div>
+        <div class="selectBase">•  vodka • </div>
+        <div class="selectBase">•  cognac • </div>
+        <div class="selectBase">•  liqueur • </div>
+        <div class="selectBase">•  rhum • </div>
+        <div class="selectBase">•  champagne • </div>
+        <div class="selectBase">• sans alcool • </div>
     </div>
-<br>
-    <div class='textarea'>
-        <label for="title">Zone de texte</label>
-        <textarea name="title" type="textarea" placeholder="Old Fashioned" value=""></textarea>
     </div>
+
+        <div class="textarea">
+            <h2>Zone de texte</h2>
+            <textarea cols="10" rows="13" charswidth="23" name="title" type="textarea" placeholder="Old Fashioned" value=""></textarea>
+        </div>
+
+</div>
+
+
+<script></script>
 
 </body>
 </html>
