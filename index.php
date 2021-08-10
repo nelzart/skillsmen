@@ -1,9 +1,11 @@
 
 <?php
-require('controller/users/createUser.php');
-require('controller/users/manageUser.php');
-
-try { // On essaie de faire des choses
+//require('controller/users/createUser.php');
+//require('controller/users/manageUser.php');
+echo "index";
+require('controller/cocktailController.php');
+addCocktail ('Le max', 'une bouteille de gin et du jus de citron', 2);
+/*try { // On essaie de faire des choses
     if (isset($_GET['action'])) {
         if ($_GET['action'] == 'listPosts') {
             listPosts();
@@ -39,4 +41,5 @@ try { // On essaie de faire des choses
 }
 catch(Exception $e) { // S'il y a eu une erreur, alors...
     echo 'Erreur : ' . $e->getMessage();
-}
+}*/
+
