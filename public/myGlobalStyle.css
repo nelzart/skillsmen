@@ -1,10 +1,35 @@
+@font-face {
+    font-family: 'Ogg-Roman';
+    src:url('/font/Ogg-Roman.ttf') format('truetype'),
+        url('2596224269750e00c3ad5356299a3b9f.eot') format('embedded-opentype'),
+        url('2596224269750e00c3ad5356299a3b9f.svg') format('svg'),
+        url('2596224269750e00c3ad5356299a3b9f.ttf') format('truetype'),
+        url('2596224269750e00c3ad5356299a3b9f.woff') format('woff'),
+        url('2596224269750e00c3ad5356299a3b9f.woff2') format('woff2');
+   }
+
+@font-face {
+    font-family: 'Ogg Roman';
+    src: url('2596224269750e00c3ad5356299a3b9f.eot'); /* IE9*/
+    src: url('2596224269750e00c3ad5356299a3b9f.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+            url('2596224269750e00c3ad5356299a3b9f.woff2') format('woff2'), /* chrome、firefox */
+            url('2596224269750e00c3ad5356299a3b9f.woff') format('woff'), /* chrome、firefox */
+            url('2596224269750e00c3ad5356299a3b9f.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+            url('2596224269750e00c3ad5356299a3b9f.svg#Ogg Roman') format('svg'); /* iOS 4.1- */
+  }
+
 body {
+    font-family: 'Ogg-Roman', 'Ogg Roman', serif;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-stroke-width: 0.2px;
+    -moz-osx-font-smoothing: grayscale;
     display: flex;
     justify-content: center;
     background-color: #102838;
     color : #DAA160;
-    font-family: serif;
 }
+
 .container {
     width: 1100px;
     height: 100%;
@@ -19,14 +44,33 @@ input {
     height: 40px;
     border-radius: 7px;
     background-color: #0C1D28;
-    margin: 20px;
-    color: #585243;
+    margin: 0 0 0 20px;
+    color: #3d3b35;
     outline: none !important;
 }
 
-input[value]{
+textarea {
+    padding: 10px;
+    max-width: 100%;
+    line-height: 1.5;
+    border-radius: 7px;
+    background-color: #0C1D28;
+    color: #DAA160;
+    border: 0px solid #DAA160;
+    min-width: 50%;
+    outline: none !important;
+}
+
+input[value] {
+    font-family: 'Ogg-Roman', 'Ogg Roman', serif;
     box-sizing: border-box;
     padding: 0px 20px;
+}
+
+label{
+    font-family: 'Ogg-Roman', 'Ogg Roman', serif;
+    display: block;
+    margin-left: 25px;
 }
 
 h2 {
