@@ -4,7 +4,21 @@
 //require('controller/users/manageUser.php');
 echo "index";
 require('controller/cocktailController.php');
-addCocktail ('Le max', 'une bouteille de gin et du jus de citron', 2);
+$tab = array();
+
+$tab[0] = array('Ing_Id' => 1, 
+                'comp_quantite' => 12, 
+                'comp_Unite' => 'cl');
+
+$tab[1] = array('Ing_Id' => 2, 
+'comp_quantite' => 2, 
+'comp_Unite' => 'morceau');
+
+$tab[2] = array('Ing_Id' => 3, 
+'comp_quantite' => 1, 
+'comp_Unite' => 'goutte');
+
+addCocktail ('Le toto', 'une bouteille de vodka et du jus de carotte', 2, $tab);
 /*try { // On essaie de faire des choses
     if (isset($_GET['action'])) {
         if ($_GET['action'] == 'listPosts') {
