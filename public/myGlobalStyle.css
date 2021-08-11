@@ -19,7 +19,7 @@
   }
 
 body {
-    font-family: 'Ogg-Roman', 'Ogg Roman', serif;
+    font-family: "Ogg", "Ogg-Roman", "Ogg Roman", serif;
     font-style: normal;
     -webkit-font-smoothing: antialiased;
     -webkit-text-stroke-width: 0.2px;
@@ -36,7 +36,7 @@ body {
     justify-content: space-around;
     flex-wrap: wrap;
     width: 1000px;
-    height: 800px;
+    height: 100vh;
     border: 1px solid #DAA160;
 }
 
@@ -101,13 +101,7 @@ h2 {
     margin: 10px 20px;
 }
 
-.whichBase {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    max-width: 387px;
-    height: 387px;
-}
+
 
 .selectBase {
     box-sizing: border-box;
@@ -118,7 +112,7 @@ h2 {
     height: 96px;
     width: 96px;
     margin: 10px;
-    padding-bottom: 5px;
+    /* padding-bottom: 5px; */
     font-size: 13px;
     border-radius: 27px;
     border: 1px solid #DAA160;
@@ -167,4 +161,104 @@ button{
     border: 1px solid #DAA160;
     box-shadow: 0px 3px 6px #00000029;
     margin: 20px;
+}
+
+.whichBase {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    max-width: 387px;
+    height: 387px;
+}
+.row{
+    margin: -20px;
+}
+.title{
+    margin-bottom: 40px;
+}
+
+#insertCocktail{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.selectBase input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.custom-checkbox{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    height: 100%;
+    width: 100%;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: 0.3s; 
+}
+
+.card-label{
+    font-family: "ogg", serif;
+    color: #DAA160;
+    text-align: center;   
+}
+
+svg{overflow: visible;}
+
+
+svg,
+#addItem,
+#liquor { 
+    stroke: #DAA160;
+    fill: transparent;
+    stroke-width: 15px;
+}
+
+#whiskey, 
+#gin, 
+#vodka,
+#cognac,
+#rhum,
+#champagne,
+#noAlcool,
+#addItem{
+    /* stroke: #DAA160; */
+    fill:#DAA160;
+    stroke-width: 0px;
+}
+
+
+/*Click card bg color*/
+.container input:checked ~ .custom-checkbox{
+    background-color: #DAA160;
+    padding: 0px;
+}
+
+/*Label color change*/
+.container input:checked ~.custom-checkbox .card-label{
+    color: #02111C;  
+}
+
+/*SVG bounce checked animation*/
+.container input:checked ~.custom-checkbox svg,
+.container input:checked ~.custom-checkbox #liquor{
+    stroke: #02111C;
+}
+/*SVG bounce checked animation*/
+.container input:checked ~.custom-checkbox #whiskey,
+.container input:checked ~.custom-checkbox #gin,
+.container input:checked ~.custom-checkbox #cognac,
+.container input:checked ~.custom-checkbox #rhum,
+.container input:checked ~.custom-checkbox #champagne,
+.container input:checked ~.custom-checkbox #noAlcool,
+.container input:checked ~.custom-checkbox #vodka{
+    fill: #02111C;
 }
