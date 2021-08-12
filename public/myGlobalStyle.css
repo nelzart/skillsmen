@@ -82,19 +82,19 @@ textarea {
     } 
 }
 input[value] {
-    font-family: 'Ogg-Roman', 'Ogg Roman', serif;
+    font-family: 'Ogg', 'Ogg-Roman', 'Ogg Roman', serif;
     box-sizing: border-box;
     padding: 0px 20px;
 }
 
 label{
-    font-family: 'Ogg-Roman', 'Ogg Roman', serif;
+    font-family: 'Ogg','Ogg-Roman', 'Ogg Roman', serif;
     display: block;
     margin-left: 25px;
 }
 
 h2 {
-    font-family: 'Ogg', serif;
+    font-family: 'Ogg', 'Ogg-Roman', 'Ogg Roman', serif;
     font-size : 20pt;
 }
 
