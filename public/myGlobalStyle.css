@@ -44,16 +44,7 @@ body {
         border: none;
     } 
     textarea {
-        padding: 10px;
-        line-height: 1.5;
-        border-radius: 7px;
-        background-color: #02111C;
-        color: #DAA160;
-        border: 0px solid #DAA160;
-        outline: none !important;
         width: 90%;
-        height: 200px;
-        resize: none;
     }   
 }
 
