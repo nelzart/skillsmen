@@ -45,7 +45,7 @@ $title = "créer recette";
 
     </div>
     <button class="addInput" type="button" value="ajouter" onclick="addRow()"><svg class="iconCircle" id="addItem" xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="30px" viewBox="0 0 24 24" width="30px" fill="#000000"><g>
-<rect fill="none" height="24" width="24"/></g><g><g><path d="M19,13h-6v6h-2v-6H5v-2h6V5h2v6h6V13z"/></g></g></svg>Ajouter un ingrédient</button>
+<rect fill="none" height="24" width="24"/></g><g><g><path d="M19,13h-6v6h-2v-6H5v-2h6V5h2v6h6V13z"/></g></g></svg><h3>Ajouter un ingrédient</h3></button>
 </div>
 
 <script>

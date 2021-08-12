@@ -27,6 +27,10 @@
       url("//db.onlinewebfonts.com/t/2596224269750e00c3ad5356299a3b9f.svg#Ogg") format("svg"); 
     }
 
+*{
+    font-family: "Ogg", "Ogg-Roman", "Ogg Roman", serif;
+}
+
 body {
     font-family: "Ogg", "Ogg-Roman", "Ogg Roman", serif;
     font-style: normal;
