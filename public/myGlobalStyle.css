@@ -17,6 +17,15 @@
             url('2596224269750e00c3ad5356299a3b9f.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
             url('2596224269750e00c3ad5356299a3b9f.svg#Ogg Roman') format('svg'); /* iOS 4.1- */
   }
+  @font-face {
+      font-family: "Ogg"; 
+      src: url("//db.onlinewebfonts.com/t/2596224269750e00c3ad5356299a3b9f.eot"); 
+      src: url("//db.onlinewebfonts.com/t/2596224269750e00c3ad5356299a3b9f.eot?#iefix") format("embedded-opentype"), 
+      url("//db.onlinewebfonts.com/t/2596224269750e00c3ad5356299a3b9f.woff2") format("woff2"), 
+      url("//db.onlinewebfonts.com/t/2596224269750e00c3ad5356299a3b9f.woff") format("woff"), 
+      url("//db.onlinewebfonts.com/t/2596224269750e00c3ad5356299a3b9f.ttf") format("truetype"), 
+      url("//db.onlinewebfonts.com/t/2596224269750e00c3ad5356299a3b9f.svg#Ogg") format("svg"); 
+    }
 
 body {
     font-family: "Ogg", "Ogg-Roman", "Ogg Roman", serif;
@@ -35,6 +44,7 @@ body {
     flex-direction: row;
     justify-content: space-around;
     flex-wrap: wrap;
+    font-family: "Ogg", "Ogg-Roman", "Ogg Roman", serif;
     width: 1000px;
     height: 125vh;
     border: 1px solid #DAA160;
@@ -47,6 +57,7 @@ h3{
 
 input {
     border: 0;
+    font-family: "Ogg", "Ogg-Roman", "Ogg Roman", serif;
     width: 318px;
     max-width: 318px;
     height: 40px;
@@ -58,6 +69,7 @@ input {
 }
 
 textarea {
+    font-family: "Ogg", "Ogg-Roman", "Ogg Roman", serif;
     padding: 10px;
     line-height: 1.5;
     border-radius: 7px;
@@ -99,6 +111,7 @@ h2 {
 }
 
 .tuiles {
+    font-family: "Ogg", "Ogg-Roman", "Ogg Roman", serif;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -119,6 +132,7 @@ h2 {
 
 
 .selectBase {
+    font-family: "Ogg", "Ogg-Roman", "Ogg Roman", serif;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
@@ -136,12 +150,14 @@ h2 {
 }
 
 .active {
+    font-family: "Ogg", "Ogg-Roman", "Ogg Roman", serif;
     color : #0C1D28;
     background-color: #DAA160;
     border: 1px solid #DAA160;
 }
 
 button{
+    font-family: "Ogg", "Ogg-Roman", "Ogg Roman", serif;
     width: 150px;
     height: 40px;
     margin: 20px;
