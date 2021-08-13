@@ -1,5 +1,5 @@
 <?php
-require '../../models/users/createUser.php';
+require '../../models/User.php';
 
 echo "Coucou";
 
