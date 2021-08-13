@@ -1,3 +1,7 @@
+*{
+    margin: 0;
+    padding: 0;
+}
 @font-face {
     font-family: 'Ogg-Roman';
     src:url('/font/Ogg-Roman.ttf') format('truetype'),
@@ -84,8 +88,49 @@ textarea {
     width: 100%;
     height: 200px;
     box-sizing: border-box;
-
     resize: none;
+}
+html {
+    height: 100%;
+}
+body {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.iconCover {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    top: 23px;
+    left: 25%;
+    text-transform: uppercase;
+    height: 50px;
+    width: 50px;
+    border-radius: 44px;
+    border: 1px solid #DAA160;
+    background-color: #0C1D28;
+    box-shadow: 0px 3px 6px #00000029;
+}
+
+.iconCover .iconCoverSVG {
+    width: 60%;
+    height: 60%;
+}
+.iconCover .photoUpload {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+    cursor: pointer;
+    opacity: 0;
+    filter: alpha(opacity=0);
 }
 
 .textarea {
@@ -96,6 +141,11 @@ textarea {
     .container {
         border: none;
     } 
+}
+@media (max-width: 766px) {
+    .iconCover {
+        left: 15%;    
+    }
 }
 input[value] {
     font-family: 'Ogg', 'Ogg-Roman', 'Ogg Roman', serif;
@@ -128,11 +178,42 @@ h2 {
     text-align: center;
     box-shadow: 0px 3px 6px #00000029;
 }
-
 .tuiles > h2 {
     margin: 10px 20px;
 }
+.img {
+    font-family: "Ogg", "Ogg-Roman", "Ogg Roman", serif;
+    width: 100%;
+    height: 30%;
+    top: 0;
+    z-index: 600;
+}
 
+/* The inline style for the background image is intentional...  pretend it's injected from a CMS */
+
+
+.myCover {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 370px;
+    border: 1px solid #DAA160;
+    text-align: center;
+    box-shadow: 0px 3px 6px #00000029; 
+    border-radius:  0pt 0pt 27pt 27pt;
+    margin-bottom: 50px;
+}
+
+.gradient {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    height: 100%;
+    background: rgba(21,27,32,0.5);
+    background: linear-gradient(180deg, rgba(187,99,62,0) 0%, rgba(12,29,40,1) 100%);
+    border-radius: 0pt 0pt 27pt 27pt;
+}
 
 
 .selectBase {
@@ -197,6 +278,8 @@ button{
 .userCard > span {
     font-size: 27px;
 }
+
+
 
 .iconCircle{
     height: 44px;
@@ -280,7 +363,6 @@ button{
 
 svg{overflow: visible;}
 
-
 svg,
 #addItem,
 #liquor, 
@@ -288,6 +370,11 @@ svg,
     stroke: #DAA160;
     fill: transparent;
     stroke-width: 15px;
+}
+
+#edit{ 
+    fill: transparent;
+    stroke-width: 1px;
 }
 
 #whiskey, 
