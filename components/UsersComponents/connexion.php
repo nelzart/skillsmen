@@ -1,5 +1,5 @@
 <?php
-
+require '../../controller/users/manageUser.php'
 ?>
     
     <!DOCTYPE html>
@@ -12,14 +12,14 @@
     </head>
 
     <body>
-        <form action="<?= connexionUser($user, $password)?>" method="POST">
+        <form action="<?php echo htmlspecialchars($_SERVER['REQUEST_URI'], ENT_QUOTES); ?>" method="POST">
             <h1>Se connecter</h1>
             
-            <label for='Uti_Login'><b>Votre e-mail</b></label>
-            <input type="email" name='Uti_Login' placeholder="E-mail" required>
+            <label for='Uti_Login'><b>Votre e-mail ou pseudo</b></label>
+            <input name='Uti_Login' required>
             
             <label for="Uti_Mdp"><b>Choisissez votre mot de passe (8 caracteres minimum)</b></label>
-            <input type="password" placeholder="Entrer le mot de passe" name="Uti_Mdp" required>
+            <input type="password" placeholder="Entrer le mot de passe" name="Uti_Mdp" required value="">
             <a href="#">Mot de passe oublié</a>
 
             <input type="submit" id='submit' value='se connecter'>

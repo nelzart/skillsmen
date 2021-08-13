@@ -1,28 +1,54 @@
 <?php
-require('../models/users/manageUser.php');
+require '../../models/users/createUser.php';
 
-function connexionUser($user, $password){
+echo "Coucou";
 
-    if (isset($_POST['Uti_Login']) &&
-        isset($_POST['Uti_Mdp']) &&
-        !empty($_POST['Uti_Login']) &&
-        !empty($_POST['Uti_Mdp'])) 
-    {
-        //on vérifie que le mot de passe répété soit correct
-        $user = $_POST['Uti_Login'];
-        $password = $_POST['Uti_Mdp'];
+if (isset($_POST['Uti_Login']) &&
+    isset($_POST['Uti_Mdp']) &&
+    !empty($_POST['Uti_Login']) &&
+    !empty($_POST['Uti_Mdp'])) 
+{
+    //Les variables à déclarer
+    $userName = $_POST['Uti_Login'];
+    $lycos1 = getUsers_ByPseudo($userName);
+    $userMail = $_POST['Uti_Login'];
+    $lycos = getUsers_ByMail($userMail);
 
-        $lycos = controleUser($user, $password);
+    $password = $_POST['Uti_Mdp'];
 
-        if ($lycos && password_verify($password, $lycos['mdp'])) {
-
-            //une fois la vérification de mot de passe validée
-            //on stocke l'id de l'user dans la session
-            $_SESSION['user_id'] = $lycos['id'];
-            var_dump($lycos);
-            // header('location: ./index.php');
-        } else {
-            echo "<p><strong>une erreur de saisie est survenue !</strong></p>";
+    if($lycos1 === FALSE){
+        echo "Ce pseudo n'existe pas";
+    }
+    else{
+        echo "Ce pseudo existe";
+    }
+    if($lycos === FALSE){
+        echo "Ce mail n'existe pas";
+    }
+    else{
+        echo "Ce mail existe";
+    }
+    if($lycos == TRUE){
+        echo "Coucou";
+        $lycospassword1 = VerifMdp_ByUserMail($userMail);
+        if(password_verify($password, $lycospassword1['Uti_Mdp']) == TRUE){
+            echo "Vous êtes connecté";
         }
+        else{
+            echo "Le mot de passe est incorrect";
+        }
+    }
+    else if ($lycos1 == TRUE){
+        echo "Coucou mais avec UserName";
+        $lycospassword = VerifMdp_ByUserName($userName);
+        if(password_verify($password, $lycospassword['Uti_Mdp']) == TRUE){
+            echo "Vous êtes connecté";
+        }
+        else{
+            echo "Le mot de passe est incorrect";
+        }
+    }
+    else{
+        echo "Aucun compte correspond au login ou pseudo que vous avez entré !";
     }
 }
