@@ -1,5 +1,5 @@
 <?php
-require '../../controller/users/manageUser.php'
+require '../../controller/users/manageUser.php';
 ?>
     
     <!DOCTYPE html>

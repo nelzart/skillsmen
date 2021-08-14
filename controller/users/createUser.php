@@ -10,7 +10,7 @@ if(
     !empty($_POST['Uti_Pseudo']) &&
     !empty($_POST['Uti_Mdp']) &&
     !empty($_POST['Uti_Mdp2'])){   
-      
+        
         $userName = $_POST['Uti_Pseudo'];
         $userMail = $_POST['Uti_Login'];
         $utiDroit = 1;
