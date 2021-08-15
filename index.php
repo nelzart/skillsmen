@@ -11,12 +11,12 @@ $tab[0] = array('Ing_Id' => 1,
                 'comp_Unite' => 'cl');
 
 $tab[1] = array('Ing_Id' => 2, 
-'comp_quantite' => 2, 
-'comp_Unite' => 'morceau');
+                'comp_quantite' => 2, 
+                'comp_Unite' => 'morceau');
 
 $tab[2] = array('Ing_Id' => 3, 
-'comp_quantite' => 1, 
-'comp_Unite' => 'goutte');
+                'comp_quantite' => 1, 
+                'comp_Unite' => 'goutte');
 
 addCocktail ('Le toto', 'une bouteille de vodka et du jus de carotte', 2, $tab);
 /*try { // On essaie de faire des choses

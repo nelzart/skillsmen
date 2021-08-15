@@ -189,20 +189,23 @@ h2 {
     z-index: 600;
 }
 
-/* The inline style for the background image is intentional...  pretend it's injected from a CMS */
-
-
 .myCover {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
     width: 100%;
-    height: 370px;
+    height: 512px;
     border: 1px solid #DAA160;
     text-align: center;
     box-shadow: 0px 3px 6px #00000029; 
     border-radius:  0pt 0pt 27pt 27pt;
     margin-bottom: 50px;
+} 
+@media (max-width : 751px) {
+    .myCover {
+        height: 200px;
+        background-position: top;
+    }
 }
 
 .gradient {
@@ -359,21 +362,45 @@ button{
     text-align: center;   
 }
 
-svg{overflow: visible;}
+svg{
+    overflow: visible;
+    cursor: pointer;
+}
 
 svg,
 #addItem,
-#liquor, 
+#liquor,
 #remove{ 
     stroke: #DAA160;
     fill: transparent;
     stroke-width: 15px;
 }
 
-#edit{ 
+#edit
+{ 
     fill: transparent;
     stroke-width: 1px;
 }
+
+#home,
+#getCocktail,
+#listCocktail,
+#connexion {
+    stroke: #DAA160;
+    stroke-width: 1px;
+    height: 30px;
+    width: 40px;
+}
+
+#getCocktail {
+    display: none;
+}
+@media (max-width: 1024px) {
+    #getCocktail {
+        display: block;
+    }
+}
+
 
 #whiskey, 
 #gin, 
@@ -384,9 +411,12 @@ svg,
 #noAlcool,
 #addItem,
 #sendIt{
-    /* stroke: #DAA160; */
     fill:#DAA160;
     stroke-width: 0px;
+}
+
+#filter {
+    position: absolute;
 }
 
 .allButtons{
@@ -443,4 +473,122 @@ svg,
 .container input:checked ~.custom-checkbox #noAlcool,
 .container input:checked ~.custom-checkbox #vodka{
     fill: #02111C;
+}
+
+.navbar {
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    border-bottom: 1px solid #DAA160;
+    width: 100%;
+    height: 77px;
+    background-color: #102838;
+    box-shadow: 0px 3px 6px #00000029;
+}
+
+.myLogo {
+    background-color: red;
+    height: 75%;
+    width: 10%;
+}
+
+.userAction {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.nav {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-around;
+    width: 250px;
+}
+
+.searchInput {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+#filter{
+    display: inline-block;
+    fill:#DAA160;
+    stroke-width: 0px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.search {
+    width: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.searchTerm {
+    width: 100%;
+    border-right: none;
+    border-radius: 7px 0 0 7px;
+    padding-left: 7px;
+}
+.searchButton {
+    height: 36px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.userAction a {
+    display: flex;
+    justify-content: flex-start;
+    background-color: #0C1D28;
+    height: 40px;
+    border-end-end-radius: 7px;
+    border-top-right-radius: 7px;
+    color: #DAA160;
+    border: 0px solid #DAA160;  
+    outline: none !important;
+    cursor: pointer;
+}
+
+@media (min-width: 752px) {
+    .navbar {
+        top : 0px;
+    }
+}
+@media (max-width : 751px) {    
+    .navbar {
+        position: fixed;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        border-top-left-radius: 27px;
+        border-top-right-radius: 27px;
+        border-bottom: 0px solid #DAA160;
+        border-top: 1px solid #DAA160;
+        bottom: 0px;
+        background-color: #102838;
+        box-shadow: 0px -3px -6px #00000029;
+    }
+    .nav {
+        display: flex;
+        flex-wrap: nowrap;
+        align-items: flex-end;
+        justify-content: space-around;
+        width: 100vw;
+    }
+    .myLogo{
+        display: none;
+    }
+    .search {
+        display: none;
+    }
 }
