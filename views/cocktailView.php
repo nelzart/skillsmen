@@ -59,6 +59,7 @@ $title = "créer recette";
                     <span>10cl de whiskey</span> 
                     <span>eau gazeuse</span> 
 
+
         </div>
 
 
@@ -85,9 +86,13 @@ $title = "créer recette";
         
     
     <div class="comments">
-        <div><span>author</span> le 09 - 07 - 21 à 21h06</div>
-        <div>text</div>
+        <div class="author" >$author <span class="unvariable">le 09/07/21 à 21h06</span></div>
+        <div class="thisComments">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla lobortis tortor quis vulputate faucibus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla lobortis tortor quis vulputate faucibus.</div>
+        
+        <div class="splitComments"></div>
     </div>
+    
+
 
 </div>
 
