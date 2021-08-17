@@ -1,5 +1,6 @@
 <?php
-    require('../../controller/users/createUser.php'); 
+    require('../controller/users/createUser.php');
+    $testMail = $_POST['Uti_Login'];
 ?>
 
 <!DOCTYPE html>

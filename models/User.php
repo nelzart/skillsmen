@@ -1,11 +1,11 @@
 <?php
 
-require('../../models/dbConnect.php');
+require_once('dbConnect.php');
 
 function getUsers_ByPseudo($userName)
 {
     $db = dbConnect();
-    $search = $db->prepare("SELECT Uti_Pseudo FROM utilisateurs WHERE Uti_Pseudo = :Uti_Pseudo");
+    $search = $db->prepare("SELECT * FROM utilisateurs WHERE Uti_Pseudo = :Uti_Pseudo");
     $search->execute(array(
         ':Uti_Pseudo' => $userName
     ));
@@ -18,7 +18,7 @@ function getUsers_ByPseudo($userName)
 function getUsers_ByMail($userMail)
 {
     $db = dbConnect();
-    $search = $db->prepare("SELECT Uti_Login FROM utilisateurs WHERE Uti_Login = :Uti_Login");
+    $search = $db->prepare("SELECT * FROM utilisateurs WHERE Uti_Login = :Uti_Login");
     $search->execute(array(
         ':Uti_Login' => $userMail
     ));
@@ -39,28 +39,20 @@ function createUser($userMail, $userName, $mdp, $utiDroit)
             ':Uti_Droit'=> $utiDroit
         ]
     );
-}
-
-function VerifMdp_ByUserMail($userMail)
-{
-    $db = dbConnect();
-    $search = $db->prepare("SELECT Uti_Mdp FROM utilisateurs WHERE Uti_Login = :Uti_Login");
-    $search->execute(array(
-        ':Uti_Login' => htmlspecialchars(trim($userMail))
-    ));
-
-    $lycos = $search->fetch();
+    $lycos = $sth->fetch();
     return $lycos;
 }
-
-function VerifMdp_ByUserName($userName)
+/* function Likes_ByUserName($userName)
 {
-    $db = dbConnect();
-    $search = $db->prepare("SELECT Uti_Mdp FROM utilisateurs WHERE Uti_Pseudo = :Uti_Login");
-    $search->execute(array(
-        ':Uti_Login' => htmlspecialchars(trim($userName))
-    ));
 
-    $lycos = $search->fetch();    
-    return $lycos;
 }
+
+function Favoris_ByUsername($userName)
+{
+
+}
+
+function Commentaires_ByUserName($userName)
+{
+    
+}*/
