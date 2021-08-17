@@ -15,6 +15,7 @@ $title = "créer recette";
 </head>
 <body>
 
+<?php require('../components/menu.php'); ?>
 
 	
 	<div class="container">
