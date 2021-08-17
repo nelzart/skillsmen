@@ -567,6 +567,9 @@ svg,
     .navbar {
         top : 0px;
     }
+    .myLogoMobile{
+        top: 20px;
+    }
 }
 @media (max-width : 751px) {    
     .navbar {
@@ -592,6 +595,13 @@ svg,
     .myLogo{
         display: none;
     }
+    #myLogo{
+        position: fixed;
+        top : 10px;
+        width: 90%;
+        margin-bottom: 10px;
+    }
+} @media (max-width: 1023px) {
     .search {
         display: none;
     }
