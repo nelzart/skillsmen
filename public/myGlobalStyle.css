@@ -1,7 +1,3 @@
-*{
-    margin: 0;
-    padding: 0;
-}
 @font-face {
     font-family: 'Ogg-Roman';
     src:url('/font/Ogg-Roman.ttf') format('truetype'),
@@ -33,6 +29,8 @@
 
 *{
     font-family: "Ogg", "Ogg-Roman", "Ogg Roman", serif;
+    margin: 0;
+    padding: 0;
 }
 
 body {
@@ -43,6 +41,7 @@ body {
     -moz-osx-font-smoothing: grayscale;
     display: flex;
     justify-content: center;
+    align-items: flex-start;
     background-color: #102838;
     color : #DAA160;
 }
@@ -51,11 +50,18 @@ body {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+    align-content: flex-start;
     flex-wrap: wrap;
     font-family: "Ogg", "Ogg-Roman", "Ogg Roman", serif;
+    margin-top: 50px;
     width: 1000px;
-    height: 125vh;
-    border: 1px solid #DAA160;
+    border-left: 1px solid #DAA160;
+    border-right: 1px solid #DAA160;
+} @media (max-width: 1024px) {
+    .container {
+        margin-top: 00px;
+        border: none;
+    }   
 }
 
 
@@ -97,7 +103,6 @@ body {
     height: 100%;
     width: 100%;
     display: flex;
-    align-items: center;
     justify-content: center;
 }
 .iconCover {
@@ -137,11 +142,6 @@ body {
     width: 90%;
 }
 
-@media (max-width: 1024px) {
-    .container {
-        border: none;
-    } 
-}
 @media (max-width: 766px) {
     .iconCover {
         left: 15%;    
@@ -194,8 +194,8 @@ h2 {
     background-size: cover;
     background-position: center;
     width: 100%;
-    height: 512px;
-    border: 1px solid #DAA160;
+    height:400px;
+    border-bottom: 1px solid #DAA160;
     text-align: center;
     box-shadow: 0px 3px 6px #00000029; 
     border-radius:  0pt 0pt 27pt 27pt;
@@ -376,6 +376,7 @@ svg,
     stroke-width: 15px;
 }
 
+
 #edit
 { 
     fill: transparent;
@@ -385,7 +386,9 @@ svg,
 #home,
 #getCocktail,
 #listCocktail,
-#connexion {
+#connexion,
+#favorite,
+#print{
     stroke: #DAA160;
     stroke-width: 1px;
     height: 30px;
@@ -398,6 +401,9 @@ svg,
 @media (max-width: 1024px) {
     #getCocktail {
         display: block;
+    }
+    .print{
+        display: none;
     }
 }
 
@@ -419,6 +425,7 @@ svg,
 #filter {
     position: absolute;
 }
+
 
 .allButtons{
     display: flex;
@@ -486,6 +493,7 @@ svg,
     height: 77px;
     background-color: #102838;
     box-shadow: 0px 3px 6px #00000029;
+    z-index: 9000;
 }
 
 .myLogo {
@@ -530,7 +538,11 @@ svg,
     width: 100%;
     position: relative;
     display: flex;
-    align-items: center;
+    align-items: center; 
+} @media (max-width: 1024px) {
+    .search {
+        display: none;
+    }
 }
 
 .searchTerm {
@@ -582,7 +594,7 @@ svg,
         border-bottom: 0px solid #DAA160;
         border-top: 1px solid #DAA160;
         bottom: 0px;
-        background-color: #102838;
+        background-color: #0C1D28;
         box-shadow: 0px -3px -6px #00000029;
     }
     .nav {
@@ -604,5 +616,71 @@ svg,
 } @media (max-width: 1023px) {
     .search {
         display: none;
+    }
+}
+
+.thoseIngredients {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 300px;
+    width: 25%;
+    background-color: #0C1D28;
+    border-radius: 27px;
+    border: 1px solid #DAA160;
+    padding: 10px;
+}
+li {
+    list-style-type: none;
+    margin-left:10px;
+    margin-bottom: 20px;
+} @media (max-width: 751px) {
+    .thoseIngredients {
+        position: fixed;
+        width: 250px;
+        top : 35%; 
+        left: -225px;
+        /* left: 25%; */
+    }
+}
+
+
+.thoseSteps{
+    width: 60%;
+}
+@media (max-width: 751px) {
+    .thoseSteps {
+        width: 75%;
+        margin-right: 10px ;
+        margin-left: 50px;
+    } h3{
+        font-size: 15px;
+    }
+}
+.unvariable {
+    color: #585243;
+} 
+.author {
+    color: #DAA160;
+}
+
+.newSection{
+    display: flex;
+    align-items: center;
+    
+}
+.sectionTitle {
+    width: 70px;
+    height: 2px;
+    background-color: #DAA160;
+    margin-right: 5px ;
+}
+.thoseComments {
+    margin-top:50px;  
+    width: 100%;
+    background-color: #0C1D28;
+}@media (max-width: 751px) {
+    .thoseComments{
+        padding-bottom: 100px;
     }
 }
