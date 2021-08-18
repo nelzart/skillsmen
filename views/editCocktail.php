@@ -35,9 +35,9 @@ $title = "créer recette";
 
     <div class="writeIn">
 
-    <div class="title">
+    <div class="title" >
         <label for="title"><h3>Choisir un nom</h3></label>
-        <input name="title" type="text" placeholder="nom du cocktail" value=""></input>
+        <input name="title" type="text" placeholder="nom du cocktail" style="width: 400px;" value=""></input>
     </div>
 
 
@@ -52,43 +52,55 @@ $title = "créer recette";
                 <option value="g">g</option>
                 <option value="tranche">tranche(s)</option>
                 <option value="rondelle">rondelle(s)</option>
+                <option value="trait">trait(s)</option>
+                <option value="zeste">zeste(s)</option>
+                <option value="morceau">morceau(x)</option>
+                <option value="goutte">goutte(s)</option>
             </select>
             
             <input type="text" name="value1" value="" style="width:279px;"/>
 
             <button class="remove" value="enlever" onclick="removeRow(this)"><svg id="remove" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24" "><path fill="none"/><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg></button>
         </div>
+        
         <div class="row">
 
-            <input type="text" name="unite2" style="width:40px; margin-right:-2px; padding:10px;" value="" />
-            
-            <select name="quantity2" style="width:40px; margin-right:-10px; padding:10px;">
-                <option selected value="cl">cl</option>
-                <option value="g">g</option>
-                <option value="tranche">tranche(s)</option>
-                <option value="rondelle">rondelle(s)</option>
-            </select>
+        <input type="text" name="unite2" style="width:40px; margin-right:-10px; padding:10px;" value="" />
 
-            <input type="text" name="value2" value="" style="width:279px;"/>
+        <select name="quantity2" style="width:40px; margin-right:-10px; padding:10px;">
+            <option selected value="cl">cl</option>
+            <option value="g">g</option>
+            <option value="tranche">tranche(s)</option>
+            <option value="rondelle">rondelle(s)</option>
+            <option value="trait">trait(s)</option>
+            <option value="zeste">zeste(s)</option>
+            <option value="morceau">morceau(x)</option>
+            <option value="goutte">goutte(s)</option>
+        </select>
 
-            <button class="remove" value="enlever" onclick="removeRow(this)"><svg id="remove" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24" "><path fill="none"/><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg></button>
+        <input type="text" name="value2" value="" style="width:279px;"/>
+
+        <button class="remove" value="enlever" onclick="removeRow(this)"><svg id="remove" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24" "><path fill="none"/><path d="M19 6.41L17.5
+        9 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg></button>
         </div>
         <div class="row">
 
-            <input type="text" name="unite3" style="width:40px; margin-right:-10px; padding:10px;" value="" />
-            
-            <select name="quantity3" style="width:40px; margin-right:-10px; padding: 10px;">
-                <option selected value="cl">cl</option>
-                <option value="g">g</option>
-                <option value="tranche">tranche(s)</option>
-                <option value="rondelle">rondelle(s)</option>
-                <option value="trait">trait(s)</option>
-                <option value="zeste">zeste(s)</option>
-            </select>
+        <input type="text" name="unite3" style="width:40px; margin-right:-10px; padding:10px;" value="" />
 
-            <input type="text" name="value3" value="" style="width:279px;"/>
+        <select name="quantity3" style="width:40px; margin-right:-10px; padding:10px;">
+            <option selected value="cl">cl</option>
+            <option value="g">g</option>
+            <option value="tranche">tranche(s)</option>
+            <option value="rondelle">rondelle(s)</option>
+            <option value="trait">trait(s)</option>
+            <option value="zeste">zeste(s)</option>
+            <option value="morceau">morceau(x)</option>
+            <option value="goutte">goutte(s)</option>
+        </select>
 
-            <button class="remove" value="enlever" onclick="removeRow(this)"><svg id="remove" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24" "><path fill="none"/><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg></button>
+        <input type="text" name="value3" value="" style="width:279px;"/>
+
+        <button class="remove" value="enlever" onclick="removeRow(this)"><svg id="remove" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24" "><path fill="none"/><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg></button>
         </div>
         
 
@@ -111,6 +123,10 @@ $title = "créer recette";
                         <option value="g">g</option>
                         <option value="tranche">tranche(s)</option>
                         <option value="rondelle">rondelle(s)</option>
+                        <option value="trait">trait(s)</option>
+                        <option value="zeste">zeste(s)</option>
+                        <option value="morceau">morceau(x)</option>
+                        <option value="goutte">goutte(s)</option>
                     </select>
 
                 <input type="text" name="value1" value="" style="width:279px;"/>
