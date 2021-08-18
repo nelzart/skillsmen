@@ -96,6 +96,39 @@ textarea {
     box-sizing: border-box;
     resize: none;
 }
+
+/* <select> styles */
+select {
+   /* Reset */
+    appearance: none;
+    border: 0;
+    outline: 0;
+    font: inherit;
+   /* Personalize */
+    width: 2em;
+    height:  40px;
+    padding: 0 1em 0 1em;
+    background:  linear-gradient(to left, #02111C 3em, #DAA160 3em);
+    color: #DAA160;
+    cursor: pointer;
+   /* <option> colors */
+   /* Remove focus outline */
+   /* Remove IE arrow */
+   border-radius: 7px;
+}
+select option {
+    color: inherit;
+    outline: none;
+    background-color: #02111C;
+}
+select:focus {
+    outline: none;
+}
+select::-ms-expand {
+    display: none;
+}
+
+
 html {
     height: 100%;
 }
@@ -312,7 +345,7 @@ button{
     flex-wrap: wrap;
     justify-content: space-around;
     max-width: 387px;
-    height: 387px;
+    height: 500px;
 }
 .row{
     margin: -20px;
@@ -370,12 +403,24 @@ svg{
 svg,
 #addItem,
 #liquor,
-#remove{ 
+#remove
+{ 
     stroke: #DAA160;
     fill: transparent;
     stroke-width: 15px;
 }
+#beer{
+    fill: #DAA160;
+    stroke-width: 0px;
+}
 
+#wine, .wine {
+    stroke:#DAA160;
+    fill: transparent;
+    stroke-width:1px;
+    stroke-linejoin:round;
+    stroke-miterlimit:10;
+}
 
 #edit
 { 
@@ -469,7 +514,9 @@ svg,
 
 /*SVG bounce checked animation*/
 .container input:checked ~.custom-checkbox svg,
-.container input:checked ~.custom-checkbox #liquor{
+.container input:checked ~.custom-checkbox #liquor,
+.container input:checked ~.custom-checkbox #wine,
+.container input:checked ~.custom-checkbox .wine{
     stroke: #02111C;
 }
 /*SVG bounce checked animation*/
@@ -479,6 +526,7 @@ svg,
 .container input:checked ~.custom-checkbox #rhum,
 .container input:checked ~.custom-checkbox #champagne,
 .container input:checked ~.custom-checkbox #noAlcool,
+.container input:checked ~.custom-checkbox #beer,
 .container input:checked ~.custom-checkbox #vodka{
     fill: #02111C;
 }
@@ -629,14 +677,14 @@ svg,
     border-radius: 27px;
     border: 1px solid #DAA160;
     padding: 10px;
+    box-sizing: border-box;
+    overflow: hidden;
 }
-li {
-    list-style-type: none;
-    margin-left:10px;
-    margin-bottom: 20px;
-} @media (max-width: 751px) {
+
+@media (max-width: 751px) {
     .thoseIngredients {
         position: fixed;
+        z-index: 150;
         width: 250px;
         top : 30%; 
         left: -225px;
