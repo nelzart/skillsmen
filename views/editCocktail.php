@@ -15,11 +15,11 @@ $title = "créer recette";
 </head>
 <body>
 
-<?php require('../components/menu.php'); ?>
-
+<?php include('../components/menu.php'); ?>
+	
 	
 	<div class="container">
-		<form id="insertCocktail" name="insertCocktail" action="POST" enctype="multipart/form-data">
+		<form id="insertCocktail" name="insertCocktail"  enctype="multipart/form-data" action="../index.php?action=addCocktail" method="post">
 		
 		<div class="myCover" style="background-image:url('../public/images/cocktails.jpg')">
 			<div class="gradient">    
@@ -44,20 +44,53 @@ $title = "créer recette";
     <div id="addIngredient">
 		<h3>Liste des ingrédients</h3>
         <div class="row">
-            <input type="text" name="quantity" style="width:40px; margin-right:-15px; padding:10px;" value="" />
-            <input type="text" name="value" value="" style="width:279px;"/>
+
+            <input type="text" name="unite1" style="width:40px; margin-right:-10px; padding:10px;" value="" />
+            
+            <select name="quantity1" style="width:40px; margin-right:-10px; padding:10px;">
+                <option selected value="cl">cl</option>
+                <option value="g">g</option>
+                <option value="tranche">tranche(s)</option>
+                <option value="rondelle">rondelle(s)</option>
+            </select>
+            
+            <input type="text" name="value1" value="" style="width:279px;"/>
+
             <button class="remove" value="enlever" onclick="removeRow(this)"><svg id="remove" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24" "><path fill="none"/><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg></button>
         </div>
         <div class="row">
-            <input type="text" name="quantity" style="width:40px; margin-right:-15px; padding:10px;" value="" />
-            <input type="text" name="value" value="" style="width:279px;"/>
-            <button class="remove" value="enlever" onclick="removeRow(this)"><svg id="remove" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24"  fill="#000000"><path fill="none"/><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg></button>
+
+            <input type="text" name="unite2" style="width:40px; margin-right:-2px; padding:10px;" value="" />
+            
+            <select name="quantity2" style="width:40px; margin-right:-10px; padding:10px;">
+                <option selected value="cl">cl</option>
+                <option value="g">g</option>
+                <option value="tranche">tranche(s)</option>
+                <option value="rondelle">rondelle(s)</option>
+            </select>
+
+            <input type="text" name="value2" value="" style="width:279px;"/>
+
+            <button class="remove" value="enlever" onclick="removeRow(this)"><svg id="remove" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24" "><path fill="none"/><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg></button>
         </div>
         <div class="row">
-            <input type="text" name="quantity" style="width:40px; margin-right:-15px; padding:10px;" value="" />
-            <input type="text" name="value" value="" style="width:279px;"/>
-            <button class="remove" value="enlever" onclick="removeRow(this)"><svg id="remove" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24" fill="#000000"><path fill="none"/><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg></button>
+
+            <input type="text" name="unite3" style="width:40px; margin-right:-10px; padding:10px;" value="" />
+            
+            <select name="quantity3" style="width:40px; margin-right:-10px; padding: 10px;">
+                <option selected value="cl">cl</option>
+                <option value="g">g</option>
+                <option value="tranche">tranche(s)</option>
+                <option value="rondelle">rondelle(s)</option>
+                <option value="trait">trait(s)</option>
+                <option value="zeste">zeste(s)</option>
+            </select>
+
+            <input type="text" name="value3" value="" style="width:279px;"/>
+
+            <button class="remove" value="enlever" onclick="removeRow(this)"><svg id="remove" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24" "><path fill="none"/><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg></button>
         </div>
+        
 
     </div>
     <button class="addInput" type="button" value="ajouter" onclick="addRow()"><svg class="iconCircle" id="addItem" xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="30px" viewBox="0 0 24 24" width="30px" fill="#000000"><g>
@@ -70,16 +103,32 @@ $title = "créer recette";
         document.querySelector('#addIngredient').insertAdjacentHTML(
             'beforeend',
             `<div class="row">
-                <input type="text" name="quantity" style="width:10px; margin-right:-15px;" value="" />
-                <input type="text" name="value" value="" style="width:279px; "/>
-                <button class="remove" value="enlever" onclick="removeRow(this)"><svg id="remove" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#000000"><path fill="none"/><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg></button>
-            </div>`      
+
+                <input type="text" name="unite1" style="width:40px; margin-right:-10px; padding:10px;" value="" />
+
+                    <select  style="width:40px; margin-right:-10px; padding:10px;">
+                        <option selected value="cl">cl</option>
+                        <option value="g">g</option>
+                        <option value="tranche">tranche(s)</option>
+                        <option value="rondelle">rondelle(s)</option>
+                    </select>
+
+                <input type="text" name="value1" value="" style="width:279px;"/>
+
+                <button class="remove" value="enlever" onclick="removeRow(this)"><svg id="remove" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24" "><path fill="none"/><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg></button>
+                </div>`      
         )                                                
     }
 
     function removeRow(input) {
         input.parentNode.remove()
     }        
+
+    function tabIng() {
+        let tab = [];
+        let x=document.getElementsByClassName('row');
+        alert(x);
+    }  
 </script>
 
 
@@ -99,10 +148,10 @@ $title = "créer recette";
 			<button class="iconCircleSend" height="60px" width="60px" type="submit" id='send' value=""><svg id="sendIt" xmlns="http://www.w3.org/2000/svg" height="30px" viewBox="0 0 24 24" width="30px" fill="#000000"><path d="M0 0h24v24H0z" fill="none"/><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg></button>    
 		</div>
 </div>
-
+<p><input id="tab" type="hidden" name="champ_cache" value="<?php $tabIng2?>"></p>
 
 </form>
-<script></script>
 
 </body>
+
 </html>

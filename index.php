@@ -1,28 +1,36 @@
-
 <?php
 //require('controller/users/createUser.php');
 //require('controller/users/manageUser.php');
 echo "index";
 require('controller/cocktailController.php');
-$tab = array();
+$tabIng = array();
 
-$tab[0] = array('Ing_Id' => 1, 
+$tabIng[0] = array('Ing_Id' => 1, 
                 'comp_quantite' => 12, 
                 'comp_Unite' => 'cl');
 
-$tab[1] = array('Ing_Id' => 2, 
+$tabIng[1] = array('Ing_Id' => 2, 
                 'comp_quantite' => 2, 
                 'comp_Unite' => 'morceau');
 
-$tab[2] = array('Ing_Id' => 3, 
+$tabIng[2] = array('Ing_Id' => 3, 
                 'comp_quantite' => 1, 
                 'comp_Unite' => 'goutte');
 
-addCocktail ('Le toto', 'une bouteille de vodka et du jus de carotte', 2, $tab);
-/*try { // On essaie de faire des choses
+//addCocktail ('Le keke', 'une bouteille de vodka et du jus de carotte', 2, $tab);
+
+try { // On essaie de faire des choses
     if (isset($_GET['action'])) {
-        if ($_GET['action'] == 'listPosts') {
-            listPosts();
+        if ($_GET['action'] == 'addCocktail') {
+            //if(isset($_SESSION['Uti_Id'] ) && $_SESSION['Uti_Id']  > 0){
+                if(!empty($_POST['title']) && !empty($_POST['stepByStep'])){
+                    addCocktail($_POST['title'], $_POST['stepByStep'], 2, $tabIng);
+                }
+                else {
+                    // Autre exception
+                    throw new Exception('Tous les champs ne sont pas remplis !');
+                }
+           // }
         }
         elseif ($_GET['action'] == 'post') {
             if (isset($_GET['id']) && $_GET['id'] > 0) {
@@ -50,10 +58,9 @@ addCocktail ('Le toto', 'une bouteille de vodka et du jus de carotte', 2, $tab);
         }
     }
     else {
-        listPosts();
+        //addCocktail($_POST['title'], $_POST['stepByStep'], 2, $tabIng);
     }
 }
 catch(Exception $e) { // S'il y a eu une erreur, alors...
     echo 'Erreur : ' . $e->getMessage();
-}*/
-
+}

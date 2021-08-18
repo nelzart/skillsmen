@@ -53,18 +53,17 @@ $title = "créer recette";
         <div class="thoseIngredients">
             <h3>• Ingrédients •</h3> 
 
-                    <span>2 traits d'angostura bites</span> 
-                    <span>2 zestes d'orange</span> 
-                    <span>2 morceaux de sucre</span> 
-                    <span>10cl de whiskey</span> 
-                    <span>eau gazeuse</span> 
-
-
+            <span>2 traits d'angostura bites</span> 
+            <span>2 zestes d'orange</span> 
+            <span>2 morceaux de sucre</span> 
+            <span>10cl de whiskey</span> 
+            <span>eau gazeuse</span> 
+            
         </div>
 
 
 <div class="thoseSteps">
-	<h3 class="unvariable">Une recette proposée par <span class="author"> Userman </span></h3> <br>
+	<h3 class="unvariable">Une recette proposée par <span class="author">Userman </span></h3> <br>
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla lobortis tortor quis vulputate faucibus. </p><br>
         
     <p>Phasellus eu nisl vel arcu efficitur blandit vitae sed dui. Donec feugiat velit risus, ut lobortis urna euismod at. </p><br>
@@ -92,8 +91,14 @@ $title = "créer recette";
         <div class="splitComments"></div>
     </div>
     
+    <div class="comments">
+        <div class="author" >author <span class="unvariable">le 09/07/21 à 21h06</span></div>
+        <div class="thisComments">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla lobortis tortor quis vulputate faucibus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla lobortis tortor quis vulputate faucibus.</div>
+        
+        <div class="splitComments"></div>
+    </div>
 
-
+    
 </div>
 
 
