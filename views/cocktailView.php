@@ -50,7 +50,7 @@ $title = "créer recette";
 		</div>
 		
 
-        <div class="thoseIngredients">
+        <div onclick="dragIt()" id="thoseIngredients" class="thoseIngredients">
             <h3>• Ingrédients •</h3> 
 
             <span>2 traits d'angostura bites</span> 
@@ -61,6 +61,15 @@ $title = "créer recette";
             
         </div>
 
+<script>
+    function dragIt() {
+        if (document.getElementById('thoseIngredients').style.left==="25%"){
+            document.getElementById('thoseIngredients').style.left="-225px";
+        } else {
+            document.getElementById('thoseIngredients').style.left="25%";
+        }
+    }
+</script>
 
 <div class="thoseSteps">
 	<h3 class="unvariable">Une recette proposée par <span class="author">Userman </span></h3> <br>
@@ -82,7 +91,7 @@ $title = "créer recette";
         <div class="sectionTitle"></div>
         <h2>Commentaires</h2>
     </div>
-        
+
     
     <div class="comments">
         <div class="author" >$author <span class="unvariable">le 09/07/21 à 21h06</span></div>
@@ -91,12 +100,6 @@ $title = "créer recette";
         <div class="splitComments"></div>
     </div>
     
-    <div class="comments">
-        <div class="author" >author <span class="unvariable">le 09/07/21 à 21h06</span></div>
-        <div class="thisComments">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla lobortis tortor quis vulputate faucibus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla lobortis tortor quis vulputate faucibus.</div>
-        
-        <div class="splitComments"></div>
-    </div>
 
     
 </div>
