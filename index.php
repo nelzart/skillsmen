@@ -3,28 +3,14 @@
 //require('controller/users/manageUser.php');
 echo "index";
 require('controller/cocktailController.php');
-$tabIng = array();
 
-$tabIng[0] = array('Ing_Id' => 1, 
-                'comp_quantite' => 12, 
-                'comp_Unite' => 'cl');
-
-$tabIng[1] = array('Ing_Id' => 2, 
-                'comp_quantite' => 2, 
-                'comp_Unite' => 'morceau');
-
-$tabIng[2] = array('Ing_Id' => 3, 
-                'comp_quantite' => 1, 
-                'comp_Unite' => 'goutte');
-
-//addCocktail ('Le keke', 'une bouteille de vodka et du jus de carotte', 2, $tab);
 
 try { // On essaie de faire des choses
     if (isset($_GET['action'])) {
         if ($_GET['action'] == 'addCocktail') {
             //if(isset($_SESSION['Uti_Id'] ) && $_SESSION['Uti_Id']  > 0){
                 if(!empty($_POST['title']) && !empty($_POST['stepByStep'])){
-                    addCocktail($_POST['title'], $_POST['stepByStep'], 2, $tabIng);
+                    addCocktail($_POST['title'], $_POST['stepByStep'], 2, $_POST['tabIng']);
                 }
                 else {
                     // Autre exception
@@ -32,6 +18,7 @@ try { // On essaie de faire des choses
                 }
            // }
         }
+
         elseif ($_GET['action'] == 'post') {
             if (isset($_GET['id']) && $_GET['id'] > 0) {
                 post();
@@ -41,6 +28,7 @@ try { // On essaie de faire des choses
                 throw new Exception('Aucun identifiant de billet envoyé');
             }
         }
+        
         elseif ($_GET['action'] == 'addComment') {
             if (isset($_GET['id']) && $_GET['id'] > 0) {
                 if (!empty($_POST['author']) && !empty($_POST['comment'])) {

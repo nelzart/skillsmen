@@ -44,65 +44,23 @@ $title = "créer recette";
     <div id="addIngredient">
 		<h3>Liste des ingrédients</h3>
         <div class="row">
-
-            <input type="text" name="unite1" style="width:40px; margin-right:-10px; padding:10px;" value="" />
-            
-            <select name="quantity1" style="width:40px; margin-right:-10px; padding:10px;">
-                <option selected value="cl">cl</option>
-                <option value="g">g</option>
-                <option value="tranche">tranche(s)</option>
-                <option value="rondelle">rondelle(s)</option>
-                <option value="trait">trait(s)</option>
-                <option value="zeste">zeste(s)</option>
-                <option value="morceau">morceau(x)</option>
-                <option value="goutte">goutte(s)</option>
-            </select>
-            
-            <input type="text" name="value1" value="" style="width:279px;"/>
-
+            <input type="number" name="quantity" style="width:60px; margin-right:-15px; padding:10px;" value="" required />
+            <input type="text" name="unite" style="width:40px; margin-right:-15px; padding:10px;" value="" required/>
+            <input type="text" name="value" value=""  required style="width:279px;"/>
             <button class="remove" value="enlever" onclick="removeRow(this)"><svg id="remove" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24" "><path fill="none"/><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg></button>
         </div>
-        
         <div class="row">
-
-        <input type="text" name="unite2" style="width:40px; margin-right:-10px; padding:10px;" value="" />
-
-        <select name="quantity2" style="width:40px; margin-right:-10px; padding:10px;">
-            <option selected value="cl">cl</option>
-            <option value="g">g</option>
-            <option value="tranche">tranche(s)</option>
-            <option value="rondelle">rondelle(s)</option>
-            <option value="trait">trait(s)</option>
-            <option value="zeste">zeste(s)</option>
-            <option value="morceau">morceau(x)</option>
-            <option value="goutte">goutte(s)</option>
-        </select>
-
-        <input type="text" name="value2" value="" style="width:279px;"/>
-
-        <button class="remove" value="enlever" onclick="removeRow(this)"><svg id="remove" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24" "><path fill="none"/><path d="M19 6.41L17.5
-        9 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg></button>
+            <input type="text" name="quantity" style="width:40px; margin-right:-15px; padding:10px;" value="" required/>
+            <input type="text" name="unite" style="width:40px; margin-right:-15px; padding:10px;" value="" required/>
+            <input type="text" name="value" value=""  required style="width:279px;"/>
+            <button class="remove" value="enlever" onclick="removeRow(this)"><svg id="remove" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24" "><path fill="none"/><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg></button>
         </div>
         <div class="row">
-
-        <input type="text" name="unite3" style="width:40px; margin-right:-10px; padding:10px;" value="" />
-
-        <select name="quantity3" style="width:40px; margin-right:-10px; padding:10px;">
-            <option selected value="cl">cl</option>
-            <option value="g">g</option>
-            <option value="tranche">tranche(s)</option>
-            <option value="rondelle">rondelle(s)</option>
-            <option value="trait">trait(s)</option>
-            <option value="zeste">zeste(s)</option>
-            <option value="morceau">morceau(x)</option>
-            <option value="goutte">goutte(s)</option>
-        </select>
-
-        <input type="text" name="value3" value="" style="width:279px;"/>
-
-        <button class="remove" value="enlever" onclick="removeRow(this)"><svg id="remove" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24" "><path fill="none"/><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg></button>
+            <input type="text" name="quantity" style="width:40px; margin-right:-15px; padding:10px;" value="" required/>
+            <input type="text" name="unite" style="width:40px; margin-right:-15px; padding:10px;" value="" required/>
+            <input type="text" name="value" value="" required style="width:279px;"/>
+            <button class="remove" value="enlever" onclick="removeRow(this)"><svg id="remove" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24" "><path fill="none"/><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg></button>
         </div>
-        
 
     </div>
     <button class="addInput" type="button" value="ajouter" onclick="addRow()"><svg class="iconCircle" id="addItem" xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="30px" viewBox="0 0 24 24" width="30px" fill="#000000"><g>
@@ -112,27 +70,15 @@ $title = "créer recette";
 <script>
     
     function addRow() {
+        let i=1;
         document.querySelector('#addIngredient').insertAdjacentHTML(
             'beforeend',
             `<div class="row">
-
-                <input type="text" name="unite1" style="width:40px; margin-right:-10px; padding:10px;" value="" />
-
-                    <select  style="width:40px; margin-right:-10px; padding:10px;">
-                        <option selected value="cl">cl</option>
-                        <option value="g">g</option>
-                        <option value="tranche">tranche(s)</option>
-                        <option value="rondelle">rondelle(s)</option>
-                        <option value="trait">trait(s)</option>
-                        <option value="zeste">zeste(s)</option>
-                        <option value="morceau">morceau(x)</option>
-                        <option value="goutte">goutte(s)</option>
-                    </select>
-
-                <input type="text" name="value1" value="" style="width:279px;"/>
-
-                <button class="remove" value="enlever" onclick="removeRow(this)"><svg id="remove" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24" "><path fill="none"/><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg></button>
-                </div>`      
+                <input type="text" name="quantity" style="width:40px; margin-right:-15px; padding:10px;" value="" required />
+                <input type="text" name="unite" style="width:10px; margin-right:-15px;" value="" required/>
+                <input type="text" name="value" value="" required style="width:279px; "/>
+                <button class="remove" value="enlever" onclick="removeRow(this)"><svg id="remove" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#000000"><path fill="none"/><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg></button>
+            </div>`      
         )                                                
     }
 
@@ -140,11 +86,8 @@ $title = "créer recette";
         input.parentNode.remove()
     }        
 
-    function tabIng() {
-        let tab = [];
-        let x=document.getElementsByClassName('row');
-        alert(x);
-    }  
+
+     
 </script>
 
 
@@ -158,15 +101,62 @@ $title = "créer recette";
 	<h3>Décrire les étapes</h3>
 	<textarea name="stepByStep" charswidth="23" name="title" type="textarea" placeholder="Décrire les étapes. Sautez des lignes. Soyez respectueux pour les autres comme pour vous." value=""></textarea>
 </div>
+<p><input type="hidden" name="tabIng[]" id="tabIng" value = ""></p><<!--champs non affiché qui permet de poster les ingredients en tableau-->
+
+
 <div class="allButtons">
 	<button class="remove"><svg id="close" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24" fill="#000000"><path fill="none"/><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg></button>
 			
-			<button class="iconCircleSend" height="60px" width="60px" type="submit" id='send' value=""><svg id="sendIt" xmlns="http://www.w3.org/2000/svg" height="30px" viewBox="0 0 24 24" width="30px" fill="#000000"><path d="M0 0h24v24H0z" fill="none"/><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg></button>    
+			<button class="iconCircleSend" height="60px" width="60px" type="submit" id='send' onclick="ing()" value=""><svg id="sendIt" xmlns="http://www.w3.org/2000/svg" height="30px" viewBox="0 0 24 24" width="30px" fill="#000000"><path d="M0 0h24v24H0z" fill="none"/><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg></button>    
 		</div>
 </div>
-<p><input id="tab" type="hidden" name="champ_cache" value="<?php $tabIng2?>"></p>
 
+    <script>
+        
+function ing(){//permet de regrouper les ingredients dans un tableau pour le poster qd on clic sur envoyer
+
+    let tabIng  = [];
+
+    let input = document.querySelectorAll("div.row > input");
+
+    //alert(input.length);
+    for(let i=0;i<input.length;i+=3){//selectionne la premiere ligne de chaque div
+        
+        let tab = [];
+        for(let y=i;y<i+3;y++){
+            /*if(input[y].value === "" && input[y+1].value === "" && input[y+2].value === ""){
+                alert ("ingredient(s) vides, non intégré");
+                break;
+
+            }
+            else if ((input[y].value === "" || input[y+1].value === "" || input[y+2].value === "")){
+                alert ("ingredient(s) imcomplet(s)");
+                throw new Exception('ingredient(s) imcomplet(s)');
+                break;
+
+            }
+            else{
+                tab.push(input[y].value);
+                alert(tab.length);
+                alert('ingredient integré');
+            }*/
+                tab.push(input[y].value);
+                //alert(tab.length);
+                //alert('ingredient integré');
+        }
+        tabIng.push(tab);
+        //alert(tabIng.length);
+    }
+
+    for(let element of tabIng){//affecte la valeur à la variable qui sera postée
+        var tt = document.getElementById('tabIng');
+        tt.setAttribute('value', tabIng);
+        //alert(tt.length);
+    }
+}
+    </script>  
 </form>
+<script></script>
 
 </body>
 
