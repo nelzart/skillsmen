@@ -50,7 +50,11 @@ $title = "créer recette";
 		</div>
 		
 
-        <div onclick="dragIt()" id="thoseIngredients" class="thoseIngredients">
+        <div id="thoseIngredients" class="thoseIngredients">
+            <div class="iconCircle slideIn slideToggle" type="button" value="ajouter">
+                <svg id="slideIn" class="slideToggle" xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="20px" viewBox="0 0 24 24" width="20px" fill="#000000"><g><polygon points="6.23,20.23 8,22 18,12 8,2 6.23,3.77 14.46,12"/></g></svg>
+            </div>
+
             <h3>• Ingrédients •</h3> 
 
             <span>2 traits d'angostura bites</span> 
@@ -62,13 +66,14 @@ $title = "créer recette";
         </div>
 
 <script>
-    function dragIt() {
-        if (document.getElementById('thoseIngredients').style.left==="25%"){
-            document.getElementById('thoseIngredients').style.left="-225px";
-        } else {
-            document.getElementById('thoseIngredients').style.left="25%";
-        }
-    }
+    var toggleBtn = document.querySelector('.slideToggle');
+    var ingredients = document.querySelector('.thoseIngredients');
+
+    toggleBtn.addEventListener('click', function() {
+        toggleBtn.classList.toggle('is-closed');
+        ingredients.classList.toggle('is-closed');
+    })
+
 </script>
 
 <div class="thoseSteps">
@@ -82,7 +87,7 @@ $title = "créer recette";
 
 <div class="thoseComments">
 
-<button class="addInput" type="button" value="ajouter">
+<button class="addInput" id="addInput" type="button" onclick="addOrRemove()" value="ajouter">
     <svg class="iconCircle" id="addItem" xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="30px" viewBox="0 0 24 24" width="30px" fill="#000000"><g>
     <rect fill="none" height="24" width="24"/></g><g><g><path d="M19,13h-6v6h-2v-6H5v-2h6V5h2v6h6V13z"/></g></g></svg>
 </button>
@@ -92,20 +97,46 @@ $title = "créer recette";
         <h2>Commentaires</h2>
     </div>
 
+
     
-    <div class="comments">
+    <div id="comments" class="comments">
         <div class="author" >$author <span class="unvariable">le 09/07/21 à 21h06</span></div>
         <div class="thisComments">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla lobortis tortor quis vulputate faucibus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla lobortis tortor quis vulputate faucibus.</div>
         
         <div class="splitComments"></div>
     </div>
     
-
     
 </div>
 
 
-<script></script>
+<script>
+    function addRow() {
+        document.querySelector('#comments').insertAdjacentHTML(
+            'afterbegin',
+            `<textarea class="sendComment" name="sendComment" charswidth="23" name="title" type="textarea" placeholder="Entrez votre commentaire. Soyez respectueux pour les autres comme pour vous." value=""></textarea>`      
+        )                                                
+    }
+
+    function removeRow(input) {
+        input.parentNode.remove()
+    } 
+    
+    function addOrRemove(btn) {
+        let myCount = 0;
+        document.querySelector('#addInput').addEventListener('click', myCount++);
+
+        if(myCount%2 == 0)
+              {
+                     alert("Nombre pair");
+              }
+              else
+              {
+                     alert("Nombre impair");
+              }
+    }
+
+    </script>
 
 </body>
 </html>

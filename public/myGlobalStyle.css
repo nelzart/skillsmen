@@ -96,6 +96,14 @@ textarea {
     box-sizing: border-box;
     resize: none;
 }
+textarea, .sendComment {
+    font-family: "Ogg", "Ogg-Roman", "Ogg Roman", serif;
+    padding: 10px;
+    line-height: 1.5;
+    width: 85%;
+    height: 80px;
+    box-sizing: border-box;
+}
 
 /* <select> styles */
 select {
@@ -407,14 +415,22 @@ svg{
 
 svg,
 #addItem,
-#liquor,
+#liquor, 
 #remove
 { 
     stroke: #DAA160;
     fill: transparent;
     stroke-width: 15px;
 }
+
 #beer{
+    fill: #DAA160;
+    stroke-width: 0px;
+}
+
+#slideIn {
+    height: 30px;
+    width: 30px;
     fill: #DAA160;
     stroke-width: 0px;
 }
@@ -427,8 +443,7 @@ svg,
     stroke-miterlimit:10;
 }
 
-#edit
-{ 
+#edit{ 
     fill: transparent;
     stroke-width: 1px;
 }
@@ -683,7 +698,9 @@ svg,
     border: 1px solid #DAA160;
     padding: 10px;
     box-sizing: border-box;
-    overflow: hidden;
+}    
+.slideIn{
+    display: none;
 }
 
 @media (max-width: 751px) {
@@ -694,6 +711,17 @@ svg,
         top : 30%; 
         left: -225px;
         /* left: 25%; */
+    }
+    .slideIn{
+        display: flex;
+        height: 40px;
+        width: 40px;
+        right: -40px;
+        z-index: 1503;
+        position: absolute;
+        transform: rotate(180deg);
+        cursor: pointer;
+        transition: 0.5s;
     }
 }
 
@@ -749,6 +777,21 @@ svg,
         top : -29px;
         padding-bottom: 20px;
     }
+    .slideToggle {
+        outline: none;
+        transform: rotate(0deg);
+        cursor: pointer;
+        transition: 0.7s;
+    }
+    .slideToggle.is-closed {
+        transform: translateX(-0.3em) rotate(-180deg);
+    }
+    .thoseIngredients {
+        transition: 0.7s;
+    }
+    .thoseIngredients.is-closed {
+        transform: translateX(275px);
+    }    
 }
 .splitComments{
     width: 100px;
@@ -771,3 +814,8 @@ svg,
 .comments > .thisComments {
     padding-left: 30px;
 }
+
+
+
+
+
