@@ -85,14 +85,14 @@ $title = "créer recette";
     <p>Mauris dictum ut tortor vel rhoncus. Sed molestie purus eu diam finibus, et luctus ex molestie. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut eget pulvinar enim. Phasellus euismod, lacus sed scelerisque ultrices, arcu risus suscipit orci, vitae consectetur nulla elit id lorem. Aenean vehicula risus non lobortis dapibus. Phasellus vel posuere diam. Etiam hendrerit semper dignissim.</p>
 </div>
 
-<div class="thoseComments">
+<div class="thoseComments" >
 
-<button class="addInput" id="addInput" type="button" onclick="addOrRemove()" value="ajouter">
+<button class="addInput" id="addInput" type="button" onclick="addRow()" value="ajouter">
     <svg class="iconCircle" id="addItem" xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="30px" viewBox="0 0 24 24" width="30px" fill="#000000"><g>
     <rect fill="none" height="24" width="24"/></g><g><g><path d="M19,13h-6v6h-2v-6H5v-2h6V5h2v6h6V13z"/></g></g></svg>
 </button>
 
-    <div class="newSection">
+    <div id="newSection" class="newSection">
         <div class="sectionTitle"></div>
         <h2>Commentaires</h2>
     </div>
@@ -112,29 +112,20 @@ $title = "créer recette";
 
 <script>
     function addRow() {
+        let myBtn = document.querySelector('#addInput');
+        let mySection = document.querySelector('#newSection');
+        myBtn.style.display = 'none';
+        mySection.style.padding = '40px 0px 0px 0px';
         document.querySelector('#comments').insertAdjacentHTML(
             'afterbegin',
-            `<textarea class="sendComment" name="sendComment" charswidth="23" name="title" type="textarea" placeholder="Entrez votre commentaire. Soyez respectueux pour les autres comme pour vous." value=""></textarea>`      
+            `<form class="commentThis" action="" method="POST">
+                <textarea class="sendComment"  name="sendComment" charswidth="23" name="title" type="textarea" placeholder="Entrez votre commentaire. Soyez respectueux pour les autres comme pour vous." value=""></textarea>
+                <button style="box-shadow: 0px 0px 0px; width: 50px"  type="submit" id='send' value=""><svg id="sendIt" xmlns="http://www.w3.org/2000/svg" height="25px" viewBox="0 0 24 24" width="30px" fill="#000000"><path d="M0 0h24v24H0z" fill="none"/><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg></button>
+            </form>
+            `      
         )                                                
     }
 
-    function removeRow(input) {
-        input.parentNode.remove()
-    } 
-    
-    function addOrRemove(btn) {
-        let myCount = 0;
-        document.querySelector('#addInput').addEventListener('click', myCount++);
-
-        if(myCount%2 == 0)
-              {
-                     alert("Nombre pair");
-              }
-              else
-              {
-                     alert("Nombre impair");
-              }
-    }
 
     </script>
 

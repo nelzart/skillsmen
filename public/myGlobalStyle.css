@@ -748,7 +748,7 @@ svg,
 .newSection{
     display: flex;
     align-items: center;
-    margin-top: -50px;    
+    /* margin-top: 50px;     */
 }
 .sectionTitle {
     width: 70px;
@@ -766,6 +766,13 @@ svg,
     position: relative;
     left : 80%;
     top : -39px;
+    margin-bottom: -20px;
+    /* display: none; */
+}
+
+.commentThis {
+    display: flex;
+    align-items: center;
 }
 @media (max-width: 751px) {
     .thoseComments{
