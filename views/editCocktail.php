@@ -149,7 +149,7 @@ $title = "créer recette";
 	<h3>Décrire les étapes</h3>
 	<textarea name="stepByStep" charswidth="23" name="title" type="textarea" placeholder="Décrire les étapes. Sautez des lignes. Soyez respectueux pour les autres comme pour vous." value=""></textarea>
 </div>
-<p><input type="hidden" name="tabIng[]" id="tabIng" value = ""></p><<!--champs non affiché qui permet de poster les ingredients en tableau-->
+<p><input type="hidden" name="tabIng[]" id="tabIng" value = ""></p><!--champs non affiché qui permet de poster les ingredients en tableau-->
 
 
 <div class="allButtons">
