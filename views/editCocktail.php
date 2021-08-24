@@ -44,9 +44,9 @@ $title = "créer recette";
     <div id="addIngredient">
 		<h3>Liste des ingrédients</h3>
         <div class="row">
-        <input type="text" name="quantity" style="width:40px; margin-right:-10px; padding:10px;" value="" required/>
+            <input type="text" class= "ing" name="quantity" style="width:40px; margin-right:-10px; padding:10px;" value="" required/>
             
-            <select name="unite" style="width:40px; margin-right:-10px; padding:10px;">
+            <select name="unite" class= "ing" style="width:40px; margin-right:-10px; padding:10px;">
                 <option selected value="cl">cl</option>
                 <option value="g">g</option>
                 <option value="tranche">tranche(s)</option>
@@ -57,14 +57,14 @@ $title = "créer recette";
                 <option value="goutte">goutte(s)</option>
             </select>
             
-            <input type="text" name="value" value="" style="width:279px;" required/>
+            <input type="text" class= "ing" name="value" value="" style="width:279px;" required/>
 
             <button class="remove" value="enlever" onclick="removeRow(this)"><svg id="remove" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24" "><path fill="none"/><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg></button>
         </div>
         <div class="row">
-        <input type="text" name="quantity" style="width:40px; margin-right:-10px; padding:10px;" value="" required/>
+            <input type="text" class= "ing" name="quantity" style="width:40px; margin-right:-10px; padding:10px;" value="" required/>
             
-            <select name="unite" style="width:40px; margin-right:-10px; padding:10px;">
+            <select name="unite" class= "ing" style="width:40px; margin-right:-10px; padding:10px;">
                 <option selected value="cl">cl</option>
                 <option value="g">g</option>
                 <option value="tranche">tranche(s)</option>
@@ -75,14 +75,14 @@ $title = "créer recette";
                 <option value="goutte">goutte(s)</option>
             </select>
             
-            <input type="text" name="value" value="" style="width:279px;" required/>
+            <input type="text" class= "ing" name="value" value="" style="width:279px;" required/>
 
             <button class="remove" value="enlever" onclick="removeRow(this)"><svg id="remove" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24" "><path fill="none"/><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg></button>
         </div>
         <div class="row">
-        <input type="text" name="quantity" style="width:40px; margin-right:-10px; padding:10px;" value="" required/>
+        <input type="text" class= "ing" name="quantity" style="width:40px; margin-right:-10px; padding:10px;" value="" required/>
             
-            <select name="unite" style="width:40px; margin-right:-10px; padding:10px;">
+            <select name="unite" class= "ing" style="width:40px; margin-right:-10px; padding:10px;">
                 <option selected value="cl">cl</option>
                 <option value="g">g</option>
                 <option value="tranche">tranche(s)</option>
@@ -93,7 +93,7 @@ $title = "créer recette";
                 <option value="goutte">goutte(s)</option>
             </select>
             
-            <input type="text" name="value" value="" style="width:279px;" required/>
+            <input type="text" class= "ing" name="value" value="" style="width:279px;" required/>
 
             <button class="remove" value="enlever" onclick="removeRow(this)"><svg id="remove" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24" "><path fill="none"/><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg></button>
         </div>
@@ -110,9 +110,9 @@ $title = "créer recette";
         document.querySelector('#addIngredient').insertAdjacentHTML(
             'beforeend',
             `<div class="row">
-                <input type="text" name="quantity" style="width:40px; margin-right:-10px; padding:10px;" value="" required/>
+                <input type="text" class= "ing" name="quantity" style="width:40px; margin-right:-10px; padding:10px;" value="" required/>
                 
-                <select name="unite" style="width:40px; margin-right:-10px; padding:10px;">
+                <select name="unite" class= "ing" style="width:40px; margin-right:-10px; padding:10px;">
                     <option selected value="cl">cl</option>
                     <option value="g">g</option>
                     <option value="tranche">tranche(s)</option>
@@ -123,7 +123,7 @@ $title = "créer recette";
                     <option value="goutte">goutte(s)</option>
                 </select>
                 
-                <input type="text" name="value" value="" style="width:279px;" required/>
+                <input type="text" class= "ing" name="value" value="" style="width:279px;" required/>
 
                 <button class="remove" value="enlever" onclick="removeRow(this)"><svg id="remove" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24" "><path fill="none"/><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg></button>
             </div>`      
@@ -165,7 +165,7 @@ function ing(){//permet de regrouper les ingredients dans un tableau pour le pos
 
     let tabIng  = [];
 
-    let input = document.querySelectorAll("div.row > input");
+    let input = document.querySelectorAll("div.row > .ing");
 
     //alert(input.length);
     for(let i=0;i<input.length;i+=3){//selectionne la premiere ligne de chaque div
