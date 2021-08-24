@@ -63,13 +63,15 @@ function getLastCocktail($Uti_Id){
 
 function getAllIngredients(){
     $db = dbConnect();   
-    $sth = $db -> prepare("SELECT * from ingredients order by ");
+    $sth = $db -> prepare("SELECT * from ingredients order by Ing_Nom ");
 
     if($sth -> execute ()){
-        $resultat = $sth->fetch();
-        
+        $results = $sth->fetch();
+        foreach ($results as $result){
+            echo $result;
+        }
         //echo $resultat[0];
-        return $resultat; 
+        //return $results; 
     }
     else{
       
