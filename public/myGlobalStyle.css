@@ -458,6 +458,14 @@ svg,
     stroke-width: 1px;
     height: 30px;
     width: 40px;
+    transition: 0.3s; 
+}
+#favorite{
+    transition: 0.3s; 
+}
+
+#favorite:focus{
+    fill: #DAA160;
 }
 
 #getCocktail {
@@ -526,6 +534,11 @@ svg,
     background-color: #DAA160;
     padding: 0px;
 }
+/*Click card bg color*/
+.container input:checked ~ .custom-checkbox {
+    background-color: #DAA160;
+    padding: 0px;
+}
 
 /*Label color change*/
 .container input:checked ~.custom-checkbox .card-label{
@@ -549,6 +562,26 @@ svg,
 .container input:checked ~.custom-checkbox #beer,
 .container input:checked ~.custom-checkbox #vodka{
     fill: #02111C;
+}
+.container input:checked ~.favorite-checkbox #favorite {
+    fill: #DAA160;
+    background-color:transparent;
+}
+/*Click card bg color*/
+.container input:checked ~ .favorite-checkbox {
+    background-color: transparent;
+    padding: 0px;
+    border-radius: 90px;
+    display: flex;
+    align-items: center;
+    align-self: center;
+    
+}
+.favorite-checkbox {
+    display: flex;
+    align-items: center;
+    align-self: center;
+    transition: 0.3s; 
 }
 
 .navbar {
