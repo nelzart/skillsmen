@@ -39,10 +39,14 @@ $title = "créer recette";
 			<div class="gradient">    
 				<h2>• noTitle •</h2>
 				
-				<div class="iconCover" height="15%" width="15%">
-					<svg id="favorite" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>	  
-				</div>	
-
+				
+                <label name="favorite" class="iconCover">
+                <input type="checkbox" name="favorite" value="favorite" style="display:none;">
+                    <div class="favorite-checkbox">
+                        <svg id="favorite" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                    </div> 
+                </label>
+                
 				<div class="iconCover print" style="margin-left:20px;" height="15%" width="15%">
                     <svg id="print" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><path d="M19 8H5c-1.66 0-3 1.34-3 3v6h4v4h12v-4h4v-6c0-1.66-1.34-3-3-3zm-3 11H8v-5h8v5zm3-7c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm-1-9H6v4h12V3z"/></svg>	  
 				</div>			  
@@ -101,10 +105,12 @@ $title = "créer recette";
     
     <div id="comments" class="comments">
         <div class="author" >$author <span class="unvariable">le 09/07/21 à 21h06</span></div>
-        <div class="thisComments">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla lobortis tortor quis vulputate faucibus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla lobortis tortor quis vulputate faucibus.</div>
-        
-        <div class="splitComments"></div>
+        <div class="thisComments">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla lobortis tortor quis vulputate faucibus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla lobortis tortor quis vulputate faucibus.
+        </div>    
     </div>
+
+    <div class="splitComments"></div>
     
     
 </div>
