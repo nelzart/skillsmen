@@ -19,16 +19,16 @@ function addCocktail($Coc_Nom, $Coc_Recette, $Uti_Id, $Ing){ //creation d'un coc
   for($i=0;$i<sizeof($Ing);$i++){
 
     for($i=2;$i<sizeof($Ing);$i+=3){
-      echo $i;
+      //echo $i;
       $resultName = getIngredientByName($Ing[$i]); //on recup l'id de l'ingredient
       
       if($resultName == TRUE){
-        createIngregientCocktail ($resultName, $resultLastCoc[0], $Ing[$i-2], $Ing[$i-1]);  // on alimente la table composition Cocktail
-        echo "Ingredient integré";
+        createIngregientCocktail ($resultName[0], $resultLastCoc[0], $Ing[$i-2], $Ing[$i-1]);  // on alimente la table composition Cocktail
+        echo "Ingredient integré: ".$resultName[1]." - ";
        // require('/views/editCocktail.php');
       }
       else{   
-        throw new Exception('ingredient inconnu !');
+        echo "Ingredient inconnu: ".$Ing[$i]." non integré - ";
       }
 
     }
@@ -36,9 +36,49 @@ function addCocktail($Coc_Nom, $Coc_Recette, $Uti_Id, $Ing){ //creation d'un coc
 
 
   //categorisation du cocktail
-  /*$cat = getAllIngredients();
-  var_dump($cat);*/
-}
+  $cat = []; //tableau qui contiendra les valeurs à ajouter dans la table categorieCocktail
 
+  var_dump($_POST);
+  echo sizeof($_POST);
 
+  foreach($_POST as $key => $value){ //on tourne sur toutes les valeurs postées
+    $test = getTypeCocktailByName($key);
+    if($test !== FALSE){//si le resultat existe c'est donc une categorie
+      //var_dump($test);
+      $compteur = 0; 
+      foreach($Ing as $value){ // on tourne sur les ingredients postés
+        if($key == $value){ // si la cat identifié correspond à un ingredient on alimente $cat
+          $compteur +=1;        
+          $ligneAinserer = array($test[0],$resultLastCoc[0],$value);
+          array_push($cat,$ligneAinserer);
+          continue;
+        }
+        else{
+          
+          //echo $key;
+          //echo $value;
+         //break;
+          $message =  "categorie ".$key." non retenue car il n' y pas d'ingredient correspondant - ";
+        }
+
+      }
+      if($compteur == 0){
+        echo $message;
+      }
+    
+    
+      //$test2 = getTypeCocktailByName($_POST[$value]);
+    }
+
+    
+
+  }
   
+  var_dump($cat);
+  for($i=0;$i<sizeof($cat);$i++){
+
+    createCatCocktail($cat[$i][0], $cat[$i][1]);
+    echo "cocktail categorisé: ".$cat[$i][2].", ";
+  }
+
+}

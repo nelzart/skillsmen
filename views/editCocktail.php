@@ -150,7 +150,7 @@ $title = "créer recette";
 	<textarea name="stepByStep" charswidth="23" name="title" type="textarea" placeholder="Décrire les étapes. Sautez des lignes. Soyez respectueux pour les autres comme pour vous." value=""></textarea>
 </div>
 <input type="hidden" name="tabIng[]" id="tabIng" value = ""><!--champs non affiché qui permet de poster les ingredients en tableau-->
-
+<input type="hidden" name="catCoc[]" id="catCoc" value = ""><!--champs non affiché qui permet de poster les categories selectionnées en tableau-->
 
 <div class="allButtons">
 	<button class="remove"><svg id="close" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24" fill="#000000"><path fill="none"/><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg></button>
@@ -202,6 +202,8 @@ function ing(){//permet de regrouper les ingredients dans un tableau pour le pos
         //alert(tt.length);
     }
 }
+
+
     </script>  
 </form>
 <script></script>
