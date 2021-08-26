@@ -1,1 +1,0 @@
-INSERT INTO `typecocktail`(`Type_Libelle`) VALUES ('tequila'), ('whiskey'), ('gin'), ('vodka'), ('cognac'), ('liqueur'), ('rhum'), ('champagne'), ('sans alcool ')

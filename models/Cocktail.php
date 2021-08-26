@@ -14,7 +14,7 @@ function createCocktail ($Coc_Nom, $Coc_Recette, $Uti_Id){
         ]
     ))
     {
-        echo "cocktail créé";
+        echo "cocktail créé: ".$Coc_Nom;
     }
     else{
         throw new Exception('echec création cocktail');
@@ -34,10 +34,27 @@ function createIngregientCocktail ($Ing_Id, $Coc_Id, $Comp_Quantite, $Comp_Unite
         ]
     )
     ){
-        echo "ok";
+        //echo "ok";
     }
     else{
-        echo "pas ok";
+        //echo "pas ok";
+    }
+}
+
+function createCatCocktail($idCat, $idCoc){
+    $db = dbConnect();
+    $sth = $db -> prepare("INSERT INTO categoriecocktail (Typ_Id, Coc_Id) VALUES (:Typ_Id, :Coc_Id)");
+    if($sth -> execute (
+        [
+            ':Typ_Id' => intval($idCat),
+            ':Coc_Id' => intval($idCoc)
+        ]
+    )
+    ){
+        //echo "Cocktail categorisé: ".$idCat;
+    }
+    else{
+        //echo "categorisation cocktail : echec";
     }
 }
 
@@ -57,7 +74,7 @@ function getLastCocktail($Uti_Id){
         return $resultat; 
     }
     else{
-        echo "pas ok";
+        //echo "pas ok";
     }
 }
 
@@ -66,12 +83,11 @@ function getAllIngredients(){
     $sth = $db -> prepare("SELECT * from ingredients order by Ing_Nom ");
 
     if($sth -> execute ()){
-        $results = $sth->fetch();
-        foreach ($results as $result){
-            echo $result;
-        }
+        $results = $sth->fetchAll();
+        var_dump($results);
+        
         //echo $resultat[0];
-        //return $results; 
+        $results; 
     }
     else{
       
@@ -89,19 +105,37 @@ function getIngredientByName($name){
         ]
     )
     ){$resultat = $sth->fetch();
-        $Ing_Id = $resultat[0];
-        echo "ok";
-        var_dump($resultat);
-        echo "yop9";
-        var_dump($Ing_Id);
-        return $Ing_Id; 
+        //$Ing_Id = $resultat[0];
+        //echo "ok";
+        //var_dump($resultat);
+        //echo "yop9";
+        //var_dump($Ing_Id);
+        return $resultat; 
     }
-    else{
+    /*else{
         //deleteCoktail($Coc_Id);
-        throw new Exception('echec creation ingredient');
-    }
+        throw new Exception('ingredient inexistant');
+    }*/
 }
 
-function deleteCoktail($Coc_Id){
+function getTypeCocktailByName($Type_Libelle){
+    $db = dbConnect();   
+    $sth = $db -> prepare("SELECT * from typecocktail where Type_Libelle = :Type_Libelle");
 
+    if($sth -> execute (
+        [
+            ':Type_Libelle' => $Type_Libelle
+        ]
+    )
+    ){
+        //echo "categorie ok";
+        $resultat = $sth->fetch();
+    
+        return $resultat; 
+    }
+    else{
+        echo " ce n'est pas une categorie";
+        //deleteCoktail($Coc_Id);
+        //throw new Exception('echec creation ingredient');
+    }
 }
