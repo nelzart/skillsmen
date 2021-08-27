@@ -1,14 +1,14 @@
 INSERT INTO `ingredients` (`Ing_Nom`, `Ing_Categorie`) VALUES
-('Rhum', 'base'),
+('rhum', 'base'),
 ('vodka', 'base'),
-('coca', 'base'),
+('sans alcool', 'base'),
 ('gin', 'base'),
 ('tequila', 'base'),
 ('whiskey', 'base'),
 ('cognac', 'base'),
 ('liqueur', 'base'),
 ('champagne', 'base'),
-('bierre', 'base'),
+('biere', 'base'),
 ('vin', 'base');
 
 INSERT INTO `typecocktail` (`Type_Libelle`) VALUES
