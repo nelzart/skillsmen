@@ -96,11 +96,11 @@ textarea {
     box-sizing: border-box;
     resize: none;
 }
-textarea, .sendComment {
+ .sendComment {
     font-family: "Ogg", "Ogg-Roman", "Ogg Roman", serif;
     padding: 10px;
     line-height: 1.5;
-    width: 85%;
+
     height: 80px;
     box-sizing: border-box;
 }
@@ -205,22 +205,9 @@ h2 {
     font-size : 20pt;
 }
 
-.tuiles {
-    font-family: "Ogg", "Ogg-Roman", "Ogg Roman", serif;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-end;
-    width: 162pt;
-    height: 228pt;
-    border: 1px solid #DAA160;
-    border-radius: 27pt;
-    margin: 20px;
-    text-align: center;
-    box-shadow: 0px 3px 6px #00000029;
-}
-.tuiles > h2 {
-    margin: 10px 20px;
+a {
+    text-decoration: transparent;
+    color: #DAA160;
 }
 .img {
     font-family: "Ogg", "Ogg-Roman", "Ogg Roman", serif;
@@ -490,6 +477,7 @@ svg,
 #noAlcool,
 #addItem,
 #myLogo,
+#embleme,
 #sendIt{
     fill:#DAA160;
     stroke-width: 0px;
@@ -604,6 +592,29 @@ svg,
     align-self: center;
     height: 75%;
     width: 250px;
+}
+
+.entete {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around ;
+    align-items: center;
+}
+#embleme {
+    cursor: unset;
+    height: 200px;
+    margin-bottom: 30px;
+}
+@media (max-width: 1024px) {
+    .entete {
+        margin-top: 100px;
+    }
+}
+@media (max-width: 751px) {
+    .entete {
+        display: none;
+    }
 }
 
 .userAction {
@@ -855,7 +866,47 @@ svg,
     padding-left: 30px;
 }
 
+.galerie {
+    margin-top:50px;  
+    width: 100%;
+}
+.result {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: space-around;
+}
 
-
-
-
+.tuiles {
+    font-family: "Ogg", "Ogg-Roman", "Ogg Roman", serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    width: 145pt;
+    height: 200pt;
+    border: 1px solid #DAA160;
+    margin: 15px 5px;
+    border-radius: 27pt;
+    text-align: center;
+    box-shadow: 0px 3px 6px #00000029;
+}
+.tuiles > .gradient {
+    width: 100%;
+}
+@media (max-width: 751px){
+    .tuiles {
+        width: 125pt;
+        height: 175pt;
+    }
+}
+@media (max-width: 320px){
+    .tuiles {
+        width: 100pt;
+        height: 100pt;
+    }
+}
+.tuiles > .gradient > h2 {
+    margin: 10px 20px;
+    font-size: 16px;
+}
