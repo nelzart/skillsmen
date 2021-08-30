@@ -55,6 +55,8 @@ $title = "créer recette";
                     <option value="zeste">zeste(s)</option>
                     <option value="morceau">morceau(x)</option>
                     <option value="goutte">goutte(s)</option>
+                    <option value="feuille">feuille(s)</option>
+                    <option value="baton">baton(s)</option>
                 </select>
                 
                 <input type="text" class= "ing" name="value" value="" style="width:279px;" required/>
@@ -74,6 +76,8 @@ $title = "créer recette";
                     <option value="zeste">zeste(s)</option>
                     <option value="morceau">morceau(x)</option>
                     <option value="goutte">goutte(s)</option>
+                    <option value="feuille">feuille(s)</option>
+                    <option value="baton">baton(s)</option>
                 </select>
                 
                 <input type="text" class= "ing" name="value" value="" style="width:279px;" required/>
@@ -93,6 +97,8 @@ $title = "créer recette";
                     <option value="zeste">zeste(s)</option>
                     <option value="morceau">morceau(x)</option>
                     <option value="goutte">goutte(s)</option>
+                    <option value="feuille">feuille(s)</option>
+                    <option value="baton">baton(s)</option>
                 </select>
                     
                 <input type="text" class= "ing" name="value" value="" style="width:279px;" required/>
@@ -125,6 +131,8 @@ $title = "créer recette";
                         <option value="zeste">zeste(s)</option>
                         <option value="morceau">morceau(x)</option>
                         <option value="goutte">goutte(s)</option>
+                        <option value="feuille">feuille(s)</option>
+                        <option value="baton">baton(s)</option>
                     </select>
                     
                     <input type="text" class= "ing" name="value" value="" style="width:279px;" required/>
