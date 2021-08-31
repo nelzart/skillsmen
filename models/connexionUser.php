@@ -50,3 +50,49 @@ function getUser_ByMail($userMail)
     $lycos = $search->fetch();    
     return $lycos;
 }
+
+function getId_ByMail($userMail)
+{
+    $db = dbConnect();
+    $search = $db->prepare("SELECT Uti_Id FROM utilisateurs WHERE Uti_Login = :Uti_Login");
+    $search->execute(array(
+        ':Uti_Login' => $userMail
+    ));
+
+    $lycos = $search->fetch();    
+    return $lycos;
+}
+
+function getId_ByPseudo($userName)
+{
+    $db = dbConnect();
+    $search = $db->prepare("SELECT Uti_Id FROM utilisateurs WHERE Uti_Pseudo = :Uti_Pseudo");
+    $search->execute(array(
+        ':Uti_Pseudo' => $userName
+    ));
+
+    $lycos = $search->fetch();   
+    return $lycos; 
+}
+
+function getDroit_ByInformations($userName, $userMail)
+{
+    $db = dbConnect();
+    $search = $db->prepare("SELECT Uti_Droit FROM utilisateurs WHERE Uti_Pseudo = :Uti_Pseudo OR Uti_Login = :Uti_Login");
+    $search->execute(array(
+        ':Uti_Pseudo' => $userName,
+        ':Uti_Login' => $userMail));
+    $lycos = $search->fetch();   
+    return $lycos;
+}
+
+function getUserName_ByInformations($userName, $userMail)
+{
+    $db = dbConnect();
+    $search = $db->prepare("SELECT Uti_Pseudo FROM utilisateurs WHERE Uti_Pseudo = :Uti_Pseudo OR Uti_Login = :Uti_Login");
+    $search->execute(array(
+        ':Uti_Pseudo' => $userName,
+        ':Uti_Login' => $userMail));
+    $lycos = $search->fetch();   
+    return $lycos;
+}

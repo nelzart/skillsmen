@@ -52,9 +52,14 @@ if (isset($_POST['Uti_Login']) &&
     }
     if($test === 2){
         session_start();
-        $_SESSION['Uti_Id'] = $lycos['Uti_Id'];
-        $_SESSION['Uti_Pseudo'] = $lycos['Uti_Pseudo'];
-        $_SESSION['Uti_Droit'] = $lycos['Uti_Droit'];
+        if(!empty($lycosId_ByMail)){
+            $_SESSION['Uti_Id'] = $lycosId_ByMail;
+        }
+        else{
+            $_SESSION['Uti_Id'] = $lycosId_ByPseudo;
+        }
+        $_SESSION['Uti_Pseudo'] = $lycosUserName_ByInformations['Uti_Pseudo'];
+        $_SESSION['Uti_Droit'] = $lycosDroit_ByInformations;
         echo "Vous êtes connecté ! Bonjour ". $_SESSION['Uti_Pseudo'];
     }
 }
