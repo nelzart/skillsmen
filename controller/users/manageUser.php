@@ -54,7 +54,7 @@ if (isset($_POST['Uti_Login']) &&
         session_start();
         $_SESSION['Uti_Id'] = $lycos['Uti_Id'];
         $_SESSION['Uti_Pseudo'] = $lycos['Uti_Pseudo'];
-        $_SESSION['Uti_Droit'] = $lycos['Uti_Droit']; 
+        $_SESSION['Uti_Droit'] = $lycos['Uti_Droit'];
         echo "Vous êtes connecté ! Bonjour ". $_SESSION['Uti_Pseudo'];
     }
 }
