@@ -18,8 +18,8 @@ if(
         $message1 ="";   $message2 ="";   $message3 ="";   $message4 ="";
         
         //on test l'existence du mail
-        $testMail = getUsers_ByMail($userMail);
-        if($testMail !== FALSE){
+        $testMail1 = getUsers_ByMail($userMail);
+        if($testMail1 !== FALSE){
             $test ++;
             $message1 = "Ce mail existe déjà !";
 
