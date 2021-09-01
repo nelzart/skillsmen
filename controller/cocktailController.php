@@ -82,20 +82,22 @@ function addCocktail($Coc_Nom, $Coc_Recette, $Uti_Id, $Ing){ //creation d'un coc
   }
 
 
-  // insertion de l'image
-  if(isset($_FILES)){
+   // insertion de l'image
+   if(isset($_FILES)){
     echo "<script>alert(\"there is an image...\")</script>";
     $logo=$_FILES['photo']['name'];
     var_dump($logo);
     if ($logo != "") {
 
       require "uploadImage.php";
+      $result = uploadImages($resultLastCoc[0]);
+      if ( $result === false ) {
       
-      if ( $sortie == false ) {
-      
-        $logo = $dest_dossier . $dest_fichier;
+        //$logo = $dest_dossier . $dest_fichier;
         var_dump($logo);
-        createCocImage($dest_fichier,$dest_dossier,($resultLastCoc[0]),2);
+        //$dest_fichier = '403_coc_.jpg';
+        //$dest_dossier = 'ssssss';
+        createCocImage($resultLastCoc[0] . "_coc",'public/images',$resultLastCoc[0],2);
         //createCocImage('nom','public/images',395,2);
       }
       else { $logo="pas ok"; }
