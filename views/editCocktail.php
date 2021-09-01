@@ -40,13 +40,20 @@ $title = "créer recette";
                 let imgURL = cURL.createObjectURL(this.files[0]);
                 ctn.setAttribute("style", "background-image:url('" +imgURL + "')");
             })();
+
+            let thisTitle = querySelector('div.gradient > h2');
+            let inputTitle = getElementById('title');
+            inputTitle.addEventListener('change', function(){
+                thisTitle.text = inputTitle.value ;
+            })
+
         </script>
 
     <div class="writeIn">
 
         <div class="title" >
             <label for="title"><h3>Choisir un nom</h3></label>
-            <input name="title" type="text" placeholder="nom du cocktail" style="width: 400px;" value=""></input>
+            <input name="title" type="text" id="title" placeholder="nom du cocktail" style="width: 400px;" value=""></input>
         </div>
 
 
