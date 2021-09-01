@@ -36,9 +36,9 @@ $title = "créer recette";
                 ctn = d.getElementById('preview');
 
             file.addEventListener('change', function() {
-            let cURL = w.URL || w.webkitURL;
-            let imgURL = cURL.createObjectURL(this.files[0]);
-            ctn.setAttribute("style", "background-image:url('" +imgURL + "')");
+                let cURL = w.URL || w.webkitURL;
+                let imgURL = cURL.createObjectURL(this.files[0]);
+                ctn.setAttribute("style", "background-image:url('" +imgURL + "')");
             })();
         </script>
 
