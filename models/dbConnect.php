@@ -2,7 +2,7 @@
 function dbConnect()
 {
     $hostname = 'localhost';
-    $dbname = 'skillsman';
+    $dbname = 'skillsmen2';
     $dbuser = 'root';
     $password = '';
 

@@ -34,13 +34,13 @@
 
             <div> 
             <label for="Uti_Mdp"><b>Choisissez votre mot de passe (8 caracteres minimum)</b></label>
-            <input type="password" placeholder="Entrer le mot de passe" name="Uti_Mdp" required value="<?php if(!empty($_POST['Uti_Mdp']) && $_POST['Uti_Mdp'] == htmlspecialchars($_POST['Uti_Mdp2'])) { echo htmlspecialchars($_POST['Uti_Mdp'], ENT_QUOTES); } ?>">
+            <input type="password" placeholder="Entrer le mot de passe" name="Uti_Mdp" required value="<?php if(!empty($_POST['Uti_Mdp']) && $_POST['Uti_Mdp'] == $_POST[htmlspecialchars('Uti_Mdp2')]) { echo htmlspecialchars($_POST['Uti_Mdp'], ENT_QUOTES); } ?>">
             <p style="color: red"><?php if(!empty($message3)) { echo htmlentities($message3, ENT_QUOTES); } ?></p>
             </div> 
 
             <div> 
             <label for='Uti_Mdp2'><b>Vérification de votre mot de passe</b></label>
-            <input type="password" placeholder="Entrer le mot de passe" name="Uti_Mdp2" required value="<?php if(!empty($_POST['Uti_Mdp2']) && $_POST['Uti_Mdp'] == htmlspecialchars($_POST['Uti_Mdp2'])) { echo htmlspecialchars($_POST['Uti_Mdp2'], ENT_QUOTES); } ?>">
+            <input type="password" placeholder="Entrer le mot de passe" name="Uti_Mdp2" required value="<?php if(!empty($_POST['Uti_Mdp2']) && $_POST['Uti_Mdp'] == $_POST[htmlspecialchars('Uti_Mdp2')]) { echo htmlspecialchars($_POST['Uti_Mdp2'], ENT_QUOTES); } ?>">
             <p style="color: red"><?php if(!empty($message3)) { echo htmlentities($message3, ENT_QUOTES); } ?></p>
             </div> 
 
