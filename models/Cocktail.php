@@ -155,4 +155,5 @@ function createCocImage($nom,$adresse,$cocId,$utiId){
     }
     else{
         throw new Exception('echec creation image');
-    }
+    }}
+    
