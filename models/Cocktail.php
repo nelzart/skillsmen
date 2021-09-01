@@ -139,3 +139,20 @@ function getTypeCocktailByName($Type_Libelle){
         //throw new Exception('echec creation ingredient');
     }
 }
+function createCocImage($nom,$adresse,$cocId,$utiId){
+    $db = dbConnect();
+    $sth = $db -> prepare("INSERT INTO images (Img_Nom, Img_Adresse, Coc_Id, Uti_Id) VALUES (:Img_Nom,:Img_Adresse,:Coc_Id,:Uti_Id)");
+    if($sth -> execute (
+        [
+            ':Img_Nom' => $nom,
+            ':Img_Adresse' => $adresse,
+            ':Coc_Id' => $cocId,
+            ':Uti_Id' => $utiId
+        ]
+    )
+    ){
+        echo "image insérée";
+    }
+    else{
+        throw new Exception('echec creation image');
+    }
