@@ -12,6 +12,10 @@ if (isset($_POST['Uti_Login']) &&
     $lycos1 = getUser_ByPseudo($userName);
     $userMail = $_POST['Uti_Login'];
     $lycos = getUser_ByMail($userMail);
+    $lycosId_ByMail = getId_ByMail($userMail);
+    $lycosId_ByPseudo = getId_ByPseudo($userName);
+    $lycosDroit_ByInformations = getDroit_ByInformations($userName, $userMail);
+    $lycosUserName_ByInformations = getUserName_ByInformations($userName, $userMail);
 
     $password = $_POST['Uti_Mdp'];
     $test = 0;
