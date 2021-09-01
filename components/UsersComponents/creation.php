@@ -22,7 +22,7 @@
             <h1>Création d'un compte Utilisateur</h1>
             <div> 
             <label for='Uti_Login'><b>Votre e-mail</b></label>
-            <input type="email" name='Uti_Login' placeholder="E-mail" required value="<?php if(!empty($_POST['Uti_Login']) && empty($testMail['Uti_Login'])) { echo htmlspecialchars($_POST['Uti_Login'], ENT_QUOTES); } ?>">
+            <input type="email" name='Uti_Login' placeholder="E-mail" required value="<?php if(!empty($_POST['Uti_Login']) && empty($testMail1['Uti_Login'])) { echo htmlspecialchars($_POST['Uti_Login'], ENT_QUOTES); } ?>">
             <p style="color: red"><?php if(!empty($message1)) { echo htmlentities($message1, ENT_QUOTES); } ?></p>
             </div> 
 
