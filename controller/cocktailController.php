@@ -90,14 +90,14 @@ function addCocktail($Coc_Nom, $Coc_Recette, $Uti_Id, $Ing){ //creation d'un coc
     if ($logo != "") {
 
       require "uploadImage.php";
-      $result = uploadImages($resultLastCoc[0]);
-      if ( $result === false ) {
+      $nomCoc = uploadImages($resultLastCoc[0]);
+      if ( $nomCoc ) {
       
         //$logo = $dest_dossier . $dest_fichier;
         var_dump($logo);
         //$dest_fichier = '403_coc_.jpg';
         //$dest_dossier = 'ssssss';
-        createCocImage($resultLastCoc[0] . "_coc",'public/images',$resultLastCoc[0],2);
+        createCocImage($nomCoc,'public/images',$resultLastCoc[0],2);
         //createCocImage('nom','public/images',395,2);
       }
       else { $logo="pas ok"; }
@@ -111,4 +111,18 @@ function addCocktail($Coc_Nom, $Coc_Recette, $Uti_Id, $Ing){ //creation d'un coc
       }
     }
   }
+}
+
+function deleteCocktailComplet($cocId){
+  $cocNom = $_POST['title'];
+  $cocId = $_POST['Coc_Id'];
+  deleteCategorieCoc($cocId);
+  deleteIngredientsCoc($cocId);
+  deleteImageCoc($cocId);
+  unlink ("public/images/$cocNom");
+  deleteCocktail($cocId);
+}
+
+function updateCocktail($cocId){
+  
 }

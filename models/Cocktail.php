@@ -158,3 +158,46 @@ function createCocImage($nom,$adresse,$cocId,$utiId){
     }
 }
 
+function deleteCategorieCoc($cocId){
+    $db = dbConnect();   
+    $sth = $db -> prepare("DELETE FROM categoriecocktail where Coc_Id = :cocId");
+
+    $sth -> execute (
+        [
+            ':cocId' => $cocId
+        ]
+        );
+}
+
+function deleteIngredientsCoc($cocId){
+    $db = dbConnect();   
+    $sth = $db -> prepare("DELETE FROM compositioncocktail where Coc_Id = :cocId");
+
+    $sth -> execute (
+        [
+            ':cocId' => $cocId
+        ]
+        );
+}
+
+function deleteImageCoc($cocId){
+    $db = dbConnect();   
+    $sth = $db -> prepare("DELETE FROM images where Coc_Id = :cocId");
+
+    $sth -> execute (
+        [
+            ':cocId' => $cocId
+        ]
+        );
+}
+
+function deleteCocktail($cocId){
+    $db = dbConnect();   
+    $sth = $db -> prepare("DELETE FROM cocktail where Coc_Id = :cocId");
+
+    $sth -> execute (
+        [
+            ':cocId' => $cocId
+        ]
+        );
+}

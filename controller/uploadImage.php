@@ -57,5 +57,7 @@ function uploadImages($idcoc){
             }
          }
     }
-    return $sortie;
+    if($sortie==False){
+    return $dest_fichier;
+    }
 }
