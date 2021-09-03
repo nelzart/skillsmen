@@ -6,7 +6,7 @@ if (isset($_POST['Uti_Login']) &&
     isset($_POST['Uti_Mdp']) &&
     !empty($_POST['Uti_Login']) &&
     !empty($_POST['Uti_Mdp'])) 
-{
+{ 
     //Les variables à déclarer
     $userName = $_POST['Uti_Login'];
     $lycos1 = getUser_ByPseudo($userName);
