@@ -46,7 +46,7 @@ require('../controller/users/manageUser.php');
                 
             </div>
         </div>
-        <script>
+        <!-- <script>
 
             let closeIt = document.getElementById('closeIt');
             let modalBox = document.getElementById('wrapper-login');
@@ -58,6 +58,6 @@ require('../controller/users/manageUser.php');
             });
 
 
-        </script>
+        </script> -->
     </body>
 </html>
