@@ -16,22 +16,22 @@ if (isset($_POST['Uti_Login']) &&
     $lycosId_ByPseudo = getId_ByPseudo($userName);
     $lycosDroit_ByInformations = getDroit_ByInformations($userName, $userMail);
     $lycosUserName_ByInformations = getUserName_ByInformations($userName, $userMail);
-
     $password = $_POST['Uti_Mdp'];
     $test = 0;
 
+    //Nous testons le résultat d'un pseudo existant, sinon on ajoute à la variable test -> 1
     if($lycos1 === FALSE){
-        // echo "Ce pseudo n'existe pas";
     }
     else{
         $test = 1;
     }
+    //Nous testons le résultat d'un e-mail existant, sinon on ajoute à la variable test -> 1
     if($lycos === FALSE){
-        // echo "Ce mail n'existe pas";
     }
     else{
         $test = 1;
     }
+    //Nous testons la vérification du mot de passe via l'adresse e-mail
     if($lycos == TRUE){
         $lycospassword1 = VerifMdp_ByUserMail($userMail);
         if(password_verify($password, $lycospassword1['Uti_Mdp']) == TRUE){
@@ -41,6 +41,7 @@ if (isset($_POST['Uti_Login']) &&
             echo "Le mot de passe est incorrect";
         }
     }
+    //Nous testons le vérification du mot de passe via le pseudo
     else if ($lycos1 == TRUE){
         echo "Coucou mais avec UserName";
         $lycospassword = VerifMdp_ByUserName($userName);
@@ -51,9 +52,11 @@ if (isset($_POST['Uti_Login']) &&
             echo "Le mot de passe est incorrect";
         }
     }
+    //Sinon nous affichons une erreur comme quoi aucun pseudo et adresse e-mail est trouvé selon la saisie
     else{
         echo "Aucun compte correspond au login ou pseudo que vous avez entré !";
     }
+    //Si tous nos tests sont bons, alors nous réinitialisons les valeurs de session et nous recréeons une nouvelle session 
     if($test === 2){
         session_start();
         if(!empty($lycosId_ByMail)){
