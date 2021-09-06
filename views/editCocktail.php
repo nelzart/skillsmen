@@ -48,11 +48,13 @@ $title = "créer recette";
             <label for="title"><h3>Choisir un nom</h3></label>
             <input name="title" type="text" id="inputTitle" placeholder="nom du cocktail" style="width: 400px;" ></input>
         </div>
+
         <script>            
             inputTitle.oninput = function() {
                 thisTitle.innerHTML = inputTitle.value;
             };
-        </script>
+        </script>   
+
         <div id="addIngredient">
 		    <h3>Liste des ingrédients</h3>
 

@@ -7,11 +7,25 @@ require('controller/cocktailController.php');
 
 try { // On essaie de faire des choses
     if (isset($_GET['action'])) {
-        if ($_GET['action'] == 'addCocktail') {
+        if ($_GET['action'] == 'connexion') {
+            if (isset($_GET['id']) && $_GET['id'] > 0) {
+                
+            }
+            else {
+                // Erreur ! On arrête tout, on envoie une exception, donc au saute directement au catch
+                throw new Exception('Aucun identifiant envoyé');
+            }
+        }
+        elseif ($_GET['action'] == 'addCocktail') {
             header("Location: views/editCocktail.php");
             //if(isset($_SESSION['Uti_Id'] ) && $_SESSION['Uti_Id']  > 0){
-                if(!empty($_POST['title']) && !empty($_POST['stepByStep'])){
-                    addCocktail($_POST['title'], $_POST['stepByStep'], 2, $_POST['tabIng']);
+                if(!empty($_POST['title']) && !empty($_POST['stepByStep']) ){
+                    if(empty($_POST['Coc_Id'])){
+                        addCocktail($_POST['title'], $_POST['stepByStep'], 2, $_POST['tabIng']); //creation d'un cocktail
+                    }
+                    else{
+                        updateCocktail($_POST['Coc_Id']);   //maj du cocktail
+                    }
                 }
                 else {
                     // Autre exception
@@ -19,7 +33,15 @@ try { // On essaie de faire des choses
                 }
            // }
         }
-
+        elseif ($_GET['action'] == 'deleteCoc') {
+            if (isset($_POST['Coc_Id'])) {
+                deleteCocktailComplet($_POST['Coc_Id']);  //suppression complete d'un cocktail
+            }
+            else {
+                // Erreur ! On arrête tout, on envoie une exception, donc au saute directement au catch
+                throw new Exception('Aucun identifiant de cocktail envoyé');
+            }
+        }
        /* elseif ($_GET['action'] == 'connexion') {
             if (isset($_GET['id']) && $_GET['id'] > 0) {
                 post();
