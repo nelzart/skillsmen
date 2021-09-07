@@ -5,12 +5,13 @@ function createCocktail ($Coc_Nom, $Coc_Recette, $Uti_Id){
 
     $db = dbConnect();   
 
-    $sth = $db -> prepare("INSERT INTO cocktail(Coc_Nom, Coc_Recette, Uti_Id) VALUES (:Coc_Nom, :Coc_Recette, :Uti_Id)");
+    $sth = $db -> prepare("INSERT INTO cocktail(Coc_Nom, Coc_Recette, Uti_Id, Coc_Etat) VALUES (:Coc_Nom, :Coc_Recette, :Uti_Id, :Coc_Etat)");
     if($sth -> execute (
         [
             ':Coc_Nom' => $Coc_Nom,
             ':Coc_Recette' => $Coc_Recette,
-            ':Uti_Id'=> $Uti_Id
+            ':Uti_Id'=> $Uti_Id,
+            ':Coc_Etat' => 'publie'
         ]
     ))
     {
@@ -180,6 +181,30 @@ function deleteIngredientsCoc($cocId){
         );
 }
 
+function insertIngredient($nom){
+    $db = dbConnect();   
+    $sth = $db -> prepare("INSERT INTO ingredients (Ing_Nom,Ing_Categorie) VALUES(:Ing_Nom,:Ing_Categorie)");
+
+    $sth -> execute (
+        [
+            ':Ing_Nom' => $nom,
+            ':Ing_Categorie' => 'controle'
+        ]
+        );
+}
+
+function UpdateEtatCocktail($cocId,$cocEtat){
+    $db = dbConnect();   
+    $sth = $db -> prepare("UPDATE cocktail SET Coc_Etat = :Coc_Etat where Coc_Id = :Coc_Id");
+
+    $sth -> execute (
+        [
+            ':Coc_Id' => $cocId,
+            ':Coc_Etat' => $cocEtat
+        ]
+        );
+}
+
 function deleteImageCoc($cocId){
     $db = dbConnect();   
     $sth = $db -> prepare("DELETE FROM images where Coc_Id = :cocId");
@@ -200,4 +225,23 @@ function deleteCocktail($cocId){
             ':cocId' => $cocId
         ]
         );
+}
+
+function updateTblCocktail($cocId,$Coc_Nom, $Coc_Recette){
+    $db = dbConnect();   
+    $sth = $db -> prepare("UPDATE cocktail SET Coc_Nom = :Coc_Nom, Coc_Recette = :Coc_Recette, Coc_DateCreation = :Coc_DateCreation where Coc_Id=:Coc_Id");
+    if($sth -> execute (
+        [
+            ':Coc_Nom' => $Coc_Nom,
+            ':Coc_Recette' => $Coc_Recette,
+            ':Coc_Id'=> $cocId,
+            ':Coc_DateCreation' => getdate()
+        ]
+    ))
+    {
+        echo "cocktail Mis à jour: ".$Coc_Nom;
+    }
+    else{
+        throw new Exception('echec Mise à jour du cocktail');
+    }
 }
