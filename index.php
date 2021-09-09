@@ -42,6 +42,22 @@ try { // On essaie de faire des choses
                 throw new Exception('Aucun identifiant de cocktail envoyé');
             }
         }
+
+        elseif ($_GET['action'] == 'addComment') {
+            //if (isset($_GET['idCoc']) && $_GET['idCoc'] > 0) {
+                if (!empty($_POST['sendComment'])) {
+                    addComment($_POST['sendComment'],404,2);
+                }
+                else {
+                    // Autre exception
+                    throw new Exception('Tous les champs ne sont pas remplis !');
+                }
+            /*}
+            else {
+                // Autre exception
+                throw new Exception('Aucun identifiant de billet envoyé');
+            }*/
+        }
        /* elseif ($_GET['action'] == 'connexion') {
             if (isset($_GET['id']) && $_GET['id'] > 0) {
                 post();

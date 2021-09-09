@@ -1,7 +1,7 @@
 <?php
-$Ing = $_POST['tabIng'];
+//$Ing = $_POST['tabIng'];
 var_dump($_POST);
-$Uti_Id = 2;  //SESSION_Uti_Id;
+//$Uti_Id = 2;  //SESSION_Uti_Id;
 require('models/Cocktail.php');
 
 function addCocktail($Coc_Nom, $Coc_Recette, $Uti_Id, $Ing){ //creation d'un cocktail complet
@@ -233,5 +233,20 @@ function updateCocktail($cocId){
       echo "Echec. On recommence!!!";
       }
     }
+  }
+}
+
+function addComment($content,$cocId,$uti){
+
+  /*$content = $_POST['title'];
+  $cocId = $_GET['Coc_Id'];*/
+  //$uti = $_SESSION['Uti_Id'];
+  $ups = createComment($content,$cocId,$uti);
+  var_dump($ups);
+  if($ups === 0 ){
+    die('Impossible d\'ajouter le commentaire !');
+  }
+  else {
+      //header('Location: index.php?action=post&id=' . $postId);
   }
 }
