@@ -1182,7 +1182,7 @@ input:-webkit-autofill{
 }
 
 #wrapper-login {
-    display: none;
+    display: "";
 }
 
 
@@ -1224,7 +1224,7 @@ input:-webkit-autofill{
 .profilCover {
     margin-bottom: 100px;
 }
-#preview.myCover {
+#preview.myCover.thisProfilImg {
     margin-bottom: -40px;
 }
 

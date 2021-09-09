@@ -72,6 +72,7 @@ $title = "créer recette";
                     <option value="goutte">goutte(s)</option>
                     <option value="feuille">feuille(s)</option>
                     <option value="baton">baton(s)</option>
+                    <option value="cuillère">cuillère(s)</option>
                 </select>
                 
                 <input type="text" class= "ing" name="value" value="" style="width:279px;" required/>
@@ -93,6 +94,7 @@ $title = "créer recette";
                     <option value="goutte">goutte(s)</option>
                     <option value="feuille">feuille(s)</option>
                     <option value="baton">baton(s)</option>
+                    <option value="cuillère">cuillère(s)</option>
                 </select>
                 
                 <input type="text" class= "ing" name="value" value="" style="width:279px;" required/>
@@ -114,6 +116,7 @@ $title = "créer recette";
                     <option value="goutte">goutte(s)</option>
                     <option value="feuille">feuille(s)</option>
                     <option value="baton">baton(s)</option>
+                    <option value="cuillère">cuillère(s)</option>
                 </select>
                     
                 <input type="text" class= "ing" name="value" value="" style="width:279px;" required/>
@@ -148,6 +151,7 @@ $title = "créer recette";
                         <option value="goutte">goutte(s)</option>
                         <option value="feuille">feuille(s)</option>
                         <option value="baton">baton(s)</option>
+                        <option value="cuillère">cuillère(s)</option>
                     </select>
                     
                     <input type="text" class= "ing" name="value" value="" style="width:279px;" required/>
