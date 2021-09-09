@@ -27,8 +27,13 @@ function addCocktail($Coc_Nom, $Coc_Recette, $Uti_Id, $Ing){ //creation d'un coc
         echo "Ingredient integré: ".$resultName[1]." - ";
        // require('/views/editCocktail.php');
       }
-      else{   
-        echo "Ingredient inconnu: ".$Ing[$i]." non integré - ";
+      else{ // on créé l'ingredient, on alimente la table composition Cocktail et le cocktail passe en controle
+        $etat='controle';
+        insertIngredient($Ing[$i]);
+        UpdateEtatCocktail($resultLastCoc[0],$etat);
+        $resultName = getIngredientByName($Ing[$i]); //on recup l'id de l'ingredient
+        createIngregientCocktail ($resultName[0], $resultLastCoc[0], $Ing[$i-2], $Ing[$i-1]);  
+        echo "Ingredient inconnu: ".$Ing[$i]." cocktail soumis à validation- ";
       }
 
     }
