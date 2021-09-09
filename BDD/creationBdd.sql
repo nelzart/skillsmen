@@ -50,6 +50,7 @@ CREATE TABLE IF NOT EXISTS `cocktail` (
   `Coc_Recette` text NOT NULL,
   `Coc_DateCreation` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `Uti_Id` int NOT NULL,
+  `Coc_Etat` varchar(10) NOT NULL,
   PRIMARY KEY (`Coc_Id`),
   KEY `Cocktail_Utilisateurs_FK` (`Uti_Id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=427 DEFAULT CHARSET=utf8;

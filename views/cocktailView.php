@@ -113,7 +113,7 @@ $title = "créer recette";
         mySection.style.padding = '40px 0px 0px 0px';
         document.querySelector('#comments').insertAdjacentHTML(
             'afterbegin',
-            `<form class="commentThis" action="" method="POST">
+            `<form class="commentThis" action="../index.php?action=addComment" method="post">
                 <textarea class="sendComment"  name="sendComment" charswidth="23" name="title" type="textarea" placeholder="Entrez votre commentaire. Soyez respectueux pour les autres comme pour vous." value=""></textarea>
                 <button style="box-shadow: 0px 0px 0px; width: 50px"  type="submit" id='send' value=""><svg id="sendIt" xmlns="http://www.w3.org/2000/svg" height="25px" viewBox="0 0 24 24" width="30px" fill="#000000"><path d="M0 0h24v24H0z" fill="none"/><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg></button>
             </form>
