@@ -276,3 +276,91 @@ function createComment ($content, $cocId, $uti){
         
     return $ups;
 }
+
+function deleteComment($cocId){
+    $db = dbConnect();   
+    $sth = $db -> prepare("DELETE FROM commentaires where Coc_Id = :cocId");
+
+    $sth -> execute (
+        [
+            ':cocId' => $cocId
+        ]
+        );
+}
+
+//fonctions likes//
+function createLike ($cocId, $uti){
+    $db = dbConnect();   
+    $sth = $db -> prepare("INSERT INTO likes (Coc_Id, Uti_Id) VALUES (:Coc_Id, :Uti_Id)");
+
+    if($sth -> execute (
+        [
+            ':Coc_Id' => $cocId,
+            ':Uti_Id' => $uti
+        ]
+        )){
+            echo "cocktail liké";
+            $ups = 1;
+        }
+        else{
+            echo "echec like";
+            $ups = 0;
+        }
+        
+    return $ups;
+}
+
+function deleteLike($cocId){
+    $db = dbConnect();   
+    $sth = $db -> prepare("DELETE FROM likes where Coc_Id = :cocId");
+
+    $sth -> execute (
+        [
+            ':cocId' => $cocId
+        ]
+        );
+}
+//fonctions favoris//
+function createFavori ($cocId, $uti){
+    $db = dbConnect();   
+    $sth = $db -> prepare("INSERT INTO favoris (Coc_Id, Uti_Id) VALUES (:Coc_Id, :Uti_Id)");
+
+    if($sth -> execute (
+        [
+            ':Coc_Id' => $cocId,
+            ':Uti_Id' => $uti
+        ]
+        )){
+            echo "cocktail mis en favori";
+            $ups = 1;
+        }
+        else{
+            echo "echec mise en favori";
+            $ups = 0;
+        }
+        
+    return $ups;
+}
+
+function deleteFavoriAll($cocId){
+    $db = dbConnect();   
+    $sth = $db -> prepare("DELETE FROM favoris where Coc_Id = :cocId");
+
+    $sth -> execute (
+        [
+            ':cocId' => $cocId
+        ]
+        );
+}
+
+function deleteFavoriOne($cocId,$UtiId){
+    $db = dbConnect();   
+    $sth = $db -> prepare("DELETE FROM favoris where Coc_Id = :cocId and Uti_Id = :UtiId");
+
+    $sth -> execute (
+        [
+            ':cocId' => $cocId,
+            ':UtiId' => $UtiId
+        ]
+        );
+}

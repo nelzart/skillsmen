@@ -16,8 +16,9 @@ try { // On essaie de faire des choses
                 throw new Exception('Aucun identifiant envoyé');
             }
         }
+
         elseif ($_GET['action'] == 'addCocktail') {
-           /* header("Location: views/editCocktail.php");
+            header("Location: views/editCocktail.php");
             //if(isset($_SESSION['Uti_Id'] ) && $_SESSION['Uti_Id']  > 0){
                 if(!empty($_POST['title']) && !empty($_POST['stepByStep']) ){
                     if(empty($_POST['Coc_Id'])){
@@ -31,8 +32,8 @@ try { // On essaie de faire des choses
                     // Autre exception
                     throw new Exception('Tous les champs ne sont pas remplis !');
                 }
-            }*/
-            updateCocktail(451);   //maj du cocktail
+            //}
+            //updateCocktail(451);   //maj du cocktail
         }
         elseif ($_GET['action'] == 'deleteCoc') {
             if (isset($_POST['Coc_Id'])) {
@@ -47,43 +48,29 @@ try { // On essaie de faire des choses
         elseif ($_GET['action'] == 'addComment') {
             //if (isset($_GET['idCoc']) && $_GET['idCoc'] > 0) {
                 if (!empty($_POST['sendComment'])) {
-                    addComment($_POST['sendComment'],451,2);
+                    addComment($_POST['sendComment'],452,2);
                 }
                 else {
                     // Autre exception
                     throw new Exception('Tous les champs ne sont pas remplis !');
                 }
-            /*}
-            else {
-                // Autre exception
-                throw new Exception('Aucun identifiant de billet envoyé');
-            }*/
+            //}
+            
         }
-       /* elseif ($_GET['action'] == 'connexion') {
-            if (isset($_GET['id']) && $_GET['id'] > 0) {
-                post();
-            }
-            else {
-                // Erreur ! On arrête tout, on envoie une exception, donc au saute directement au catch
-                throw new Exception('Aucun identifiant de billet envoyé');
-            }
-        }*/
-        
-        /*elseif ($_GET['action'] == 'addComment') {
-            if (isset($_GET['id']) && $_GET['id'] > 0) {
-                if (!empty($_POST['author']) && !empty($_POST['comment'])) {
-                    addComment($_GET['id'], $_POST['author'], $_POST['comment']);
+
+        elseif ($_GET['action'] == 'Favori') {
+            //if (isset($_GET['idCoc']) && $_GET['idCoc'] > 0) {
+                if (isset($_POST['favorite'])) {
+                    addFavori($_POST['favorite'],452,2);
                 }
                 else {
                     // Autre exception
-                    throw new Exception('Tous les champs ne sont pas remplis !');
+                    suppFavori(452,2);
                 }
-            }
-            else {
-                // Autre exception
-                throw new Exception('Aucun identifiant de billet envoyé');
-            }
-        }*/
+            //}
+            
+        }
+
     }
     else {
 
@@ -95,4 +82,4 @@ try { // On essaie de faire des choses
 }
 catch(Exception $e) { // S'il y a eu une erreur, alors...
     echo 'Erreur : ' . $e->getMessage();
-}   
+}  

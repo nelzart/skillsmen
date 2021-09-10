@@ -125,6 +125,9 @@ function deleteCocktailComplet($cocId){
   deleteIngredientsCoc($cocId);
   deleteImageCoc($cocId);
   unlink ("public/images/$cocNom");
+  deleteComment($cocId);
+  deleteFavoriAll($cocId);
+  deleteLike($cocId);
   deleteCocktail($cocId);
 }
 
@@ -255,4 +258,55 @@ function addComment($content,$cocId,$uti){
   else {
       //header('Location: index.php?action=post&id=' . $postId);
   }
+}
+
+function addLike($cocId,$uti){
+
+  /*$content = $_POST['title'];
+  $cocId = $_GET['Coc_Id'];*/
+  //$uti = $_SESSION['Uti_Id'];
+  $ups = createLike($cocId,$uti);
+  var_dump($ups);
+  if($ups === 0 ){
+    die('Impossible d\'ajouter le like !');
+  }
+  else {
+      //header('Location: index.php?action=post&id=' . $postId);
+  }
+}
+
+function addFavori($cocId,$uti){
+
+  /*$content = $_POST['title'];
+  $cocId = $_GET['Coc_Id'];*/
+  //$uti = $_SESSION['Uti_Id'];
+  $ups = createFavori($cocId,$uti);
+  var_dump($ups);
+  if($ups === 0 ){
+    die('Impossible d\'ajouter le favori !');
+  }
+  else {
+      //header('Location: index.php?action=post&id=' . $postId);
+  }
+}
+
+function suppFavori($cocId,$uti=NULL){
+
+  /*$content = $_POST['title'];
+  $cocId = $_GET['Coc_Id'];*/
+  //$uti = $_SESSION['Uti_Id'];
+  if ($uti != NULL){
+    deleteFavoriOne($cocId,$uti);
+  }
+  else{
+    deleteFavoriAll($cocId);
+  }
+ 
+  //var_dump($ups);
+  /*if($ups === 0 ){
+    die('Impossible d\'ajouter le favori !');
+  }
+  else {
+      //header('Location: index.php?action=post&id=' . $postId);
+  }*/
 }
