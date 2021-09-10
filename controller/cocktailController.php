@@ -212,7 +212,7 @@ function updateCocktail($cocId){
 
    // insertion de l'image
    if(isset($_FILES)){
-    echo "<script>alert(\"there is an image...\")</script>";
+    //echo "<script>alert(\"there is an image...\")</script>";
     $logo=$_FILES['photo']['name'];
     var_dump($logo);
     var_dump(date('Y-m-d H:i:s', time()));

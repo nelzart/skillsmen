@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : mer. 01 sep. 2021 à 22:55
+-- Généré le : ven. 10 sep. 2021 à 12:15
 -- Version du serveur :  8.0.21
 -- Version de PHP : 7.3.21
 
@@ -35,8 +35,6 @@ CREATE TABLE IF NOT EXISTS `categoriecocktail` (
   KEY `CategorieCocktail_Cocktail0_FK` (`Coc_Id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-
-
 -- --------------------------------------------------------
 
 --
@@ -53,9 +51,7 @@ CREATE TABLE IF NOT EXISTS `cocktail` (
   `Coc_Etat` varchar(10) NOT NULL,
   PRIMARY KEY (`Coc_Id`),
   KEY `Cocktail_Utilisateurs_FK` (`Uti_Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=427 DEFAULT CHARSET=utf8;
-
-
+) ENGINE=InnoDB AUTO_INCREMENT=452 DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -67,13 +63,13 @@ DROP TABLE IF EXISTS `commentaires`;
 CREATE TABLE IF NOT EXISTS `commentaires` (
   `Com_Id` int NOT NULL AUTO_INCREMENT,
   `Com_Contenu` text NOT NULL,
-  `Com_dateCreation` timestamp NOT NULL,
+  `Com_dateCreation` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `Coc_Id` int NOT NULL,
   `Uti_Id` int NOT NULL,
   PRIMARY KEY (`Com_Id`),
   KEY `Commentaires_Cocktail_FK` (`Coc_Id`),
   KEY `Commentaires_Utilisateurs0_FK` (`Uti_Id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -90,8 +86,6 @@ CREATE TABLE IF NOT EXISTS `compositioncocktail` (
   PRIMARY KEY (`Ing_Id`,`Coc_Id`),
   KEY `CompositionCocktail_Cocktail0_FK` (`Coc_Id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-
 
 -- --------------------------------------------------------
 
@@ -139,14 +133,12 @@ CREATE TABLE IF NOT EXISTS `images` (
   `Img_Id` int NOT NULL AUTO_INCREMENT,
   `Img_Nom` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `Img_Adresse` varchar(100) NOT NULL,
-  `Coc_Id` int NOT NULL,
-  `Uti_Id` int NOT NULL,
+  `Coc_Id` int DEFAULT NULL,
+  `Uti_Id` int DEFAULT NULL,
   PRIMARY KEY (`Img_Id`),
   KEY `Images_Cocktail_AK` (`Coc_Id`) USING BTREE,
   KEY `Images_Utilisateurs0_AK` (`Uti_Id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=49 DEFAULT CHARSET=utf8;
-
-
+) ENGINE=InnoDB AUTO_INCREMENT=63 DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -160,7 +152,7 @@ CREATE TABLE IF NOT EXISTS `ingredients` (
   `Ing_Nom` varchar(100) NOT NULL,
   `Ing_Categorie` varchar(50) NOT NULL,
   PRIMARY KEY (`Ing_Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=418 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=427 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `ingredients`
@@ -655,6 +647,36 @@ CREATE TABLE IF NOT EXISTS `utilisateurs` (
 
 INSERT INTO `utilisateurs` (`Uti_Id`, `Uti_Pseudo`, `Uti_Login`, `Uti_Mdp`, `Uti_Droit`, `Uti_DateInscription`) VALUES
 (2, 'fred', 'fred@fred.fr', '12345678', 'contributeur', '2021-07-30 15:00:58');
+
+-- --------------------------------------------------------
+
+--
+-- Doublure de structure pour la vue `v_cocktailcomplet`
+-- (Voir ci-dessous la vue réelle)
+--
+DROP VIEW IF EXISTS `v_cocktailcomplet`;
+CREATE TABLE IF NOT EXISTS `v_cocktailcomplet` (
+`Coc_Id` int
+,`Uti_Id` int
+,`Coc_Nom` varchar(100)
+,`Coc_Recette` text
+,`Ing_Id` int
+,`Ing_Nom` varchar(100)
+,`comp_Quantite` float
+,`comp_Unite` varchar(100)
+,`Ing_Categorie` varchar(50)
+,`categorie` varchar(100)
+);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la vue `v_cocktailcomplet`
+--
+DROP TABLE IF EXISTS `v_cocktailcomplet`;
+
+DROP VIEW IF EXISTS `v_cocktailcomplet`;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `v_cocktailcomplet`  AS  select `coc`.`Coc_Id` AS `Coc_Id`,`coc`.`Uti_Id` AS `Uti_Id`,`coc`.`Coc_Nom` AS `Coc_Nom`,`coc`.`Coc_Recette` AS `Coc_Recette`,`ing`.`Ing_Id` AS `Ing_Id`,`ing`.`Ing_Nom` AS `Ing_Nom`,`compcoc`.`comp_Quantite` AS `comp_Quantite`,`compcoc`.`comp_Unite` AS `comp_Unite`,`ing`.`Ing_Categorie` AS `Ing_Categorie`,`typcoc`.`Type_Libelle` AS `categorie` from ((((`cocktail` `coc` join `compositioncocktail` `compcoc` on((`coc`.`Coc_Id` = `compcoc`.`Coc_Id`))) join `ingredients` `ing` on((`ing`.`Ing_Id` = `compcoc`.`Ing_Id`))) left join `categoriecocktail` `catcoc` on((`catcoc`.`Coc_Id` = `coc`.`Coc_Id`))) join `typecocktail` `typcoc` on((`typcoc`.`Typ_Id` = `catcoc`.`Typ_Id`))) ;
 
 --
 -- Contraintes pour les tables déchargées
