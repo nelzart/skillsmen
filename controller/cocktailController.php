@@ -133,7 +133,7 @@ function updateCocktail($cocId){
   deleteIngredientsCoc($cocId);
   deleteImageCoc($cocId);
   $cocNom = $_POST['title'];
-  $CocRecette = $_POST['Coc_Recette'];
+  $CocRecette = $_POST['stepByStep'];
   unlink ("public/images/$cocNom");
   updateTblCocktail($cocId,$cocNom, $CocRecette);
 

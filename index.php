@@ -17,7 +17,7 @@ try { // On essaie de faire des choses
             }
         }
         elseif ($_GET['action'] == 'addCocktail') {
-            header("Location: views/editCocktail.php");
+           /* header("Location: views/editCocktail.php");
             //if(isset($_SESSION['Uti_Id'] ) && $_SESSION['Uti_Id']  > 0){
                 if(!empty($_POST['title']) && !empty($_POST['stepByStep']) ){
                     if(empty($_POST['Coc_Id'])){
@@ -31,7 +31,8 @@ try { // On essaie de faire des choses
                     // Autre exception
                     throw new Exception('Tous les champs ne sont pas remplis !');
                 }
-           // }
+            }*/
+            updateCocktail(451);   //maj du cocktail
         }
         elseif ($_GET['action'] == 'deleteCoc') {
             if (isset($_POST['Coc_Id'])) {
@@ -46,7 +47,7 @@ try { // On essaie de faire des choses
         elseif ($_GET['action'] == 'addComment') {
             //if (isset($_GET['idCoc']) && $_GET['idCoc'] > 0) {
                 if (!empty($_POST['sendComment'])) {
-                    addComment($_POST['sendComment'],404,2);
+                    addComment($_POST['sendComment'],451,2);
                 }
                 else {
                     // Autre exception
