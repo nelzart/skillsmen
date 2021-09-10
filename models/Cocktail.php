@@ -71,12 +71,14 @@ function deleteCocktail($cocId){
 function updateTblCocktail($cocId,$Coc_Nom, $Coc_Recette){
     $db = dbConnect();   
     $sth = $db -> prepare("UPDATE cocktail SET Coc_Nom = :Coc_Nom, Coc_Recette = :Coc_Recette, Coc_DateCreation = :Coc_DateCreation where Coc_Id=:Coc_Id");
+    date_default_timezone_set('Europe/Amsterdam');
+    $date= date('Y-m-d H:i:s', time());
     if($sth -> execute (
         [
             ':Coc_Nom' => $Coc_Nom,
             ':Coc_Recette' => $Coc_Recette,
             ':Coc_Id'=> $cocId,
-            ':Coc_DateCreation' => getdate()
+            ':Coc_DateCreation' => $date
         ]
     ))
     {

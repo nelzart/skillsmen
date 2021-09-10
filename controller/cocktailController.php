@@ -136,7 +136,7 @@ function updateCocktail($cocId){
   $CocRecette = $_POST['stepByStep'];
   unlink ("public/images/$cocNom");
   updateTblCocktail($cocId,$cocNom, $CocRecette);
-
+  UpdateEtatCocktail($cocId,'publie');
   $Ing = explode(",", $_POST['tabIng'][0]);//on met $Ing en tab
   
   for($i=0;$i<sizeof($Ing);$i++){
@@ -215,6 +215,7 @@ function updateCocktail($cocId){
     echo "<script>alert(\"there is an image...\")</script>";
     $logo=$_FILES['photo']['name'];
     var_dump($logo);
+    var_dump(date('Y-m-d H:i:s', time()));
     if ($logo != "") {
 
       require "uploadImage.php";
