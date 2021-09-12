@@ -966,7 +966,7 @@ svg,
 }
 
 .footer {
-    position: static;
+    position: static ;
     display: flex;
     flex-direction: column;
     justify-content: center;

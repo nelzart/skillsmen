@@ -4,18 +4,8 @@ $title = "Accueil";
 
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../public/myGlobalStyle.css">
 
-    <title><?= $title ?></title>
-</head>
-<body>
-    <?php include('../components/menu.php'); ?>
+    <?php include('./components/menu.php'); ?>
 
     <div class="container">
 
@@ -25,53 +15,31 @@ $title = "Accueil";
             <p style="text-align:center; padding: 0px 40px;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum quidem aliquid vel tenetur perspiciatis quis labore quasi ea officia ipsam? Eaque libero non commodi quae hic tenetur, sint beatae animi?</p>
         </div>
 
-    <div class="galerie">
-        <div id="newSection" class="newSection">
-            <div class="sectionTitle"></div>
-            <h2>base $maVariable</h2>
-        </div>
-        <div class="result">
+        <?php 
+        $catCoc = [];
+        foreach($cats as $cat){
+            array_push($catCoc, $cat);
+        }
+            foreach($cocs as $coc){
 
-            <a href=""><div class="tuiles myCover" style="background-image:url('../public/images/cocktails.jpg')">
-            <div class="gradient"> <h2>• tuile •</h2></div></div></a>
-            <a href=""><div class="tuiles myCover" style="background-image:url('../public/images/cocktails.jpg')">
-            <div class="gradient"> <h2>• tuile •</h2></div></div></a>
-            <a href=""><div class="tuiles myCover" style="background-image:url('../public/images/cocktails.jpg')">
-            <div class="gradient"> <h2>• tuile •</h2></div></div></a>
-            <a href=""><div class="tuiles myCover" style="background-image:url('../public/images/cocktails.jpg')">
-            <div class="gradient"> <h2>• tuile •</h2></div></div></a>
-            <a href=""><div class="tuiles myCover" style="background-image:url('../public/images/cocktails.jpg')">
-            <div class="gradient"> <h2>• tuile •</h2></div></div></a>
-
-        </div>
-    </div>
-
-    <div class="galerie">
-        <div id="newSection" class="newSection">
-            <div class="sectionTitle"></div>
-            <h2> $maVariable </h2>
-        </div>
-        <div class="result">
-
-            <a href=""><div class="tuiles myCover" style="background-image:url('../public/images/cocktails.jpg')">
-            <div class="gradient"> <h2>• tuile •</h2></div></div></a>
-            <a href=""><div class="tuiles myCover" style="background-image:url('../public/images/cocktails.jpg')">
-            <div class="gradient"> <h2>• tuile •</h2></div></div></a>
-            <a href=""><div class="tuiles myCover" style="background-image:url('../public/images/cocktails.jpg')">
-            <div class="gradient"> <h2>• tuile •</h2></div></div></a>
-            <a href=""><div class="tuiles myCover" style="background-image:url('../public/images/cocktails.jpg')">
-            <div class="gradient"> <h2>• tuile •</h2></div></div></a>
-            <a href=""><div class="tuiles myCover" style="background-image:url('../public/images/cocktails.jpg')">
-            <div class="gradient"> <h2>• tuile •</h2></div></div></a>
-
-        </div>
-    </div>
+        echo '<div class="galerie">
+                <div id="newSection" class="newSection">
+                    <div class="sectionTitle"></div>
+                    <h2>base '.$coc[9].'</h2>
+                </div>
+                <div class="result">                          
+            
+                <a href=""><div class="tuiles myCover" style="background-image:url(\'./public/images/'.$coc[11].'\')">
+                <div class="gradient"> <h2>• '.$coc[1].' •</h2></div></div></a>';
+            } 
+        
+    ?>
 
     </div>
+
 
     <?php 
-    include('../components/footer.php');
+    include('./components/footer.php');
 ?>
-</body>
-</html>
+
 

@@ -1,9 +1,9 @@
+
 <?php
 //require('controller/users/createUser.php');
 //require('controller/users/manageUser.php');
-echo "index";
-require('controller/cocktailController.php');
-
+// echo "index";
+require'controller/cocktailController.php';
 
 try { // On essaie de faire des choses
     if (isset($_GET['action'])) {
@@ -75,8 +75,9 @@ try { // On essaie de faire des choses
     else {
 
         //page d'accueil;
-        header("Location: views/template.php");
+        // header("Location: views/template.php");
         //require('views/template.php');
+        listCocktailsAccueil();
 
     }
 }

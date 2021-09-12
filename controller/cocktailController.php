@@ -1,6 +1,6 @@
 <?php
 //$Ing = $_POST['tabIng'];
-var_dump($_POST);
+// var_dump($_POST);
 //$Uti_Id = 2;  //SESSION_Uti_Id;
 require('models/Cocktail.php');
 
@@ -312,11 +312,12 @@ function suppFavori($cocId,$uti=NULL){
 }
 
 function listCocktailsAccueil(){ //uniquement les publiés
-  $coc = getCocAll();
-  var_dump($coc);
-  var_dump($coc[0]);
-  var_dump($coc[1][9]);
+  $cocs = getCocAll();
+  $cats = getCatCocAll();
+  // var_dump($coc);
+  // var_dump($coc[0]);
+  // var_dump($coc[1][9]);
   
-  return $coc;
+  require('./views/template.php');
 }
 

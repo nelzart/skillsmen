@@ -294,6 +294,23 @@ function getCatCocByIdCoc($cocid){
     }
 }
 
+function getCatCocAll(){
+    $db = dbConnect();   
+    $sth = $db -> prepare("SELECT * from typecocktail");
+
+    if($sth -> execute ()
+    ){
+        //echo "categorie ok";
+        $ups = $sth->fetchAll();
+    
+        return $ups; 
+    }
+    else{
+        echo " pb";
+
+    }
+}
+
 
 function getUtiCocByIdCoc($utiId){
     $db = dbConnect();   
