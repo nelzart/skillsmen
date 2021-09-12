@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,11 +9,10 @@
 
 </head>
 <body>
-   
     
     <div class="navbar">
 
-        <div class="myLogo"><?php require('./public/icons/SVG/logo typo.svg'); ?></div>
+        <div class="myLogo"><?php require('./public/icons/SVG/logo_typo.svg'); ?></div>
     
         <div class="userAction">
 

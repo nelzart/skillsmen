@@ -30,12 +30,12 @@ $title = "Accueil";
                 <div class="result">                          
             
                 <a href=""><div class="tuiles myCover" style="background-image:url(\'./public/images/'.$coc[11].'\')">
-                <div class="gradient"> <h2>• '.$coc[1].' •</h2></div></div></a>';
+                <div class="gradient"> <h2>• '.$coc[1].' •</h2></div></div></a></div></div>';
             } 
         
     ?>
 
-    </div>
+        </div>
 
 
     <?php 

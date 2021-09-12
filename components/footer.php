@@ -1,6 +1,3 @@
-
-    </body>
-    </html>
     <div class="footer">
         
         <a href=""><div class="buttonScroll iconCircle"> 
@@ -56,7 +53,8 @@
         </div>
     
     </div>
-
+</body>
+</html>
     
 
     
