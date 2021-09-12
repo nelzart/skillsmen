@@ -183,13 +183,15 @@ $title = "créer recette";
     <input type="hidden" name="tabIng[]" id="tabIng" value = "" ><!--champs non affiché qui permet de poster les ingredients en tableau-->
     
     <input type="hidden" name="catCoc[]" id="catCoc" value = ""><!--champs non affiché qui permet de poster les categories selectionnées en tableau-->
-
-    <div class="allButtons">
-        <button class="remove"><svg id="close" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24" fill="#000000"><path fill="none"/><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg></button>
-                
-        <button class="iconCircleSend" height="60px" width="60px" type="submit" id='send' onclick="ing()" value=""><svg id="sendIt" xmlns="http://www.w3.org/2000/svg" height="30px" viewBox="0 0 24 24" width="30px" fill="#000000"><path d="M0 0h24v24H0z" fill="none"/><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg></button>    
+    <div class="veryAll">
+        <div class="allButtons">
+            
+            <button class="remove"><svg id="close" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24" fill="#000000"><path fill="none"/><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg></button>
+            
+            <button class="iconCircleSend" height="60px" width="60px" type="submit" id='send' onclick="ing()" value=""><svg id="sendIt" xmlns="http://www.w3.org/2000/svg" height="30px" viewBox="0 0 24 24" width="30px" fill="#000000"><path d="M0 0h24v24H0z" fill="none"/><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg></button>    
+        </div>
+        <button onclick=deleteCocktailComplet($coc_id) class="deleteComplet">Supprimer le cocktail</button>
     </div>
-
     <script>
         
     function ing(){//permet de regrouper les ingredients dans un tableau pour le poster qd on clic sur envoyer
