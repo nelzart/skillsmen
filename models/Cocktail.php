@@ -25,6 +25,24 @@ function createCocktail ($Coc_Nom, $Coc_Recette, $Uti_Id){
  
 }
 
+function getCocktailByIdCoc($cocId){
+    $db = dbConnect();   
+    $sth = $db -> prepare(" SELECT * from cocktail where Coc_Id = :Coc_Id)");
+
+    if($sth -> execute (
+        [
+            ':Coc_Id' => $cocId
+        ]
+    )
+    ){$ups = $sth->fetch();
+        
+        //echo "ok";
+        return $ups; 
+    }
+    else{
+        //echo "pas ok";
+    }
+}
 
 function getCocAll(){ //sauf ceux en controle
     $db = dbConnect();   
