@@ -25,6 +25,35 @@ function createCocktail ($Coc_Nom, $Coc_Recette, $Uti_Id){
  
 }
 
+
+function getCocAll(){ //sauf ceux en controle
+    $db = dbConnect();   
+    $sth = $db -> prepare("SELECT * FROM cocktail co 
+                                    left join categoriecocktail  ca on Ca.Coc_Id = co.Coc_Id
+                                    left join typecocktail tc on tc.Typ_Id = ca.Typ_Id
+                                    left join images im on im.Coc_id = co.Coc_Id
+                           where Coc_Etat=:Coc_Etat ORDER BY Coc_DateCreation DESC, Typ_Libelle");
+
+    if($sth -> execute (
+        [
+        ':Coc_Etat' => 'publie'
+        ]
+    )
+    ){
+        $ups = $sth->fetchAll();
+        //var_dump($ups);
+        
+        //echo $resultat[0];
+        return $ups; 
+    }
+    else{
+      
+        throw new Exception('pb');
+    }
+
+}
+
+
 function getLastCocktail($Uti_Id){
     $db = dbConnect();   
     $sth = $db -> prepare(" SELECT * from cocktail c left join compositioncocktail cc on cc.Coc_Id= c.Coc_Id 
@@ -89,6 +118,7 @@ function updateTblCocktail($cocId,$Coc_Nom, $Coc_Recette){
     }
 }
 
+
 //fonctions ingredient//
 function createIngregientCocktail ($Ing_Id, $Coc_Id, $Comp_Quantite, $Comp_Unite){
     $db = dbConnect();   
@@ -118,7 +148,7 @@ function getAllIngredients(){
         var_dump($results);
         
         //echo $resultat[0];
-        $results; 
+        return $results; 
     }
     else{
       
@@ -149,6 +179,25 @@ function getIngredientByName($name){
     }*/
 }
 
+function getIngByIdcoc($cocId){ //sauf ceux en controle
+    $db = dbConnect();   
+    $sth = $db -> prepare("SELECT * FROM cocktail where Coc_Etat=:Coc_Etat ORDER BY Coc_DateCreation DESC");
+
+    if($sth -> execute (        [
+        ':Coc_Etat' => 'publie'
+    ])){
+        $ups = $sth->fetchAll();
+        var_dump($ups);
+        
+        //echo $resultat[0];
+        return $ups; 
+    }
+    else{
+      
+        throw new Exception('pb');
+    }
+
+}
 function insertIngredient($nom){
     $db = dbConnect();   
     $sth = $db -> prepare("INSERT INTO ingredients (Ing_Nom,Ing_Categorie) VALUES(:Ing_Nom,:Ing_Categorie)");
@@ -223,6 +272,49 @@ function getTypeCocktailByName($Type_Libelle){
     }
 }
 
+
+function getCatCocByIdCoc($cocid){
+    $db = dbConnect();   
+    $sth = $db -> prepare("SELECT * from categoriecocktail where Coc_Id = :Coc_Id");
+
+    if($sth -> execute (
+        [
+            ':Coc_Id' => $cocid
+        ]
+    )
+    ){
+        //echo "categorie ok";
+        $ups = $sth->fetchAll();
+    
+        return $ups; 
+    }
+    else{
+        echo " pb";
+
+    }
+}
+
+
+function getUtiCocByIdCoc($utiId){
+    $db = dbConnect();   
+    $sth = $db -> prepare("SELECT * from utilisateur where Uti_Id = :Uti_Id");
+
+    if($sth -> execute (
+        [
+            ':Uti_Id' => $utiId
+        ]
+    )
+    ){
+        //echo "categorie ok";
+        $ups = $sth->fetch();
+    
+        return $ups; 
+    }
+    else{
+        echo " pb";
+
+    }
+}
 //fonction images//
 function createCocImage($nom,$adresse,$cocId,$utiId){
     $db = dbConnect();
@@ -254,6 +346,26 @@ function deleteImageCoc($cocId){
         );
 }
 
+function getimgCocByIdCoc($cocid){
+    $db = dbConnect();   
+    $sth = $db -> prepare("SELECT * from images where Coc_Id = :Coc_Id");
+
+    if($sth -> execute (
+        [
+            ':Coc_Id' => $cocid
+        ]
+    )
+    ){
+        //echo "categorie ok";
+        $ups = $sth->fetchAll();
+    
+        return $ups; 
+    }
+    else{
+        echo " pb";
+
+    }
+}
 //fonctions commentaire//
 function createComment ($content, $cocId, $uti){
     $db = dbConnect();   

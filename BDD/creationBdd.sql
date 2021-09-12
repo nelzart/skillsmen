@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : ven. 10 sep. 2021 à 12:15
+-- Généré le : Dim 12 sep. 2021 à 10:04
 -- Version du serveur :  8.0.21
 -- Version de PHP : 7.3.21
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de données : `skillsman`
+-- Base de données : `skillsman_import`
 --
 
 -- --------------------------------------------------------
@@ -34,6 +34,16 @@ CREATE TABLE IF NOT EXISTS `categoriecocktail` (
   PRIMARY KEY (`Typ_Id`,`Coc_Id`),
   KEY `CategorieCocktail_Cocktail0_FK` (`Coc_Id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `categoriecocktail`
+--
+
+INSERT INTO `categoriecocktail` (`Typ_Id`, `Coc_Id`) VALUES
+(1, 456),
+(3, 456),
+(3, 457),
+(8, 458);
 
 -- --------------------------------------------------------
 
@@ -51,7 +61,20 @@ CREATE TABLE IF NOT EXISTS `cocktail` (
   `Coc_Etat` varchar(10) NOT NULL,
   PRIMARY KEY (`Coc_Id`),
   KEY `Cocktail_Utilisateurs_FK` (`Uti_Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=452 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=459 DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `cocktail`
+--
+
+INSERT INTO `cocktail` (`Coc_Id`, `Coc_Nom`, `Coc_Recette`, `Coc_DateCreation`, `Uti_Id`, `Coc_Etat`) VALUES
+(452, 'modif_delamort', 'ccccc', '2021-09-10 19:23:30', 2, 'publie'),
+(453, 'recette 2', 'eeee', '2021-09-10 16:33:35', 2, 'controle'),
+(454, 'testzzzz', 'fffff', '2021-09-12 09:08:35', 2, 'publie'),
+(455, 'aaaaa', 'fffff', '2021-09-12 09:10:14', 2, 'publie'),
+(456, 'aaaaa', 'fffff', '2021-09-12 09:12:31', 2, 'publie'),
+(457, 'ggg', 'drrr', '2021-09-12 09:15:36', 2, 'publie'),
+(458, 'ddd', 'ddddd', '2021-09-12 09:35:51', 2, 'publie');
 
 -- --------------------------------------------------------
 
@@ -69,7 +92,14 @@ CREATE TABLE IF NOT EXISTS `commentaires` (
   PRIMARY KEY (`Com_Id`),
   KEY `Commentaires_Cocktail_FK` (`Coc_Id`),
   KEY `Commentaires_Utilisateurs0_FK` (`Uti_Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `commentaires`
+--
+
+INSERT INTO `commentaires` (`Com_Id`, `Com_Contenu`, `Com_dateCreation`, `Coc_Id`, `Uti_Id`) VALUES
+(18, 'azerty', '2021-09-10 17:13:23', 452, 2);
 
 -- --------------------------------------------------------
 
@@ -86,6 +116,23 @@ CREATE TABLE IF NOT EXISTS `compositioncocktail` (
   PRIMARY KEY (`Ing_Id`,`Coc_Id`),
   KEY `CompositionCocktail_Cocktail0_FK` (`Coc_Id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `compositioncocktail`
+--
+
+INSERT INTO `compositioncocktail` (`Ing_Id`, `Coc_Id`, `comp_Quantite`, `comp_Unite`) VALUES
+(1, 452, 0, 'cl'),
+(1, 457, 2, 'cl'),
+(4, 454, 2, 'cl'),
+(4, 455, 2, 'cl'),
+(4, 456, 2, 'cl'),
+(4, 457, 2, 'cl'),
+(5, 455, 1, 'cl'),
+(5, 456, 1, 'cl'),
+(9, 458, 2, 'goutte'),
+(427, 453, 1, 'cl'),
+(428, 453, 2, 'tranche');
 
 -- --------------------------------------------------------
 
@@ -114,7 +161,7 @@ CREATE TABLE IF NOT EXISTS `discuter` (
 DROP TABLE IF EXISTS `favoris`;
 CREATE TABLE IF NOT EXISTS `favoris` (
   `Fav_Id` int NOT NULL AUTO_INCREMENT,
-  `Fav_DateCreation` date NOT NULL,
+  `Fav_DateCreation` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `Coc_Id` int NOT NULL,
   `Uti_Id` int NOT NULL,
   PRIMARY KEY (`Fav_Id`),
@@ -138,7 +185,19 @@ CREATE TABLE IF NOT EXISTS `images` (
   PRIMARY KEY (`Img_Id`),
   KEY `Images_Cocktail_AK` (`Coc_Id`) USING BTREE,
   KEY `Images_Utilisateurs0_AK` (`Uti_Id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=63 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=75 DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `images`
+--
+
+INSERT INTO `images` (`Img_Id`, `Img_Nom`, `Img_Adresse`, `Coc_Id`, `Uti_Id`) VALUES
+(65, '453_coc.jpg', 'public/images', 453, 2),
+(70, '452_coc.jpg', 'public/images', 452, 2),
+(71, '454_coc.jpg', 'public/images', 454, 2),
+(72, '455_coc.jpg', 'public/images', 455, 2),
+(73, '456_coc.jpg', 'public/images', 456, 2),
+(74, '458_coc.jpg', 'public/images', 458, 2);
 
 -- --------------------------------------------------------
 
@@ -152,7 +211,7 @@ CREATE TABLE IF NOT EXISTS `ingredients` (
   `Ing_Nom` varchar(100) NOT NULL,
   `Ing_Categorie` varchar(50) NOT NULL,
   PRIMARY KEY (`Ing_Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=427 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=430 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `ingredients`
@@ -575,7 +634,10 @@ INSERT INTO `ingredients` (`Ing_Id`, `Ing_Nom`, `Ing_Categorie`) VALUES
 (414, 'vin', 'alcool'),
 (415, 'Vodka ', 'alcool'),
 (416, 'whisky ', 'alcool'),
-(417, 'yuzu', 'sirop');
+(417, 'yuzu', 'sirop'),
+(427, 'huile', 'controle'),
+(428, 'azerty', 'controle'),
+(429, 'ngjtuyh', 'controle');
 
 -- --------------------------------------------------------
 
@@ -586,7 +648,7 @@ INSERT INTO `ingredients` (`Ing_Id`, `Ing_Nom`, `Ing_Categorie`) VALUES
 DROP TABLE IF EXISTS `likes`;
 CREATE TABLE IF NOT EXISTS `likes` (
   `Lik_Id` int NOT NULL AUTO_INCREMENT,
-  `Lik_DateCreation` date NOT NULL,
+  `Lik_DateCreation` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `Coc_Id` int NOT NULL,
   `Uti_Id` int NOT NULL,
   PRIMARY KEY (`Lik_Id`),
@@ -603,7 +665,7 @@ CREATE TABLE IF NOT EXISTS `likes` (
 DROP TABLE IF EXISTS `typecocktail`;
 CREATE TABLE IF NOT EXISTS `typecocktail` (
   `Typ_Id` int NOT NULL AUTO_INCREMENT,
-  `Type_Libelle` varchar(100) NOT NULL,
+  `Typ_Libelle` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   PRIMARY KEY (`Typ_Id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
 
@@ -611,7 +673,7 @@ CREATE TABLE IF NOT EXISTS `typecocktail` (
 -- Déchargement des données de la table `typecocktail`
 --
 
-INSERT INTO `typecocktail` (`Typ_Id`, `Type_Libelle`) VALUES
+INSERT INTO `typecocktail` (`Typ_Id`, `Typ_Libelle`) VALUES
 (1, 'tequila'),
 (2, 'whiskey'),
 (3, 'gin'),
@@ -651,35 +713,7 @@ INSERT INTO `utilisateurs` (`Uti_Id`, `Uti_Pseudo`, `Uti_Login`, `Uti_Mdp`, `Uti
 -- --------------------------------------------------------
 
 --
--- Doublure de structure pour la vue `v_cocktailcomplet`
--- (Voir ci-dessous la vue réelle)
---
-DROP VIEW IF EXISTS `v_cocktailcomplet`;
-CREATE TABLE IF NOT EXISTS `v_cocktailcomplet` (
-`Coc_Id` int
-,`Uti_Id` int
-,`Coc_Nom` varchar(100)
-,`Coc_Recette` text
-,`Ing_Id` int
-,`Ing_Nom` varchar(100)
-,`comp_Quantite` float
-,`comp_Unite` varchar(100)
-,`Ing_Categorie` varchar(50)
-,`categorie` varchar(100)
-);
 
--- --------------------------------------------------------
-
---
--- Structure de la vue `v_cocktailcomplet`
---
-DROP TABLE IF EXISTS `v_cocktailcomplet`;
-
-DROP VIEW IF EXISTS `v_cocktailcomplet`;
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `v_cocktailcomplet`  AS  select `coc`.`Coc_Id` AS `Coc_Id`,`coc`.`Uti_Id` AS `Uti_Id`,`coc`.`Coc_Nom` AS `Coc_Nom`,`coc`.`Coc_Recette` AS `Coc_Recette`,`ing`.`Ing_Id` AS `Ing_Id`,`ing`.`Ing_Nom` AS `Ing_Nom`,`compcoc`.`comp_Quantite` AS `comp_Quantite`,`compcoc`.`comp_Unite` AS `comp_Unite`,`ing`.`Ing_Categorie` AS `Ing_Categorie`,`typcoc`.`Type_Libelle` AS `categorie` from ((((`cocktail` `coc` join `compositioncocktail` `compcoc` on((`coc`.`Coc_Id` = `compcoc`.`Coc_Id`))) join `ingredients` `ing` on((`ing`.`Ing_Id` = `compcoc`.`Ing_Id`))) left join `categoriecocktail` `catcoc` on((`catcoc`.`Coc_Id` = `coc`.`Coc_Id`))) join `typecocktail` `typcoc` on((`typcoc`.`Typ_Id` = `catcoc`.`Typ_Id`))) ;
-
---
--- Contraintes pour les tables déchargées
 --
 
 --

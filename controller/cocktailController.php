@@ -310,3 +310,12 @@ function suppFavori($cocId,$uti=NULL){
       //header('Location: index.php?action=post&id=' . $postId);
   }*/
 }
+
+function listCocktailsAccueil(){ //uniquement les publiés
+  $coc = getCocAll();
+  var_dump($coc);
+  var_dump($coc[0]);
+  var_dump($coc[1][9]);
+  
+  return $coc;
+}
