@@ -16,33 +16,29 @@ $title = "Accueil";
         </div>
 
         <?php 
-        $catCoc = [];
-        foreach($cats as $cat){
-            array_push($catCoc, $cat);
-        }
-            foreach($cocs as $coc){
 
+        foreach($cats as $cat){
+            
         echo '<div class="galerie">
                 <div id="newSection" class="newSection">
                     <div class="sectionTitle"></div>
-                    <h2>base '.$coc[9].'</h2>
+                    <h2>base '.$cat.'</h2>
                 </div>
-                <div class="result">                          
-            
-                <a href=""><div class="tuiles myCover" style="background-image:url(\'./public/images/'.$coc[11].'\')">
+                <div class="result">';                          
+            foreach($cocs as $coc){ 
+                if($cat == $coc[9]){
+                echo '<a href=""><div class="tuiles myCover" style="background-image:url(\'./public/images/'.$coc[11].'\')">
                 <div class="gradient"> <h2>• '.$coc[1].' •</h2></div>
                 </div></a>
-                </div>
-            </div>';
-            } 
+                ';
+        }}}
         
-    ?>
+    ?>  </div>
+            </div>
 
-        </div>
+        </div> </div>
 
 
     <?php 
     include('./components/footer.php');
 ?>
-
-

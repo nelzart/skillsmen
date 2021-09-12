@@ -313,7 +313,12 @@ function suppFavori($cocId,$uti=NULL){
 
 function listCocktailsAccueil(){ //uniquement les publiés
   $cocs = getCocAll();
-  $cats = getCatCocAll();
+  $cats = [];
+  foreach($cocs as $coc){
+    if (!in_array($coc[9], $cats) && ($coc[9]!== NULL)) {
+        array_push($cats,$coc[9]);
+    }
+}
   // var_dump($coc);
   // var_dump($coc[0]);
   // var_dump($coc[1][9]);
