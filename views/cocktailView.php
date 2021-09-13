@@ -73,7 +73,7 @@ $title =  $coc[1]  ;
         </script>
 
         <div class="thoseSteps">
-            <h3 class="unvariable">Une recette proposée par <span class="author">Userman </span></h3> <br>
+            <h3 class="unvariable">Une recette proposée par <span class="author"><?= $coc[7] ?> </span></h3> <br>
             <p><?= $coc[2] ?></p><br>
                         
         </div>

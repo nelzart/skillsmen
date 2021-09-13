@@ -27,7 +27,7 @@ function createCocktail ($Coc_Nom, $Coc_Recette, $Uti_Id){
 
 function getCocktailByIdCoc($cocId){
     $db = dbConnect();   
-    $sth = $db -> prepare(" SELECT * from cocktail where Coc_Id = :Coc_Id");
+    $sth = $db -> prepare(" SELECT * from cocktail co inner join utilisateurs  uti on co.Uti_Id = uti.Uti_Id where Coc_Id = :Coc_Id");
 
     if($sth -> execute (
         [
@@ -50,6 +50,7 @@ function getCocAll(){ //sauf ceux en controle
                                     left join categoriecocktail  ca on Ca.Coc_Id = co.Coc_Id
                                     left join typecocktail tc on tc.Typ_Id = ca.Typ_Id
                                     left join images im on im.Coc_id = co.Coc_Id
+                                   
                            where Coc_Etat=:Coc_Etat ORDER BY Coc_DateCreation DESC, Typ_Libelle");
 
     if($sth -> execute (
