@@ -318,7 +318,7 @@ function listCocktailsAccueil(){ //uniquement les publiés
     if (!in_array($coc[9], $cats) && ($coc[9]!== NULL)) {
         array_push($cats,$coc[9]);
     }
-}
+  }
   // var_dump($coc);
   // var_dump($coc[0]);
   // var_dump($coc[1][9]);
@@ -326,3 +326,11 @@ function listCocktailsAccueil(){ //uniquement les publiés
   require('./views/template.php');
 }
 
+function getCocktail(){
+  $coc = getCocktailByIdCoc($_GET['id']);
+  $ing = getIngByIdcoc($_GET['id']);
+  // $cat = getCatCocByIdCoc($_GET['id']);
+  $img = getimgCocByIdCoc($_GET['id']);
+  // $com = getCommentbyIdCoc($_GET['id']);
+  require('./views/cocktailView.php');
+}

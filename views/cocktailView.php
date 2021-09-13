@@ -1,6 +1,6 @@
 
 <?php
-$title = "créer recette";
+$title =  $coc[1]  ;
 
 ?>
 
@@ -10,19 +10,21 @@ $title = "créer recette";
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../public/myGlobalStyle.css">
+    <link rel="stylesheet" href="./public/myGlobalStyle.css">
 
     <title><?= $title ?></title>
 </head>
 <body>
 
-<?php require('../components/menu.php'); ?>
+<?php require('./components/menu.php'); ?>
 	
 	<div class="container">
 		
-		<div class="myCover" style="background-image:url('../public/images/cocktails.jpg')">
-			<div class="gradient">    
-				<h2>• noTitle •</h2>
+		<div class="myCover" style="background-image:url('<?php echo $img[0][2]. '/' .$img[0][1]; ?>')">
+			<div class="gradient"> 
+                
+            
+				<h2>• <?= $coc[1]  ?> •</h2>
 				
 				
                 <label name="favorite" class="iconCover">
@@ -37,6 +39,7 @@ $title = "créer recette";
 				</div>			  
 			</div>
 		</div>
+        
 		
 
         <div id="thoseIngredients" class="thoseIngredients">
@@ -67,11 +70,8 @@ $title = "créer recette";
 
         <div class="thoseSteps">
             <h3 class="unvariable">Une recette proposée par <span class="author">Userman </span></h3> <br>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla lobortis tortor quis vulputate faucibus. </p><br>
-                
-            <p>Phasellus eu nisl vel arcu efficitur blandit vitae sed dui. Donec feugiat velit risus, ut lobortis urna euismod at. </p><br>
-            
-            <p>Mauris dictum ut tortor vel rhoncus. Sed molestie purus eu diam finibus, et luctus ex molestie. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut eget pulvinar enim. Phasellus euismod, lacus sed scelerisque ultrices, arcu risus suscipit orci, vitae consectetur nulla elit id lorem. Aenean vehicula risus non lobortis dapibus. Phasellus vel posuere diam. Etiam hendrerit semper dignissim.</p>
+            <p><?= $coc[2] ?></p><br>
+                        
         </div>
 
         <div class="thoseComments" >
@@ -102,7 +102,7 @@ $title = "créer recette";
     </div>
 
 <?php 
-    include('../components/footer.php');
+    include('./components/footer.php');
 ?>
 
 <script>

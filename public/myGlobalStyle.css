@@ -940,7 +940,16 @@ svg,
     margin: 10px 20px;
     font-size: 16px;
 }
-
+.logoMobil{
+    display: none;
+}@media (max-width: 751px){
+    .logoMobil {
+        display: block;
+        margin-bottom: 60px;
+        width: 70%;
+        height: auto;
+    }
+}
 
 
 /* ============================ FOOTER ============================ */

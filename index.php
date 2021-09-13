@@ -16,6 +16,17 @@ try { // On essaie de faire des choses
                 throw new Exception('Aucun identifiant envoyé');
             }
         }
+        elseif($_GET['action'] == 'getcocktail'){
+            if (isset($_GET['id']) && $_GET['id'] > 0) {
+                getCocktail();
+                
+            }
+            else {
+                // Erreur ! On arrête tout, on envoie une exception, donc au saute directement au catch
+                throw new Exception('Aucun identifiant de cocktail envoyé');
+            } 
+
+        }
 
         elseif ($_GET['action'] == 'addCocktail') {
             header("Location: views/editCocktail.php");

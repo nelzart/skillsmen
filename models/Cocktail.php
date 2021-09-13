@@ -27,7 +27,7 @@ function createCocktail ($Coc_Nom, $Coc_Recette, $Uti_Id){
 
 function getCocktailByIdCoc($cocId){
     $db = dbConnect();   
-    $sth = $db -> prepare(" SELECT * from cocktail where Coc_Id = :Coc_Id)");
+    $sth = $db -> prepare(" SELECT * from cocktail where Coc_Id = :Coc_Id");
 
     if($sth -> execute (
         [
@@ -205,7 +205,7 @@ function getIngByIdcoc($cocId){ //sauf ceux en controle
         ':Coc_Etat' => 'publie'
     ])){
         $ups = $sth->fetchAll();
-        var_dump($ups);
+        // var_dump($ups);
         
         //echo $resultat[0];
         return $ups; 
@@ -433,6 +433,27 @@ function deleteComment($cocId){
             ':cocId' => $cocId
         ]
         );
+}
+
+function getCommentbyIdCoc($cocId){
+    $db = dbConnect();   
+    $sth = $db -> prepare("SELECT * from commentaires where Coc_Id = :Coc_Id");
+
+    if($sth -> execute (
+        [
+            ':Coc_Id' => $cocId
+        ]
+    )
+    ){
+        //echo "categorie ok";
+        $ups = $sth->fetchAll();
+    
+        return $ups; 
+    }
+    else{
+        echo " pb";
+
+    }
 }
 
 //fonctions likes//

@@ -9,7 +9,7 @@
 
 </head>
 <body>
-    
+<div class="logoMobil"><?php require('./public/icons/SVG/logo_typo.svg'); ?></div>
     <div class="navbar">
 
         <div class="myLogo"><?php require('./public/icons/SVG/logo_typo.svg'); ?></div>
