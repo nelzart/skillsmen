@@ -20,7 +20,7 @@ $title =  $coc[1]  ;
 	
 	<div class="container">
 		
-		<div class="myCover" style="background-image:url('<?php echo $img[0][2]. '/' .$img[0][1]; ?>')">
+		<div class="myCover" style="background-image:url('<?php if(!empty($img[0][2])){ echo $img[0][2]. '/' .$img[0][1];} ?>')">
 			<div class="gradient"> 
                 
             
