@@ -199,10 +199,10 @@ function getIngredientByName($name){
 
 function getIngByIdcoc($cocId){ //sauf ceux en controle
     $db = dbConnect();   
-    $sth = $db -> prepare("SELECT * FROM cocktail where Coc_Etat=:Coc_Etat ORDER BY Coc_DateCreation DESC");
+    $sth = $db -> prepare("SELECT * FROM compositioncocktail cc inner join ingredients ing on cc.Ing_Id = ing.Ing_Id where Coc_Id = :Coc_Id");
 
-    if($sth -> execute (        [
-        ':Coc_Etat' => 'publie'
+    if($sth -> execute (        [   
+        ':Coc_Id' => $cocId
     ])){
         $ups = $sth->fetchAll();
         // var_dump($ups);
