@@ -49,11 +49,15 @@ $title =  $coc[1]  ;
 
             <h3>• Ingrédients •</h3> 
 
-            <span>2 traits d'angostura bites</span> 
-            <span>2 zestes d'orange</span> 
-            <span>2 morceaux de sucre</span> 
-            <span>10cl de whiskey</span> 
-            <span>eau gazeuse</span> 
+            <?php 
+                foreach ($ing as $composition){
+                echo '<span>'
+                            .$composition['comp_Quantite'].' 
+                            '.$composition['comp_Unite'].' 
+                            '.$composition['Ing_Nom']. 
+                        '</span>';
+                }
+            ?> 
             
         </div>
 
@@ -73,7 +77,7 @@ $title =  $coc[1]  ;
             <p><?= $coc[2] ?></p><br>
                         
         </div>
-
+       
         <div class="thoseComments" >
 
             <button class="addInput" id="addInput" type="button" onclick="addRow()" value="ajouter">

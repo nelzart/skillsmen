@@ -14,29 +14,32 @@ $title = "Accueil";
             
             <p style="text-align:center; padding: 0px 40px;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum quidem aliquid vel tenetur perspiciatis quis labore quasi ea officia ipsam? Eaque libero non commodi quae hic tenetur, sint beatae animi?</p>
         </div>
-
-        <?php 
-
-        foreach($cats as $cat){
-            
-        echo '<div class="galerie">
-                <div id="newSection" class="newSection">
-                    <div class="sectionTitle"></div>
-                    <h2>base '.$cat.'</h2>
-                </div>
-                <div class="result">';                          
-            foreach($cocs as $coc){ 
-                if($cat == $coc[9]){
-                echo '<a href="?action=getcocktail&id='.$coc[7].'"><div class="tuiles myCover" getThisId="'.$coc[7].'" style="background-image:url(\'./public/images/'.$coc[11].'\')">
-                <div class="gradient"> <h2>• '.$coc[1].' •</h2></div>
-                </div></a>
-                ';
-        }}}
         
-    ?>  </div>
-            </div>
+            <div class="allGalerie">
 
-        </div> </div>
+                <?php 
+                    foreach($cats as $cat){            
+                        echo '<div class="galerie">
+                            <div id="newSection" class="newSection">
+                                <div class="sectionTitle"></div>
+                                <h2>base '.$cat.'</h2>
+                            </div>
+                            <div class="result">';                          
+                        foreach($cocs as $coc){ 
+                            if($cat == $coc[9]){
+                                echo '<a href="?action=getcocktail&id='.$coc[7].'"><div class="tuiles myCover" getThisId="'.$coc[7].'" style="background-image:url(\'./public/images/'.$coc[11].'\')">
+                                <div class="gradient"> 
+                                <h2>• '.$coc[1].' •</h2></div>
+                                </div></a>';
+                            }
+                        }
+                    }        
+                ?> 
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
     <?php 
