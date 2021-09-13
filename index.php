@@ -23,7 +23,7 @@ try { // On essaie de faire des choses
         elseif($_GET['action'] == 'getcocktail'){
             if (isset($_GET['id']) && $_GET['id'] > 0) {
                 getCocktail();
-                           
+                
             }
             else {
                 // Erreur ! On arrête tout, on envoie une exception, donc au saute directement au catch

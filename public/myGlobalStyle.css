@@ -16,16 +16,16 @@
             url('2596224269750e00c3ad5356299a3b9f.woff') format('woff'), /* chrome、firefox */
             url('2596224269750e00c3ad5356299a3b9f.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
             url('2596224269750e00c3ad5356299a3b9f.svg#Ogg Roman') format('svg'); /* iOS 4.1- */
-  }
-  @font-face {
-      font-family: "Ogg"; 
-      src: url("//db.onlinewebfonts.com/t/2596224269750e00c3ad5356299a3b9f.eot"); 
-      src: url("//db.onlinewebfonts.com/t/2596224269750e00c3ad5356299a3b9f.eot?#iefix") format("embedded-opentype"), 
-      url("//db.onlinewebfonts.com/t/2596224269750e00c3ad5356299a3b9f.woff2") format("woff2"), 
-      url("//db.onlinewebfonts.com/t/2596224269750e00c3ad5356299a3b9f.woff") format("woff"), 
-      url("//db.onlinewebfonts.com/t/2596224269750e00c3ad5356299a3b9f.ttf") format("truetype"), 
-      url("//db.onlinewebfonts.com/t/2596224269750e00c3ad5356299a3b9f.svg#Ogg") format("svg"); 
-    }
+}
+@font-face {
+    font-family: "Ogg"; 
+    src: url("//db.onlinewebfonts.com/t/2596224269750e00c3ad5356299a3b9f.eot"); 
+    src: url("//db.onlinewebfonts.com/t/2596224269750e00c3ad5356299a3b9f.eot?#iefix") format("embedded-opentype"), 
+    url("//db.onlinewebfonts.com/t/2596224269750e00c3ad5356299a3b9f.woff2") format("woff2"), 
+    url("//db.onlinewebfonts.com/t/2596224269750e00c3ad5356299a3b9f.woff") format("woff"), 
+    url("//db.onlinewebfonts.com/t/2596224269750e00c3ad5356299a3b9f.ttf") format("truetype"), 
+    url("//db.onlinewebfonts.com/t/2596224269750e00c3ad5356299a3b9f.svg#Ogg") format("svg"); 
+}
 
 *{
     font-family: "Ogg", "Ogg-Roman", "Ogg Roman", serif;
@@ -45,6 +45,10 @@ body {
     align-items: center;
     background-color: #102838;
     color : #DAA160;
+}@media(max-width: 751px){
+    body {
+        align-items: stretch;
+    }
 }
 
 .container {
@@ -1242,7 +1246,7 @@ input:-webkit-autofill{
 }
 
 #wrapper-login {
-    display: "";
+    display: none;
 }
 
 
