@@ -20,28 +20,33 @@ $title = "Accueil";
                 <?php 
                     foreach($cats as $cat){            
                         echo '<div class="galerie">
-                            <div id="newSection" class="newSection">
-                                <div class="sectionTitle"></div>
-                                <h2>base '.$cat.'</h2>
-                            </div>
-                            <div class="result">';                          
-                        foreach($cocs as $coc){ 
-                            if($cat == $coc[9]){
-                                echo '<a href="?action=getcocktail&id='.$coc[7].'"><div class="tuiles myCover" getThisId="'.$coc[7].'" style="background-image:url(\'./public/images/'.$coc[11].'\')">
-                                <div class="gradient"> 
-                                <h2>• '.$coc[1].' •</h2></div>
-                                </div></a>';
-                            }
-                        }
+                                <div id="newSection" class="newSection">
+                                    <div class="sectionTitle"></div>
+                                    <h2>base '.$cat.'</h2>
+                                </div>
+                                <div class="result">';                          
+                                    foreach($cocs as $coc){ 
+                                        if($cat == $coc[9]){
+                                            echo '  
+                                            <a href="?action=getcocktail&id='.$coc[7].'">
+                                                <div class="tuiles myCover" getThisId="'.$coc[7].'" style="background-image:url(\'./public/images/'.$coc[11].'\')">
+                                                    <div class="gradient"> 
+                                                        <h2>• '.$coc[1].' •</h2>
+                                                    </div>
+                                                </div>
+                                            </a>';
+                                        }
+                                    }
+                                echo '
+                                </div>                                
+                            </div>';
                     }        
                 ?> 
-                    </div>
+                    
                 </div>
             </div>
-        </div>
-    </div>
 
-
-    <?php 
+ 
+<?php 
     include('./components/footer.php');
 ?>
