@@ -708,6 +708,19 @@ svg,
     outline: none !important;
     cursor: pointer;
 }
+.nav > a {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: transparent;
+    height: 40px;
+    border-end-end-radius: 7px;
+    border-top-right-radius: 7px;
+    color: #DAA160;
+    border: 0px solid #DAA160;  
+    outline: none !important;
+    cursor: pointer;
+}
 
 @media (min-width: 752px) {
     .navbar {
