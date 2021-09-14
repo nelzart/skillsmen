@@ -27,16 +27,6 @@ else {
 ?>
 
 
-<script>
-    let closeIt = document.getElementById('closeIt');
-    // let modalBox = document.querySelectorAll('div.form-wrapper');
-    let modalBox = document.getElementById('wrapper-login');
-    let modalBox2 = document.getElementById('wrapper-signup');
-    closeIt.addEventListener( 'click', (e) => {
-        closeIt.style.display = 'none';
-        modalBox2.style.display = 'none';
-        modalBox.style.display = 'none';
-    });
-</script>
+
 
 </body>
