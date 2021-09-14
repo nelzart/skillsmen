@@ -1,19 +1,20 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../public/myGlobalStyle.css">
     <title>Document</title>
 </head>
-<body>
-    
-    <div class="js-page">
-    
+<body> -->
+    <link rel="stylesheet" href="../public/myGlobalStyle.css">
+
+   
+
+<!--     
         <main class="js-document">
-            <button  type="button" aria-haspopup="dialog" aria-controls="dialog">Ouvrir </button>
-        </main>
+            <button  type="button" aria-haspopup="dialog" aria-controls="dialog">X </button>
+        </main>  -->
     
         <div id="dialog" role="dialog" aria-labelledby="dialog-title" aria-describedby="dialog-desc" aria-modal="true" aria-hidden="true" tabindex="-1" class="c-dialog">
             <div role="document" class="c-dialog__box">
@@ -63,8 +64,9 @@
     
             </div>
         </div>
-    </div>
+
     
     <script src="../public/ModalApp.js"></script>
+<!-- 
 </body>
-</html>
+</html> -->
