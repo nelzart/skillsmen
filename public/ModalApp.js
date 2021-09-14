@@ -16,8 +16,8 @@ const keyCodes = {
 
 const open = function (dialog) {
   const focusableElements = dialog.querySelectorAll(focusableElementsArray);
-  const firstFocusableElement = focusableElements[1];
-  const lastFocusableElement = focusableElements[focusableElements.length -5];
+  const firstFocusableElement = focusableElements[0];
+  const lastFocusableElement = focusableElements[focusableElements.length -1];
 
   dialog.setAttribute('aria-hidden', false);
   doc.setAttribute('aria-hidden', true);
@@ -26,7 +26,6 @@ const open = function (dialog) {
   if (!firstFocusableElement) {
     return;
   }
-
   window.setTimeout( () => {
     firstFocusableElement.focus();
 
@@ -43,10 +42,9 @@ const open = function (dialog) {
           if (event.shiftKey) {
             if (event.target === firstFocusableElement) { // shift + tab
               event.preventDefault();
-
               lastFocusableElement.focus();
             }
-          } else if (event.target === lastFocusableElement) { // tab
+          }else if (event.target === lastFocusableElement) { // tab
             event.preventDefault();
 
             firstFocusableElement.focus();
@@ -54,7 +52,7 @@ const open = function (dialog) {
         });
       }
     });
-  }, 1);
+  }, 100);
 };
 
 const close = function (dialog, trigger) {
@@ -114,11 +112,11 @@ const change1 = document.getElementById('change1');
 const change2 = document.getElementById('change2');
 
 change1.addEventListener('click', (e) => {
-signup.style.display = 'none';
-login.style.display = 'flex';
+  signup.style.display = 'none';
+  login.style.display = 'flex';
 });
 
 change2.addEventListener('click', (e) => {
-login.style.display = 'none';
-signup.style.display = 'flex';
+  login.style.display = 'none';
+  signup.style.display = 'flex';
 });
