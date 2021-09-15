@@ -24,7 +24,25 @@ function createCocktail ($Coc_Nom, $Coc_Recette, $Uti_Id){
     }
  
 }
-
+function getCocktailByName($what){
+    $db = dbConnect();
+     
+    /*$sth = $db -> prepare(" SELECT Coc_Id,Coc_Nom,Coc_Recette, Coc_DateCreation, Uti_Pseudo from cocktail co inner join utilisateurs uti on co.Uti_Id = uti.Uti_Id where Coc_Nom like :Coc_Nom and Coc_Etat ='publie' order by Coc_DateCreation Desc");*/
+    $sth = $db -> prepare(" SELECT * from cocktail co inner join utilisateurs uti on co.Uti_Id = uti.Uti_Id where Coc_Nom like :Coc_Nom and Coc_Etat ='publie' order by Coc_DateCreation Desc");
+    if($sth -> execute (
+        [
+            ':Coc_Nom' => '%' . $what . '%'
+        ]
+    )
+    ){$ups = $sth->fetchAll();
+        
+        echo "ok";
+        return $ups; 
+    }
+    else{
+        echo "pas ok";
+    }
+}
 function getCocktailByIdCoc($cocId){
     $db = dbConnect();   
     $sth = $db -> prepare(" SELECT * from cocktail co inner join utilisateurs  uti on co.Uti_Id = uti.Uti_Id where Coc_Id = :Coc_Id");

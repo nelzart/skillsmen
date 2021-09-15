@@ -1,5 +1,9 @@
 
 <?php
+//var_dump($_POST);
+//var_dump($_GET);
+//var_dump($search);
+
 //require('controller/users/createUser.php');
 //require('controller/users/manageUser.php');
 // echo "index";
@@ -18,6 +22,14 @@ try { // On essaie de faire des choses
         }
         elseif($_GET['action'] == 'backhome'){
             listCocktailsAccueil();
+            
+        }
+        elseif($_GET['action'] == 'lycos'){
+            if(isset($_POST["search"])){
+                $search = htmlspecialchars($_POST['search']);
+                RechercheCoc($search);
+                var_dump($search);
+            }
             
         }
         elseif($_GET['action'] == 'getcocktail'){

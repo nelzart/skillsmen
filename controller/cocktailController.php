@@ -334,3 +334,22 @@ function getCocktail(){
   // $com = getCommentbyIdCoc($_GET['id']);
   require('./views/cocktailView.php');
 }
+
+function RechercheCoc($what){
+  $cocs = getCocktailByName($what);
+  $results = [];
+  //var_dump($cocs);
+  /*foreach($cocs as $coc){
+   if (!in_array($coc[0][0], $results) && ($coc[9]!== NULL)) {  //si le cocktail n'y est pas deja, on l'integre
+        array_push($results,$coc);
+    }
+  }*/
+  $cats = [];
+  foreach($cocs as $coc){
+    if (!in_array($coc[9], $cats) && ($coc[9]!== NULL)) {
+        array_push($cats,$coc[9]);
+    }
+  }
+    require('./views/template.php');
+  var_dump($cocs);
+}
