@@ -350,6 +350,6 @@ function RechercheCoc($what){
         array_push($cats,$coc[9]);
     }
   }
-    require('./views/template.php');
+    require('./views/recherche.php');
   var_dump($cocs);
 }
