@@ -14,7 +14,7 @@
     <div class="navbar">
 
         <a href="?action=backhome">
-            <div class="myLogo"><?php require('../public/icons/SVG/logo_typo.svg'); ?></div>
+            <div class="myLogo"><?php require('./public/icons/SVG/logo_typo.svg'); ?></div>
         </a>
     
         <div class="userAction">
