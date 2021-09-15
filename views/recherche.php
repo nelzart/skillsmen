@@ -21,6 +21,7 @@ $title = "recherche de Cocktail";
 
                 <?php 
                     foreach($cats as $cat){            
+                        if(!empty($cat)){
                         echo '
                         <div class="galerie">
 
@@ -45,7 +46,7 @@ $title = "recherche de Cocktail";
                             echo'
                             </div>                                
                         </div>';
-                    }        
+                    } }       
                 ?> 
                     
                 </div>
