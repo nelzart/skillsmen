@@ -110,6 +110,8 @@ const login = document.getElementById('login');
 const signup = document.getElementById('signup');
 const change1 = document.getElementById('change1');
 const change2 = document.getElementById('change2');
+const editProfil = document.getElementById('editThis');
+const editProfilForm = document.getElementById('editProfil')
 
 change1.addEventListener('click', (e) => {
   signup.style.display = 'none';
@@ -119,4 +121,8 @@ change1.addEventListener('click', (e) => {
 change2.addEventListener('click', (e) => {
   login.style.display = 'none';
   signup.style.display = 'flex';
+});
+
+editProfil.addEventListener('click', (e) => {
+  editProfilForm.style.display = 'flex';
 });

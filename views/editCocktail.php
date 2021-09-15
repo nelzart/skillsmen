@@ -170,8 +170,11 @@ $title = "créer recette";
     <div class="writeIn">
 
         <h3>Choisir une ou plusieurs bases</h3>
-        <?php require('../components/witchBases.php'); ?>
-
+        <div class="whichBase">
+            <?php 
+                require('../components/witchBases.php'); 
+            ?>
+        </div>
     </div>
 
     <div class="textarea" width="100%">

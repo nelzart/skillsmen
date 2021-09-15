@@ -266,6 +266,14 @@ a {
     box-shadow: 0px 3px 6px #00000029;
 }
 
+.thisBase{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 50px;
+    width: 100%;
+}
+
 .active {
     font-family: "Ogg", "Ogg-Roman", "Ogg Roman", serif;
     color : #0C1D28;
@@ -1301,7 +1309,11 @@ input:-webkit-autofill{
     box-shadow: none;
 }
 
-
+#editThis {
+    position: relative;
+    top: 45px;
+    right: -25%;
+}
 
 
 /* ============================== MODAL BOX */

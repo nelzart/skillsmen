@@ -1,4 +1,4 @@
-<div class="whichBase">
+
 		<label class="selectBase">
 			<input type="checkbox" name="tequila" value="tequila">
             <div class="custom-checkbox">
@@ -368,4 +368,3 @@ l-45.323,45.323c-39.639-6.678-72.694,14.453-108.978,23.551c-40.365,10.122-85.011
 </label>
 </div> 
 </label>
-</div>
