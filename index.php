@@ -25,10 +25,12 @@ try { // On essaie de faire des choses
             
         }
         elseif($_GET['action'] == 'lycos'){
-            if(isset($_POST["search"])){
+            if(isset($_POST["search"]) && !empty($_POST["search"])){
                 $search = htmlspecialchars($_POST['search']);
                 RechercheCoc($search);
                 var_dump($search);
+            } else {
+                listCocktailsAccueil();
             }
             
         }

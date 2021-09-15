@@ -27,8 +27,9 @@ function createCocktail ($Coc_Nom, $Coc_Recette, $Uti_Id){
 function getCocktailByName($what){
     $db = dbConnect();
      
-    /*$sth = $db -> prepare(" SELECT Coc_Id,Coc_Nom,Coc_Recette, Coc_DateCreation, Uti_Pseudo from cocktail co inner join utilisateurs uti on co.Uti_Id = uti.Uti_Id where Coc_Nom like :Coc_Nom and Coc_Etat ='publie' order by Coc_DateCreation Desc");*/
-    $sth = $db -> prepare(" SELECT * from cocktail co inner join utilisateurs uti on co.Uti_Id = uti.Uti_Id where Coc_Nom like :Coc_Nom and Coc_Etat ='publie' order by Coc_DateCreation Desc");
+    $sth = $db -> prepare(" SELECT co.Coc_Id, Coc_Nom, Coc_Recette, Coc_DateCreation, Uti_Pseudo, i.Img_Nom, tc.Typ_Libelle, tc.Typ_Id from cocktail co inner join utilisateurs uti on co.Uti_Id = uti.Uti_Id left join images i on i.Coc_Id = co.Coc_Id left join categoriecocktail  ca on Ca.Coc_Id = co.Coc_Id
+    left join typecocktail tc on tc.Typ_Id = ca.Typ_Id where Coc_Nom like :Coc_Nom and Coc_Etat ='publie' order by Coc_DateCreation Desc");
+    // $sth = $db -> prepare(" SELECT * from cocktail co inner join utilisateurs uti on co.Uti_Id = uti.Uti_Id where Coc_Nom like :Coc_Nom and Coc_Etat ='publie' order by Coc_DateCreation Desc");
     if($sth -> execute (
         [
             ':Coc_Nom' => '%' . $what . '%'
@@ -235,6 +236,7 @@ function getIngByIdcoc($cocId){ //sauf ceux en controle
     }
 
 }
+
 function insertIngredient($nom){
     $db = dbConnect();   
     $sth = $db -> prepare("INSERT INTO ingredients (Ing_Nom,Ing_Categorie) VALUES(:Ing_Nom,:Ing_Categorie)");

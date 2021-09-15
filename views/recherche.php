@@ -31,12 +31,12 @@ $title = "recherche de Cocktail";
 
                             <div class="result">';                          
                                 foreach($cocs as $coc){ 
-                                    if($cat == $coc[9]){
+                                    if(($cat == $coc['Typ_Libelle']) && !empty($coc['Typ_Libelle'])){
                                         echo '  
-                                        <a href="?action=getcocktail&id='.$coc[7].'">
-                                            <div class="tuiles myCover" style="background-image:url(\'./public/images/'.$coc[11].'\')">
+                                        <a href="?action=getcocktail&id='.$coc['Coc_Id'].'">
+                                            <div class="tuiles myCover" style="background-image:url(\'./public/images/'.$coc['Img_Nom'].'\')">
                                                 <div class="gradient"> 
-                                                    <h2>• '.$coc[1].' •</h2>
+                                                    <h2>• '.$coc['Coc_Nom'].' •</h2>
                                                 </div>
                                             </div>
                                         </a>';
