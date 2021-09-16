@@ -569,6 +569,9 @@ svg,
     background-color: #DAA160;
     padding: 0px;
 }
+.hide {
+    display: none;
+}
 
 /*Label color change*/
 .container input:checked ~.custom-checkbox .card-label{
@@ -1416,3 +1419,13 @@ input:-webkit-autofill{
     box-shadow: 0px 0px 0px transparent;
     font-size: 1em;
 }
+
+/* 
+.filterDiv {
+
+    display: none;
+  }
+  .show {
+    display: block;
+  }
+   */

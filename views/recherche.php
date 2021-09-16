@@ -6,16 +6,23 @@ $title = "recherche de Cocktail";
 
 
     <?php include('./components/menu.php'); ?>
+<!-- <input type="checkbox" onchange="handleChange()" name="Job" rel="teacher" value="teacher" id="teacher" checked>Teacher
+<input type="checkbox" onchange="handleChange()" name="Job" rel="lawyer" value="lawyer" id="lawyer" checked>Lawyer
+<input type="checkbox" onchange="handleChange()" name="Job" rel="doctor" value="doctor" id="doctor" checked>Doctor -->
+
+<!-- <div id="result">
+    </div> -->
 
     <div class="container">
 
-        <div class="thisBase">
+        <div id="myBtnContainer" class="thisBase">
             <?php 
                 include('./components/witchBases.php');
             ?>
         </div>
 
-        
+        <div id="result">
+    </div>
         
             <div class="allGalerie">
 
@@ -23,7 +30,7 @@ $title = "recherche de Cocktail";
                     foreach($cats as $cat){            
                         if(!empty($cat) && $cat < 1){
                             echo '
-                            <div class="galerie">
+                            <div class="galerie filterDiv '.$cat.'">
 
                                 <div id="newSection" class="newSection">
                                     <div class="sectionTitle"></div>
@@ -53,7 +60,7 @@ $title = "recherche de Cocktail";
                 </div>
             </div>
 
- 
+            <script src="./public/filterApp.js"></script>
 <?php 
     include('./components/footer.php');
 ?>
