@@ -18,6 +18,7 @@ try { // On essaie de faire des choses
             && isset($_POST['Uti_Mdp']) && !empty($_POST['Uti_Mdp'])) {
                 connectUser();
                 // echo '<div id"message"> Coucou </div>';
+                var_dump($_SESSION['Uti_Pseudo']);
                 
             }
             else {

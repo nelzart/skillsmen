@@ -59,7 +59,7 @@ function connectUser(){
         $lycosUserName_ByInformations = getUserName_ByInformations($userName, $userMail);
         $password = $_POST['Uti_Mdp'];
         $test = 0;
-
+/*
         //Nous testons le résultat d'un pseudo existant, sinon on ajoute à la variable test -> 1
         if($lycos1 === FALSE){
         }
@@ -93,13 +93,13 @@ function connectUser(){
                 echo "Le mot de passe est incorrect";
             }
         }
-        //Sinon nous affichons une erreur comme quoi aucun pseudo et adresse e-mail est trouvé selon la saisie
+        //Sinon nous affichons une erreur comme quoi aucun pseudo et adresse e-mail est pas trouvé selon la saisie
         else{
             echo "Aucun compte correspond au login ou pseudo que vous avez entré !";
         }
         //Si tous nos tests sont bons, alors nous réinitialisons les valeurs de session et nous recréeons une nouvelle session 
         if($test === 2){
-            session_start();
+            //session_start();
             if(!empty($lycosId_ByMail)){
                 $_SESSION['Uti_Id'] = $lycosId_ByMail['Uti_Id'];
             }
@@ -111,4 +111,47 @@ function connectUser(){
             echo "Vous êtes connecté ! Bonjour ". $_SESSION['Uti_Pseudo'];
             header('Location: ' . $_SERVER['HTTP_REFERER']);
         }
+    }*/
+
+
+
+////////////////////////
+
+    if (
+        isset($_POST['Uti_Login']) &&
+        isset($_POST['Uti_Mdp']) &&
+        !empty($_POST['Uti_Login']) &&
+        !empty($_POST['Uti_Mdp'])
+    ) {
+        //on vérifie que le mot de passe répété soit correct
+        $user = $_POST['Uti_Login'];
+        $mdp = $_POST['Uti_Mdp'];
+        
+        //$dbh = dbConnect();
+        $user = getUsers_ByMail($userMail);
+        $mdp = $user[4];
+        var_dump($user);
+        //on tente de récupérer l'utilisateur assigné à cet username
+    //  $sth = $dbh->prepare('SELECT id, mdp FROM admin WHERE user = :user');
+    // $sth->execute(
+    //      [
+    //          ':user' => $user
+    //      ]
+    //   );
+        //si on trouve un utilisateur, on stocke son mdp haché dans $data
+    // $data = $sth->fetch();
+    
+    
+    /* if ($data && password_verify($mdp, $data['mdp'])) {
+            //une fois la vérification de mot de passe validée
+            //on stocke l'id de l'user dans la session
+            $_SESSION['user_id'] = $data['id'];
+            header('location: ./admin.php');
+        } else {
+            echo "
+                    
+                            <p<strong>une erreur de saisie est survenue !</strong></p>
+                        ";
+        }*/
     }
+}

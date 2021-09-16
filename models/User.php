@@ -2,8 +2,7 @@
 
 require_once('dbConnect.php');
 
-function getUsers_ByPseudo($userName)
-{
+function getUsers_ByPseudo($userName){
     $db = dbConnect();
     $search = $db->prepare("SELECT * FROM utilisateurs WHERE Uti_Pseudo = :Uti_Pseudo");
     $search->execute(array(
@@ -15,10 +14,10 @@ function getUsers_ByPseudo($userName)
 }
 
 
-function getUsers_ByMail($userMail)
-{
+function getUsers_ByMail($userMail){
     $db = dbConnect();
     $search = $db->prepare("SELECT * FROM utilisateurs WHERE Uti_Login = :Uti_Login");
+
     $search->execute(array(
         ':Uti_Login' => $userMail
     ));
@@ -56,8 +55,7 @@ function Commentaires_ByUserName($userName)
     
 }*/
 
-function VerifMdp_ByUserMail($userMail)
-{
+function VerifMdp_ByUserMail($userMail){
     $db = dbConnect();
     $search = $db->prepare("SELECT Uti_Mdp FROM utilisateurs WHERE Uti_Login = :Uti_Login");
     $search->execute(array(
@@ -68,8 +66,7 @@ function VerifMdp_ByUserMail($userMail)
     return $lycos;
 }
 
-function VerifMdp_ByUserName($userName)
-{
+function VerifMdp_ByUserName($userName){
     $db = dbConnect();
     $search = $db->prepare("SELECT Uti_Mdp FROM utilisateurs WHERE Uti_Pseudo = :Uti_Login");
     $search->execute(array(
@@ -80,8 +77,7 @@ function VerifMdp_ByUserName($userName)
     return $lycos;
 }
 
-function getUser_ByPseudo($userName)
-{
+function getUser_ByPseudo($userName){
     $db = dbConnect();
     $search = $db->prepare("SELECT * FROM utilisateurs WHERE Uti_Pseudo = :Uti_Pseudo");
     $search->execute(array(
@@ -93,8 +89,7 @@ function getUser_ByPseudo($userName)
 }
 
 
-function getUser_ByMail($userMail)
-{
+function getUser_ByMail($userMail){
     $db = dbConnect();
     $search = $db->prepare("SELECT * FROM utilisateurs WHERE Uti_Login = :Uti_Login");
     $search->execute(array(
@@ -105,8 +100,7 @@ function getUser_ByMail($userMail)
     return $lycos;
 }
 
-function getId_ByMail($userMail)
-{
+function getId_ByMail($userMail){
     $db = dbConnect();
     $search = $db->prepare("SELECT Uti_Id FROM utilisateurs WHERE Uti_Login = :Uti_Login");
     $search->execute(array(
@@ -117,8 +111,7 @@ function getId_ByMail($userMail)
     return $lycos;
 }
 
-function getId_ByPseudo($userName)
-{
+function getId_ByPseudo($userName){
     $db = dbConnect();
     $search = $db->prepare("SELECT Uti_Id FROM utilisateurs WHERE Uti_Pseudo = :Uti_Pseudo");
     $search->execute(array(
@@ -129,8 +122,7 @@ function getId_ByPseudo($userName)
     return $lycos; 
 }
 
-function getDroit_ByInformations($userName, $userMail)
-{
+function getDroit_ByInformations($userName, $userMail){
     $db = dbConnect();
     $search = $db->prepare("SELECT Uti_Droit FROM utilisateurs WHERE Uti_Pseudo = :Uti_Pseudo OR Uti_Login = :Uti_Login");
     $search->execute(array(
@@ -140,8 +132,7 @@ function getDroit_ByInformations($userName, $userMail)
     return $lycos;
 }
 
-function getUserName_ByInformations($userName, $userMail)
-{
+function getUserName_ByInformations($userName, $userMail){
     $db = dbConnect();
     $search = $db->prepare("SELECT Uti_Pseudo FROM utilisateurs WHERE Uti_Pseudo = :Uti_Pseudo OR Uti_Login = :Uti_Login");
     $search->execute(array(
