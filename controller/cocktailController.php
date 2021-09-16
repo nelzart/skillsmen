@@ -319,6 +319,7 @@ function listCocktailsAccueil(){ //uniquement les publiés
         array_push($cats,$coc[9]);
     }
   }
+
   // var_dump($coc);
   // var_dump($coc[0]);
   // var_dump($coc[1][9]);
@@ -353,5 +354,5 @@ function RechercheCoc($what){
   }
     require('./views/recherche.php');
   // var_dump($cocs);
-  var_dump($cats);
+  // var_dump($cats);
 }

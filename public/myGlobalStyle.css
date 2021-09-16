@@ -1382,6 +1382,19 @@ input:-webkit-autofill{
     }
 }
 
+#message {
+    position:absolute; 
+    top:25% ; 
+    font-weight: bold;
+    box-shadow: 0px 0px 0px 300vw #02111ce0; 
+    border: 1px solid #DA6060; 
+    border-radius: 7px; 
+    width: 200px;
+    padding: 5px; 
+    text-align: center; 
+    background-color: #da6060d8;
+    
+}
 
 /* hidden dialog */
 .c-dialog[aria-hidden="true"] {

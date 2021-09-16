@@ -21,32 +21,33 @@ $title = "recherche de Cocktail";
 
                 <?php 
                     foreach($cats as $cat){            
-                        if(!empty($cat)){
-                        echo '
-                        <div class="galerie">
+                        if(!empty($cat) && $cat < 1){
+                            echo '
+                            <div class="galerie">
 
-                            <div id="newSection" class="newSection">
-                                <div class="sectionTitle"></div>
-                                <h2>base '.$cat.'</h2>
-                            </div>
+                                <div id="newSection" class="newSection">
+                                    <div class="sectionTitle"></div>
+                                    <h2>base '.$cat.'</h2>
+                                </div>
 
-                            <div class="result">';                          
-                                foreach($cocs as $coc){ 
-                                    if(($cat == $coc['Typ_Libelle']) && !empty($coc['Typ_Libelle'])){
-                                        echo '  
-                                        <a href="?action=getcocktail&id='.$coc['Coc_Id'].'">
-                                            <div class="tuiles myCover" style="background-image:url(\'./public/images/'.$coc['Img_Nom'].'\')">
-                                                <div class="gradient"> 
-                                                    <h2>• '.$coc['Coc_Nom'].' •</h2>
+                                <div class="result">';                          
+                                    foreach($cocs as $coc){ 
+                                        if(($cat == $coc['Typ_Libelle']) && !empty($coc['Typ_Libelle'])){
+                                            echo '  
+                                            <a href="?action=getcocktail&id='.$coc['Coc_Id'].'">
+                                                <div class="tuiles myCover" style="background-image:url(\'./public/images/'.$coc['Img_Nom'].'\')">
+                                                    <div class="gradient"> 
+                                                        <h2>• '.$coc['Coc_Nom'].' •</h2>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                        </a>';
+                                            </a>';
+                                        }
                                     }
-                                }
-                            echo'
-                            </div>                                
-                        </div>';
-                    } }       
+                                echo'
+                                </div>                                
+                            </div>';
+                        } 
+                    }       
                 ?> 
                     
                 </div>

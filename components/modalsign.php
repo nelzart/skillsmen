@@ -37,7 +37,7 @@
                     </div>
                 </form>
     
-                <form id="signup" action="" method="post">
+                <form id="signup" action="?action=createuser" method="post">
                     <h2 id="dialog-title2" style="text-align: center;">Créer un compte</h2>
                     
                     <label for='Uti_Login' style="margin: 10px 150px;">Votre e-mail <br>
