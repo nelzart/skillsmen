@@ -37,7 +37,7 @@ function getCocktailByName($what){
     )
     ){$ups = $sth->fetchAll();
         
-        echo "ok";
+        //echo "ok";
         return $ups; 
     }
     else{

@@ -347,7 +347,7 @@ function RechercheCoc($what){
   $cats = [];
   foreach($cocs as $coc){
     
-    if (!in_array($coc['Coc_Nom'], $cats) && ($coc['Coc_Nom']!== NULL)) {
+    if (!in_array($coc['Typ_Libelle'], $cats) && ($coc['Typ_Libelle'] !== NULL)) {
         array_push($cats, $coc['Typ_Libelle']);
     }
   }
