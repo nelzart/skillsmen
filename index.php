@@ -8,7 +8,7 @@
 //require('controller/users/manageUser.php');
 // echo "index";
 require'controller/cocktailController.php';
-require'controller/users/createUser.php';
+require'controller/manageUser.php';
 
 try { // On essaie de faire des choses
     if (isset($_GET['action'])) {

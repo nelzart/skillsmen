@@ -1,5 +1,5 @@
 <?php
-require('../models/User.php');
+require('./models/User.php');
 
 function addUser() {
     //Les variables à déclarer
