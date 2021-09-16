@@ -337,7 +337,7 @@ function getCocktail(){
 }
 
 function RechercheCoc($what){
-  $cocs = getCocktailByName($what);
+  $cocs = getCocktailByName($what); //on recup les cocktails
   // $results = [];
   //var_dump($cocs);
   /*foreach($cocs as $coc){
@@ -348,10 +348,14 @@ function RechercheCoc($what){
   $cats = [];
   foreach($cocs as $coc){
     
-    if (!in_array($coc['Typ_Libelle'], $cats) && ($coc['Typ_Libelle'] !== NULL)) {
+    if (!in_array($coc['Typ_Libelle'], $cats) && ($coc['Typ_Libelle'] !== NULL)) {//pour chaque cocktail on recup la categorie
         array_push($cats, $coc['Typ_Libelle']);
     }
   }
+
+  
+
+
     require('./views/recherche.php');
   // var_dump($cocs);
   // var_dump($cats);

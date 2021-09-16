@@ -200,7 +200,7 @@ function getIngredientByName($name){
 
     if($sth -> execute (
         [
-            ':Ing_Nom' => $name
+            ':Ing_Nom' => $name . '%'
         ]
     )
     ){$resultat = $sth->fetch();
