@@ -3,7 +3,7 @@
 //var_dump($_POST);
 // var_dump($_GET);
 //var_dump($search);
-var_dump($_SESSION['Uti_Pseudo']);
+var_dump($_SESSION);
 
 //require('controller/users/createUser.php');
 //require('controller/users/manageUser.php');
