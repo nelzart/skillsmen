@@ -40,7 +40,12 @@ function addUser() {
         $message4 = "Vous êtes enregistré";
         
         connectUser();
-    
+        $message = "Bonjour " .$userName;
+            echo '<div id="message" >'.$message.'</div>
+                <script> 
+                    let thisMessage = document.getElementById("message")
+                    setTimeout(function(){thisMessage.style.display="none"}, 3000);
+                </script>';
         header('Location: ' . $_SERVER['HTTP_REFERER']);
     }
 }
@@ -59,7 +64,7 @@ function connectUser(){
         $lycosUserName_ByInformations = getUserName_ByInformations($userName, $userMail);
         $password = $_POST['Uti_Mdp'];
         $test = 0;
-/*
+
         //Nous testons le résultat d'un pseudo existant, sinon on ajoute à la variable test -> 1
         if($lycos1 === FALSE){
         }
@@ -72,6 +77,7 @@ function connectUser(){
         else{
             $test = 1;
         }
+
         //Nous testons la vérification du mot de passe via l'adresse e-mail
         if($lycos == TRUE){
             $lycospassword1 = VerifMdp_ByUserMail($userMail);
@@ -111,47 +117,47 @@ function connectUser(){
             echo "Vous êtes connecté ! Bonjour ". $_SESSION['Uti_Pseudo'];
             header('Location: ' . $_SERVER['HTTP_REFERER']);
         }
-    }*/
+    }
 
 
 
 ////////////////////////
 
-    if (
-        isset($_POST['Uti_Login']) &&
-        isset($_POST['Uti_Mdp']) &&
-        !empty($_POST['Uti_Login']) &&
-        !empty($_POST['Uti_Mdp'])
-    ) {
-        //on vérifie que le mot de passe répété soit correct
-        $user = $_POST['Uti_Login'];
-        $mdp = $_POST['Uti_Mdp'];
+//     if (
+//         isset($_POST['Uti_Login']) &&
+//         isset($_POST['Uti_Mdp']) &&
+//         !empty($_POST['Uti_Login']) &&
+//         !empty($_POST['Uti_Mdp'])
+//     ) {
+//         //on vérifie que le mot de passe répété soit correct
+//         $user = $_POST['Uti_Login'];
+//         $mdp = $_POST['Uti_Mdp'];
         
-        //$dbh = dbConnect();
-        $user = getUsers_ByMail($userMail);
-        $mdp = $user[4];
-        var_dump($user);
-        //on tente de récupérer l'utilisateur assigné à cet username
-    //  $sth = $dbh->prepare('SELECT id, mdp FROM admin WHERE user = :user');
-    // $sth->execute(
-    //      [
-    //          ':user' => $user
-    //      ]
-    //   );
-        //si on trouve un utilisateur, on stocke son mdp haché dans $data
-    // $data = $sth->fetch();
+//         //$dbh = dbConnect();
+//         $user = getUsers_ByMail($userMail);
+//         $mdp = $user[4];
+//         var_dump($user);
+//         //on tente de récupérer l'utilisateur assigné à cet username
+//     //  $sth = $dbh->prepare('SELECT id, mdp FROM admin WHERE user = :user');
+//     // $sth->execute(
+//     //      [
+//     //          ':user' => $user
+//     //      ]
+//     //   );
+//         //si on trouve un utilisateur, on stocke son mdp haché dans $data
+//     // $data = $sth->fetch();
     
     
-    /* if ($data && password_verify($mdp, $data['mdp'])) {
-            //une fois la vérification de mot de passe validée
-            //on stocke l'id de l'user dans la session
-            $_SESSION['user_id'] = $data['id'];
-            header('location: ./admin.php');
-        } else {
-            echo "
+//     /* if ($data && password_verify($mdp, $data['mdp'])) {
+//             //une fois la vérification de mot de passe validée
+//             //on stocke l'id de l'user dans la session
+//             $_SESSION['user_id'] = $data['id'];
+//             header('location: ./admin.php');
+//         } else {
+//             echo "
                     
-                            <p<strong>une erreur de saisie est survenue !</strong></p>
-                        ";
-        }*/
-    }
-}
+//                             <p<strong>une erreur de saisie est survenue !</strong></p>
+//                         ";
+//         }*/
+//     }
+// }

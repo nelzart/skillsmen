@@ -16,9 +16,15 @@ try { // On essaie de faire des choses
         if ($_GET['action'] == 'connexion') {
             if (isset($_POST['Uti_Login']) && !empty($_POST['Uti_Login']) 
             && isset($_POST['Uti_Mdp']) && !empty($_POST['Uti_Mdp'])) {
-                connectUser();
+                connectUser
+                    (
+                        $_POST['Uti_Login'],
+                        $_POST['Uti_Mdp']
+                    );
                 // echo '<div id"message"> Coucou </div>';
-                var_dump($_SESSION['Uti_Pseudo']);
+                if ($_SESSION['Uti_Id']) {}
+                
+                
                 
             }
             else {
@@ -38,8 +44,8 @@ try { // On essaie de faire des choses
                             $_POST['Uti_Mdp'], 
                             $_POST['Uti_Mdp2']
                         );
-            }    
-        }
+                    }    
+                }
         elseif($_GET['action'] == 'backhome'){
             listCocktailsAccueil();
             
@@ -139,4 +145,4 @@ try { // On essaie de faire des choses
 }
 catch(Exception $e) { // S'il y a eu une erreur, alors...
     echo 'Erreur : ' . $e->getMessage();
-}  
+}
