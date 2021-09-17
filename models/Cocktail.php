@@ -24,15 +24,16 @@ function createCocktail ($Coc_Nom, $Coc_Recette, $Uti_Id){
     }
  
 }
-function getCocktailByName($what){
+function getCocktailByName($what, $etat='publie'){
     $db = dbConnect();
      
     $sth = $db -> prepare(" SELECT co.Coc_Id, Coc_Nom, Coc_Recette, Coc_DateCreation, Uti_Pseudo, i.Img_Nom, tc.Typ_Libelle, tc.Typ_Id from cocktail co inner join utilisateurs uti on co.Uti_Id = uti.Uti_Id left join images i on i.Coc_Id = co.Coc_Id left join categoriecocktail  ca on Ca.Coc_Id = co.Coc_Id
-    left join typecocktail tc on tc.Typ_Id = ca.Typ_Id where Coc_Nom like :Coc_Nom and Coc_Etat ='publie' order by Coc_DateCreation Desc");
+    left join typecocktail tc on tc.Typ_Id = ca.Typ_Id where Coc_Nom like :Coc_Nom and Coc_Etat = :Coc_Etat order by Coc_DateCreation Desc");
     // $sth = $db -> prepare(" SELECT * from cocktail co inner join utilisateurs uti on co.Uti_Id = uti.Uti_Id where Coc_Nom like :Coc_Nom and Coc_Etat ='publie' order by Coc_DateCreation Desc");
     if($sth -> execute (
         [
-            ':Coc_Nom' => '%' . $what . '%'
+            ':Coc_Nom' => '%' . $what . '%',
+            ':Coc_Etat' => $etat
         ]
     )
     ){$ups = $sth->fetchAll();
@@ -212,13 +213,14 @@ function getAllIngredients(){
     }
 }
 
-function getIngredientByName($name){
+function getIngredientByName($name,$eta = 'controle'){
     $db = dbConnect();   
-    $sth = $db -> prepare("SELECT * from ingredients where Ing_Nom like :Ing_Nom");
+    $sth = $db -> prepare("SELECT * from ingredients where Ing_Nom like :Ing_Nom and Ing_Categorie != :Ing_Categorie");
 
     if($sth -> execute (
         [
-            ':Ing_Nom' => $name . '%'
+            ':Ing_Nom' => $name . '%',
+            ':Ing_Categorie' => $eta
         ]
     )
     ){$resultat = $sth->fetchAll();

@@ -337,15 +337,9 @@ function getCocktail(){
 }
 
 function RechercheCoc($what){
-  $cocs = getCocktailByName($what); //on recup les cocktails
-  // $results = [];
-  //var_dump($cocs);
-  /*foreach($cocs as $coc){
-   if (!in_array($coc[0][0], $results) && ($coc[9]!== NULL)) {  //si le cocktail n'y est pas deja, on l'integre
-        array_push($results,$coc);
-    }
-  }*/
-  $cats = [];
+  $cocs = getCocktailByName($what); //on recup les cocktails publiés
+
+  $cats = [];  //variable qui contiendra la liste des categories concernées par les cocktails trouvés
   foreach($cocs as $coc){
     
     if (!in_array($coc['Typ_Libelle'], $cats) && ($coc['Typ_Libelle'] !== NULL)) {//pour chaque cocktail on recup la categorie
@@ -353,8 +347,8 @@ function RechercheCoc($what){
     }
   }
   $cs = [];
-  $ings = getIngredientByName($what); //on recup les ingredients
-  foreach($ings as $ing){     //pour chaque ingredient on recup l'id cocktail si yen a un
+  $ings = getIngredientByName($what); //on recup les ingredients qui commencent par l'input
+  foreach($ings as $ing){     //pour chaque ingredient trouvé on recup l'id cocktail 
     $ccs = getCompositionCocktailByIdIng($ing['Ing_Id']);
     if (!in_array($ccs, $cs) && $ccs != FALSE) {//
       array_push($cs, $ccs);
@@ -365,9 +359,9 @@ function RechercheCoc($what){
   //var_dump($ings);
   ////var_dump($cs);
 
-  foreach($cs as $c){
-    $result = getCocktailByIdCoc($c[0]['Coc_Id']);
-    $result2 = getCocktailByName($result[1]);
+  foreach($cs as $c){   //
+    $result = getCocktailByIdCoc($c[0]['Coc_Id']);   //var qui recup les id coc concernés
+    $result2 = getCocktailByName($result[1]);    //on relance la recherche par nom pour alimenter cocs
     foreach($result2 as $res2)
     if (!in_array($res2['Typ_Libelle'], $cats) && (!empty($res2['Typ_Libelle'])) && $result2 !=NULL) {//pour chaque cocktail on recup la categorie
       array_push($cats, $res2['Typ_Libelle']);
@@ -381,16 +375,12 @@ function RechercheCoc($what){
 //var_dump($result2);
 ////var_dump($cats);
 //var_dump($cocs);
- /* foreach($result2 as $result){
-    if (!in_array($result['Typ_Libelle'], $cats) && ($result['Typ_Libelle'] !== NULL)) {//pour chaque cocktail on recup la categorie
-      array_push($cats, $result['Typ_Libelle']);
-    }
-  }*/
+ 
 if(!empty($cocs)){
     require('./views/recherche.php');
 }
 else{
-  echo "<script>alert(\"aucuns resultats\")</script>";
+  echo "<script>alert(\"aucuns resultats \")</script>" ;
   //require('./views/template.php');
   listCocktailsAccueil();
 }
