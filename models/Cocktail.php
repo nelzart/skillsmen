@@ -64,7 +64,7 @@ function getCocktailByIdCoc($cocId){
     }
 }
 
-function getCocAll(){ //sauf ceux en controle
+function getCocAll($eta = 'publie'){ //sauf ceux en controle
     $db = dbConnect();   
     $sth = $db -> prepare("SELECT * FROM cocktail co 
                                     left join categoriecocktail  ca on Ca.Coc_Id = co.Coc_Id
@@ -75,7 +75,7 @@ function getCocAll(){ //sauf ceux en controle
 
     if($sth -> execute (
         [
-        ':Coc_Etat' => 'publie'
+        ':Coc_Etat' => $eta
         ]
     )
     ){

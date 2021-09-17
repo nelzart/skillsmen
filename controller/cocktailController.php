@@ -311,7 +311,7 @@ function suppFavori($cocId,$uti=NULL){
   }*/
 }
 
-function listCocktailsAccueil(){ //uniquement les publiés
+function listCocktailsAccueil(){ //uniquement les publiés par defaut
   $cocs = getCocAll();
   $cats = [];
   foreach($cocs as $coc){
