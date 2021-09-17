@@ -1,10 +1,10 @@
-//filtre les figure de classe effect-sarah selon un filtre de classe donné
+//filtre les figure de classe selon un filtre de classe donné
 function filterSelection(filter) {
     let elemList = document.getElementsByClassName("galerie");
     // console.log(elemList)
     
     //pour chaque element de classe galerie
-    for (var i = 0; i < elemList.length; i++) {
+    for (var i = 0; i < elemList.length; i++){
         //   si la classe filtrée existe dans la liste de classe de l'element
         if (elemList[i].classList.contains(filter)) {
         
@@ -27,9 +27,9 @@ function filterSelection(filter) {
 
   for (var i = 0; i < btns.length; i++) {
     btns[i].addEventListener("click", (target) => {
-      //on effectue le filtre avec l'id du bouton (chat, chien, nac ou all)
+      //on effectue le filtre avec l'id du bouton
       filterSelection(target.target.value)
-    // console.log('couocu')
+    // console.log('coucou')
     })
   }
 
