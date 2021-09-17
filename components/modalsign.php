@@ -25,7 +25,7 @@
                 <form id="login" action="?action=connexion" method="post">
                     <h2 id="dialog-title" style="text-align: center;">Se Connecter</h2>
     
-                    <label for='Uti_Login' style="margin: 10px 150px;">Votre e-mail ou pseudo <br>
+                    <label for='Uti_Login' style="margin: 10px 150px;">Votre e-mail <br>
                     <input type="text" name='Uti_Login' placeholder="Votre mail" required class="input-password" value=""></label>
                 
                     <label for="Uti_Mdp" style="margin: 10px 150px; ">Votre mot de passe <br>

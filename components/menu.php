@@ -78,6 +78,5 @@
                 ';
             } ?> -->
 
-
     
     <script src="./public/ModalApp.js"></script>

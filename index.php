@@ -16,13 +16,19 @@ try { // On essaie de faire des choses
         if ($_GET['action'] == 'connexion') {
             if (isset($_POST['Uti_Login']) && !empty($_POST['Uti_Login']) 
             && isset($_POST['Uti_Mdp']) && !empty($_POST['Uti_Mdp'])) {
-                connectUser
+                // redirect();
+                $test = connectUser
                     (
                         $_POST['Uti_Login'],
                         $_POST['Uti_Mdp']
                     );
+                    if ($test = true){
+                        echo '<script>alert()</script>';
+                    } else {
+                        echo 'ta mere';
+                    }
                 // echo '<div id"message"> Coucou </div>';
-                if ($_SESSION['Uti_Id']) {}
+                // if ($_SESSION['Uti_Id']) {}
                 
                 
                 
@@ -44,6 +50,7 @@ try { // On essaie de faire des choses
                             $_POST['Uti_Mdp'], 
                             $_POST['Uti_Mdp2']
                         );
+                        
                     }    
                 }
         elseif($_GET['action'] == 'backhome'){
@@ -140,6 +147,7 @@ try { // On essaie de faire des choses
         // header("Location: views/template.php");
         //require('views/template.php');
         listCocktailsAccueil();
+
 
     }
 }
