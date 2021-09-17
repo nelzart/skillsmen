@@ -15,6 +15,8 @@ $title = "recherche de Cocktail";
 
     <div class="container">
 
+        <h3 style="margin-top:40px; margin-bottom:-40px">Cliquez pour masquer les résultats</h3>
+
         <div id="myBtnContainer" class="thisBase">
             <?php 
                 include('./components/witchBases.php');
@@ -30,7 +32,7 @@ $title = "recherche de Cocktail";
                     foreach($cats as $cat){            
                         if(!empty($cat) && $cat < 1){
                             echo '
-                            <div class="galerie filterDiv '.$cat.'">
+                            <div class="galerie show '.$cat.'" value="'.$cat.'">
 
                                 <div id="newSection" class="newSection">
                                     <div class="sectionTitle"></div>

@@ -1,49 +1,57 @@
-// //filtre les figure de classe effect-sarah selon un filtre de classe donné
-// function filterSelection(filter) {
-//     let elemList = document.getElementsByClassName("galerie");
-//     //pour chaque element de classe effect-sarah
-//     for (var i = 0; i < elemList.length; i++) {
-//       // si la classe filtrée existe dans la liste de classe de l'element
-//       if (elemList[i].classList.contains(filter)) {
-//         //alors on retire la classe qui cache l'element
-//         elemList[i].classList.remove('hide');
-//       } else {
-//         //sinon on cache l'element
-//         elemList[i].classList.add('hide');
-//       }
-//       //si on affiche tout on retire le cache de tous les elements
-//       if (filter == 0) {
-//         elemList[i].classList.remove('hide');
-//       }
-//     }
-//   }
+//filtre les figure de classe effect-sarah selon un filtre de classe donné
+function filterSelection(filter) {
+    let elemList = document.getElementsByClassName("galerie");
+    // console.log(elemList)
     
-//   //ajout d'un event listener de clic permettant le filtre sur les boutons de la page adoption
-//   let btnContainer = document.getElementById("thisBase");
-//   let btns = btnContainer.querySelectorAll("container > input:checked ~ custom-checkbox");
-//   for (var i = 0; i < btns.length; i++) {
-//     btns[i].addEventListener("click", (target) => {
-//       //on effectue le filtre avec l'id du bouton (chat, chien, nac ou all)
-//       filterSelection(target.target.id)
-//     })
-//   }
+    //pour chaque element de classe galerie
+    for (var i = 0; i < elemList.length; i++) {
+        //   si la classe filtrée existe dans la liste de classe de l'element
+        if (elemList[i].classList.contains(filter)) {
+        
+            if (elemList[i].classList.contains('show')){
+                elemList[i].classList.remove('show') 
+                elemList[i].classList.add('hide')
 
-
-for (i = 0 ; i < 11 ; i++){
-    console.log(i)
-    rech = 'base'+i
-
-// myBtnContener = document.getElementById('myBtnContainer').length
-// console.log(myBtnContener)
-myBtnFilter = document.getElementById(rech)
-// console.log('base'+i)
-myBtnFilter.addEventListener('click', (e) => {
-    if (myBtnFilter.checked) {
-        document.getElementById('result').innerHTML = myBtnFilter.value;
-    } else {
-        document.getElementById('result').innerHTML = '';
+            } else if (elemList[i].classList.contains('hide') ){
+                elemList[i].classList.remove('hide')
+                elemList[i].classList.add('show')                 
+            } 
+        } 
     }
-})}
+}
+    
+  //ajout d'un event listener de clic permettant le filtre sur les boutons de la page
+  let btnContainer = document.getElementById("myBtnContainer");
+  let btns = btnContainer.querySelectorAll("input");
+  console.log(btns)
+
+  for (var i = 0; i < btns.length; i++) {
+    btns[i].addEventListener("click", (target) => {
+      //on effectue le filtre avec l'id du bouton (chat, chien, nac ou all)
+      filterSelection(target.target.value)
+    // console.log('couocu')
+    })
+  }
+
+// let i = []
+// myBtnFilter = document.getElementById('base'[y])
+
+// for (y = 1 ; y <= 11 ; y++){
+//     console.log(y)
+//     console.log(myBtnFilter)
+// }
+//     // document.getElementById('result').innerHTML =  'coucou' ;
+
+// // myBtnContener = document.getElementById('myBtnContainer').length
+// // console.log(myBtnContener)
+// // console.log('base'+i)
+// myBtnFilter.addEventListener('click', (e) => {
+//     if (e.myBtnFilter.checked) {
+//         document.getElementById('result').innerHTML = 'couocu';
+//     } else {
+//         document.getElementById('result').innerHTML = '';
+//     }
+// })
 // let array = [];
 // for( i = 0 ; myBtnFilter.length ; i++ ) {
 //     document.getElementById('result').innerHTML = myBtnFilter.value;
