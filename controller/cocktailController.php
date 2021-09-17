@@ -386,8 +386,14 @@ function RechercheCoc($what){
       array_push($cats, $result['Typ_Libelle']);
     }
   }*/
-
+if(!empty($cocs)){
     require('./views/recherche.php');
+}
+else{
+  echo "<script>alert(\"aucuns resultats\")</script>";
+  //require('./views/template.php');
+  listCocktailsAccueil();
+}
   // var_dump($cocs);
   // var_dump($cats);
 }
