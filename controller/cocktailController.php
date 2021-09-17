@@ -352,9 +352,40 @@ function RechercheCoc($what){
         array_push($cats, $coc['Typ_Libelle']);
     }
   }
+  $cs = [];
+  $ings = getIngredientByName($what); //on recup les ingredients
+  foreach($ings as $ing){     //pour chaque ingredient on recup l'id cocktail si yen a un
+    $ccs = getCompositionCocktailByIdIng($ing['Ing_Id']);
+    if (!in_array($ccs, $cs) && $ccs != FALSE) {//
+      array_push($cs, $ccs);
+  }
+  }
+ // var_dump($cocs);
+ // var_dump($cats);
+  //var_dump($ings);
+  ////var_dump($cs);
 
-  
-
+  foreach($cs as $c){
+    $result = getCocktailByIdCoc($c[0]['Coc_Id']);
+    $result2 = getCocktailByName($result[1]);
+    foreach($result2 as $res2)
+    if (!in_array($res2['Typ_Libelle'], $cats) && (!empty($res2['Typ_Libelle'])) && $result2 !=NULL) {//pour chaque cocktail on recup la categorie
+      array_push($cats, $res2['Typ_Libelle']);
+      if (!in_array($res2['Coc_Id'], $cocs)) {//pour chaque cocktail on pousse ds coc
+        array_push($cocs, $res2);
+    }
+    
+    }
+  }
+//var_dump($result);
+//var_dump($result2);
+////var_dump($cats);
+//var_dump($cocs);
+ /* foreach($result2 as $result){
+    if (!in_array($result['Typ_Libelle'], $cats) && ($result['Typ_Libelle'] !== NULL)) {//pour chaque cocktail on recup la categorie
+      array_push($cats, $result['Typ_Libelle']);
+    }
+  }*/
 
     require('./views/recherche.php');
   // var_dump($cocs);

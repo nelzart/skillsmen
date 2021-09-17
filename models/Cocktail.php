@@ -156,6 +156,24 @@ function updateTblCocktail($cocId,$Coc_Nom, $Coc_Recette){
     }
 }
 
+function getCompositionCocktailByIdIng($ing){
+    $db = dbConnect();   
+    $sth = $db -> prepare("SELECT * from compositioncocktail  where Ing_Id = :Ing_Id");
+
+    if($sth -> execute (
+        [
+            ':Ing_Id' => $ing
+        ]
+    )
+    ){$ups = $sth->fetchAll();
+        
+        return $ups; 
+    }
+    /*else{
+    
+        throw new Exception('pb');
+    }*/
+}
 
 //fonctions ingredient//
 function createIngregientCocktail ($Ing_Id, $Coc_Id, $Comp_Quantite, $Comp_Unite){
@@ -196,14 +214,14 @@ function getAllIngredients(){
 
 function getIngredientByName($name){
     $db = dbConnect();   
-    $sth = $db -> prepare("SELECT * from ingredients where Ing_Nom = :Ing_Nom");
+    $sth = $db -> prepare("SELECT * from ingredients where Ing_Nom like :Ing_Nom");
 
     if($sth -> execute (
         [
             ':Ing_Nom' => $name . '%'
         ]
     )
-    ){$resultat = $sth->fetch();
+    ){$resultat = $sth->fetchAll();
         //$Ing_Id = $resultat[0];
         //echo "ok";
         //var_dump($resultat);

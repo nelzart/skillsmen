@@ -48,7 +48,8 @@ try { // On essaie de faire des choses
             if(isset($_POST["search"]) && !empty($_POST["search"])){
                 $search = htmlspecialchars($_POST['search']);
                 RechercheCoc($search);
-                // var_dump($search);
+                var_dump($search);
+                var_dump($_POST);
             } else {
                 // $message = "Une erreur est survenue";
                 // echo '<div id="message" >'.$message.'</div>
