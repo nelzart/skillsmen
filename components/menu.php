@@ -18,11 +18,19 @@
         <a href="?action=backhome">
             <div class="myLogo"><?php require('./public/icons/SVG/logo_typo.svg'); ?></div>
         </a>
-    
+                <a href="" class="iconCircle" style="position: absolute; top:-3px; right:1%">
+                    <svg id="dashboard" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#000000"><path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/>
+                    </svg>
+                </a>
         <div class="userAction">
-
+                
+                
             <div class="nav">
-                <a href="?action=backhome"><svg id="home" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg></a>
+
+                <a href="?action=backhome">
+                    <svg id="home" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+                    </svg>
+                </a>
 
                 <svg id="listCocktail" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><path d="M21 5V3H3v2l8 9v5H6v2h12v-2h-5v-5l8-9zM7.43 7L5.66 5h12.69l-1.78 2H7.43z"/></svg>
 
@@ -51,6 +59,8 @@
                 <?php 
                     require('modalsign.php');
                 ?>
+
+                
             </div>
         
 

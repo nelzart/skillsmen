@@ -1430,10 +1430,16 @@ input:-webkit-autofill{
     display: block;
   }
 
-  #addCocktail {
+  #addCocktail{
     fill: transparent;    
     stroke-width: 0.5px;
     stroke:#585243;
+  }
+  #dashboard {
+    fill: transparent;    
+    stroke-width: 1px;
+    stroke:#DAA160;
+    height: 27px;
   }
   .addCocktail {
     width: 40px;
