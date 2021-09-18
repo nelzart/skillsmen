@@ -1,7 +1,4 @@
-<?php 
-    session_start();
 
-?>
 
 <!DOCTYPE html>
 <html lang="fr">
@@ -31,17 +28,25 @@
 
                 <svg id="getCocktail"  xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
                 
-                <a type="button" aria-haspopup="dialog" aria-controls="dialog" style="height:30px; width:24px; background-color:transparent; box-shadow: 0px 0px 0px transparent">
-                    <svg id="connexion" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
-                </a> 
-                <!-- <a 
-                <?php // if($_SESSION['Uti_Id']){
-                   // echo 'href="?action="' ;
-                    //} else {
-                      //  echo 'class="js-document"';
-                   // } ?> type="button" aria-haspopup="dialog" aria-controls="dialog" style="height:30px; width:24px; background-color:transparent; box-shadow: 0px 0px 0px transparent">
+                <!-- <a type="button" aria-haspopup="dialog" aria-controls="dialog" style="height:30px; width:24px; background-color:transparent; box-shadow: 0px 0px 0px transparent">
                     <svg id="connexion" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
                 </a>  -->
+                
+                <?php  
+                if($_SESSION){
+                    echo ' 
+                    <a href="?action=getMyProfil&id='.$_SESSION['Uti_Id'].'">
+                        <svg id="connexion" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+                    </a> 
+                    <a href="?action=createCocktail">
+                        <svg class="iconCircle addInput addCocktail" class="" id="addCocktail" xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="30px" viewBox="0 0 24 24" width="30px" fill="#000000"><g><g><path d="M19,13h-6v6h-2v-6H5v-2h6V5h2v6h6V13z"/></g></g></svg>
+                    </a>' ;
+                } else {
+                        echo '<a type="button" aria-haspopup="dialog" aria-controls="dialog" style="height:30px; width:24px; background-color:transparent; box-shadow: 0px 0px 0px transparent">
+                        <svg id="connexion" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+                    </a> ';
+                    } ?> 
+                    
 
                 <?php 
                     require('modalsign.php');

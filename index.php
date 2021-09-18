@@ -1,5 +1,7 @@
 
 <?php
+session_start();
+
 //var_dump($_POST);
 // var_dump($_GET);
 //var_dump($search);
@@ -17,16 +19,12 @@ try { // On essaie de faire des choses
             if (isset($_POST['Uti_Login']) && !empty($_POST['Uti_Login']) 
             && isset($_POST['Uti_Mdp']) && !empty($_POST['Uti_Mdp'])) {
                 // redirect();
-                $test = connectUser
+                
+                connectUser
                     (
                         $_POST['Uti_Login'],
                         $_POST['Uti_Mdp']
                     );
-                    if ($test = true){
-                        echo '<script>alert()</script>';
-                    } else {
-                        echo 'ta mere';
-                    }
                 // echo '<div id"message"> Coucou </div>';
                 // if ($_SESSION['Uti_Id']) {}
                 
@@ -49,12 +47,15 @@ try { // On essaie de faire des choses
                             $_POST['Uti_Pseudo'], 
                             $_POST['Uti_Mdp'], 
                             $_POST['Uti_Mdp2']
-                        );
-                        
+                        );                        
                     }    
                 }
         elseif($_GET['action'] == 'backhome'){
             listCocktailsAccueil();
+            
+        }
+        elseif($_GET['action'] == 'getMyProfil'){
+            getUserProfil(isset($_POST[$_SESSION['Uti_Id']]));
             
         }
         elseif($_GET['action'] == 'lycos'){
@@ -154,3 +155,4 @@ try { // On essaie de faire des choses
 catch(Exception $e) { // S'il y a eu une erreur, alors...
     echo 'Erreur : ' . $e->getMessage();
 }
+

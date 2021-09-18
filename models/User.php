@@ -26,6 +26,18 @@ function getUsers_ByMail($userMail){
     return $lycos;
 }
 
+function getUsers_ById($userId){
+    $db = dbConnect();
+    $search = $db->prepare("SELECT * FROM utilisateurs WHERE Uti_Id = :Uti_Id");
+
+    $search->execute(array(
+        ':Uti_Id' => $userId
+    ));
+
+    $lycos = $search->fetch();    
+    return $lycos;
+}
+
 function createUser($userMail, $userName, $mdp, $utiDroit){
     $db = dbConnect();    
     $sth = $db->prepare('INSERT INTO utilisateurs (`Uti_Login`, `Uti_Pseudo`,  `Uti_Mdp`, `Uti_Droit`) VALUES (:Uti_Login, :Uti_Pseudo, :Uti_Mdp, :Uti_Droit)');

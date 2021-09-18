@@ -127,8 +127,6 @@ function redirect(){
 //         }
 //     }
 
-
-
 ////////////////////////
 function connectUser($userMail, $mdp){
     $userMail = $_POST['Uti_Login'];
@@ -138,54 +136,27 @@ function connectUser($userMail, $mdp){
     if ($data && password_verify($mdp, $data['Uti_Mdp'])) {
         //une fois la vérification de mot de passe validée
         //on stocke l'id de l'user dans la session
+        $_SESSION['Uti_Login'] = $data['Uti_Login'];
         $_SESSION['Uti_Id'] = $data['Uti_Id'];
-        
-        echo "<script>alert(\"aucuns resultats \")</script>" ;
-        $message = 'ok';
-        return $message;
+        $_SESSION['Uti_Pseudo'] = $data['Uti_Pseudo'];
+        $_SESSION['Uti_Droit'] = $data['Uti_Droit'];
+        var_dump($_SESSION);
+        redirect();
 
     } else {
         echo "pas du tout" .$data['Uti_Id'];
         $message = 'pas ok';
-        return $message;
+        redirect();
     }
 }
 
-//     if (
-//         isset($_POST['Uti_Login']) &&
-//         isset($_POST['Uti_Mdp']) &&
-//         !empty($_POST['Uti_Login']) &&
-//         !empty($_POST['Uti_Mdp'])
-//     ) {
-//         //on vérifie que le mot de passe répété soit correct
-//         $user = $_POST['Uti_Login'];
-//         $mdp = $_POST['Uti_Mdp'];
-        
-//         //$dbh = dbConnect();
-//         $user = getUsers_ByMail($userMail);
-//         $mdp = $user[4];
-//         var_dump($user);
-//         //on tente de récupérer l'utilisateur assigné à cet username
-//     //  $sth = $dbh->prepare('SELECT id, mdp FROM admin WHERE user = :user');
-//     // $sth->execute(
-//     //      [
-//     //          ':user' => $user
-//     //      ]
-//     //   );
-//         //si on trouve un utilisateur, on stocke son mdp haché dans $data
-//     // $data = $sth->fetch();
-    
-    
-//     /* if ($data && password_verify($mdp, $data['mdp'])) {
-//             //une fois la vérification de mot de passe validée
-//             //on stocke l'id de l'user dans la session
-//             $_SESSION['user_id'] = $data['id'];
-//             header('location: ./admin.php');
-//         } else {
-//             echo "
-                    
-//                             <p<strong>une erreur de saisie est survenue !</strong></p>
-//                         ";
-//         }*/
-//     }
-// }
+function getUserProfil($userId){
+    if ($_GET['action'] == 'getMyProfil'){
+        $userId = $_SESSION['Uti_Id'];
+    } else {
+        $userId = "Donne moi User";
+    }
+    $datas = getUsers_ById($userId);
+
+        require('./views/profil.php');
+}

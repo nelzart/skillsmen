@@ -1429,3 +1429,21 @@ input:-webkit-autofill{
   .show {
     display: block;
   }
+
+  #addCocktail {
+    fill: transparent;    
+    stroke-width: 0.5px;
+    stroke:#585243;
+  }
+  .addCocktail {
+    width: 40px;
+    height: 40px;
+    margin: 5px;
+    border: 1px solid #585243 ;
+  }@media(max-width : 723px){
+      .addCocktail {
+        position: relative;
+        top: -40px;
+        right: 30px;
+      }
+  }
