@@ -330,9 +330,9 @@ function listCocktailsAccueil(){ //uniquement les publiés par defaut
 function getCocktail(){
   $coc = getCocktailByIdCoc($_GET['id']);
   $ing = getIngByIdcoc($_GET['id']);
-  // $cat = getCatCocByIdCoc($_GET['id']);
+
   $img = getimgCocByIdCoc($_GET['id']);
-  // $com = getCommentbyIdCoc($_GET['id']);
+  $com = getCommentbyIdCoc($_GET['id']);
   require('./views/cocktailView.php');
 }
 

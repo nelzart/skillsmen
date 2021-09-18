@@ -79,7 +79,7 @@ $title =  $coc[1]  ;
         </div>
        
         <div class="thoseComments" >
-
+  
             <button class="addInput" id="addInput" type="button" onclick="addRow()" value="ajouter">
                 <svg class="iconCircle" id="addItem" xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="30px" viewBox="0 0 24 24" width="30px" fill="#000000"><g>
                 <rect fill="none" height="24" width="24"/></g><g><g><path d="M19,13h-6v6h-2v-6H5v-2h6V5h2v6h6V13z"/></g></g></svg>
@@ -89,17 +89,31 @@ $title =  $coc[1]  ;
                 <div class="sectionTitle"></div>
                 <h2>Commentaires</h2>
             </div>
-
+            
+            <?php 
+            if(!empty($com)){
+                foreach($com as $comment){ 
+                    echo '
+                    <div id="comments" class="comments">
+                    
+                        <div class="author" >' . $comment[6] .' <span class="unvariable">' . $comment[2] .'</span></div>
+                        <div class="thisComments">
+                        ' . $comment[1] .'
+                        </div>    
+                    </div>
+                    
+                    <div class="splitComments"></div> ';
+                }
+            }else{
+                echo '
+                <div id="comments" class="comments"> ';
+                
+                    
+            }
+                
+            ?>
 
     
-            <div id="comments" class="comments">
-                <div class="author" >$author <span class="unvariable">le 09/07/21 à 21h06</span></div>
-                <div class="thisComments">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla lobortis tortor quis vulputate faucibus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla lobortis tortor quis vulputate faucibus.
-                </div>    
-            </div>
-
-            <div class="splitComments"></div>
     
     
         </div>
