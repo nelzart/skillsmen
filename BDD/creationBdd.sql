@@ -1,9 +1,9 @@
--- phpMyAdmin SQL Dump
+--- phpMyAdmin SQL Dump
 -- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : Dim 12 sep. 2021 à 10:04
+-- Généré le : Dim 19 sep. 2021 à 21:43
 -- Version du serveur :  8.0.21
 -- Version de PHP : 7.3.21
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de données : `skillsman_import`
+-- Base de données : `skillsman`
 --
 
 -- --------------------------------------------------------
@@ -40,6 +40,10 @@ CREATE TABLE IF NOT EXISTS `categoriecocktail` (
 --
 
 INSERT INTO `categoriecocktail` (`Typ_Id`, `Coc_Id`) VALUES
+(7, 452),
+(3, 454),
+(1, 455),
+(3, 455),
 (1, 456),
 (3, 456),
 (3, 457),
@@ -68,13 +72,13 @@ CREATE TABLE IF NOT EXISTS `cocktail` (
 --
 
 INSERT INTO `cocktail` (`Coc_Id`, `Coc_Nom`, `Coc_Recette`, `Coc_DateCreation`, `Uti_Id`, `Coc_Etat`) VALUES
-(452, 'modif_delamort', 'ccccc', '2021-09-10 19:23:30', 2, 'publie'),
+(452, 'modif_delamort', 'ccccc', '2021-09-10 19:23:30', 4, 'publie'),
 (453, 'recette 2', 'eeee', '2021-09-10 16:33:35', 2, 'controle'),
-(454, 'testzzzz', 'fffff', '2021-09-12 09:08:35', 2, 'publie'),
+(454, 'champagne', 'fffff', '2021-09-12 09:08:35', 43, 'publie'),
 (455, 'aaaaa', 'fffff', '2021-09-12 09:10:14', 2, 'publie'),
-(456, 'aaaaa', 'fffff', '2021-09-12 09:12:31', 2, 'publie'),
+(456, 'aaaaa_456', 'fffff', '2021-09-12 09:12:31', 43, 'publie'),
 (457, 'ggg', 'drrr', '2021-09-12 09:15:36', 2, 'publie'),
-(458, 'ddd', 'ddddd', '2021-09-12 09:35:51', 2, 'publie');
+(458, 'ddd', 'ddddd', '2021-09-12 09:35:51', 3, 'publie');
 
 -- --------------------------------------------------------
 
@@ -92,14 +96,17 @@ CREATE TABLE IF NOT EXISTS `commentaires` (
   PRIMARY KEY (`Com_Id`),
   KEY `Commentaires_Cocktail_FK` (`Coc_Id`),
   KEY `Commentaires_Utilisateurs0_FK` (`Uti_Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `commentaires`
 --
 
 INSERT INTO `commentaires` (`Com_Id`, `Com_Contenu`, `Com_dateCreation`, `Coc_Id`, `Uti_Id`) VALUES
-(18, 'azerty', '2021-09-10 17:13:23', 452, 2);
+(18, 'super cocktail', '2021-09-10 17:13:23', 452, 2),
+(19, 'un peu raide', '2021-09-18 19:17:35', 452, 43),
+(20, 'je confirme....mais excellent', '2021-09-18 19:18:24', 452, 43),
+(21, 'yahouuuuuu', '2021-09-19 18:09:41', 456, 43);
 
 -- --------------------------------------------------------
 
@@ -194,9 +201,9 @@ CREATE TABLE IF NOT EXISTS `images` (
 INSERT INTO `images` (`Img_Id`, `Img_Nom`, `Img_Adresse`, `Coc_Id`, `Uti_Id`) VALUES
 (65, '453_coc.jpg', 'public/images', 453, 2),
 (70, '452_coc.jpg', 'public/images', 452, 2),
-(71, '454_coc.jpg', 'public/images', 454, 2),
+(71, '454_coc.jpg', 'public/images', 454, 43),
 (72, '455_coc.jpg', 'public/images', 455, 2),
-(73, '456_coc.jpg', 'public/images', 456, 2),
+(73, '456_coc.jpg', 'public/images', 456, 43),
 (74, '458_coc.jpg', 'public/images', 458, 2);
 
 -- --------------------------------------------------------
@@ -416,225 +423,16 @@ INSERT INTO `ingredients` (`Ing_Id`, `Ing_Nom`, `Ing_Categorie`) VALUES
 (196, 'pomme (liqueur)', 'liqueur'),
 (197, 'pomme (sirop)', 'sirop'),
 (198, 'Porto', 'alcool'),
-(199, 'Rhum', 'alcool'),
 (200, 'sambucca', 'alcool'),
 (201, 'sel', 'épice/fleur/condiments'),
 (202, 'Southern Comfort', 'liqueur'),
 (203, 'speculos', 'sirop'),
 (204, 'sucre', 'épice/fleur/condiments'),
-(205, 'Tequila ', 'alcool'),
 (206, 'tonic', 'eau'),
 (207, 'vanille', 'épice/fleur/condiments'),
 (208, 'Vermouth dry', 'alcool'),
 (209, 'Vermouth rouge', 'alcool'),
 (210, 'Vermouth blanc', 'alcool'),
-(211, 'vin', 'alcool'),
-(212, 'Vodka ', 'alcool'),
-(213, 'whisky ', 'alcool'),
-(214, 'yuzu', 'sirop'),
-(215, 'abricot (fruit)', 'fruit'),
-(216, 'abricot (jus)', 'jus'),
-(217, 'abricot (liqueur)', 'liqueur'),
-(218, 'abricot (sirop)', 'sirop'),
-(219, 'absinthe', 'alcool'),
-(220, 'amande (fruit)', 'fruit'),
-(221, 'amande (jus)', 'jus'),
-(222, 'amande (liqueur)', 'liqueur'),
-(223, 'amande (sirop)', 'sirop'),
-(224, 'Amaretto', 'liqueur'),
-(225, 'ananas (fruit)', 'fruit'),
-(226, 'ananas (jus)', 'jus'),
-(227, 'ananas (liqueur)', 'liqueur'),
-(228, 'ananas (sirop)', 'sirop'),
-(229, 'Angostura bitters', 'alcool'),
-(230, 'anis étoilé', 'épice/fleur/condiments'),
-(231, 'baies de genièvre', 'épice/fleur/condiments'),
-(232, 'banane (fruit)', 'fruit'),
-(233, 'banane (jus)', 'jus'),
-(234, 'banane (liqueur)', 'liqueur'),
-(235, 'banane (sirop)', 'sirop'),
-(236, 'basilic (sirop)', 'sirop'),
-(237, 'basilic', 'épice/fleur/condiments'),
-(238, 'biere', 'alcool'),
-(239, 'Bourbon ', 'alcool'),
-(240, 'brandy', 'alcool'),
-(241, 'camomille', 'épice/fleur/condiments'),
-(242, 'canelle', 'épice/fleur/condiments'),
-(243, 'caramel salé', 'sirop'),
-(244, 'cardamome', 'épice/fleur/condiments'),
-(245, 'cassis (fruit)', 'fruit'),
-(246, 'cassis (jus)', 'jus'),
-(247, 'cassis (liqueur)', 'liqueur'),
-(248, 'cassis (sirop)', 'sirop'),
-(249, 'cerise (fruit)', 'fruit'),
-(250, 'cerise (jus)', 'jus'),
-(251, 'cerise (liqueur)', 'liqueur'),
-(252, 'cerise (sirop)', 'sirop'),
-(253, 'champagne', 'alcool'),
-(254, 'chocolat noir', 'épice/fleur/condiments'),
-(255, 'citron  (fruit)', 'fruit'),
-(256, 'citron  (jus)', 'jus'),
-(257, 'citron  (liqueur)', 'liqueur'),
-(258, 'citron  (sirop)', 'sirop'),
-(259, 'citron vert (fruit)', 'fruit'),
-(260, 'citron vert (jus)', 'jus'),
-(261, 'citron vert (liqueur)', 'liqueur'),
-(262, 'citron vert (sirop)', 'sirop'),
-(263, 'coco (creme)', 'creme'),
-(264, 'coco (fruit)', 'fruit'),
-(265, 'coco (jus)', 'jus'),
-(266, 'coco (lait)', 'lait'),
-(267, 'coco (liqueur)', 'liqueur'),
-(268, 'coco (sirop)', 'sirop'),
-(269, 'Cognac ', 'alcool'),
-(270, 'Cointreau - Triple sec ', 'alcool'),
-(271, 'cola', 'soda'),
-(272, 'cramberry (fruit)', 'fruit'),
-(273, 'cramberry (jus)', 'jus'),
-(274, 'cramberry (liqueur)', 'liqueur'),
-(275, 'cramberry (sirop)', 'sirop'),
-(276, 'creme de cacao', 'liqueur'),
-(277, 'creme de whisky ', 'alcool'),
-(278, 'Drambuie', 'liqueur'),
-(279, 'eau gazeuse', 'eau'),
-(280, 'eau minérale', 'eau'),
-(281, 'fleur de jasmin', 'épice/fleur/condiments'),
-(282, 'fleur de sel', 'épice/fleur/condiments'),
-(283, 'fleur de sureaux (sirop)', 'sirop'),
-(284, 'fleur de sureaux (liqueur)', 'liqueur'),
-(285, 'fleur de violette', 'épice/fleur/condiments'),
-(286, 'fleur d\'hibiscus', 'épice/fleur/condiments'),
-(287, 'fraise (fruit)', 'fruit'),
-(288, 'fraise (jus)', 'jus'),
-(289, 'fraise (liqueur)', 'liqueur'),
-(290, 'fraise (sirop)', 'sirop'),
-(291, 'fraise des bois (fruit)', 'fruit'),
-(292, 'fraise des bois (jus)', 'jus'),
-(293, 'fraise des bois (liqueur)', 'liqueur'),
-(294, 'fraise des bois (sirop)', 'sirop'),
-(295, 'framboise (fruit)', 'fruit'),
-(296, 'framboise (jus)', 'jus'),
-(297, 'framboise (liqueur)', 'liqueur'),
-(298, 'framboise (sirop)', 'sirop'),
-(299, 'fruits de la passion (fruit)', 'fruit'),
-(300, 'fruits de la passion (jus)', 'jus'),
-(301, 'fruits de la passion (liqueur)', 'liqueur'),
-(302, 'fruits de la passion (sirop)', 'sirop'),
-(303, 'Galliano (liqueur)', 'liqueur'),
-(304, 'Gin ', 'alcool'),
-(305, 'gingembre (fruit)', 'fruit'),
-(306, 'gingembre (jus)', 'jus'),
-(307, 'gingembre (liqueur)', 'liqueur'),
-(308, 'gingembre (sirop)', 'sirop'),
-(309, 'gingembre ', 'épice/fleur/condiments'),
-(310, 'ginger ale ', 'eau'),
-(311, 'goyave (fruit)', 'fruit'),
-(312, 'goyave (jus)', 'jus'),
-(313, 'goyave (liqueur)', 'liqueur'),
-(314, 'goyave (sirop)', 'sirop'),
-(315, 'grappa', 'alcool'),
-(316, 'jasmin', 'sirop'),
-(317, 'kiwi (fruit)', 'fruit'),
-(318, 'kiwi (jus)', 'jus'),
-(319, 'kiwi (liqueur)', 'liqueur'),
-(320, 'kiwi (sirop)', 'sirop'),
-(321, 'laurier', 'épice/fleur/condiments'),
-(322, 'limonade', 'eau'),
-(323, 'litchi (fruit)', 'fruit'),
-(324, 'litchi (jus)', 'jus'),
-(325, 'litchi (liqueur)', 'liqueur'),
-(326, 'litchi (sirop)', 'sirop'),
-(327, 'madarine (fruit)', 'fruit'),
-(328, 'madarine (jus)', 'jus'),
-(329, 'madarine (liqueur)', 'liqueur'),
-(330, 'madarine (sirop)', 'sirop'),
-(331, 'malibu (fruit)', 'fruit'),
-(332, 'malibu (jus)', 'jus'),
-(333, 'malibu (liqueur)', 'liqueur'),
-(334, 'malibu (sirop)', 'sirop'),
-(335, 'mandarine (fruit)', 'fruit'),
-(336, 'mandarine (jus)', 'jus'),
-(337, 'mandarine (liqueur)', 'liqueur'),
-(338, 'mandarine (sirop)', 'sirop'),
-(339, 'mangue (fruit)', 'fruit'),
-(340, 'mangue (jus)', 'jus'),
-(341, 'mangue (liqueur)', 'liqueur'),
-(342, 'mangue (sirop)', 'sirop'),
-(343, 'melon (fruit)', 'fruit'),
-(344, 'melon (jus)', 'jus'),
-(345, 'melon (liqueur)', 'liqueur'),
-(346, 'melon (sirop)', 'sirop'),
-(347, 'menthe (fruit)', 'fruit'),
-(348, 'menthe (jus)', 'jus'),
-(349, 'menthe (liqueur)', 'liqueur'),
-(350, 'menthe (sirop)', 'sirop'),
-(351, 'menthe verte (fruit)', 'fruit'),
-(352, 'menthe verte (jus)', 'jus'),
-(353, 'menthe verte (liqueur)', 'liqueur'),
-(354, 'menthe verte (sirop)', 'sirop'),
-(355, 'Mezcal', 'alcool'),
-(356, 'myrtille (fruit)', 'fruit'),
-(357, 'myrtille (jus)', 'jus'),
-(358, 'myrtille (liqueur)', 'liqueur'),
-(359, 'myrtille (sirop)', 'sirop'),
-(360, 'noix de muscade', 'épice/fleur/condiments'),
-(361, 'orange (fruit)', 'fruit'),
-(362, 'orange (jus)', 'jus'),
-(363, 'orange (liqueur)', 'liqueur'),
-(364, 'orange (sirop)', 'sirop'),
-(365, 'orgeat (sirop)', 'sirop'),
-(366, 'pamplemeousse (fruit)', 'fruit'),
-(367, 'pamplemeousse (jus)', 'jus'),
-(368, 'pamplemeousse (liqueur)', 'liqueur'),
-(369, 'pamplemeousse (sirop)', 'sirop'),
-(370, 'passoa (fruit)', 'fruit'),
-(371, 'passoa (jus)', 'jus'),
-(372, 'passoa (liqueur)', 'liqueur'),
-(373, 'passoa (sirop)', 'sirop'),
-(374, 'peche (fruit)', 'fruit'),
-(375, 'peche (jus)', 'jus'),
-(376, 'peche (liqueur)', 'liqueur'),
-(377, 'peche (sirop)', 'sirop'),
-(378, 'peche de vigne (fruit)', 'fruit'),
-(379, 'peche de vigne (jus)', 'jus'),
-(380, 'peche de vigne (liqueur)', 'liqueur'),
-(381, 'peche de vigne (sirop)', 'sirop'),
-(382, 'piment', 'épice/fleur/condiments'),
-(383, 'piment de cayenne', 'épice/fleur/condiments'),
-(384, 'pisang ambon (fruit)', 'fruit'),
-(385, 'pisang ambon (jus)', 'jus'),
-(386, 'pisang ambon (liqueur)', 'liqueur'),
-(387, 'pisang ambon (sirop)', 'sirop'),
-(388, 'Pisco', 'alcool'),
-(389, 'pistache (sirop)', 'sirop'),
-(390, 'poire (fruit)', 'fruit'),
-(391, 'poire (jus)', 'jus'),
-(392, 'poire (liqueur)', 'liqueur'),
-(393, 'poire (sirop)', 'sirop'),
-(394, 'poivre blanc', 'épice/fleur/condiments'),
-(395, 'poivre noire', 'épice/fleur/condiments'),
-(396, 'poivron', 'épice/fleur/condiments'),
-(397, 'pomme (fruit)', 'fruit'),
-(398, 'pomme (jus)', 'jus'),
-(399, 'pomme (liqueur)', 'liqueur'),
-(400, 'pomme (sirop)', 'sirop'),
-(401, 'Porto', 'alcool'),
-(402, 'Rhum', 'alcool'),
-(403, 'sambucca', 'alcool'),
-(404, 'sel', 'épice/fleur/condiments'),
-(405, 'Southern Comfort', 'liqueur'),
-(406, 'speculos', 'sirop'),
-(407, 'sucre', 'épice/fleur/condiments'),
-(408, 'Tequila ', 'alcool'),
-(409, 'tonic', 'eau'),
-(410, 'vanille', 'épice/fleur/condiments'),
-(411, 'Vermouth dry', 'alcool'),
-(412, 'Vermouth rouge', 'alcool'),
-(413, 'Vermouth blanc', 'alcool'),
-(414, 'vin', 'alcool'),
-(415, 'Vodka ', 'alcool'),
-(416, 'whisky ', 'alcool'),
-(417, 'yuzu', 'sirop'),
 (427, 'huile', 'controle'),
 (428, 'azerty', 'controle'),
 (429, 'ngjtuyh', 'controle');
@@ -701,19 +499,21 @@ CREATE TABLE IF NOT EXISTS `utilisateurs` (
   `Uti_Droit` varchar(50) NOT NULL,
   `Uti_DateInscription` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`Uti_Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=41 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=44 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `utilisateurs`
 --
 
 INSERT INTO `utilisateurs` (`Uti_Id`, `Uti_Pseudo`, `Uti_Login`, `Uti_Mdp`, `Uti_Droit`, `Uti_DateInscription`) VALUES
-(2, 'fred', 'fred@fred.fr', '12345678', 'contributeur', '2021-07-30 15:00:58');
-
--- --------------------------------------------------------
+(2, 'fred', 'fred@fred.fr', '12345678', 'contributeur', '2021-07-30 15:00:58'),
+(3, 'Max la menace', 'max@fred.fr', '12345678', 'contributeur', '2021-07-30 13:00:58'),
+(4, 'Zazou', 'zazou@fred.fr', '12345678', 'contributeur', '2021-07-30 13:00:58'),
+(42, 'azerty', 'azerty@azerty.fr', '$2y$10$5dDgD7Jnjftp8l4AvCfMm.RJ24JMqy20dF0bs40BeGNaO2380Y8YS', '1', '2021-09-17 23:08:21'),
+(43, 'Comcombre masqué', 'frederic.david@cariforefoccitanie.fr', '$2y$10$ZG1xubcuOaL9D6t2qP3Iwe4/OVZGGVp7jzyD6/WhVmuMIfU/gasTy', '1', '2021-09-18 09:53:20');
 
 --
-
+-- Contraintes pour les tables déchargées
 --
 
 --
