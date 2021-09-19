@@ -151,12 +151,9 @@ function connectUser($userMail, $mdp){
 }
 
 function getUserProfil($userId){
-    if ($_GET['action'] == 'getMyProfil'){
-        $userId = $_SESSION['Uti_Id'];
-    } else {
-        $userId = "Donne moi User";
-    }
-    $datas = getUsers_ById($userId);
+
+       
+        $datas = getUsers_ById($userId);
 
     $cocs = [];
     //$resultImg = [];
