@@ -6,6 +6,7 @@ function filterSelection(filter) {
     //pour chaque element de classe galerie
     for (var i = 0; i < elemList.length; i++){
         //   si la classe filtrée existe dans la liste de classe de l'element
+        // console.log(btns.value)
         if (elemList[i].classList.contains(filter)) {
         
             if (elemList[i].classList.contains('show')){
@@ -14,7 +15,8 @@ function filterSelection(filter) {
 
             } else if (elemList[i].classList.contains('hide') ){
                 elemList[i].classList.remove('hide')
-                elemList[i].classList.add('show')                 
+                elemList[i].classList.add('show')  
+                // console.log(elemList[i] == btns[i])               
             } 
         } 
     }
