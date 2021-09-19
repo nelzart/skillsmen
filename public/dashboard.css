@@ -80,6 +80,22 @@ svg {
     text-decoration: none;
     color: #20A6C1;
 }
+.addIngredient {
+    position: absolute;
+    bottom: 50px;
+    background-color: #20A6C1 ;
+    width: 200px;
+    height: 40px;
+    border-radius: 7px;
+    font-size: 17px;
+    font-variant: small-caps;
+    font-weight: bold;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: white;
+}
 
 .view {
     display: flex;
@@ -216,3 +232,10 @@ h4 {
     }
 
 
+#myBtnContainer {
+    width: 100%;
+}
+
+.hide {
+    display: none;
+}
