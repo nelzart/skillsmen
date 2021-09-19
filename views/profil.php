@@ -7,7 +7,8 @@
 			<div class="gradient">    
                 <div class="profilImg myCover" style="background-image:url('../skillsmen/public/images/userman.jpg')">
                     <div class="gradient"></div>
-                    <h2>• Userman •</h2>
+                    <?php echo '<h2>•' .  $_SESSION['Uti_Pseudo']. ' •</h2>'
+                    ?>
                 </div>
                 <button id="editThisProfil" class="iconCover" style="margin-left:20px;" height="15%" width="15%">
                     <svg id="edit" xmlns="http://www.w3.org/2000/svg" height="30px" viewBox="0 0 24 24" width="30px" fill="#000000">
@@ -26,17 +27,23 @@
 
             <div class="result">
 
-                <a href=""><div class="tuiles myCover" style="background-image:url('../skillsmen/public/images/cocktails.jpg')">
-                <div class="gradient"> <h2>• tuile •</h2></div></div></a>
-                <a href=""><div class="tuiles myCover" style="background-image:url('../public/images/cocktails.jpg')">
-                <div class="gradient"> <h2>• tuile •</h2></div></div></a>
-                <a href=""><div class="tuiles myCover" style="background-image:url('../public/images/cocktails.jpg')">
-                <div class="gradient"> <h2>• tuile •</h2></div></div></a>
-                <a href=""><div class="tuiles myCover" style="background-image:url('../public/images/cocktails.jpg')">
-                <div class="gradient"> <h2>• tuile •</h2></div></div></a>
-                <a href=""><div class="tuiles myCover" style="background-image:url('../public/images/cocktails.jpg')">
-                <div class="gradient"> <h2>• tuile •</h2></div></div></a>
+            <?php 
+                        foreach($cocs as $res){            
 
+                            echo '
+                            <a href="?action=getcocktail&id='.$res['Coc_Id'].'"><div class="tuiles myCover" style="background-image:url(../public/images/' . $res['Img_Nom'] .')">
+                            <div class="gradient"> <h2>•'. $res['Coc_Nom'] .' •</h2></div></div></a>';
+                    }
+                   // var_dump($cocPub);
+                //var_dump($resultCoc);
+                //var_dump($cocPub[0][0]);
+                //var_dump($res);
+                //var_dump($resultImg);
+                //var_dump($result[0]);
+               // var_dump($result);
+                //var_dump($mess);
+                //var_dump($imgs);
+                ?>
             </div>
         </div>
 

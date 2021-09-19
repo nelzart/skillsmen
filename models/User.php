@@ -28,7 +28,7 @@ function getUsers_ByMail($userMail){
 
 function getUsers_ById($userId){
     $db = dbConnect();
-    $search = $db->prepare("SELECT * FROM utilisateurs WHERE Uti_Id = :Uti_Id");
+    $search = $db->prepare("SELECT * FROM utilisateurs uti left join images img on uti.Uti_Id = img_Uti_Id and img.Coc_Id = 'NULL' WHERE Uti_Id = :Uti_Id");
 
     $search->execute(array(
         ':Uti_Id' => $userId
@@ -66,6 +66,18 @@ function Commentaires_ByUserName($userName)
 {
     
 }*/
+
+function getCcocktail_ByUserId($userId){
+    $db = dbConnect();
+    $search = $db->prepare("SELECT * FROM cocktail WHERE Uti_Id = :Uti_Id");
+
+    $search->execute(array(
+        ':Uti_Id' => $userId
+    ));
+
+    $dhl = $search->fetchAll();    
+    return $dhl;
+}
 
 function VerifMdp_ByUserMail($userMail){
     $db = dbConnect();

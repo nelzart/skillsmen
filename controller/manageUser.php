@@ -164,7 +164,7 @@ function getUserProfil($userId){
     
 
     $cocPub = getCcocktail_ByUserId($userId);
-    var_dump($cocPub);
+    //var_dump($cocPub);
     foreach($cocPub as $cp){
         //$result = getCocktailByIdCoc($cp['Coc_Id']);   //var qui recup les id coc concernés
         $result2 = getCocktailByNameSansCat($cp['Coc_Nom']);    //on relance la recherche par nom pour alimenter cocs
@@ -188,12 +188,12 @@ function getUserProfil($userId){
             array_splice($cocs, $coc, 1);
         }
     }*/
-    var_dump($result2);
-    var_dump($res);
-    var_dump($res['Coc_Id']);
-    var_dump($cp);
-    var_dump($cocs);
-    var_dump($cocPub);
+    //var_dump($result2);
+   // var_dump($res);
+   // var_dump($res['Coc_Id']);
+   // var_dump($cp);
+    //var_dump($cocs);
+    //var_dump($cocPub);
     /*foreach($cs as $c){   //
         $result = getCocktailByIdCoc($c[0]['Coc_Id']);   //var qui recup les id coc concernés
         $result2 = getCocktailByName($result[1]);    //on relance la recherche par nom pour alimenter cocs
@@ -245,4 +245,4 @@ function mofifProfil($user){
      
 
        
-}
+}   
