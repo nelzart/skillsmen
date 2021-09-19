@@ -45,6 +45,27 @@ function getCocktailByName($what, $etat='publie'){
         echo "pas ok";
     }
 }
+
+function getCocktailByNameSansCat($what, $etat='publie'){
+    $db = dbConnect();
+     
+    $sth = $db -> prepare(" SELECT co.Coc_Id, Coc_Nom, Coc_Recette, Coc_DateCreation, Uti_Pseudo, i.Img_Nom from cocktail co inner join utilisateurs uti on co.Uti_Id = uti.Uti_Id left join images i on i.Coc_Id = co.Coc_Id where Coc_Nom like :Coc_Nom and Coc_Etat = :Coc_Etat order by Coc_DateCreation Desc");
+    // $sth = $db -> prepare(" SELECT * from cocktail co inner join utilisateurs uti on co.Uti_Id = uti.Uti_Id where Coc_Nom like :Coc_Nom and Coc_Etat ='publie' order by Coc_DateCreation Desc");
+    if($sth -> execute (
+        [
+            ':Coc_Nom' => '%' . $what . '%',
+            ':Coc_Etat' => $etat
+        ]
+    )
+    ){$ups = $sth->fetchAll();
+        
+        //echo "ok";
+        return $ups; 
+    }
+    else{
+        echo "pas ok";
+    }
+}
 function getCocktailByIdCoc($cocId){
     $db = dbConnect();   
     $sth = $db -> prepare(" SELECT * from cocktail co inner join utilisateurs  uti on co.Uti_Id = uti.Uti_Id where Coc_Id = :Coc_Id");
@@ -56,11 +77,11 @@ function getCocktailByIdCoc($cocId){
     )
     ){$ups = $sth->fetch();
         
-        //echo "ok";
+        echo "ok";
         return $ups; 
     }
     else{
-        //echo "pas ok";
+        echo "pas ok";
     }
 }
 
@@ -202,7 +223,7 @@ function getAllIngredients(){
 
     if($sth -> execute ()){
         $results = $sth->fetchAll();
-        var_dump($results);
+        //var_dump($results);
         
         //echo $resultat[0];
         return $results; 

@@ -23,9 +23,9 @@ $title =  $coc[1]  ;
 		<div class="myCover" style="background-image:url('<?php if(!empty($img[0][2])){ echo $img[0][2]. '/' .$img[0][1];} ?>')">
 			<div class="gradient"> 
                 
-            
-				<h2>• <?= $coc[1]  ?> •</h2>
-				
+            <?php var_dump($coc)?>
+				<h2>• <?= $coc['Coc_Nom'] ?> •</h2>
+              
 				
                 <label name="favorite" class="iconCover">
                 <input type="checkbox" name="favorite" value="favorite" style="display:none;">
@@ -48,7 +48,7 @@ $title =  $coc[1]  ;
             </div>
 
             <h3>• Ingrédients •</h3> 
-
+            <?php var_dump($coc);?>
             <?php 
                 foreach ($ing as $composition){
                 echo '<span>'
