@@ -50,7 +50,7 @@
                 //var_dump($mess);
                 //var_dump($imgs);
 
-                ?>
+            ?>
             </div>
         </div>
         <div class="galerie">
@@ -60,19 +60,14 @@
             </div>
             
             <div class="result">
-
-                <a href=""><div class="tuiles myCover" style="background-image:url('../public/images/cocktails.jpg')">
-                <div class="gradient"> <h2>• tuile •</h2></div></div></a>
-                <a href=""><div class="tuiles myCover" style="background-image:url('../public/images/cocktails.jpg')">
-                <div class="gradient"> <h2>• tuile •</h2></div></div></a>
-                <a href=""><div class="tuiles myCover" style="background-image:url('../public/images/cocktails.jpg')">
-                <div class="gradient"> <h2>• tuile •</h2></div></div></a>
-                <a href=""><div class="tuiles myCover" style="background-image:url('../public/images/cocktails.jpg')">
-                <div class="gradient"> <h2>• tuile •</h2></div></div></a>
-                <a href=""><div class="tuiles myCover" style="background-image:url('../public/images/cocktails.jpg')">
-                <div class="gradient"> <h2>• tuile •</h2></div></div></a>
-
-            </div>
+            <?php                 
+                foreach($favs as $fav){
+                    echo '
+                <a href=""><div class="tuiles myCover" style="background-image:url(\../public/images/' . $fav['Coc_Nom'] . ')">
+                                <div class="gradient"> <h2>•' . $fav['Uti_Id'] . '•</h2></div></div>
+                            </div>
+                </a>'
+            ?>              
         </div>
 
         
@@ -97,21 +92,10 @@
                             . $com['Com_Contenu'] . '                             
                             </div> <br>
                         </div>
-                        <div class="showReciepe"><a href="?action=getcocktail&id='.$com['Coc_Id'].'">• voir la recette •</a></div>    
+                        <div class="showReciepe"><a href="?action=getUserProfil&id='.$com['Uti_Id'].'">• voir la recette •</a></div>    
 
                         <div class="splitComments"></div>'; }
-                        
-                        
-                        /*<div id="comments" class="comments">
-                            <div class="author" >$author <span class="unvariable">le 09/07/21 à 21h06</span></div>
-                            <div class="thisComments">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla lobortis tortor quis vulputate faucibus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla lobortis tortor quis vulputate faucibus.
-                            </div> <br>
-                        </div>
-                        <div class="showReciepe"><a href="">• voir la recette •</a></div>    
-                        
-                        <div class="splitComments"></div>*/
-                        
+                       
             ?>
                     </div>
     </div>
