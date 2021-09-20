@@ -28,7 +28,9 @@ function getUsers_ByMail($userMail){
 
 function getUsers_ById($userId){
     $db = dbConnect();
-    $search = $db->prepare("SELECT * FROM utilisateurs uti left join images img on uti.Uti_Id = img_Uti_Id and img.Coc_Id = 'NULL' WHERE Uti_Id = :Uti_Id");
+    $search = $db->prepare("SELECT * FROM utilisateurs uti 
+                            left join images img on uti.Uti_Id = img.Uti_Id OR img.Coc_Id = NULL 
+                            WHERE uti.Uti_Id = :Uti_Id");
 
     $search->execute(array(
         ':Uti_Id' => $userId
@@ -70,6 +72,17 @@ function Commentaires_ByUserName($userName)
 function getCcocktail_ByUserId($userId){
     $db = dbConnect();
     $search = $db->prepare("SELECT * FROM cocktail WHERE Uti_Id = :Uti_Id");
+
+    $search->execute(array(
+        ':Uti_Id' => $userId
+    ));
+
+    $dhl = $search->fetchAll();    
+    return $dhl;
+}
+function getCcocktail_ByUserId2($userId){
+    $db = dbConnect();
+    $search = $db->prepare("SELECT distinct FROM cocktail co left join images img on co.Uti_Id = img.Uti_Id and img.Coc_Id WHERE co.Uti_Id = :Uti_Id");
 
     $search->execute(array(
         ':Uti_Id' => $userId

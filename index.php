@@ -55,7 +55,8 @@ try { // On essaie de faire des choses
             
         }
         elseif($_GET['action'] == 'getMyProfil'){
-            getUserProfil(isset($_POST[$_SESSION['Uti_Id']]));
+            // var_dump($_GET['id']);
+            getUserProfil($_GET['id']);
             
         }
         elseif($_GET['action'] == 'lycos'){

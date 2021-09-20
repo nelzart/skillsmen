@@ -112,7 +112,7 @@ $title =  $coc[1]  ;
             }
                 // var_dump($coc);
 
-                var_dump($coc['Coc_Id']);
+                // var_dump($coc['Coc_Id']);
                 // var_dump($_POST['sendComment']);
                 // var_dump($_SESSION['Uti_Id']);
             ?>

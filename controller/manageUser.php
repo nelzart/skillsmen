@@ -151,35 +151,30 @@ function connectUser($userMail, $mdp){
 }
 
 function getUserProfil($userId){
+    $userId = $_GET['id'];
+    $datas = getUsers_ById($userId);
+    $cocPub = getCcocktail_ByUserId2($userId);
+    // $Img = getimgCocByIdCoc($cocPub['Coc_Id']);
+    // $cocs = [];
 
-       
-        $datas = getUsers_ById($userId);
-
-    $cocs = [];
-    //$resultImg = [];
-    $result = [];
-    
-
-    $cocPub = getCcocktail_ByUserId($userId);
     //var_dump($cocPub);
-    foreach($cocPub as $cp){
+    // foreach($cocPub as $cp){
         //$result = getCocktailByIdCoc($cp['Coc_Id']);   //var qui recup les id coc concernés
-        $result2 = getCocktailByNameSansCat($cp['Coc_Nom']);    //on relance la recherche par nom pour alimenter cocs
+        // $result2 = getCocktailByNameSansCat($cp['Coc_Nom']);    //on relance la recherche par nom pour alimenter cocs
+      
+        // foreach($result2 as $res){
 
+            // if (!in_array($res['Coc_Id'], $cocs)) {
+        //         array_push($cocs,$res);//pour chaque cocktail on pousse ds coc
+        //     }
         
-        foreach($result2 as $res){
-
-            if (!in_array($res['Coc_Id'], $cocs)) {
-                array_push($cocs,$res);//pour chaque cocktail on pousse ds coc
-            }
-        
-        }
-        $cocImg = getimgCocByIdCoc($cp['Coc_Id']); 
+        // }
+        // $cocImg = getimgCocByIdCoc($cp['Coc_Id']); 
         //$s = getCocktailByIdCoc($cp[0]);
         
         //array_push($resultCoc,$s);
         // array_push($resultImg,$cocImg);
-    }
+    // }
     /*foreach($cocs as $coc){
         if(!in_array($coc['Coc_Id'], $cocs)){
             array_splice($cocs, $coc, 1);
