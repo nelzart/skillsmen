@@ -26,13 +26,27 @@ $title =  $coc[1]  ;
             
 				<h2>• <?= $coc['Coc_Nom'] ?> •</h2>
               
-				
-                <label name="favorite" class="iconCover">
+				<?php 
+                // var_dump($coc["Uti_Id"], $_SESSION['Uti_Id']);
+                
+                // if ($coc['Uti_Id'] === $_SESSION['Uti_Id']){
+                //         echo '
+                //                 <a href="" class="iconCover" height="15%" width="15%">
+                //                     <svg id="edit" xmlns="http://www.w3.org/2000/svg" class="iconCoverSVG"  height="30px" viewBox="0 0 24 24" width="30px" fill="#000000"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/></svg>	  
+                //                 </a> 
+                //             ';
+                // } else {
+                //     echo '';
+                // }
+                    
+                //     ?>
+                    <label name="favorite" class="iconCover">
                 <input type="checkbox" name="favorite" value="favorite" style="display:none;">
                     <div class="favorite-checkbox">
                         <svg id="favorite" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
                     </div> 
                 </label>
+                
                 
 				<div class="iconCover print" style="margin-left:20px;" height="15%" width="15%">
                     <svg id="print" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><path d="M19 8H5c-1.66 0-3 1.34-3 3v6h4v4h12v-4h4v-6c0-1.66-1.34-3-3-3zm-3 11H8v-5h8v5zm3-7c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm-1-9H6v4h12V3z"/></svg>	  
