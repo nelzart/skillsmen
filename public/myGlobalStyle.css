@@ -1402,3 +1402,30 @@ input:-webkit-autofill{
         right: 30px;
       }
   }
+  .mobileSearch {
+      display: none;
+  }     
+  .titleSearch{
+    margin-top:40px; 
+    margin-bottom:-40px;
+}
+  @media (max-width: 1023px) {
+     .mobileSearch {
+        display: flex;
+        justify-content: center ; 
+        margin-top: 70px;
+     }
+     .titleSearch{
+        margin-top:-10px; 
+        margin-bottom:-100px;
+     }
+  }
+  @media (max-width: 751px) {
+    .mobileSearch {
+        margin-top: 0px;
+     }
+     .titleSearch{
+        margin-top:-10px; 
+        margin-bottom:0px;
+     }
+  }

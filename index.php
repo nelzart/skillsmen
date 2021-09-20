@@ -77,6 +77,12 @@ try { // On essaie de faire des choses
             }
             
         }
+        elseif($_GET['action'] == 'searchbar'){
+            
+                require('views/recherche.php');
+            } 
+            
+        
         elseif($_GET['action'] == 'getcocktail'){
             if (isset($_GET['id']) && $_GET['id'] > 0) {
                 getCocktail();

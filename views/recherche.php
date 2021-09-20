@@ -6,16 +6,19 @@ $title = "recherche de Cocktail";
 
 
     <?php include('./components/menu.php'); ?>
-<!-- <input type="checkbox" onchange="handleChange()" name="Job" rel="teacher" value="teacher" id="teacher" checked>Teacher
-<input type="checkbox" onchange="handleChange()" name="Job" rel="lawyer" value="lawyer" id="lawyer" checked>Lawyer
-<input type="checkbox" onchange="handleChange()" name="Job" rel="doctor" value="doctor" id="doctor" checked>Doctor -->
 
-<!-- <div id="result">
-    </div> -->
 
     <div class="container">
 
-        <h3 style="margin-top:40px; margin-bottom:-40px">Cliquez pour masquer les résultats</h3>
+        <form class="search mobileSearch" action="?action=lycos" method="post" >
+            <input style="height: 50px; width: 300px" type="text" name ="search" class="searchTerm" placeholder="Un ingrédient, un alcool, un cocktail ? ">
+            
+            <button type="submit" class="searchButton"style="margin-left: 0px; width: 40px; height: 50px; box-shadow: 0px 0px 0px" >
+                <svg id="filter"  class="Icon Icon-lens" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><path d="M0 0h24v24H0z" fill="none"/><path d="M10 18h4v-2h-4v2zM3 6v2h18V6H3zm3 7h12v-2H6v2z"/></svg>
+            </button>            
+        </form>
+
+        <h3 class="titleSearch">Cliquez pour masquer les résultats</h3>
 
         <div id="myBtnContainer" class="thisBase">
             <?php 
@@ -23,12 +26,12 @@ $title = "recherche de Cocktail";
             ?>
         </div>
 
-        <div id="result">
-    </div>
+
         
             <div class="allGalerie">
 
                 <?php 
+                if (isset($cats)){
                     foreach($cats as $cat){            
                         if(!empty($cat) && $cat < 1){
                             echo '
@@ -57,7 +60,7 @@ $title = "recherche de Cocktail";
                             </div>';
                         } 
                     }       
-                ?> 
+                }?> 
                     
                 </div>
             </div>
