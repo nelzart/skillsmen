@@ -114,16 +114,23 @@ try { // On essaie de faire des choses
                 throw new Exception('Aucun identifiant de cocktail envoyé');
             }
         }
-
         elseif ($_GET['action'] == 'addComment') {
+            if (isset($_POST['sendComment']) && !empty($_POST['sendComment'])){
+                // var_dump($_GET);
+                addComment($_POST['sendComment'], $_GET['id'], $_SESSION['Uti_Id']);
+
+            } 
             //if (isset($_GET['idCoc']) && $_GET['idCoc'] > 0) {
-                if (!empty($_POST['sendComment'])) {
-                    addComment($_POST['sendComment'],452,2);
-                }
-                else {
-                    // Autre exception
-                    throw new Exception('Tous les champs ne sont pas remplis !');
-                }
+            
+                    // if (!empty($_POST['sendComment']) && isset($_POST['sendComment'])) {
+                        // var_dump($_POST['sendComment'],$_GET['id'], $_POST($_SESSION['Uti_Id']));
+                        // addComment($_POST['sendComment'], $coc['Coc_Id'], $_SESSION['Uti_Id']);
+                    // }
+                
+                // else {
+                //     // Autre exception
+                //     throw new Exception('Tous les champs ne sont pas remplis !');
+                // }
             //}
             
         }

@@ -167,7 +167,7 @@ function getUserProfil($userId){
         $result2 = getCocktailByNameSansCat($cp['Coc_Nom']);    //on relance la recherche par nom pour alimenter cocs
 
         
-        foreach($result2  as $res){
+        foreach($result2 as $res){
 
             if (!in_array($res['Coc_Id'], $cocs)) {
                 array_push($cocs,$res);//pour chaque cocktail on pousse ds coc

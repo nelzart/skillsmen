@@ -468,22 +468,14 @@ function createComment ($content, $cocId, $uti){
     $db = dbConnect();   
     $sth = $db -> prepare("INSERT INTO commentaires (Com_Contenu, Coc_Id, Uti_Id) VALUES (:Com_Contenu, :Coc_Id, :Uti_Id)");
 
-    if($sth -> execute (
+    $sth -> execute (
         [
             ':Com_Contenu' => $content,
             ':Coc_Id' => $cocId,
             ':Uti_Id' => $uti
         ]
-        )){
-            echo "commentaire ajouté";
-            $ups = 1;
-        }
-        else{
-            echo "echec ajout commentaire";
-            $ups = 0;
-        }
-        
-    return $ups;
+        );   
+    
 }
 
 function deleteComment($cocId){

@@ -247,17 +247,18 @@ function updateCocktail($cocId){
 
 function addComment($content,$cocId,$uti){
 
-  /*$content = $_POST['title'];
-  $cocId = $_GET['Coc_Id'];*/
-  //$uti = $_SESSION['Uti_Id'];
-  $ups = createComment($content,$cocId,$uti);
-  var_dump($ups);
-  if($ups === 0 ){
-    die('Impossible d\'ajouter le commentaire !');
-  }
-  else {
-      //header('Location: index.php?action=post&id=' . $postId);
-  }
+  $content = htmlspecialchars($_POST['sendComment']) ;
+  // $cocId = $_POST['Coc_Id'];
+  // $uti = $_POST[$_SESSION['Uti_Id']];
+
+  createComment($content, $cocId, $uti);
+  // var_dump($ups);
+  // if($ups != 1 ){
+  //   die('Impossible d\'ajouter le commentaire !');
+  // }
+  // else {
+      header('Location: ?action=getcocktail&id=' . $cocId);
+  // }
 }
 
 function addLike($cocId,$uti){
@@ -265,13 +266,14 @@ function addLike($cocId,$uti){
   /*$content = $_POST['title'];
   $cocId = $_GET['Coc_Id'];*/
   //$uti = $_SESSION['Uti_Id'];
+  
   $ups = createLike($cocId,$uti);
   var_dump($ups);
   if($ups === 0 ){
     die('Impossible d\'ajouter le like !');
   }
   else {
-      //header('Location: index.php?action=post&id=' . $postId);
+      // header('Location: action=post&id=' . $postId);
   }
 }
 

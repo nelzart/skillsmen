@@ -7,7 +7,7 @@
 			<div class="gradient">    
                 <div class="profilImg myCover" style="background-image:url('./public/images/'<?= $res['Coc_Nom'] ?>')">
                     <div class="gradient"></div>
-                    <?php echo '<h2>•' .  $_SESSION['Uti_Pseudo']. ' •</h2>'
+                    <?php echo '<h2>•' .  $_SESSION['Uti_Pseudo']. ' •</h2>' 
                     ?>
                 </div>
                 <button id="editThisProfil" class="iconCover" style="margin-left:20px;" height="15%" width="15%">
@@ -28,16 +28,17 @@
             <div class="result">
 
             <?php 
-                        foreach($cocs as $res){            
+                            var_dump($cocs);
+                            foreach($cocs as $res){            
+                                var_dump($res);
 
                             echo '
                             <a href="?action=getcocktail&id='.$res['Coc_Id'].'"><div class="tuiles myCover" style="background-image:url(./public/images/' . $res['Img_Nom'] .')">
                             <div class="gradient"> <h2>•'. $res['Coc_Nom'] .' •</h2></div></div></a>';
-                    }
+                        }
+                        // var_dump($cocs);
                    // var_dump($cocPub);
                 //var_dump($resultCoc);
-                var_dump($coc);
-                var_dump($res);
                 //var_dump($resultImg);
                 //var_dump($result[0]);
                // var_dump($result);
