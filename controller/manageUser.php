@@ -154,6 +154,16 @@ function getUserProfil($userId){
     $userId = $_GET['id'];
     $datas = getUsers_ById($userId);
     $cocPub = getCcocktail_ByUserId2($userId);
+    $coms = getCommentbyIdUti($userId);
+
+    /*$date2 = date("d-m-Y H:i",strtotime($coms[0]['Com_dateCreation']));
+    $date = date("d-m-Y ",strtotime($coms[0]['Com_dateCreation']));
+    $jour = date("H:i",strtotime($coms[0]['Com_dateCreation']));
+    var_dump($coms[0]['Com_dateCreation']);
+    var_dump($date);
+    var_dump($jour);
+
+    echo 'le ' . $date . ' à ' . $jour;*/
     // $Img = getimgCocByIdCoc($cocPub['Coc_Id']);
     // $cocs = [];
 
