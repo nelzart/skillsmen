@@ -87,9 +87,9 @@ $title =  $coc[1]  ;
         </script>
 
         <div class="thoseSteps">
-            <h3 class="unvariable">Une recette proposée par <span class="author"><?= $coc[7] ?> </span></h3> <br>
+            <h3 class="unvariable"><a href="?action=getcocktail&id='.$coc['Uti_Id'].'">Une recette proposée par <span class="author"><?= $coc[7] ?> </span></a></h3> <br>
             <p><?= $coc[2] ?></p><br>
-                        
+                       
         </div>
        
         <div class="thoseComments" >

@@ -178,9 +178,31 @@ function getUserName_ByInformations($userName, $userMail){
     return $lycos;
 }
 
-function getCommentbyIdUti($uti){
+function getCommentByIdUti($uti){
     $db = dbConnect();   
     $sth = $db -> prepare("SELECT * from commentaires com inner join utilisateurs uti on com.Uti_Id = uti.Uti_Id where uti.Uti_Id = :Uti_Id order by Com_dateCreation desc");
+
+    if($sth -> execute (
+        [
+            ':Uti_Id' => $uti
+        ]
+    )
+    ){
+        echo "com ok";
+        $dhl = $sth->fetchAll();
+    
+        return $dhl; 
+    }
+   
+    else{
+        echo " pb";
+
+    }
+}
+
+function getFavorisByUti($uti){
+    $db = dbConnect();   
+    $sth = $db -> prepare("SELECT * from favoris fav inner join utilisateurs uti on fav.Uti_Id = uti.Uti_Id where uti.Uti_Id = :Uti_Id order by Com_dateCreation desc");
 
     if($sth -> execute (
         [
