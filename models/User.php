@@ -125,7 +125,6 @@ function getUser_ByPseudo($userName){
     return $lycos; 
 }
 
-
 function getUser_ByMail($userMail){
     $db = dbConnect();
     $search = $db->prepare("SELECT * FROM utilisateurs WHERE Uti_Login = :Uti_Login");
@@ -177,4 +176,26 @@ function getUserName_ByInformations($userName, $userMail){
         ':Uti_Login' => $userMail));
     $lycos = $search->fetch();   
     return $lycos;
+}
+
+function getCommentbyIdUti($uti){
+    $db = dbConnect();   
+    $sth = $db -> prepare("SELECT * from commentaires com inner join utilisateurs uti on com.Uti_Id = uti.Uti_Id where uti.Uti_Id = :Uti_Id order by Com_dateCreation desc");
+
+    if($sth -> execute (
+        [
+            ':Uti_Id' => $uti
+        ]
+    )
+    ){
+        echo "com ok";
+        $dhl = $sth->fetchAll();
+    
+        return $dhl; 
+    }
+   
+    else{
+        echo " pb";
+
+    }
 }

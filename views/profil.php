@@ -33,7 +33,7 @@
                         <a href="?action=getcocktail&id='.$cp['Coc_Id'].'"><div class="tuiles myCover" style="background-image:url(./public/images/' . $cp['Img_Nom'] .')">
                         <div class="gradient"> <h2>•'. $cp['Coc_Nom'] .' •</h2></div></div></a>';
                     }
-                            var_dump($datas);
+                            //var_dump($datas);
                         //     foreach($cocs as $res){            
                         //         var_dump($res);
 
@@ -83,29 +83,37 @@
                 <div class="sectionTitle"></div>
                 <h2>Ses Commentaires publiés</h2>
             </div>
+            
+            <?php                 
+                foreach($coms as $com){
+                    echo '
+                        <div id="comments" class="comments">
+                            <div class="author" >par ' . $com['Uti_Pseudo'] . ' <span class="unvariable">  le ' 
+                            . date("d-m-Y ",strtotime($com['Com_dateCreation'])) 
+                            . ' à ' 
+                            . date("H:i",strtotime($com['Com_dateCreation'])) . '</span></div>
+                            
+                            <div class="thisComments">' 
+                            . $com['Com_Contenu'] . '                             
+                            </div> <br>
+                        </div>
+                        <div class="showReciepe"><a href="?action=getcocktail&id='.$com['Coc_Id'].'">• voir la recette •</a></div>    
 
-
-            <div id="comments" class="comments">
-                <div class="author" >$author <span class="unvariable">le 09/07/21 à 21h06</span></div>
-                <div class="thisComments">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla lobortis tortor quis vulputate faucibus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla lobortis tortor quis vulputate faucibus.
-                </div> <br>
-            </div>
-            <div class="showReciepe"><a href="">• voir la recette •</a></div>    
-
-            <div class="splitComments"></div>
-
-            <div id="comments" class="comments">
-                <div class="author" >$author <span class="unvariable">le 09/07/21 à 21h06</span></div>
-                <div class="thisComments">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla lobortis tortor quis vulputate faucibus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla lobortis tortor quis vulputate faucibus.
-                </div> <br>
-            </div>
-            <div class="showReciepe"><a href="">• voir la recette •</a></div>    
-
-            <div class="splitComments"></div>
-    
-        </div>
+                        <div class="splitComments"></div>'; }
+                        
+                        
+                        /*<div id="comments" class="comments">
+                            <div class="author" >$author <span class="unvariable">le 09/07/21 à 21h06</span></div>
+                            <div class="thisComments">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla lobortis tortor quis vulputate faucibus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla lobortis tortor quis vulputate faucibus.
+                            </div> <br>
+                        </div>
+                        <div class="showReciepe"><a href="">• voir la recette •</a></div>    
+                        
+                        <div class="splitComments"></div>*/
+                        
+            ?>
+                    </div>
     </div>
 
 
