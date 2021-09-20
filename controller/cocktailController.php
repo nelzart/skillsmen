@@ -24,7 +24,7 @@ function addCocktail($Coc_Nom, $Coc_Recette, $Uti_Id, $Ing){ //creation d'un coc
       
       if($resultName == TRUE){
         createIngregientCocktail ($resultName[0], $resultLastCoc[0], $Ing[$i-2], $Ing[$i-1]);  // on alimente la table composition Cocktail
-        echo "Ingredient integré: ".$resultName[1]." - ";
+        // echo "Ingredient integré: ".$resultName[1]." - ";
        // require('/views/editCocktail.php');
       }
       else{ // on créé l'ingredient, on alimente la table composition Cocktail et le cocktail passe en controle
@@ -335,7 +335,11 @@ function getCocktail(){
 
   $img = getimgCocByIdCoc($_GET['id']);
   $com = getCommentbyIdCoc($_GET['id']);
+  if ($_GET['action'] == 'editCocktail') {
+    require('./views/editcocktail.php');
+  } else {
   require('./views/cocktailView.php');
+  }
 }
 
 function RechercheCoc($what){

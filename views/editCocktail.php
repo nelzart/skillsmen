@@ -1,24 +1,11 @@
 <?php
 $title = "créer recette";
 
+require('./components/menu.php'); 
 ?>
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../public/myGlobalStyle.css">
-
-    <title><?= $title ?></title>
-</head>
-<body>
-
-<?php include('../components/menu.php'); ?>
 	
 	
-<form class="container" id="insertCocktail" name="insertCocktail"  enctype="multipart/form-data" action="../index.php?action=addCocktail" method="post">
+<form class="container" id="insertCocktail" name="insertCocktail"  enctype="multipart/form-data" action="?action=createCocktail" method="post">
     
     <div class="myCover" id="preview" style="background-image:url('../public/images/cocktails.jpg')">
         <div class="gradient">    
@@ -172,7 +159,7 @@ $title = "créer recette";
         <h3>Choisir une ou plusieurs bases</h3>
         <div class="whichBase">
             <?php 
-                require('../components/witchBases.php'); 
+                require('./components/witchBases.php'); 
             ?>
         </div>
     </div>
@@ -240,9 +227,6 @@ $title = "créer recette";
 </form>
 
 <?php 
-    include('../components/footer.php');
+    include('./components/footer.php');
 ?>
 
-</body>
-
-</html>

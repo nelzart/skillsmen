@@ -29,17 +29,17 @@ $title =  $coc[1]  ;
 				<?php 
                 // var_dump($coc["Uti_Id"], $_SESSION['Uti_Id']);
                 
-                // if ($coc['Uti_Id'] === $_SESSION['Uti_Id']){
-                //         echo '
-                //                 <a href="" class="iconCover" height="15%" width="15%">
-                //                     <svg id="edit" xmlns="http://www.w3.org/2000/svg" class="iconCoverSVG"  height="30px" viewBox="0 0 24 24" width="30px" fill="#000000"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/></svg>	  
-                //                 </a> 
-                //             ';
-                // } else {
-                //     echo '';
-                // }
+                if ($coc['Uti_Id'] === $_SESSION['Uti_Id']){
+                        echo '
+                                <a href="?action=editCocktail&id='.$coc['Coc_Id'].' " class="iconCover" height="15%" width="15%">
+                                    <svg id="edit" xmlns="http://www.w3.org/2000/svg" class="iconCoverSVG"  height="30px" viewBox="0 0 24 24" width="30px" fill="#000000"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/></svg>	  
+                                </a> 
+                            ';
+                } else {
+                    echo '';
+                }
                     
-                //     ?>
+                    ?>
                     <label name="favorite" class="iconCover">
                 <input type="checkbox" name="favorite" value="favorite" style="display:none;">
                     <div class="favorite-checkbox">

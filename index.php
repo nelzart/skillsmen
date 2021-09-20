@@ -95,11 +95,15 @@ try { // On essaie de faire des choses
         }
 
         elseif ($_GET['action'] == 'addCocktail') {
-            header("Location: views/editCocktail.php");
+            require('views/editCocktail.php');
+        }  
+  
+          //if(isset($_SESSION['Uti_Id'] ) && $_SESSION['Uti_Id']  > 0){
+        elseif ($_GET['action'] == 'createCocktail') {
             //if(isset($_SESSION['Uti_Id'] ) && $_SESSION['Uti_Id']  > 0){
                 if(!empty($_POST['title']) && !empty($_POST['stepByStep']) ){
                     if(empty($_POST['Coc_Id'])){
-                        addCocktail($_POST['title'], $_POST['stepByStep'], 2, $_POST['tabIng']); //creation d'un cocktail
+                        addCocktail($_POST['title'], $_POST['stepByStep'], $_SESSION['Uti_Id'], $_POST['tabIng']); //creation d'un cocktail
                     }
                     else{
                         updateCocktail($_POST['Coc_Id']);   //maj du cocktail
@@ -111,6 +115,12 @@ try { // On essaie de faire des choses
                 }
             //}
             //updateCocktail(451);   //maj du cocktail
+        }
+        elseif ($_GET['action'] == 'editCocktail') {
+            if (isset($_GET['id']) && $_GET['id'] > 0) {
+                getCocktail();
+                
+            }
         }
         elseif ($_GET['action'] == 'deleteCoc') {
             if (isset($_POST['Coc_Id'])) {
