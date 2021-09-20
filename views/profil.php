@@ -62,11 +62,12 @@
             <div class="result">
             <?php                 
                 foreach($favs as $fav){
-                    echo '
-                <a href=""><div class="tuiles myCover" style="background-image:url(\../public/images/' . $fav['Coc_Nom'] . ')">
-                                <div class="gradient"> <h2>•' . $fav['Uti_Id'] . '•</h2></div></div>
-                            </div>
-                </a>'
+                        echo '
+                    <a href=""><div class="tuiles myCover" style="background-image:url(\../public/images/' . $fav['Coc_Nom'] . ')">
+                                    <div class="gradient"> <h2>•' . $fav['Uti_Id'] . '•</h2></div></div>
+                                </div>
+                    </a>';
+                }
             ?>              
         </div>
 
