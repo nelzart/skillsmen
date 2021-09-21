@@ -95,7 +95,7 @@ function addCocktail($Coc_Nom, $Coc_Recette, $Uti_Id, $Ing){ //creation d'un coc
     if ($logo != "") {
 
       require "uploadImage.php";
-      $nomCoc = uploadImages($resultLastCoc[0]);
+      $nomCoc = uploadImages($resultLastCoc[0],'_coc.');
       if ( $nomCoc ) {
       
         //$logo = $dest_dossier . $dest_fichier;
@@ -223,14 +223,14 @@ function updateCocktail($cocId){
     if ($logo != "") {
 
       require "uploadImage.php";
-      $nomCoc = uploadImages($cocId);
+      $nomCoc = uploadImages($cocId,'_coc.');
       if ( $nomCoc ) {
       
         //$logo = $dest_dossier . $dest_fichier;
         var_dump($logo);
         //$dest_fichier = '403_coc_.jpg';
         //$dest_dossier = 'ssssss';
-        createCocImage($nomCoc,'public/images',$cocId,2);
+        createCocImage($nomCoc,'public/images',$cocId,$_SESSION['Uti_Id']);
         //createCocImage('nom','public/images',395,2);
       }
       else { $logo="pas ok"; }

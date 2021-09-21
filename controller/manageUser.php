@@ -37,6 +37,12 @@ function addUser() {
         //Nous hacheons le mot de passe avant de le stocker en bdd
         $mdp = password_hash($_POST['Uti_Mdp'], PASSWORD_DEFAULT);
         createUser($userMail, $userName, $mdp, $utiDroit);
+       
+       
+       
+    
+
+
         $message4 = "Vous êtes enregistré";
         
         // connectUser();
@@ -48,6 +54,10 @@ function addUser() {
                 </script>';
         header('Location: ' . $_SERVER['HTTP_REFERER']);
     }
+    
+            
+           
+    
 }
 function redirect(){
     $here = header('Location: ' . $_SERVER['HTTP_REFERER']);

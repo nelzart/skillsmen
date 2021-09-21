@@ -1,5 +1,5 @@
 <?php
-function uploadImages($idcoc){
+function uploadImages($id,$ch){
     function get_extension($nom) {
         $nom = explode(".", $nom);
         $nb = count($nom);
@@ -12,7 +12,7 @@ function uploadImages($idcoc){
     $taille_ko = 3072;
     $taille_max = $taille_ko*3072;
     $dest_dossier = 'public/images/'; //dossier de stockage
-    $dest_fichier = $idcoc . "_coc." . get_extension($_FILES['photo']['name']);
+    $dest_fichier = $id . $ch . get_extension($_FILES['photo']['name']);
 
     //**************************************
     if(!$getimagesize = getimagesize($_FILES['photo']['tmp_name'])) {
