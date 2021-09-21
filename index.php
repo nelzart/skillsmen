@@ -36,6 +36,7 @@ try { // On essaie de faire des choses
                 throw new Exception('Aucun identifiant envoyé Sale CON');
             }
         }
+        
         elseif($_GET['action'] == 'createuser'){
             if(isset($_POST['Uti_Login']) && !empty($_POST['Uti_Login']) &&
                 isset($_POST['Uti_Pseudo']) && !empty($_POST['Uti_Pseudo']) &&
@@ -128,8 +129,8 @@ try { // On essaie de faire des choses
             }
         }
         elseif ($_GET['action'] == 'deleteCoc') {
-            if (isset($_POST['Coc_Id'])) {
-                deleteCocktailComplet($_POST['Coc_Id']);  //suppression complete d'un cocktail
+            if (isset($_GET['id'])) {
+                deleteCocktailComplet($_GET['id']);  //suppression complete d'un cocktail
             }
             else {
                 // Erreur ! On arrête tout, on envoie une exception, donc au saute directement au catch

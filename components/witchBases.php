@@ -1,7 +1,8 @@
 
+                
 		<label class="selectBase">
-			<input class="btn"  type="checkbox" name="tequila" name="base" value="tequila" rel="tequila" >
-            <div  class="custom-checkbox" value="tequila">
+			<input class="btn"  type="checkbox" name="tequila" name="base" value="tequila" rel="tequila">
+            <div  class="custom-checkbox" value="tequila" >
 				<svg version="1.1" id="tequila" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
 				width="65%" height="65%" viewBox="0 0 508.811 508.811" style="enable-background:new 0 0 508.811 508.811;"
 				xml:space="preserve">
@@ -25,7 +26,7 @@
 		</div>
         </label>
 		<label class="selectBase">
-			<input  class="btn" type="checkbox" name="whiskey" value="whiskey" >
+			<input  class="btn" type="checkbox" name="whiskey" value="whiskey">
 			<div class="custom-checkbox">
 				
 				<svg version="1.1" id="whiskey" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"

@@ -355,7 +355,7 @@ function getTypeCocktailByName($Type_Libelle){
 
 function getCatCocByIdCoc($cocid){
     $db = dbConnect();   
-    $sth = $db -> prepare("SELECT * from categoriecocktail where Coc_Id = :Coc_Id");
+    $sth = $db -> prepare("SELECT * from categoriecocktail ty inner join typecocktail co on ty.Typ_Id = co.Typ_Id where ty.Coc_Id = :Coc_Id");
 
     if($sth -> execute (
         [

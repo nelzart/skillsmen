@@ -119,12 +119,13 @@ function addCocktail($Coc_Nom, $Coc_Recette, $Uti_Id, $Ing){ //creation d'un coc
 }
 
 function deleteCocktailComplet($cocId){
-  $cocNom = $_POST['title'];
-  $cocId = $_POST['Coc_Id'];
+  // $cocNom = $_POST['title'];
+  // var_dump($_GET);
+  $cocId = $_GET['id'];
   deleteCategorieCoc($cocId);
   deleteIngredientsCoc($cocId);
   deleteImageCoc($cocId);
-  unlink ("public/images/$cocNom");
+  // unlink ("public/images/$cocNom");
   deleteComment($cocId);
   deleteFavoriAll($cocId);
   deleteLike($cocId);
@@ -332,7 +333,7 @@ function listCocktailsAccueil(){ //uniquement les publiés par defaut
 function getCocktail(){
   $coc = getCocktailByIdCoc($_GET['id']);
   $ing = getIngByIdcoc($_GET['id']);
-
+  $cat = getCatCocByIdCoc($_GET['id']);
   $img = getimgCocByIdCoc($_GET['id']);
   $com = getCommentbyIdCoc($_GET['id']);
   if ($_GET['action'] == 'editCocktail') {
