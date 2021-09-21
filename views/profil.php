@@ -13,7 +13,7 @@
 <?php include('./components/menu.php'); ?>
 
 <div class="container">
-		
+		<?php var_dump($datas); ?>
 		<div class="myCover profilCover" style="background-image:url('./public/images/cocktails.jpg')">
 			<div class="gradient">    
                 <div class="profilImg myCover" style="background-image:url('<?php if(!empty($datas[8])){ echo $datas[8]. '/' .$datas[7];} ?>')">
@@ -127,9 +127,9 @@
             </div>	
 
             <label for='Uti_Pseudo'>Changer votre nom d'utilisateur <br>
-            <input type="text" class="input-username" name='Uti_Pseudo' placeholder="Votre nom d'utilisateur"  value=""></label>
+            <input type="text" class="input-username" name='Uti_Pseudo' placeholder="Votre nom d'utilisateur"  value="<?=  $com['Uti_Pseudo']  ?>"></label>
             
-    
+<!--     
             <label for="Uti_Mdp">Votre mot de passe actuel<br>
             <input type="password" class="input-password" placeholder="Entrer le mot de passe" name="Uti_Mdp"  value=""></label>
 
@@ -138,7 +138,7 @@
                         
 
             <label for='new_Uti_Mdp2'>Vérification de votre nouveau mot de passe <br>
-            <input type="password" class="input-password" placeholder="Entrer le mot de passe" name="Uti_Mdp2"  value=""></label>
+            <input type="password" class="input-password" placeholder="Entrer le mot de passe" name="Uti_Mdp2"  value=""></label> -->
             
             <div class="allButtons">
                 <button id="closeThis" class="remove">

@@ -163,7 +163,7 @@ function connectUser($userMail, $mdp){
 function getUserProfil($userId){
     $userId = $_GET['id'];
     $datas = getUsers_ById($userId);
-
+    $imgUti = getimgUti_ByIdUti($userId);
     $cocPub = getCcocktail_ByUserId2($userId);
     $coms = getCommentByIdUti($userId);
     $favs = getFavorisByUti($userId);
