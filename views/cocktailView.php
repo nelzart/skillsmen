@@ -87,7 +87,7 @@ $title =  $coc[1]  ;
         </script>
 
         <div class="thoseSteps">
-            <h3 class="unvariable"><a href="?action=getcocktail&id='.$coc['Uti_Id'].'">Une recette proposée par <span class="author"><?= $coc[7] ?> </span></a></h3> <br>
+            <h3 class="unvariable"><a href = "?action=getProfil&id=<?= $coc['Uti_Id'] ?>">Une recette proposée par <span class="author"><?= $coc[7];  ?> </span></a></h3> <br>
             <p><?= $coc[2] ?></p><br>
                        
         </div>
@@ -110,22 +110,26 @@ $title =  $coc[1]  ;
                     echo '
                     <div id="comments" class="comments">
                     
-                        <div class="author" >' . $comment[6] .' <span class="unvariable">' . $comment[2] .'</span></div>
+                        <a href="?action=getProfil&id=' . $comment['Uti_Id']. ' class="author" >' . $comment[6] .' <span class="unvariable"> Le ' 
+                        . date("d-m-Y ",strtotime($comment['Com_dateCreation'])) 
+                        . ' à ' 
+                        . date("H:i",strtotime($comment['Com_dateCreation'])) . '</span></div>
+                        </span></a>
                         <div class="thisComments">
                         ' . $comment[1] .'
                         </div>    
-                    </div>
+                    </div>';
                     
-                    <div class="splitComments"></div> ';
+                
                 }
             }else{
                 echo '
                 <div id="comments" class="comments"> ';
-                
+  
                     
             }
-                // var_dump($coc);
-
+                //var_dump($cocs);
+                //var_dump($comment);
                 // var_dump($coc['Coc_Id']);
                 // var_dump($_POST['sendComment']);
                 // var_dump($_SESSION['Uti_Id']);

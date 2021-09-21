@@ -56,6 +56,11 @@ try { // On essaie de faire des choses
         }
         elseif($_GET['action'] == 'getMyProfil'){
             // var_dump($_GET['id']);
+            getUserProfil($_SESSION['Uti_Id']);
+            
+        }
+        elseif($_GET['action'] == 'getProfil'){
+            // var_dump($_GET['id']);
             getUserProfil($_GET['id']);
             
         }
@@ -90,7 +95,7 @@ try { // On essaie de faire des choses
             }
             else {
                 // Erreur ! On arrête tout, on envoie une exception, donc au saute directement au catch
-                throw new Exception('Aucun identifiant de cocktail envoyé');
+                throw new Exception('Aucun identifiant de Cocktail envoyé');
             }         
         }
 

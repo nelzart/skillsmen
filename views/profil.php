@@ -1,4 +1,12 @@
+<?php 
+/*var_dump($userId);
+var_dump($datas);
+var_dump($cocPub);
+var_dump($coms);
+var_dump($favs);
+var_dump($cocs);*/
 
+?>
 <?php include('./components/menu.php'); ?>
 
 <div class="container">
@@ -7,7 +15,7 @@
 			<div class="gradient">    
                 <div class="profilImg myCover" style="background-image:url('../public/images/userman.jpg')">
                     <div class="gradient"></div>
-                    <?php echo '<h2>• ' .  $_SESSION['Uti_Pseudo']. ' •</h2>' 
+                    <?php echo '<h2>• ' .  $datas['Uti_Pseudo']. ' •</h2>'; 
                     ?>
                 </div>
                 <button id="editThisProfil" class="iconCover" style="margin-left:20px;" height="15%" width="15%">
@@ -93,7 +101,7 @@
                             . $com['Com_Contenu'] . '                             
                             </div> <br>
                         </div>
-                        <div class="showReciepe"><a href="?action=getUserProfil&id='.$com['Uti_Id'].'">• voir la recette •</a></div>    
+                        <div class="showReciepe"><a href="?action=getcocktail&id='.$com['Coc_Id'].'">• voir la recette •</a></div>    
 
                         <div class="splitComments"></div>'; }
                        
