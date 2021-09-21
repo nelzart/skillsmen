@@ -103,31 +103,30 @@ $title =  $coc[1]  ;
                 <div class="sectionTitle"></div>
                 <h2>Commentaires</h2>
             </div>
-            
+
+            <div id="comments" class="comments">
             <?php 
             if(!empty($com)){
                 foreach($com as $comment){ 
                     echo '
-                    <div id="comments" class="comments">
-                    
                         <a href="?action=getProfil&id=' . $comment['Uti_Id']. '" class="author" >' . $comment[6] .' <span class="unvariable"> Le ' 
                         . date("d-m-Y ",strtotime($comment['Com_dateCreation'])) 
                         . ' à ' 
-                        . date("H:i",strtotime($comment['Com_dateCreation'])) . '</span></div>
+                        . date("H:i",strtotime($comment['Com_dateCreation'])) . '
                         </span></a>
                         <div class="thisComments">
-                        ' . $comment[1] .'
-                        </div>    
-                    </div>';
+                        “ ' . $comment[1] .' ”
+                        </div> 
+                        <div class="splitComments"></div>
+                
+                    ';
                     
                 
                 }
-            }else{
-                echo '
-                <div id="comments" class="comments"> ';
-  
-                    
+            } else {
+                echo "<div class='thisComments'> Aucun commentaire n'a été posté </div> ";
             }
+
                 //var_dump($cocs);
                 //var_dump($comment);
                 // var_dump($coc['Coc_Id']);
@@ -137,7 +136,7 @@ $title =  $coc[1]  ;
 
     
     
-    
+</div>
         </div>
     </div>
 
