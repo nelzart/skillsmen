@@ -220,7 +220,7 @@ require('./components/menu.php');
 
     <div class="textarea" width="100%">
         <h3>Décrire les étapes</h3>
-        <textarea name="stepByStep" charswidth="23" name="title" type="textarea" placeholder="Décrire les étapes. Sautez des lignes. Soyez respectueux pour les autres comme pour vous." value=""></textarea>
+        <textarea name="stepByStep" charswidth="23" name="title" type="textarea" placeholder="Décrire les étapes. Sautez des lignes. Soyez respectueux pour les autres comme pour vous." value="<?= $coc['Coc_Recette'] ?>"></textarea>
     </div>
 
 

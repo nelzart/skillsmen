@@ -1,15 +1,15 @@
 <?php 
-//var_dump($cocs);
-var_dump($favs);
-var_dump($datas);
-var_dump($cocPub);
-var_dump($datas[8]);
-//var_dump($coms);
-//var_dump($favs);
-//var_dump($cocs);
+// //var_dump($cocs);
+// var_dump($favs);
+// var_dump($datas);
+// var_dump($cocPub);
+// var_dump($datas[8]);
+// //var_dump($coms);
+// //var_dump($favs);
+// //var_dump($cocs);
 
 ?>
-<?php include('./components/menu.php');var_dump($datas); ?>
+<?php include('./components/menu.php'); ?>
 
 <div class="container">
 		
@@ -108,8 +108,8 @@ var_dump($datas[8]);
                         <div class="splitComments"></div>'; }
                        
             ?>
-                    </div>
-    </div>
+                    </div> </div>
+        </div>
 
 
 
