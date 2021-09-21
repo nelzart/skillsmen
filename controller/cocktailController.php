@@ -102,7 +102,7 @@ function addCocktail($Coc_Nom, $Coc_Recette, $Uti_Id, $Ing){ //creation d'un coc
         var_dump($logo);
         //$dest_fichier = '403_coc_.jpg';
         //$dest_dossier = 'ssssss';
-        createCocImage($nomCoc,'public/images',$resultLastCoc[0],2);
+        createCocImage($nomCoc,'public/images',$resultLastCoc[0],$resultLastCoc[4]);
         //createCocImage('nom','public/images',395,2);
       }
       else { $logo="pas ok"; }
