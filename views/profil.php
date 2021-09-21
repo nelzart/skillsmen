@@ -1,19 +1,21 @@
 <?php 
-/*var_dump($userId);
+//var_dump($cocs);
+var_dump($favs);
 var_dump($datas);
 var_dump($cocPub);
-var_dump($coms);
-var_dump($favs);
-var_dump($cocs);*/
+var_dump($datas[8]);
+//var_dump($coms);
+//var_dump($favs);
+//var_dump($cocs);
 
 ?>
-<?php include('./components/menu.php'); ?>
+<?php include('./components/menu.php');var_dump($datas); ?>
 
 <div class="container">
 		
-		<div class="myCover profilCover" style="background-image:url('<?php if(!empty($img[0][2])){ echo $img[0][2]. '/' .$img[0][1];} ?>')">
+		<div class="myCover profilCover" style="background-image:url('./public/images/cocktails.jpg')">
 			<div class="gradient">    
-                <div class="profilImg myCover" style="background-image:url('../public/images/userman.jpg')">
+                <div class="profilImg myCover" style="background-image:url('<?php if(!empty($datas[8])){ echo $datas[8]. '/' .$datas[7];} ?>')">
                     <div class="gradient"></div>
                     <?php echo '<h2>• ' .  $datas['Uti_Pseudo']. ' •</h2>'; 
                     ?>

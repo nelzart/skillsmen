@@ -153,11 +153,15 @@ function connectUser($userMail, $mdp){
 function getUserProfil($userId){
     $userId = $_GET['id'];
     $datas = getUsers_ById($userId);
+    var_dump($userId);
+    var_dump($datas);
     $cocPub = getCcocktail_ByUserId2($userId);
     $coms = getCommentByIdUti($userId);
     $favs = getFavorisByUti($userId);
-
-
+    /*var_dump($cocPub);
+    var_dump($datas);
+    var_dump($coms);
+    var_dump($favs);*/
     /*$date2 = date("d-m-Y H:i",strtotime($coms[0]['Com_dateCreation']));
     $date = date("d-m-Y ",strtotime($coms[0]['Com_dateCreation']));
     $jour = date("H:i",strtotime($coms[0]['Com_dateCreation']));

@@ -29,8 +29,8 @@ function getUsers_ByMail($userMail){
 function getUsers_ById($userId){
     $db = dbConnect();
     $search = $db->prepare("SELECT * FROM utilisateurs uti 
-                            left join images img on uti.Uti_Id = img.Uti_Id OR img.Coc_Id = NULL 
-                            WHERE uti.Uti_Id = :Uti_Id");
+                            left join images img on uti.Uti_Id = img.Uti_Id 
+                            WHERE uti.Uti_Id = :Uti_Id and img.Coc_Id is null");
 
     $search->execute(array(
         ':Uti_Id' => $userId

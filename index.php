@@ -54,11 +54,11 @@ try { // On essaie de faire des choses
             listCocktailsAccueil();
             
         }
-        elseif($_GET['action'] == 'getMyProfil'){
+       /* elseif($_GET['action'] == 'getMyProfil'){
             // var_dump($_GET['id']);
             getUserProfil($_SESSION['Uti_Id']);
             
-        }
+        }*/
         elseif($_GET['action'] == 'getProfil'){
             // var_dump($_GET['id']);
             getUserProfil($_GET['id']);

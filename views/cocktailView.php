@@ -110,7 +110,7 @@ $title =  $coc[1]  ;
                     echo '
                     <div id="comments" class="comments">
                     
-                        <a href="?action=getProfil&id=' . $comment['Uti_Id']. ' class="author" >' . $comment[6] .' <span class="unvariable"> Le ' 
+                        <a href="?action=getProfil&id=' . $comment['Uti_Id']. '" class="author" >' . $comment[6] .' <span class="unvariable"> Le ' 
                         . date("d-m-Y ",strtotime($comment['Com_dateCreation'])) 
                         . ' à ' 
                         . date("H:i",strtotime($comment['Com_dateCreation'])) . '</span></div>
