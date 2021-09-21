@@ -3,7 +3,8 @@
 // var_dump($favs);
 // var_dump($datas);
 // var_dump($cocPub);
-// var_dump($datas[8]);
+// var_dump($datas);
+// var_dump($_GET);
 // //var_dump($coms);
 // //var_dump($favs);
 // //var_dump($cocs);
