@@ -343,11 +343,15 @@
                 <h2>LES UTILISATEURS</h2>
             </div>
             <div class="split"></div>
-            
+            <?php
+            foreach($utis as $uti){
+                echo '
             <div class="figure">
                 <div class="myFile">
-                    <div>nom du user</div>
-                    <div>inscrit le : date d'inscription</div>
+                    <div>'.$uti['Uti_Pseudo'].'</div>
+                    <div>inscrit le : '.date("d-m-Y ",strtotime($uti['Uti_DateInscription'])) 
+                    . ' à ' 
+                    . date("H:i",strtotime($uti['Uti_DateInscription'])) . '</div>
                     <div></div>
                 </div>
                 
@@ -362,6 +366,7 @@
                     <button class="valider"><svg id="send" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24"  fill="#000000"><path d="M0 0h24v24H0z" fill="none"/><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg></button>
                 </div>
             </div>
+            ';}?>
         </div>
         
 
