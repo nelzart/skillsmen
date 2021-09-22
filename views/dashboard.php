@@ -3,6 +3,7 @@
     //     header('location: ./accueil.php');
     //     die;
     // }
+    
 
 ?>
 <!DOCTYPE html>
@@ -12,7 +13,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
-    <link rel="stylesheet" href="../public/dashboard.css">
+    <link rel="stylesheet" href="./public/dashboard.css">
 
     <title>Document</title>
 </head>
@@ -22,7 +23,7 @@
         xmlns="http://www.w3.org/2000/svg" viewBox="0 0 439.44 75.97"><defs><style>.cls-1{font-size:72px;}.cls-1,.cls-1,.cls-3{font-family:Ogg-Roman, Ogg;}.cls-3{font-size:12px;}</style></defs><g id="Calque_2" data-name="Calque 2"><g id="Calque_1-2" data-name="Calque 1"><text class="cls-1" transform="translate(18.28 50.63)">SKILLSMAN</text><circle class="cls-2" cx="3.89" cy="26.27" r="3.89"/><circle class="cls-2" cx="435.56" cy="26.27" r="3.89"/><text class="cls-3" transform="translate(159.61 64.52)">the art of being a man</text><rect class="cls-4" x="21.3" y="61.33" width="104.11" height="1"/><rect class="cls-4" x="312.09" y="61.35" width="104.11" height="1"/></g></g></svg>
             
         <h6>• tableau de bord •</h6>
-            <h3>Bonjour $utilisateur</h3>
+            <h3><?php echo 'Bonjour '. $_SESSION['Uti_Pseudo']?></h3>
         
         <div id="myBtnContainer">
 
@@ -162,6 +163,7 @@
 
                 <div class="ingredient">
 
+
                     <h2>Ingredients</h2>
                     <ul>
                         <li>1 cl de rhum</li>
@@ -275,25 +277,29 @@
                 <h2>LES INGREDIENTS</h2>
             </div>
             <div class="split"></div>
-            
-            <div class="figure">
-                <div class="myFile">
-                    <div>nom de l'ingredient</div>
+            <?php
+            foreach($ings as $ing){
+                echo '
+
+                <div class="figure">
+                    <div class="myFile">
+                        <div>'.$ing['Ing_Nom'].'</div>
+                    </div>
+                    
+                    
+                    <div class="administrer">
+                        <button class="delete">
+                            <svg id="deleteThis" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"  fill="#000000"><path d="M0 0h24v24H0z" fill="none"/><path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"/></svg>
+                        </button>
+                        <button class="editer">
+                            <svg id="edit" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24"  fill="#000000"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/></svg>
+                        </button>
+                        <button class="valider"><svg id="send" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24"  fill="#000000"><path d="M0 0h24v24H0z" fill="none"/><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg></button>
+                    </div>
                 </div>
-                
-                
-                <div class="administrer">
-                    <button class="delete">
-                        <svg id="deleteThis" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"  fill="#000000"><path d="M0 0h24v24H0z" fill="none"/><path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"/></svg>
-                    </button>
-                    <button class="editer">
-                        <svg id="edit" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24"  fill="#000000"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/></svg>
-                    </button>
-                    <button class="valider"><svg id="send" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24"  fill="#000000"><path d="M0 0h24v24H0z" fill="none"/><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg></button>
-                </div>
+            ';}?>
+                <a href="" class="addIngredient"> + ajouter un ingrédient</a>
             </div>
-            <a href='' class="addIngredient"> + ajouter un ingrédient</a>
-        </div>
         
         
         <div class="card view">
@@ -337,11 +343,15 @@
                 <h2>LES UTILISATEURS</h2>
             </div>
             <div class="split"></div>
-            
+            <?php
+            foreach($utis as $uti){
+                echo '
             <div class="figure">
                 <div class="myFile">
-                    <div>nom du user</div>
-                    <div>inscrit le : date d'inscription</div>
+                    <div>'.$uti['Uti_Pseudo'].'</div>
+                    <div>inscrit le : '.date("d-m-Y ",strtotime($uti['Uti_DateInscription'])) 
+                    . ' à ' 
+                    . date("H:i",strtotime($uti['Uti_DateInscription'])) . '</div>
                     <div></div>
                 </div>
                 
@@ -356,6 +366,7 @@
                     <button class="valider"><svg id="send" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24"  fill="#000000"><path d="M0 0h24v24H0z" fill="none"/><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg></button>
                 </div>
             </div>
+            ';}?>
         </div>
         
 
@@ -398,12 +409,12 @@
         </section>
 
 
+<?php    var_dump($ings); ?>
 
 
 
 
 
-
-<script src="../public/dashboardApp.js"></script>
+<script src="./public/dashboardApp.js"></script>
     </body>
 </html>
