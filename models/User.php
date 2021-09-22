@@ -25,12 +25,33 @@ function getUsers_ByMail($userMail){
     $lycos = $search->fetch();    
     return $lycos;
 }
+function getimgUti_ByIdUti($userId){
+    $db = dbConnect();   
+    $sth = $db -> prepare("SELECT * from images where Uti_Id = :Uti_Id AND Coc_Id = :Coc_Id");
+
+    if($sth -> execute (
+        [
+            ':Coc_Id' => NULL,
+            ':Uti_Id' => $userId
+        ]
+    )
+    ){
+        //echo "categorie ok";
+        $ups = $sth->fetchAll();
+    
+        return $ups; 
+    }
+    else{
+        echo " pb";
+
+    }
+}
 
 function getUsers_ById($userId){
     $db = dbConnect();
-    $search = $db->prepare("SELECT * FROM utilisateurs uti 
-                            left join images img on uti.Uti_Id = img.Uti_Id 
-                            WHERE uti.Uti_Id = :Uti_Id and img.Coc_Id is null");
+    $search = $db->prepare("SELECT * FROM utilisateurs  
+                            
+                            WHERE Uti_Id = :Uti_Id");
 
     $search->execute(array(
         ':Uti_Id' => $userId
