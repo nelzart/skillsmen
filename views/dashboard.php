@@ -112,7 +112,7 @@
             </button>
         </div>
 
-            <a class="backSite" href="">
+            <a class="backSite" href="?action=backhome">
                 <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><path d="M0 0h24v24H0z" fill="none"/><path d="M17 7l-1.41 1.41L18.17 11H8v2h10.17l-2.58 2.58L17 17l5-5zM4 5h8V3H4c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h8v-2H4V5z"/></svg>
                 retour au site
             </a>            
@@ -125,14 +125,17 @@
                 <h2>LES COCKTAILS</h2>
             </div>
             <div class="split"></div>
-            
+            <?php
+            foreach($cocs as $coc){
+                echo '
             <div class="figure">
                 <div class="myFile">
-                    <div>titre du cocktail</div>
-                    <div>date de post</div>
-                    <div>par $userman</div>
+                    <div>'.$coc['Coc_Nom'].'</div>
+                    <div> '.date("d-m-Y ",strtotime($coc['Coc_DateCreation'])) 
+                    . ' à ' 
+                    . date("H:i",strtotime($coc['Coc_DateCreation'])) . '</div>
+                    <div>par '.$coc['Uti_Pseudo'].'</div>
                 </div>
-                
 
                 <div class="administrer">
                     <button class="delete">
@@ -143,9 +146,9 @@
                     </button>
                     <button class="valider"><svg id="send" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24"  fill="#000000"><path d="M0 0h24v24H0z" fill="none"/><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg></button>
                 </div>
-            </div>
+            </div>' ;}
+            ?>
         </div>
-        
 
         <div class="card view">
             <div class="title">
@@ -409,8 +412,8 @@
         </section>
 
 
-<?php    var_dump($ings); ?>
 
+<!-- <?php var_dump($ings); ?> -->
 
 
 
