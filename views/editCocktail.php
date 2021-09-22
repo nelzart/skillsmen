@@ -24,10 +24,11 @@ if ($_GET['action'] == 'editCocktail') {
 require('./components/menu.php'); 
 ?>
 	
-	
-<form class="container" id="insertCocktail" name="insertCocktail"  enctype="multipart/form-data" action="?action=createCocktail" method="post">
-    
-    <div class="myCover" id="preview" style="background-image:url('<?php if ($_GET['action'] == 'editCocktail') { echo $coc['Coc_Nom'];} else {echo 'noTitle' ;} ?>../public/images/cocktails.jpg')">
+
+<form class="container" id="insertCocktail" name="insertCocktail"  enctype="multipart/form-data" action="?action=createCocktail
+<?php if ($_GET['action'] == 'editCocktail'){ echo '&id='.$_GET['id'].'';}?> method="post">
+
+    <div class="myCover" id="preview" style="background-image:url('<?php if(empty($img)){ echo '../skillsmen/public/images/cocktails.jpg';} else{ echo $img[0]['Img_Adresse']. '/' .$img[0]['Img_Nom'];} ?>')">
         <div class="gradient">    
             <h2>• <span id="thisTitle"><?php if ($_GET['action'] == 'editCocktail') { echo $coc['Coc_Nom'];} else {echo 'noTitle' ;} ?></span> •</h2>            
             <div class="iconCover" height="15%" width="15%">
@@ -220,7 +221,7 @@ require('./components/menu.php');
 
     <div class="textarea" width="100%">
         <h3>Décrire les étapes</h3>
-        <textarea name="stepByStep" charswidth="23" name="title" type="textarea" placeholder="Décrire les étapes. Sautez des lignes. Soyez respectueux pour les autres comme pour vous." value="<?= $coc['Coc_Recette'] ?>"></textarea>
+        <textarea name="stepByStep" charswidth="23" name="title" type="textarea" placeholder="Décrire les étapes. Sautez des lignes. Soyez respectueux pour les autres comme pour vous." value=""><?php if ($_GET['action'] == 'editCocktail') { echo $coc['Coc_Recette']; }?></textarea>
     </div>
 
 
@@ -237,7 +238,7 @@ require('./components/menu.php');
         <?php
         // var_dump($coc['Coc_Id']);
             if ($_GET['action'] == 'editCocktail') { 
-                echo '<button class="deleteComplet"> <a> href="?action=deleteCoc&id='.$coc['Coc_Id'].'" >Supprimer le cocktail</a></button>';} 
+                echo '<button class="deleteComplet"> <a href="?action=deleteCoc&id='.$coc['Coc_Id'].'" >Supprimer le cocktail</a></button>';} 
         ?>
     </div>
     <script>

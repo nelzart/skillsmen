@@ -27,11 +27,10 @@ function getUsers_ByMail($userMail){
 }
 function getimgUti_ByIdUti($userId){
     $db = dbConnect();   
-    $sth = $db -> prepare("SELECT * from images where Uti_Id = :Uti_Id AND Coc_Id = :Coc_Id");
+    $sth = $db -> prepare("SELECT * from images where Uti_Id = :Uti_Id");
 
     if($sth -> execute (
         [
-            ':Coc_Id' => NULL,
             ':Uti_Id' => $userId
         ]
     )

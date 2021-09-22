@@ -6,7 +6,7 @@ session_start();
 // var_dump($_GET);
 //var_dump($search);
 // var_dump($_SESSION);
-
+var_dump($_GET);
 //require('controller/users/createUser.php');
 //require('controller/users/manageUser.php');
 // echo "index";
@@ -108,11 +108,11 @@ try { // On essaie de faire des choses
         elseif ($_GET['action'] == 'createCocktail') {
             //if(isset($_SESSION['Uti_Id'] ) && $_SESSION['Uti_Id']  > 0){
                 if(!empty($_POST['title']) && !empty($_POST['stepByStep']) ){
-                    if(empty($_POST['Coc_Id'])){
+                    if(empty($_GET['Coc_Id'])){
                         addCocktail($_POST['title'], $_POST['stepByStep'], $_SESSION['Uti_Id'], $_POST['tabIng']); //creation d'un cocktail
                     }
                     else{
-                        updateCocktail($_POST['Coc_Id']);   //maj du cocktail
+                        updateCocktail($_GET['Coc_Id']);   //maj du cocktail
                     }
                 }
                 else {

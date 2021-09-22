@@ -7,25 +7,27 @@
 // var_dump($_GET);
 // //var_dump($coms);
 // //var_dump($favs);
-// //var_dump($cocs);
+// var_dump($imgUti);
 
 ?>
 <?php include('./components/menu.php'); ?>
 
 <div class="container">
-		<?php var_dump($datas); ?>
+		
 		<div class="myCover profilCover" style="background-image:url('./public/images/cocktails.jpg')">
 			<div class="gradient">    
-                <div class="profilImg myCover" style="background-image:url('<?php if(!empty($datas[8])){ echo $datas[8]. '/' .$datas[7];} ?>')">
+                <div class="profilImg myCover" style="background-image:url('<?php if(empty($imgUti)){ echo '../skillsmen/public/images/userman.jpg';} else{ echo $imgUti[0]["Img_Adresse"]. '/' .$imgUti[0]['Img_Nom'];} ?>')">
                     <div class="gradient"></div>
                     <?php echo '<h2>• ' .  $datas['Uti_Pseudo']. ' •</h2>'; 
                     ?>
                 </div>
-                <button id="editThisProfil" class="iconCover" style="margin-left:20px;" height="15%" width="15%">
+                <?php if ($datas['Uti_Id'] === $_SESSION['Uti_Id']){
+                echo '<button id="editThisProfil" class="iconCover" style="margin-left:20px;" height="15%" width="15%">
                     <svg id="edit" xmlns="http://www.w3.org/2000/svg" height="30px" viewBox="0 0 24 24" width="30px" fill="#000000">
                         <path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/>
                     </svg> 
-                </button>			  
+                </button>	'	;
+                }?>	  
             </div>
         </div>
 		
@@ -117,7 +119,7 @@
     <div class="form-wrapper" id="wrapper-Edit">
         <form class="form-login" style="align-items:center ">
 
-            <div id='preview' class="profilImg myCover thisProfilImg" style="background-image:url('../skillsmen/public/images/userman.jpg')">
+            <div id='preview' class="profilImg myCover thisProfilImg" style="background-image:url('<?php if(empty($imgUti)){ echo '../skillsmen/public/images/userman.jpg';} else{ echo $imgUti[0]["Img_Adresse"]. '/' .$imgUti[0]['Img_Nom'];} ?>')">
                 <div class="gradient"></div>
             </div>
 
