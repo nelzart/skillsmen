@@ -12,7 +12,7 @@ session_start();
 // echo "index";
 require'controller/cocktailController.php';
 require'controller/manageUser.php';
-
+require'controller/adminController.php';
 try { // On essaie de faire des choses
     if (isset($_GET['action'])) {
         if ($_GET['action'] == 'connexion') {
@@ -166,6 +166,19 @@ try { // On essaie de faire des choses
                 else {
                     // Autre exception
                     suppFavori(452,2);
+                }
+            //}
+            
+        }
+
+        elseif ($_GET['action'] == 'admin') {
+            //if (isset($_GET['idCoc']) && $_GET['idCoc'] > 0) {
+                if (isset($_SESSION['Uti_Id'])) {
+                    getDashboard();
+                }
+                else {
+                    // Autre exception
+                  
                 }
             //}
             

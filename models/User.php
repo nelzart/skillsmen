@@ -82,7 +82,7 @@ function getCcocktail_ByUserId($userId){
 }
 function getCcocktail_ByUserId2($userId){
     $db = dbConnect();
-    $search = $db->prepare("SELECT distinct FROM cocktail co left join images img on co.Uti_Id = img.Uti_Id and img.Coc_Id WHERE co.Uti_Id = :Uti_Id");
+    $search = $db->prepare("SELECT distinct * FROM cocktail co left join images img on co.Uti_Id = img.Uti_Id and img.Coc_Id WHERE co.Uti_Id = :Uti_Id");
 
     $search->execute(array(
         ':Uti_Id' => $userId
