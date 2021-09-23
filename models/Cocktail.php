@@ -91,6 +91,7 @@ function getCocAll($eta = 'publie'){ //sauf ceux en controle
                                     left join categoriecocktail  ca on Ca.Coc_Id = co.Coc_Id
                                     left join typecocktail tc on tc.Typ_Id = ca.Typ_Id
                                     left join images im on im.Coc_id = co.Coc_Id
+                                    inner join utilisateurs uti on uti.Uti_Id = co.Uti_Id
                                    
                            where Coc_Etat=:Coc_Etat ORDER BY Coc_DateCreation DESC, Typ_Libelle");
 

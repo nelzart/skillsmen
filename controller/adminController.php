@@ -2,6 +2,7 @@
 require('./models/Admin.php');
 function getDashboard(){
     
+    $cocs = getCocAll($eta = 'controle');
     $ings = getIngControle();
     $utis = getUtiAll();
 
@@ -10,3 +11,4 @@ function getDashboard(){
  
 }
 
+//function
