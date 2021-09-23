@@ -9,11 +9,9 @@ function filterSelection(filter) {
         if (elemList[i].classList.contains(filter)) {
         //alors on retire la classe qui cache l'element
         elemList[i].classList.remove('hide')
-        elemList[i++].classList.remove('hide')
         } else {
         //sinon on cache l'element
         elemList[i].classList.add('hide')
-        elemList[i++].classList.add('hide')
         }
       
     }

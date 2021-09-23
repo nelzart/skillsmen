@@ -107,9 +107,9 @@ svg {
     background-color: #0c071d88;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: flex-start;
     align-self: space-around;
-    align-items: space-around;
+    align-items: center ;
 }
 .card h2 {
     font-size: 15px;
@@ -133,9 +133,10 @@ svg {
 }
 img {
     margin-top: 30px;
-    width: 60%;
-    max-height: 50%;
+    width: 100%;
+    max-height: 300px;
     border-radius: 27px;
+    object-fit: cover;
 }
 .text{
     display: flex;
@@ -163,7 +164,9 @@ h4 {
     align-self: space-around;
 }
 .stepByStep {
-    width : 70%;
+    width : 100%;
+    max-height: 250px;
+    overflow: hidden;
 }
 
 
@@ -265,7 +268,7 @@ button {
   color: #232c3d;
   font-size: 18px;
   cursor: pointer;
-  transition: transform 1.5s ease-in-out;
+  transition: scale(transform 1.5s ease-in-out);
 }
 
 button:hover{
@@ -281,6 +284,33 @@ button.active> svg {
 
 button.active {
     border-left:3px solid #20A6C1;
+}
+
+.ingres {
+    background-color: #2E1A66;
+    width: 200px;
+    max-height: 100px;
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    align-items: center;
+    margin: 10px;
+    border-radius: 7px; 
+}
+.utilisateurs{
+    display: flex;
+    flex-direction: column;
+}
+.utibutton {
+    display: flex;
+    justify-content: center;
+}
+
+.ingres:first-child {
+    margin-bottom: -30px;
+}
+.ingrebutton {
+    display: flex;
 }
 
 
