@@ -6,7 +6,7 @@ function uploadImages($id,$ch){
         return strtolower($nom[$nb-1]);
     }
 
-    $sortie=false;
+    $sortie=false;      
     $extensions_ok = array('jpg','jpeg','png');
     $typeimages_ok = array(2,3);
     $taille_ko = 3072;

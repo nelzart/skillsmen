@@ -245,6 +245,8 @@ function getIngredientByName($name,$eta = 'controle'){
             ':Ing_Categorie' => $eta
         ]
     )
+
+    
     ){$resultat = $sth->fetchAll();
         //$Ing_Id = $resultat[0];
         //echo "ok";
@@ -258,7 +260,31 @@ function getIngredientByName($name,$eta = 'controle'){
         throw new Exception('ingredient inexistant');
     }*/
 }
+function getIngredientByNameExact($name,$eta = 'controle'){
+    $db = dbConnect();   
+    $sth = $db -> prepare("SELECT * from ingredients where Ing_Nom = :Ing_Nom and Ing_Categorie != :Ing_Categorie");
 
+    if($sth -> execute (
+        [
+            ':Ing_Nom' => $name,
+            ':Ing_Categorie' => $eta
+        ]
+    )
+
+    
+    ){$resultat = $sth->fetch();
+        //$Ing_Id = $resultat[0];
+        //echo "ok";
+        //var_dump($resultat);
+        //echo "yop9";
+        //var_dump($Ing_Id);
+        return $resultat; 
+    }
+    /*else{
+        //deleteCoktail($Coc_Id);
+        throw new Exception('ingredient inexistant');
+    }*/
+}
 function getIngByIdcoc($cocId){ //sauf ceux en controle
     $db = dbConnect();   
     $sth = $db -> prepare("SELECT * FROM compositioncocktail cc inner join ingredients ing on cc.Ing_Id = ing.Ing_Id where Coc_Id = :Coc_Id");
@@ -301,6 +327,16 @@ function deleteIngredientsCoc($cocId){
         ]
         );
 }
+function deleteIngredientById($ingId){
+    $db = dbConnect();   
+    $sth = $db -> prepare("DELETE FROM ingredients where Ing_Id = :ingId");
+
+    $sth -> execute (
+        [
+            ':ingId' => $ingId
+        ]
+        );
+}
 
 //fonctions categorie//
 function createCatCocktail($idCat, $idCoc){
@@ -333,11 +369,11 @@ function deleteCategorieCoc($cocId){
 
 function getTypeCocktailByName($Type_Libelle){
     $db = dbConnect();   
-    $sth = $db -> prepare("SELECT * from typecocktail where Type_Libelle = :Type_Libelle");
+    $sth = $db -> prepare("SELECT * from typecocktail where Typ_Libelle = :Typ_Libelle");
 
     if($sth -> execute (
         [
-            ':Type_Libelle' => $Type_Libelle
+            ':Typ_Libelle' => $Type_Libelle
         ]
     )
     ){
