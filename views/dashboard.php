@@ -121,88 +121,85 @@
     <section class="view cocktails">
         <div class="card list">
             <div class="title">
-                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><path d="M0 0h24v24H0z" fill="none"/><path d="M21 5V3H3v2l8 9v5H6v2h12v-2h-5v-5l8-9zM7.43 7L5.66 5h12.69l-1.78 2H7.43z"/></svg>
-                <h2>LES COCKTAILS</h2>
-            </div>
-            <div class="split"></div>
-            <?php
-            foreach($cocs as $coc){
-                echo '
-            <div class="figure">
-                <div class="myFile">
-                    <div>'.$coc['Coc_Nom'].'</div>
-                    <div> '.date("d-m-Y ",strtotime($coc['Coc_DateCreation'])) 
-                    . ' à ' 
-                    . date("H:i",strtotime($coc['Coc_DateCreation'])) . '</div>
-                    <div>par '.$coc['Uti_Pseudo'].'</div>
-                </div>
-
-                <div class="administrer">
-                    <button class="delete">
-                        <svg id="deleteThis" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"  fill="#000000"><path d="M0 0h24v24H0z" fill="none"/><path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"/></svg>
-                    </button>
-                    <button class="editer">
-                        <svg id="edit" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24"  fill="#000000"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/></svg>
-                    </button>
-                    <button class="valider"><svg id="send" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24"  fill="#000000"><path d="M0 0h24v24H0z" fill="none"/><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg></button>
-                </div>
-            </div>' ;}
-            ?>
-        </div>
-
-        <div class="card view">
-            <div class="title">
-                <h2>TITRE DU COCKTAIL</h2>
-            </div>   
-
-            <div class="split">
-            </div>
-
-            <img src="../public/images/cocktails.jpg"  alt="">
-
-            <h4>une recette proposé par $utilisateur</h4>
-
-            <div class="text">
-
-                <div class="ingredient">
-
-
-                    <h2>Ingredients</h2>
-                    <ul>
-                        <li>1 cl de rhum</li>
-                        <li>1 cl de rhum</li>
-                        <li>1 cl de rhum</li>
-                        <li>ipsum</li>
-                        <li>dolor</li>
-                    </ul>
-                </div>
-
-                <div class="stepByStep">
-                    
-                    <p>
-                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Earum porro natus doloremque dolorem, reiciendis harum cupiditate fugit unde laboriosam incidunt aut cumque! Cumque, dignissimos! Nobis, dolore natus. Obcaecati, blanditiis vero? 
-                    </p>
-                    <p>
-                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Earum porro natus doloremque dolorem.
-                    </p>
-
-                </div> 
-
-            </div>
-            <div class="administrer">
-                <button class="delete">
-                    <svg id="deleteThis" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"  fill="#000000"><path d="M0 0h24v24H0z" fill="none"/><path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"/></svg>
-                </button>
-
-                <button class="editer">
-                    <svg id="edit" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24"  fill="#000000"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/></svg>
-                </button>
                 
-                <button class="valider"><svg id="send" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24"  fill="#000000"><path d="M0 0h24v24H0z" fill="none"/><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
-                </button>
+                <h2>
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><path d="M0 0h24v24H0z" fill="none"/><path d="M21 5V3H3v2l8 9v5H6v2h12v-2h-5v-5l8-9zM7.43 7L5.66 5h12.69l-1.78 2H7.43z"/>
+                    </svg>
+                    LES COCKTAILS
+                </h2>
             </div>
-        </div>
-        </section>
+
+
+            <div class="wrapper">
+                <div class="buttonWrapper">
+                <?php 
+                foreach($cocs as $coc){
+                    echo '
+                        <button class="tab-button"  data-id="'.$coc['Coc_Id'].'">
+                        '.$coc['Coc_Nom'].' - publié le ' .date('d-m-Y ',strtotime($coc['Coc_DateCreation'])).' par '.$coc['Uti_Pseudo'].'
+                        </button>
+                        '; 
+                        }
+                ?></div>
+            
+                <div class="contentWrapper">
+                <?php 
+                foreach($cocs as $coc){
+                echo '
+                    <div class="content" id="'.$coc['Coc_Id'].'">
+                        <img src="./public/images/'.$coc['Img_Nom'].'"  alt="">
+                    
+                        <div class="title">
+                            <h2>'.$coc['Coc_Nom'].'</h2>
+                            <h4>une recette proposé par '.$coc['Uti_Pseudo'].'</h4>
+
+                            <div class="text">
+                                <div class="ingredient">
+                                    <h2>Ingredients</h2>
+                                    <ul>
+                                        <li>1 cl de rhum</li>
+                                        <li>1 cl de rhum</li>
+                                        <li>1 cl de rhum</li>
+                                        <li>ipsum</li>
+                                        <li>dolor</li>
+                                    </ul>
+                                </div>
+
+                                <div class="stepByStep">                                
+                                    <p>
+                                        '.$coc['Coc_Recette'].'
+                                    </p>
+                                </div> 
+
+                            </div>
+
+                            <div class="administrer">
+                                <button class="delete">
+                                    <svg id="deleteThis" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"  fill="#000000"><path d="M0 0h24v24H0z" fill="none"/><path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"/></svg>
+                                </button>
+
+                                <button class="editer">
+                                    <svg id="edit" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24"  fill="#000000"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/></svg>
+                                </button>
+                                
+                                <button class="valider"><svg id="send" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24"  fill="#000000"><path d="M0 0h24v24H0z" fill="none"/><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+                                </button>
+                            </div>
+                        </div>
+                    </div> ';} ?>
+                
+                </div>
+            </div>
+        
+            
+
+    </p>
+
+
+        
+
+
+</section>
 
 
 
@@ -210,7 +207,9 @@
     <section class="view ingredients hide">
         <div class="card list">
             <div class="title">
-            <svg version="1.1"  xmlns="http://www.w3.org/2000/svg" height="24px" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                                
+                <h2>
+                    <svg version="1.1"  xmlns="http://www.w3.org/2000/svg" height="24px" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
                     <g>
                         <g>
@@ -277,33 +276,45 @@
                         </g>
                     </g>
                 </svg>
-                <h2>LES INGREDIENTS</h2>
+                LES INGREDIENTS
+            </h2>
             </div>
-            <div class="split"></div>
             <?php
-            foreach($ings as $ing){
-                echo '
+                foreach($ings as $ing){
+                    echo '
+                        <div class="administrer ingres">
+                            <div class="myFile '.$ing['Ing_Nom'].'">
+                                <div>'.$ing['Ing_Nom'].'</div>
+                            </div>
+                        <div class="ingrebutton">
+                            <button class="delete">
+                                <svg id="deleteThis" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"  fill="#000000"><path d="M0 0h24v24H0z" fill="none"/><path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"/></svg>
+                            </button>
+                            <button class="editer" onclick="addRow()">
+                                <svg id="edit" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24"  fill="#000000"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/></svg>
+                            </button>
+                            <button class="valider"><svg id="send" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24"  fill="#000000"><path d="M0 0h24v24H0z" fill="none"/><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg></button>
+                        </div></div><div id="newSection"></div>
 
-                <div class="figure">
-                    <div class="myFile">
-                        <div>'.$ing['Ing_Nom'].'</div>
-                    </div>
-                    
-                    
-                    <div class="administrer">
-                        <button class="delete">
-                            <svg id="deleteThis" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"  fill="#000000"><path d="M0 0h24v24H0z" fill="none"/><path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"/></svg>
-                        </button>
-                        <button class="editer">
-                            <svg id="edit" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24"  fill="#000000"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/></svg>
-                        </button>
-                        <button class="valider"><svg id="send" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24"  fill="#000000"><path d="M0 0h24v24H0z" fill="none"/><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg></button>
-                    </div>
-                </div>
-            ';}?>
-                <a href="" class="addIngredient"> + ajouter un ingrédient</a>
+                        <script>
+                            function addRow() {
+                                let myBtn = document.getElementsByClassName("editer");
+                                document.querySelector("#newSection").insertAdjacentHTML(
+                                    "afterbegin",
+                                    `<form action="">
+                                            <label for="">
+                                                <input type="text" value="">
+                                            </label>
+                                            <button value="submit" style="background-color:transparent; color: white; font-size: 14px">enregistrer</button>
+                                    </form>`
+                                )                                                
+                            }
+                        </script>   
+                    ';}?>
+                    <!-- <a href="" class="addIngredient"> + ajouter un ingrédient</a> -->
             </div>
-        
+
+            
         
         <div class="card view">
             <div class="title">
@@ -341,79 +352,60 @@
         <section class="view utilisateur hide">
         <div class="card list">
             <div class="title">
-            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><path d="M0 0h24v24H0z" fill="none"/><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
-            </svg>
-                <h2>LES UTILISATEURS</h2>
+            
+                <h2>
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><path d="M0 0h24v24H0z" fill="none"/><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+                    </svg>
+                    LES UTILISATEURS
+                </h2>
             </div>
-            <div class="split"></div>
+
             <?php
             foreach($utis as $uti){
                 echo '
             <div class="figure">
-                <div class="myFile">
-                    <div>'.$uti['Uti_Pseudo'].'</div>
-                    <div>inscrit le : '.date("d-m-Y ",strtotime($uti['Uti_DateInscription'])) 
-                    . ' à ' 
-                    . date("H:i",strtotime($uti['Uti_DateInscription'])) . '</div>
-                    <div></div>
+                <div class="administrer utilisateurs">
+                    <div class="myFile">
+                        <div>'.$uti['Uti_Pseudo'].'</div>
+                        <div>inscrit le : '.date("d-m-Y ",strtotime($uti['Uti_DateInscription'])) 
+                        . ' à ' 
+                        . date("H:i",strtotime($uti['Uti_DateInscription'])) . '</div>
+                        <div>
+                    </div> 
+                    
+
                 </div>
+                    <form action="" method="POST">
+                        <label for="statut" name="statut"> administrateur
+                            <input radio type="radio" id="huey" name="drone" value="huey" checked>
+                        </label>
+                        <label for="statut" name="statut"> contributeur
+                            <input radio type="radio" id="huey" name="drone" value="huey" checked>
+                        </label>
+                        
+                    <div class="utibutton">
+                        <button class="delete">
+                        <svg id="deleteThis" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"  fill="#000000"><path d="M0 0h24v24H0z" fill="none"/><path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"/></svg>
+                        </button>
+                    
+                        <button class="valider"><svg id="send" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24"  fill="#000000"><path d="M0 0h24v24H0z" fill="none"/><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg></button>
+                    </div>
+                    </form>
                 
 
-                <div class="administrer">
-                    <button class="delete">
-                        <svg id="deleteThis" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"  fill="#000000"><path d="M0 0h24v24H0z" fill="none"/><path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"/></svg>
-                    </button>
-                    <button class="editer">
-                        <svg id="edit" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24"  fill="#000000"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/></svg>
-                    </button>
-                    <button class="valider"><svg id="send" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24"  fill="#000000"><path d="M0 0h24v24H0z" fill="none"/><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg></button>
-                </div>
+                
+                </div>    
             </div>
             ';}?>
         </div>
         
 
-        <div class="card view">
-            <div class="title">
-                <h2>CET UTILISATEUR</h2>
-            </div>   
-
-            <div class="split">
-            </div>
-
-            <img src="../public/images/userman.jpg"  alt="">
-
-
-            <div class="text">
-
-                <div class="ingredient">
-
-                    <h2>Son pseudo</h2>
-                    <ul>
-                        <li>sa date d'inscription</li>
-                        <li>son mail</li>
-                    </ul>
-                </div>
-
-
-            <div class="administrer">
-                <button class="delete">
-                    <svg id="deleteThis" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"  fill="#000000"><path d="M0 0h24v24H0z" fill="none"/><path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"/></svg>
-                </button>
-
-                <button class="editer">
-                    <svg id="edit" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24"  fill="#000000"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/></svg>
-                </button>
-                
-                <button class="valider"><svg id="send" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24"  fill="#000000"><path d="M0 0h24v24H0z" fill="none"/><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
-                </button>
-            </div>
-        </div>
+        
         </section>
 
 
+<?php   // var_dump($ings); ?>
 
-<!-- <?php var_dump($ings); ?> -->
 
 
 

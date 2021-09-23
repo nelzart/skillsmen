@@ -19,8 +19,8 @@ $title =  $coc[1]  ;
 <?php require('./components/menu.php'); ?>
 	
 	<div class="container">
-		
-		<div class="myCover" style="background-image:url('<?php if(!empty($img[0][2])){ echo $img[0][2]. '/' .$img[0][1];} ?>')">
+
+		<div class="myCover" style="background-image:url('<?php if(empty($img)){ echo '../skillsmen/public/images/cocktails.jpg';} else{ echo $img[0]["Img_Adresse"]. '/' .$img[0]['Img_Nom'];} ?>')">
 			<div class="gradient"> 
                 
             
