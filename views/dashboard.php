@@ -121,85 +121,81 @@
     <section class="view cocktails">
         <div class="card list">
             <div class="title">
-                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><path d="M0 0h24v24H0z" fill="none"/><path d="M21 5V3H3v2l8 9v5H6v2h12v-2h-5v-5l8-9zM7.43 7L5.66 5h12.69l-1.78 2H7.43z"/></svg>
-                <h2>LES COCKTAILS</h2>
-            </div>
-            <div class="split"></div>
-            
-            <div class="figure">
-                <div class="myFile">
-                    <div>titre du cocktail</div>
-                    <div>date de post</div>
-                    <div>par $userman</div>
-                </div>
                 
+                <h2>
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><path d="M0 0h24v24H0z" fill="none"/><path d="M21 5V3H3v2l8 9v5H6v2h12v-2h-5v-5l8-9zM7.43 7L5.66 5h12.69l-1.78 2H7.43z"/>
+                    </svg>
+                    LES COCKTAILS
+                </h2>
+            </div>
 
+
+            <div class="wrapper">
+                <div class="buttonWrapper">
+                <button class="tab-button"  data-id="Titre du cocktail">
+                    Titre du cocktail - publié le par $userman
+                </button>
+                </div>
+            
+                <div class="contentWrapper">
+                
+                <div class="content" id="Titre du cocktail">
+                    <img src="./public/images/cocktails.jpg"  alt="">
+                    <div class="title">
+                        <h2>TITRE DU COCKTAIL</h2>
+                    <h4>une recette proposé par $utilisateur</h4>
+
+                    <div class="text">
+
+                        <div class="ingredient">
+
+
+                        <h2>Ingredients</h2>
+                        <ul>
+                            <li>1 cl de rhum</li>
+                            <li>1 cl de rhum</li>
+                            <li>1 cl de rhum</li>
+                            <li>ipsum</li>
+                            <li>dolor</li>
+                        </ul>
+                    </div>
+
+                    <div class="stepByStep">
+                        
+                        <p>
+                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Earum porro natus doloremque dolorem, reiciendis harum cupiditate fugit unde laboriosam incidunt aut cumque! Cumque, dignissimos! Nobis, dolore natus. Obcaecati, blanditiis vero? 
+                        </p>
+                        <p>
+                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Earum porro natus doloremque dolorem.
+                        </p>
+
+                    </div> 
+
+                </div>
                 <div class="administrer">
                     <button class="delete">
                         <svg id="deleteThis" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"  fill="#000000"><path d="M0 0h24v24H0z" fill="none"/><path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"/></svg>
                     </button>
+
                     <button class="editer">
                         <svg id="edit" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24"  fill="#000000"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/></svg>
                     </button>
-                    <button class="valider"><svg id="send" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24"  fill="#000000"><path d="M0 0h24v24H0z" fill="none"/><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg></button>
+                    
+                    <button class="valider"><svg id="send" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24"  fill="#000000"><path d="M0 0h24v24H0z" fill="none"/><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+                    </button>
                 </div>
+            
             </div>
-        </div>
+        
+            
+
+    </p>
+
+
         
 
-        <div class="card view">
-            <div class="title">
-                <h2>TITRE DU COCKTAIL</h2>
-            </div>   
 
-            <div class="split">
-            </div>
-
-            <img src="../public/images/cocktails.jpg"  alt="">
-
-            <h4>une recette proposé par $utilisateur</h4>
-
-            <div class="text">
-
-                <div class="ingredient">
-
-
-                    <h2>Ingredients</h2>
-                    <ul>
-                        <li>1 cl de rhum</li>
-                        <li>1 cl de rhum</li>
-                        <li>1 cl de rhum</li>
-                        <li>ipsum</li>
-                        <li>dolor</li>
-                    </ul>
-                </div>
-
-                <div class="stepByStep">
-                    
-                    <p>
-                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Earum porro natus doloremque dolorem, reiciendis harum cupiditate fugit unde laboriosam incidunt aut cumque! Cumque, dignissimos! Nobis, dolore natus. Obcaecati, blanditiis vero? 
-                    </p>
-                    <p>
-                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Earum porro natus doloremque dolorem.
-                    </p>
-
-                </div> 
-
-            </div>
-            <div class="administrer">
-                <button class="delete">
-                    <svg id="deleteThis" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"  fill="#000000"><path d="M0 0h24v24H0z" fill="none"/><path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"/></svg>
-                </button>
-
-                <button class="editer">
-                    <svg id="edit" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24"  fill="#000000"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/></svg>
-                </button>
-                
-                <button class="valider"><svg id="send" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24"  fill="#000000"><path d="M0 0h24v24H0z" fill="none"/><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
-                </button>
-            </div>
-        </div>
-        </section>
+</section>
 
 
 
@@ -207,7 +203,7 @@
     <section class="view ingredients hide">
         <div class="card list">
             <div class="title">
-            <svg version="1.1"  xmlns="http://www.w3.org/2000/svg" height="24px" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                <svg version="1.1"  xmlns="http://www.w3.org/2000/svg" height="24px" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
                     <g>
                         <g>
@@ -274,6 +270,7 @@
                         </g>
                     </g>
                 </svg>
+                
                 <h2>LES INGREDIENTS</h2>
             </div>
             <div class="split"></div>
@@ -282,7 +279,7 @@
                 echo '
 
                 <div class="figure">
-                    <div class="myFile">
+                    <div class="myFile '.$ing['Ing_Nom'].'">
                         <div>'.$ing['Ing_Nom'].'</div>
                     </div>
                     
@@ -409,7 +406,7 @@
         </section>
 
 
-<?php    var_dump($ings); ?>
+<?php   // var_dump($ings); ?>
 
 
 
