@@ -1,6 +1,7 @@
 <?php
 //$Ing = $_POST['tabIng'];
- var_dump($_POST);
+var_dump($_POST);
+var_dump($_GET);
 //$Uti_Id = 2;  //SESSION_Uti_Id;
 require('models/Cocktail.php');
 
@@ -15,17 +16,17 @@ function addCocktail($Coc_Nom, $Coc_Recette, $Uti_Id, $Ing){ //creation d'un coc
  //Var_dump($resultLastCoc);
 
   $Ing = explode(",", $_POST['tabIng'][0]);//on met $Ing en tab
-  Var_dump($Ing);
+  //Var_dump($Ing);
   for($i=0;$i<sizeof($Ing);$i++){
 
    // Var_dump(sizeof($Ing));
     for($y=2;$y<sizeof($Ing);$y+=3){
-      Var_dump($y);
+      //Var_dump($y);
       $resultName = getIngredientByNameExact($Ing[$y]); //on recup l'id de l'ingredient
-      Var_dump($resultName);
-     Var_dump($resultName[0]);
-      Var_dump($Ing[$y-2]);
-      Var_dump($Ing[$y-1]);
+      //Var_dump($resultName);
+     //Var_dump($resultName[0]);
+     // Var_dump($Ing[$y-2]);
+      //Var_dump($Ing[$y-1]);
      
       if($resultName == TRUE){
         createIngregientCocktail($resultName[0], $resultLastCoc[0], $Ing[$y-2], $Ing[$y-1]);  // on alimente la table composition Cocktail
@@ -145,25 +146,26 @@ function updateCocktail($cocId){
   updateTblCocktail($cocId,$cocNom, $CocRecette);
   UpdateEtatCocktail($cocId,'publie');
   $Ing = explode(",", $_POST['tabIng'][0]);//on met $Ing en tab
-  
+  var_dump($Ing);
+  var_dump($cocId);
   for($i=0;$i<sizeof($Ing);$i++){
 
-    for($i=2;$i<sizeof($Ing);$i+=3){
+    for($y=2;$y<sizeof($Ing);$y+=3){
       //echo $i;
-      $resultName = getIngredientByName($Ing[$i]); //on recup l'id de l'ingredient
+      $resultName = getIngredientByNameExact($Ing[$y]); //on recup l'id de l'ingredient
       
       if($resultName == TRUE){// on alimente la table composition Cocktail
-        createIngregientCocktail ($resultName[0], $cocId, $Ing[$i-2], $Ing[$i-1]);  
-        echo "Ingredient integré: ".$resultName[1]." - ";
+        createIngregientCocktail ($resultName[0], $cocId, $Ing[$y-2], $Ing[$y-1]);  
+        //echo "Ingredient integré: ".$resultName[1]." - ";
        // require('/views/editCocktail.php');
       }
       else{ // on créé l'ingredient, on alimente la table composition Cocktail et le cocktail passe en controle
         $etat='controle';
-        insertIngredient($Ing[$i]);
+        insertIngredient($Ing[$y]);
         UpdateEtatCocktail($cocId,$etat);
-        $resultName = getIngredientByName($Ing[$i]); //on recup l'id de l'ingredient
-        createIngregientCocktail ($resultName[0], $cocId, $Ing[$i-2], $Ing[$i-1]);  
-        echo "Ingredient inconnu: ".$Ing[$i]." cocktail soumis à validation- ";
+        $resultName = getIngredientByNameExact($Ing[$y]); //on recup l'id de l'ingredient
+        createIngregientCocktail ($resultName[0], $cocId, $Ing[$y-2], $Ing[$y-1]);  
+        echo "Ingredient inconnu: ".$Ing[$y]." cocktail soumis à validation- ";
       }
 
     }
@@ -234,7 +236,7 @@ function updateCocktail($cocId){
         //$dest_fichier = '403_coc_.jpg';
         //$dest_dossier = 'ssssss';
         createCocImage($nomCoc,'public/images',$cocId,$_SESSION['Uti_Id']);
-        //createCocImage('nom','public/images',395,2);
+
       }
       else { $logo="pas ok"; }
       

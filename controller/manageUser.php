@@ -5,7 +5,7 @@ function addUser() {
     //Les variables à déclarer
     $userName = $_POST['Uti_Pseudo'];
     $userMail = $_POST['Uti_Login'];
-    $utiDroit = 1;
+    $utiDroit = 'contributeur';
         $test = 0;
     $message1 ="";   $message2 ="";   $message3 ="";   $message4 ="";
     

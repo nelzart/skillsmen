@@ -4,8 +4,8 @@ $title = "créer recette";
 if ($_GET['action'] == 'editCocktail') {
     if($_SESSION["Uti_Id"] === $coc["Uti_Id"]){
 
+        $_GET['id'];
     }
-    $_GET['id'];
 }
 // var_Dump($coc) ; 
 // echo '///////////////////////';
