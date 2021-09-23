@@ -1,7 +1,6 @@
 <?php
 //$Ing = $_POST['tabIng'];
-var_dump($_POST);
-var_dump($_GET);
+
 //$Uti_Id = 2;  //SESSION_Uti_Id;
 require('models/Cocktail.php');
 
@@ -137,17 +136,19 @@ function deleteCocktailComplet($cocId){
 }
 
 function updateCocktail($cocId){
+  $img = getimgCocByIdCoc($_GET['id']);
+  $imgTitle = $img[0]['Img_Nom'];
   deleteCategorieCoc($cocId);
   deleteIngredientsCoc($cocId);
   deleteImageCoc($cocId);
   $cocNom = $_POST['title'];
   $CocRecette = $_POST['stepByStep'];
-  unlink ("public/images/$cocNom");
+  unlink("public/images/$imgTitle");
+ 
   updateTblCocktail($cocId,$cocNom, $CocRecette);
   UpdateEtatCocktail($cocId,'publie');
   $Ing = explode(",", $_POST['tabIng'][0]);//on met $Ing en tab
-  var_dump($Ing);
-  var_dump($cocId);
+  
   for($i=0;$i<sizeof($Ing);$i++){
 
     for($y=2;$y<sizeof($Ing);$y+=3){

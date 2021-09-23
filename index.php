@@ -1,12 +1,6 @@
-
 <?php
 session_start();
 
-?>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
-
-
-<?php 
 //var_dump($_POST);
 // var_dump($_GET);
 //var_dump($search);
@@ -113,11 +107,11 @@ try { // On essaie de faire des choses
         elseif ($_GET['action'] == 'createCocktail') {
             //if(isset($_SESSION['Uti_Id'] ) && $_SESSION['Uti_Id']  > 0){
                 if(!empty($_POST['title']) && !empty($_POST['stepByStep']) ){
-                    if(empty($_GET['Coc_Id'])){
+                    if(empty($_GET['id'])){
                         addCocktail($_POST['title'], $_POST['stepByStep'], $_SESSION['Uti_Id'], $_POST['tabIng']); //creation d'un cocktail
                     }
                     else{
-                        updateCocktail($_GET['Coc_Id']);   //maj du cocktail
+                        updateCocktail($_GET['id']);   //maj du cocktail
                     }
                 }
                 else {

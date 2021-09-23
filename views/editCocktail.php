@@ -26,8 +26,8 @@ require('./components/menu.php');
 	
 
 <form class="container" id="insertCocktail" name="insertCocktail"  enctype="multipart/form-data" action="?action=createCocktail
-<?php if ($_GET['action'] == 'editCocktail'){ echo '&id='.$_GET['id'].'';}?> method="post">
 
+<?php if (isset($_GET['id'])){ echo '&id='.$_GET['id'];}?>" method="post" >
     <div class="myCover" id="preview" style="background-image:url('<?php if(empty($img)){ echo '../skillsmen/public/images/cocktails.jpg';} else{ echo $img[0]['Img_Adresse']. '/' .$img[0]['Img_Nom'];} ?>')">
         <div class="gradient">    
             <h2>• <span id="thisTitle"><?php if ($_GET['action'] == 'editCocktail') { echo $coc['Coc_Nom'];} else {echo 'noTitle' ;} ?></span> •</h2>            
