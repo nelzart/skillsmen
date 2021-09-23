@@ -1,6 +1,6 @@
 <?php
 //$Ing = $_POST['tabIng'];
-// var_dump($_POST);
+ var_dump($_POST);
 //$Uti_Id = 2;  //SESSION_Uti_Id;
 require('models/Cocktail.php');
 
@@ -12,39 +12,42 @@ function addCocktail($Coc_Nom, $Coc_Recette, $Uti_Id, $Ing){ //creation d'un coc
   createCocktail ($Coc_Nom, $Coc_Recette, $Uti_Id); //on alimente la table cocktail
   $resultLastCoc = getLastCocktail($Uti_Id); // on recupere l'id du cocktail qu'on vient de créer
 
-  Var_dump($resultLastCoc);
+ //Var_dump($resultLastCoc);
 
   $Ing = explode(",", $_POST['tabIng'][0]);//on met $Ing en tab
-  
+  Var_dump($Ing);
   for($i=0;$i<sizeof($Ing);$i++){
 
-    for($i=2;$i<sizeof($Ing);$i+=3){
-      //echo $i;
-      $resultName = getIngredientByName($Ing[$i]); //on recup l'id de l'ingredient
-      
+   // Var_dump(sizeof($Ing));
+    for($y=2;$y<sizeof($Ing);$y+=3){
+      Var_dump($y);
+      $resultName = getIngredientByNameExact($Ing[$y]); //on recup l'id de l'ingredient
+      Var_dump($resultName);
+     Var_dump($resultName[0]);
+      Var_dump($Ing[$y-2]);
+      Var_dump($Ing[$y-1]);
+     
       if($resultName == TRUE){
-        createIngregientCocktail ($resultName[0], $resultLastCoc[0], $Ing[$i-2], $Ing[$i-1]);  // on alimente la table composition Cocktail
+        createIngregientCocktail($resultName[0], $resultLastCoc[0], $Ing[$y-2], $Ing[$y-1]);  // on alimente la table composition Cocktail
         // echo "Ingredient integré: ".$resultName[1]." - ";
        // require('/views/editCocktail.php');
       }
       else{ // on créé l'ingredient, on alimente la table composition Cocktail et le cocktail passe en controle
         $etat='controle';
-        insertIngredient($Ing[$i]);
+        insertIngredient($Ing[$y]);
         UpdateEtatCocktail($resultLastCoc[0],$etat);
-        $resultName = getIngredientByName($Ing[$i]); //on recup l'id de l'ingredient
-        createIngregientCocktail ($resultName[0], $resultLastCoc[0], $Ing[$i-2], $Ing[$i-1]);  
-        echo "Ingredient inconnu: ".$Ing[$i]." cocktail soumis à validation- ";
+        $resultName = getIngredientByName($Ing[$y]); //on recup l'id de l'ingredient
+        createIngregientCocktail ($resultName[0], $resultLastCoc[0], $Ing[$y-2], $Ing[$y-1]);  
+        echo "Ingredient inconnu: ".$Ing[$y]." cocktail soumis à validation- ";
       }
 
     }
   }
-
-
   //categorisation du cocktail
   $cat = []; //tableau qui contiendra les valeurs à ajouter dans la table categorieCocktail
 
-  var_dump($_POST);
-  echo sizeof($_POST);
+ // var_dump($_POST);
+  //echo sizeof($_POST);
 
   foreach($_POST as $key => $value){ //on tourne sur toutes les valeurs postées
     $test = getTypeCocktailByName($key);
@@ -79,7 +82,7 @@ function addCocktail($Coc_Nom, $Coc_Recette, $Uti_Id, $Ing){ //creation d'un coc
 
   }
   
-  var_dump($cat);
+ // var_dump($cat);
   for($i=0;$i<sizeof($cat);$i++){
 
     createCatCocktail($cat[$i][0], $cat[$i][1]);
@@ -91,7 +94,7 @@ function addCocktail($Coc_Nom, $Coc_Recette, $Uti_Id, $Ing){ //creation d'un coc
    if(isset($_FILES)){
     echo "<script>alert(\"there is an image...\")</script>";
     $logo=$_FILES['photo']['name'];
-    var_dump($logo);
+    //var_dump($logo);
     if ($logo != "") {
 
       require "uploadImage.php";
@@ -99,7 +102,7 @@ function addCocktail($Coc_Nom, $Coc_Recette, $Uti_Id, $Ing){ //creation d'un coc
       if ( $nomCoc ) {
       
         //$logo = $dest_dossier . $dest_fichier;
-        var_dump($logo);
+        //var_dump($logo);
         //$dest_fichier = '403_coc_.jpg';
         //$dest_dossier = 'ssssss';
         createCocImage($nomCoc,'public/images',$resultLastCoc[0],$resultLastCoc[4]);
@@ -170,8 +173,8 @@ function updateCocktail($cocId){
   //categorisation du cocktail
   $cat = []; //tableau qui contiendra les valeurs à ajouter dans la table categorieCocktail
 
-  var_dump($_POST);
-  echo sizeof($_POST);
+ // var_dump($_POST);
+ // echo sizeof($_POST);
 
   foreach($_POST as $key => $value){ //on tourne sur toutes les valeurs postées
     $test = getTypeCocktailByName($key);
@@ -206,7 +209,7 @@ function updateCocktail($cocId){
 
   }
   
-  var_dump($cat);
+ // var_dump($cat);
   for($i=0;$i<sizeof($cat);$i++){
 
     createCatCocktail($cat[$i][0], $cat[$i][1]);
@@ -218,8 +221,8 @@ function updateCocktail($cocId){
    if(isset($_FILES)){
     //echo "<script>alert(\"there is an image...\")</script>";
     $logo=$_FILES['photo']['name'];
-    var_dump($logo);
-    var_dump(date('Y-m-d H:i:s', time()));
+    //var_dump($logo);
+    //var_dump(date('Y-m-d H:i:s', time()));
     if ($logo != "") {
 
       require "uploadImage.php";
@@ -227,7 +230,7 @@ function updateCocktail($cocId){
       if ( $nomCoc ) {
       
         //$logo = $dest_dossier . $dest_fichier;
-        var_dump($logo);
+        //var_dump($logo);
         //$dest_fichier = '403_coc_.jpg';
         //$dest_dossier = 'ssssss';
         createCocImage($nomCoc,'public/images',$cocId,$_SESSION['Uti_Id']);
