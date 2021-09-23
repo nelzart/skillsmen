@@ -18,7 +18,7 @@ $title =  $coc[1]  ;
 
 <?php require('./components/menu.php'); ?>
 	
-	<div class="container">
+	<div id="#html-template" class="container">
 
 		<div class="myCover" style="background-image:url('<?php if(empty($img)){ echo '../skillsmen/public/images/cocktails.jpg';} else{ echo $img[0]["Img_Adresse"]. '/' .$img[0]['Img_Nom'];} ?>')">
 			<div class="gradient"> 
@@ -48,7 +48,7 @@ $title =  $coc[1]  ;
                     
                 
                 
-				<div class="iconCover print" style="margin-left:20px;" height="15%" width="15%">
+				<div class="iconCover print" style="margin-left:20px;" onclick="convertHTMLToPDF()" id="printPDF" height="15%" width="15%">
                     <svg id="print" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><path d="M19 8H5c-1.66 0-3 1.34-3 3v6h4v4h12v-4h4v-6c0-1.66-1.34-3-3-3zm-3 11H8v-5h8v5zm3-7c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm-1-9H6v4h12V3z"/></svg>	  
 				</div>			  
 			</div>
@@ -87,7 +87,7 @@ $title =  $coc[1]  ;
         </script>
 
         <div class="thoseSteps">
-            <h3 class="unvariable"><a href = "?action=getProfil&id=<?= $coc['Uti_Id'] ?>">Une recette proposée par <span class="author"><?= $coc[7];  ?> </span></a></h3> <br>
+            <h3 class="unvariable">Une recette proposée par <a href = "?action=getProfil&id=<?= $coc['Uti_Id'] ?>" class="author"><?= $coc[7];  ?> </a></h3> <br>
             <p><?= $coc[2] ?></p><br>
                        
         </div>
@@ -142,10 +142,38 @@ $title =  $coc[1]  ;
 
 <?php 
     include('./components/footer.php');
+
 ?>
 
+
 <script>
-    function addRow() {
+
+function convertHTMLToPDF() {
+    const { jsPDF } = window.jspdf;
+
+    let doc = new jsPDF();
+    let pdfjs = document.getElementById('html-template');
+
+    doc.addImage("./public/images/logo.png", "JPEG", 55, 5, 100, 30);
+    doc.setFont("Ogg");
+    doc.text(" • <?=$coc['Coc_Nom']?> •", 100, 35, null, null, "center");
+    doc.text(" Une recette proposée par <?=$coc[7];?>", 100, 45, null, null, "center");
+    doc.text("Liste des Ingredients", 20, 65);
+    doc.text("<?php foreach ($ing as $composition){?>
+                <?= $composition['comp_Quantite'] . $composition['comp_Unite'] ?> de <?php echo $composition['Ing_Nom']; }?>\n", 20, 75);
+    doc.text(" <?= $coc[2] ?>", 20, 165, null, null, "center");
+    doc.html(pdfjs, {
+        callback: function(doc) {
+            doc.save("output.pdf");
+        },
+        x: 10,
+        y: 10
+    });
+    doc.output('dataurlnewwindow');
+}
+
+
+function addRow() {
         let myBtn = document.querySelector('#addInput');
         let mySection = document.querySelector('#newSection');
         myBtn.style.display = 'none';
@@ -159,6 +187,7 @@ $title =  $coc[1]  ;
             `      
         )                                                
     }
+
 
 
     </script>
