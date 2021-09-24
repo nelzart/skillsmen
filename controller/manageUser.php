@@ -253,7 +253,7 @@ function getUserProfil($userId){
     require('./views/profil.php');
 }
 
-function mofifProfil($user){
+function modifProfil($user){
     //var_dump($user);
     //var_dump($_POST);
     //var_dump($_GET);

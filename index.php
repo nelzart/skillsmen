@@ -63,7 +63,7 @@ try { // On essaie de faire des choses
         }
         elseif($_GET['action'] == 'updateProfil'){
             // var_dump($_GET['id']);
-            mofifProfil($_GET['id']);
+            modifProfil($_GET['id']);
             
         }
 
