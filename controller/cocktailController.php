@@ -13,9 +13,9 @@ function addCocktail($Coc_Nom, $Coc_Recette, $Uti_Id, $Ing){ //creation d'un coc
   $resultLastCoc = getLastCocktail($Uti_Id); // on recupere l'id du cocktail qu'on vient de créer
 
  //Var_dump($resultLastCoc);
-
+ var_dump($_POST);
   $Ing = explode(",", $_POST['tabIng'][0]);//on met $Ing en tab
-  //Var_dump($Ing);
+  Var_dump($Ing);
   for($i=0;$i<sizeof($Ing);$i++){
 
    // Var_dump(sizeof($Ing));
@@ -92,7 +92,7 @@ function addCocktail($Coc_Nom, $Coc_Recette, $Uti_Id, $Ing){ //creation d'un coc
 
    // insertion de l'image
    if(isset($_FILES)){
-    echo "<script>alert(\"there is an image...\")</script>";
+    //echo "<script>alert(\"there is an image...\")</script>";
     $logo=$_FILES['photo']['name'];
     //var_dump($logo);
     if ($logo != "") {
@@ -119,6 +119,7 @@ function addCocktail($Coc_Nom, $Coc_Recette, $Uti_Id, $Ing){ //creation d'un coc
       }
     }
   }
+  listCocktailsAccueil();
 }
 
 function deleteCocktailComplet($cocId){
@@ -151,8 +152,10 @@ function updateCocktail($cocId){
  
   updateTblCocktail($cocId,$cocNom, $Coc_Recette);
   UpdateEtatCocktail($cocId,'publie');
+  var_dump($_POST);
+  //var_dump($_FILES);
   $Ing = explode(",", $_POST['tabIng'][0]);//on met $Ing en tab
-  
+  var_dump($Ing);
   for($i=0;$i<sizeof($Ing);$i++){
 
     for($y=2;$y<sizeof($Ing);$y+=3){
@@ -254,6 +257,7 @@ function updateCocktail($cocId){
       }
     }
   }
+  listCocktailsAccueil();
 }
 
 function addComment($content,$cocId,$uti){
