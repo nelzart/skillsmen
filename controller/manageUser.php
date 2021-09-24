@@ -3,7 +3,7 @@ require('./models/User.php');
 
 function addUser() {
     //Les variables à déclarer
-    $userName = $_POST['Uti_Pseudo'];
+    $userName = htmlspecialchars($_POST['Uti_Pseudo']);
     $userMail = $_POST['Uti_Login'];
     $utiDroit = 'contributeur';
         $test = 0;
@@ -269,8 +269,8 @@ function modifProfil($user){
         if(isset($_FILES)){
            // echo "<script>alert(\"there is an image...\")</script>";
             $logo=$_FILES['photo']['name'];
-            var_dump($logo);
-            var_Dump($_FILES);
+            //var_dump($logo);
+           // var_Dump($_FILES);
             //var_dump(date('Y-m-d H:i:s', time()));
             if ($logo != "") {
                 require "uploadImage.php";

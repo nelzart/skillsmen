@@ -42,28 +42,15 @@
             <div class="result">
 
             <?php                 
-                    foreach($cocPub as $cp){
+                    if($cocPub){
+                        foreach($cocPub as $cp){
                         echo '
                         <a href="?action=getcocktail&id='.$cp['Coc_Id'].'"><div class="tuiles myCover" style="background-image:url(./public/images/' . $cp['Img_Nom'] .')">
                         <div class="gradient"> <h2>•'. $cp['Coc_Nom'] .' •</h2></div></div></a>';
+                        }
                     }
-                            //var_dump($datas);
-                        //     foreach($cocs as $res){            
-                        //         var_dump($res);
-
-                        //     echo '
-                        //     <a href="?action=getcocktail&id='.$res['Coc_Id'].'"><div class="tuiles myCover" style="background-image:url(./public/images/' . $res['Img_Nom'] .')">
-                        //     <div class="gradient"> <h2>•'. $res['Coc_Nom'] .' •</h2></div></div></a>';
-                        // }
-                        // var_dump($cocs);
-                   // var_dump($cocPub);
-                //var_dump($resultCoc);
-                //var_dump($resultImg);
-                //var_dump($result[0]);
-               // var_dump($result);
-                //var_dump($mess);
-                //var_dump($imgs);
-
+                    else{ echo 'pas de cocktail publié';}
+                           
             ?>
             </div>
         </div>
@@ -97,7 +84,8 @@
             </div>
             
             <?php                 
-                foreach($coms as $com){
+                if($favs){
+                    foreach($coms as $com){
                     echo '
                         <div id="comments" class="comments">
                             <div class="author" >par ' . $com['Uti_Pseudo'] . ' <span class="unvariable">  le ' 
@@ -112,12 +100,14 @@
                         <div class="showReciepe"><a href="?action=getcocktail&id='.$com['Coc_Id'].'">• voir la recette •</a></div>    
 
                         <div class="splitComments"></div>'; }
+                    }
+                    else{ echo 'pas de commentaires publiés';}
                        
             ?>
                     </div> </div>
         </div>
 
-<?php var_dump($imgUti);?>
+
 
     <div class="form-wrapper" id="wrapper-Edit">
         <form class="form-login" action="?action=updateProfil&id=<?=$_GET['id']?>" method="post" enctype="multipart/form-data" style="align-items:center ">
