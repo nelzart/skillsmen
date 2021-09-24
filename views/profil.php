@@ -16,7 +16,7 @@
 		
 		<div class="myCover profilCover" style="background-image:url('./public/images/cocktails.jpg')">
 			<div class="gradient">    
-                <div class="profilImg myCover" style="background-image:url('<?php if(empty($imgUti)){ echo '../skillsmen/public/images/userman.jpg';} else{ echo $imgUti[0]["Img_Adresse"]. '/' .$imgUti[0]['Img_Nom'];} ?>')">
+                <div class="profilImg myCover" style="background-image:url('<?php if(empty($imgUti)){ echo '../skillsmen/public/images/userman.jpg';} else{ echo '../skillsmen/public/images/' .$imgUti[0]['Img_Nom'];} ?>')">
                     <div class="gradient"></div>
                     <?php echo '<h2>• ' .  $datas['Uti_Pseudo']. ' •</h2>'; 
                     ?>
@@ -117,10 +117,10 @@
                     </div> </div>
         </div>
 
-
+<?php var_dump($imgUti);?>
 
     <div class="form-wrapper" id="wrapper-Edit">
-        <form class="form-login" action="?action=updateProfil&id=<?=$_GET['id']?>" method="post" style="align-items:center ">
+        <form class="form-login" action="?action=updateProfil&id=<?=$_GET['id']?>" method="post" enctype="multipart/form-data" style="align-items:center ">
 
             <div id='preview' class="profilImg myCover thisProfilImg" style="background-image:url('<?php if(empty($imgUti)){ echo '../skillsmen/public/images/userman.jpg';} else{ echo $imgUti[0]["Img_Adresse"]. '/' .$imgUti[0]['Img_Nom'];} ?>')">
                 <div class="gradient"></div>

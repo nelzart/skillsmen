@@ -56,11 +56,6 @@ try { // On essaie de faire des choses
             listCocktailsAccueil();
             
         }
-       /* elseif($_GET['action'] == 'getMyProfil'){
-            // var_dump($_GET['id']);
-            getUserProfil($_SESSION['Uti_Id']);
-            
-        }*/
         elseif($_GET['action'] == 'getProfil'){
             // var_dump($_GET['id']);
             getUserProfil($_GET['id']);
@@ -71,6 +66,7 @@ try { // On essaie de faire des choses
             mofifProfil($_GET['id']);
             
         }
+
         elseif($_GET['action'] == 'lycos'){
             if(isset($_POST["search"]) && !empty($_POST["search"])){
                 $search = htmlspecialchars($_POST['search']);

@@ -259,15 +259,43 @@ function mofifProfil($user){
     //var_dump($_GET);
     if($_GET['action'] == 'updateProfil'){
         echo 'yo 2';
-       // $result = $_SESSION['Uti_Id'];
-       $userId = $_GET['id'];
-       $userName = $_POST['Uti_Pseudo'];
-       updateProfil($userId, $userName);
-       getUserProfil($userId);
 
+        $userId = $_GET['id'];
+        $userName = $_POST['Uti_Pseudo'];
+        updateProfil($userId, $userName);  //on met lable utilisateur à jour
+        deleteImageUti($userId);  //on vide la table image
 
+        // insertion de l'image
+        if(isset($_FILES)){
+           // echo "<script>alert(\"there is an image...\")</script>";
+            $logo=$_FILES['photo']['name'];
+            var_dump($logo);
+            var_Dump($_FILES);
+            //var_dump(date('Y-m-d H:i:s', time()));
+            if ($logo != "") {
+                require "uploadImage.php";
+                $nomUti = uploadImages($userId,'_uti.');
+                var_Dump($nomUti );
+                
+                if ( $nomUti ) {               
+                    //$logo = $dest_dossier . $dest_fichier;
+                    //var_dump($logo);               
+                    createUtiImage($nomUti,'public/images',$_SESSION['Uti_Id']);
+                }
+                else { 
+                    $logo="pas ok";  var_dump($logo);
+                }
+                
+                if($logo != "notdid" ) {
+                echo "upload reussi!!!";               
+                }
+
+            }
+            else{
+                echo "<script>alert(\"pas d'image...\")</script>";
+            }
+            getUserProfil($userId);
+        }
     }
-     
-
-       
+    var_dump($imgUti);
 }   

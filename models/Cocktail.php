@@ -528,7 +528,8 @@ function deleteComment($cocId){
 
 function getCommentbyIdCoc($cocId){
     $db = dbConnect();   
-    $sth = $db -> prepare("SELECT * from commentaires com inner join utilisateurs uti on com.Uti_Id = uti.Uti_Id where Coc_Id = :Coc_Id order by Com_dateCreation desc");
+    $sth = $db -> prepare("SELECT * from commentaires com inner join utilisateurs uti on com.Uti_Id = uti.Uti_Id 
+                            where Coc_Id = :Coc_Id order by Com_dateCreation desc");
 
     if($sth -> execute (
         [

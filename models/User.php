@@ -27,7 +27,7 @@ function getUsers_ByMail($userMail){
 }
 function getimgUti_ByIdUti($userId){
     $db = dbConnect();   
-    $sth = $db -> prepare("SELECT * from images where Uti_Id = :Uti_Id");
+    $sth = $db -> prepare("SELECT * from images where Uti_Id = :Uti_Id and Coc_Id is null");
 
     if($sth -> execute (
         [
@@ -75,6 +75,35 @@ function createUser($userMail, $userName, $mdp, $utiDroit){
     return $lycos;
 }
 
+function createUtiImage($nom,$adresse,$utiId,$cocId=NULL){
+    $db = dbConnect();
+    $sth = $db -> prepare("INSERT INTO images (Img_Nom, Img_Adresse, Coc_Id, Uti_Id) VALUES (:Img_Nom,:Img_Adresse,:Coc_Id,:Uti_Id)");
+    if($sth -> execute (
+        [
+            ':Img_Nom' => $nom,
+            ':Img_Adresse' => $adresse,
+            ':Coc_Id' => NULL,
+            ':Uti_Id' => $utiId
+        ]
+    )
+    ){
+        echo "image insérée";
+    }
+    else{
+        throw new Exception('echec creation image');
+    }
+}
+
+function deleteImageUti($userId){
+    $db = dbConnect();   
+    $sth = $db -> prepare("DELETE FROM images where Uti_Id = :utiId and Coc_Id is null");
+
+    $sth -> execute (
+        [
+            ':utiId' => $userId
+        ]
+        );
+}
 function updateProfil($userId,$userName, $utiDroit='contributeur'){
     $db = dbConnect();    
     $sth = $db->prepare('UPDATE utilisateurs
