@@ -7,7 +7,7 @@ require('models/Cocktail.php');
 function addCocktail($Coc_Nom, $Coc_Recette, $Uti_Id, $Ing){ //creation d'un cocktail complet
 
   $Coc_Nom = $_POST['title'];
-  $Coc_Recette = $_POST['stepByStep'];
+  $Coc_Recette = nl2br($_POST['stepByStep']);
 
   createCocktail ($Coc_Nom, $Coc_Recette, $Uti_Id); //on alimente la table cocktail
   $resultLastCoc = getLastCocktail($Uti_Id); // on recupere l'id du cocktail qu'on vient de créer
@@ -125,14 +125,18 @@ function deleteCocktailComplet($cocId){
   // $cocNom = $_POST['title'];
   // var_dump($_GET);
   $cocId = $_GET['id'];
+  $img = getimgCocByIdCoc($_GET['id']);
+  $imgTitle = $img[0]['Img_Nom'];
   deleteCategorieCoc($cocId);
   deleteIngredientsCoc($cocId);
   deleteImageCoc($cocId);
-  // unlink ("public/images/$cocNom");
+  unlink("public/images/$imgTitle");
   deleteComment($cocId);
   deleteFavoriAll($cocId);
   deleteLike($cocId);
   deleteCocktail($cocId);
+  listCocktailsAccueil();
+  
 }
 
 function updateCocktail($cocId){
@@ -142,10 +146,10 @@ function updateCocktail($cocId){
   deleteIngredientsCoc($cocId);
   deleteImageCoc($cocId);
   $cocNom = $_POST['title'];
-  $CocRecette = $_POST['stepByStep'];
+  $Coc_Recette = nl2br($_POST['stepByStep']);
   unlink("public/images/$imgTitle");
  
-  updateTblCocktail($cocId,$cocNom, $CocRecette);
+  updateTblCocktail($cocId,$cocNom, $Coc_Recette);
   UpdateEtatCocktail($cocId,'publie');
   $Ing = explode(",", $_POST['tabIng'][0]);//on met $Ing en tab
   
