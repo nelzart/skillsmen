@@ -74,6 +74,22 @@ function createUser($userMail, $userName, $mdp, $utiDroit){
     $lycos = $sth->fetch();
     return $lycos;
 }
+
+function updateProfil($userId,$userName, $utiDroit='contributeur'){
+    $db = dbConnect();    
+    $sth = $db->prepare('UPDATE utilisateurs
+                        set Uti_Pseudo = :Uti_Pseudo, Uti_Droit = :Uti_Droit
+                        where Uti_Id = :Uti_Id');
+    $sth->execute(
+        [
+            ':Uti_Pseudo' => htmlspecialchars(trim($userName)),
+            ':Uti_Droit'=> $utiDroit,
+            ':Uti_Id'=> $userId
+        ]
+    );
+    $lycos = $sth->fetch();
+    return $lycos;
+}
 /* function Likes_ByUserName($userName)
 {
 

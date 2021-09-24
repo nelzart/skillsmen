@@ -66,6 +66,11 @@ try { // On essaie de faire des choses
             getUserProfil($_GET['id']);
             
         }
+        elseif($_GET['action'] == 'updateProfil'){
+            // var_dump($_GET['id']);
+            mofifProfil($_GET['id']);
+            
+        }
         elseif($_GET['action'] == 'lycos'){
             if(isset($_POST["search"]) && !empty($_POST["search"])){
                 $search = htmlspecialchars($_POST['search']);

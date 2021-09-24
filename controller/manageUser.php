@@ -254,12 +254,18 @@ function getUserProfil($userId){
 }
 
 function mofifProfil($user){
-    echo 'yo 1';
-    if($_GET['action'] == 'modifProfil'){
+    //var_dump($user);
+    //var_dump($_POST);
+    //var_dump($_GET);
+    if($_GET['action'] == 'updateProfil'){
         echo 'yo 2';
-        $result = $_SESSION['Uti_Id'];
+       // $result = $_SESSION['Uti_Id'];
+       $userId = $_GET['id'];
+       $userName = $_POST['Uti_Pseudo'];
+       updateProfil($userId, $userName);
+       getUserProfil($userId);
 
-        require('./views/editProfil.php');
+
     }
      
 
