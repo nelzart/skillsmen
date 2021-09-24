@@ -1,6 +1,8 @@
 <?php
 session_start();
-
+?>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+<?php
 //var_dump($_POST);
 // var_dump($_GET);
 //var_dump($search);

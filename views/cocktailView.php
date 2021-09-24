@@ -89,11 +89,10 @@ $title =  $coc[1]  ;
         <div class="thoseSteps">
             <h3 class="unvariable">Une recette proposée par <a href = "?action=getProfil&id=<?= $coc['Uti_Id'] ?>" class="author"><?= $coc[7];  ?> </a></h3> <br>
             <p><?= $coc[2] ?></p><br>
-                       
         </div>
-       
+        
         <div class="thoseComments" >
-  
+
             <button class="addInput" id="addInput" type="button" onclick="addRow()" value="ajouter">
                 <svg class="iconCircle" id="addItem" xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="30px" viewBox="0 0 24 24" width="30px" fill="#000000"><g>
                 <rect fill="none" height="24" width="24"/></g><g><g><path d="M19,13h-6v6h-2v-6H5v-2h6V5h2v6h6V13z"/></g></g></svg>
@@ -154,7 +153,7 @@ function convertHTMLToPDF() {
     let doc = new jsPDF();
     let pdfjs = document.getElementById('html-template');
 
-    doc.addImage("./public/images/logo.png", "JPEG", 55, 5, 100, 30);
+    doc.addImage("./public/images/logo_typo.png", "JPEG", 55, 5, 100, 20);
     doc.setFont("Ogg");
     doc.text(" • <?=$coc['Coc_Nom']?> •", 100, 35, null, null, "center");
     doc.text(" Une recette proposée par <?=$coc[7];?>", 100, 45, null, null, "center");
