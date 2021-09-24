@@ -165,6 +165,8 @@ function getUserProfil($userId){
     $datas = getUsers_ById($userId);
     $imgUti = getimgUti_ByIdUti($userId);
     $cocPub = getCcocktail_ByUserId2($userId);
+    //var_dump($_GET);
+    //var_dump($cocPub);
     $coms = getCommentByIdUti($userId);
     $favs = getFavorisByUti($userId);
     /*var_dump($cocPub);

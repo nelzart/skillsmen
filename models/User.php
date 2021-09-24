@@ -100,12 +100,15 @@ function getCcocktail_ByUserId($userId){
     $dhl = $search->fetchAll();    
     return $dhl;
 }
-function getCcocktail_ByUserId2($userId){
+function getCcocktail_ByUserId2($userId,$eta='publie'){
     $db = dbConnect();
-    $search = $db->prepare("SELECT distinct * FROM cocktail co left join images img on co.Uti_Id = img.Uti_Id and img.Coc_Id WHERE co.Uti_Id = :Uti_Id");
+    $search = $db->prepare("SELECT distinct * FROM cocktail co left join images img on co.Coc_Id = img.Coc_Id  
+                            WHERE co.Uti_Id = :Uti_Id and co.Coc_Etat= :Coc_Etat");
 
     $search->execute(array(
-        ':Uti_Id' => $userId
+        ':Uti_Id' => $userId,
+        ':Coc_Etat' => $eta
+
     ));
 
     $dhl = $search->fetchAll();    
@@ -222,7 +225,7 @@ function getCommentByIdUti($uti){
 
 function getFavorisByUti($uti){
     $db = dbConnect();   
-    $sth = $db -> prepare("SELECT * from favoris fav inner join utilisateurs uti on fav.Uti_Id = uti.Uti_Id where uti.Uti_Id = :Uti_Id order by Com_dateCreation desc");
+    $sth = $db -> prepare("SELECT * from favoris fav inner join utilisateurs uti on fav.Uti_Id = uti.Uti_Id where uti.Uti_Id = :Uti_Id order by Coc_dateCreation desc");
 
     if($sth -> execute (
         [

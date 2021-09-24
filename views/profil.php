@@ -21,13 +21,14 @@
                     <?php echo '<h2>• ' .  $datas['Uti_Pseudo']. ' •</h2>'; 
                     ?>
                 </div>
-                <?php if ($datas['Uti_Id'] === $_SESSION['Uti_Id']){
+                <?php if(isset($_SESSION['Uti_Id'])){
+                    if($datas['Uti_Id'] === $_SESSION['Uti_Id']){
                 echo '<button id="editThisProfil" class="iconCover" style="margin-left:20px;" height="15%" width="15%">
                     <svg id="edit" xmlns="http://www.w3.org/2000/svg" height="30px" viewBox="0 0 24 24" width="30px" fill="#000000">
                         <path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/>
                     </svg> 
                 </button>	'	;
-                }?>	  
+                }}?>	  
             </div>
         </div>
 		
@@ -74,13 +75,15 @@
             
             <div class="result">
             <?php                 
-                foreach($favs as $fav){
+                if($favs){
+                    foreach($favs as $fav){
                         echo '
                     <a href=""><div class="tuiles myCover" style="background-image:url(\../public/images/' . $fav['Coc_Nom'] . ')">
                                     <div class="gradient"> <h2>•' . $fav['Uti_Id'] . '•</h2></div></div>
                                 </div>
-                    </a>';
+                    </a>';}
                 }
+                else{ echo 'pas de cocktail en favoris';}
             ?>              
         </div>
 
