@@ -11,4 +11,9 @@ function getDashboard(){
  
 }
 
+function deleteUti($id){
+    suppUti($id);
+
+}
+
 //function

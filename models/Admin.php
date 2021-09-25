@@ -26,3 +26,7 @@ function getUtiAll(){
         throw new Exception('pas ok');
     }*/
 }
+
+function deleteIng($ing){
+    
+}
