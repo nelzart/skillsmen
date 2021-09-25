@@ -1,8 +1,8 @@
 <?php
-    // if (!isset($_SESSION['uti_Droit']) === 2 || empty($_SESSION['user_id'])) {
-    //     header('location: ./accueil.php');
-    //     die;
-    // }
+    if (!isset($_SESSION['Uti_Droit']) === 'admin' || !empty($_SESSION['Uti_id'])) {
+        header('location: ./index.php');
+        die;
+    }
     
 
 ?>

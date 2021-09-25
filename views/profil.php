@@ -8,11 +8,11 @@
 // //var_dump($coms);
 // //var_dump($favs);
 // var_dump($imgUti);
-var_dump($userId['Uti_Droit']);
-var_dump($_GET['id']);
+// var_dump($userId['Uti_Droit']);
+// var_dump($_GET['id']);
 
 ?>
-<?php //include('./components/menu.php'); ?>
+<?php include('./components/menu.php'); ?>
 
 <div class="container">
 		
