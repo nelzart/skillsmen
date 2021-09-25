@@ -177,6 +177,7 @@ try { // On essaie de faire des choses
                 if (isset($_SESSION['Uti_Id'])) {
                     getDashboard();
                     var_dump($_POST);
+                    
                 }
                 else {
                     // Autre exception
