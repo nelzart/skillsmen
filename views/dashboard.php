@@ -367,19 +367,30 @@
                         . date("H:i",strtotime($uti['Uti_DateInscription'])) . '</div>
                         <div>
                     </div> 
-                    
-                '.var_dump($uti['Uti_Droit']).'
-                </div>
-                    <form action="" method="POST">
-                        <label for="statut" name="statut"> administrateur
-                            <input radio type="radio" id="huey" name="drone" value="admin"'if($uti["Uti_Droit"]==="admin"){
-                                echo "checked";}?>
-                             >
-                        </label>
-                        <label for="statut" name="statut"> contributeur
-                            <input radio type="radio" id="huey" name="drone" value="contributeur"<?php if($uti["Uti_Droit"]==="contributeur"){
-                                echo "checked";}?> >
-                        </label>
+                </div>'; 
+
+                echo'<form action="" method="POST">'; 
+                
+                    if($uti["Uti_Droit"] === "admin"){
+                        echo'<label for="statut" name="statut"> administrateur
+                        <input radio type="radio" id="huey" name="drone" value="admin" checked>
+                        </label>'; 
+                    } else {
+                        echo'<label for="statut" name="statut"> administrateur
+                        <input radio type="radio" id="huey" name="drone" value="admin">
+                        </label>';
+                        }
+                    if ($uti["Uti_Droit"] === "contributeur"){
+                        echo '<label for="statut" name="statut"> contributeur
+                        <input radio type="radio" id="huey" name="drone" value="contributeur" checked>
+                        </label>';
+                    } else {
+                        echo '<label for="statut" name="statut"> contributeur
+                        <input radio type="radio" id="huey" name="drone" value="contributeur">
+                        </label>';
+                    } 
+                ?>
+                
                         
                     <div class="utibutton">
                         <button class="delete">
@@ -389,12 +400,11 @@
                         <button class="valider"><svg id="send" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24"  fill="#000000"><path d="M0 0h24v24H0z" fill="none"/><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg></button>
                     </div>
                     </form>
-                
+                <?php } ?>
 
                 
                 </div>    
             </div>
-            ';}?>
         </div>
         
 
