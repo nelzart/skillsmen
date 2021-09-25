@@ -150,7 +150,7 @@ function connectUser($userMail, $mdp){
         $_SESSION['Uti_Id'] = $data['Uti_Id'];
         $_SESSION['Uti_Pseudo'] = $data['Uti_Pseudo'];
         $_SESSION['Uti_Droit'] = $data['Uti_Droit'];
-        var_dump($_SESSION);
+       
         redirect();
 
     } else {
@@ -162,6 +162,7 @@ function connectUser($userMail, $mdp){
 
 function getUserProfil($userId){
     $userId = $_GET['id'];
+    
     $datas = getUsers_ById($userId);
     $imgUti = getimgUti_ByIdUti($userId);
     $cocPub = getCcocktail_ByUserId2($userId);
@@ -169,94 +170,13 @@ function getUserProfil($userId){
     //var_dump($cocPub);
     $coms = getCommentByIdUti($userId);
     $favs = getFavorisByUti($userId);
-    /*var_dump($cocPub);
-    var_dump($datas);
-    var_dump($coms);
-    var_dump($favs);*/
-    /*$date2 = date("d-m-Y H:i",strtotime($coms[0]['Com_dateCreation']));
-    $date = date("d-m-Y ",strtotime($coms[0]['Com_dateCreation']));
-    $jour = date("H:i",strtotime($coms[0]['Com_dateCreation']));
-    var_dump($coms[0]['Com_dateCreation']);
-    var_dump($date);
-    var_dump($jour);
-
-    echo 'le ' . $date . ' à ' . $jour;*/
-    // $Img = getimgCocByIdCoc($cocPub['Coc_Id']);
-    // $cocs = [];
-
-    //var_dump($cocPub);
-    // foreach($cocPub as $cp){
-        //$result = getCocktailByIdCoc($cp['Coc_Id']);   //var qui recup les id coc concernés
-        // $result2 = getCocktailByNameSansCat($cp['Coc_Nom']);    //on relance la recherche par nom pour alimenter cocs
-      
-        // foreach($result2 as $res){
-
-            // if (!in_array($res['Coc_Id'], $cocs)) {
-        //         array_push($cocs,$res);//pour chaque cocktail on pousse ds coc
-        //     }
-        
-        // }
-        // $cocImg = getimgCocByIdCoc($cp['Coc_Id']); 
-        //$s = getCocktailByIdCoc($cp[0]);
-        
-        //array_push($resultCoc,$s);
-        // array_push($resultImg,$cocImg);
-    // }
-    /*foreach($cocs as $coc){
-        if(!in_array($coc['Coc_Id'], $cocs)){
-            array_splice($cocs, $coc, 1);
-        }
-    }*/
-    //var_dump($result2);
-   // var_dump($res);
-   // var_dump($res['Coc_Id']);
-   // var_dump($cp);
-    //var_dump($cocs);
-    //var_dump($cocPub);
-    /*foreach($cs as $c){   //
-        $result = getCocktailByIdCoc($c[0]['Coc_Id']);   //var qui recup les id coc concernés
-        $result2 = getCocktailByName($result[1]);    //on relance la recherche par nom pour alimenter cocs
-        foreach($result2 as $res2){
-            if (!in_array($res2['Typ_Libelle'], $cats) && (!empty($res2['Typ_Libelle'])) && $result2 !=NULL) {//pour chaque cocktail on recup la categorie
-                array_push($cats, $res2['Typ_Libelle']);
-                if (!in_array($res2['Coc_Id'], $cocs)) {//pour chaque cocktail on pousse ds coc
-                    array_push($cocs, $res2);
-                }
-            
-            }
-        }
-    }*/
-
-
-    /*foreach($resultCoc as $rs){
-        array_push($result,$rs);
-        foreach($rs as $r){
-            foreach($resultImg as $img){
-                if($img['Coc_Id'] === $r['Coc_Id']){
-                    array_push($r,$img);
-                    $mess=  'yyyyy';
-                }
-            }
-        }
-        
-        
-        
-    }
-    if(!in_array($cocImg,$cp)){
     
-    }*/
-    //array_push($result,$result1);
-    //array_push($result,$result2);
-    
-    //array_push($result,getCommentbyIdCoc($cp['Coc_Id']));
     
     require('./views/profil.php');
 }
 
 function modifProfil($user){
-    //var_dump($user);
-    //var_dump($_POST);
-    //var_dump($_GET);
+    
     if($_GET['action'] == 'updateProfil'){
         echo 'yo 2';
 
@@ -297,5 +217,5 @@ function modifProfil($user){
             getUserProfil($userId);
         }
     }
-    var_dump($imgUti);
+  
 }   

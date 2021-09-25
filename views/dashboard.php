@@ -344,11 +344,6 @@
         </section>
 
 
-
-
-
-    
-    
         <section class="view utilisateur hide">
         <div class="card list">
             <div class="title">
@@ -373,14 +368,17 @@
                         <div>
                     </div> 
                     
-
+                '.var_dump($uti['Uti_Droit']).'
                 </div>
                     <form action="" method="POST">
                         <label for="statut" name="statut"> administrateur
-                            <input radio type="radio" id="huey" name="drone" value="huey" checked>
+                            <input radio type="radio" id="huey" name="drone" value="admin"'if($uti["Uti_Droit"]==="admin"){
+                                echo "checked";}?>
+                             >
                         </label>
                         <label for="statut" name="statut"> contributeur
-                            <input radio type="radio" id="huey" name="drone" value="huey" checked>
+                            <input radio type="radio" id="huey" name="drone" value="contributeur"<?php if($uti["Uti_Droit"]==="contributeur"){
+                                echo "checked";}?> >
                         </label>
                         
                     <div class="utibutton">

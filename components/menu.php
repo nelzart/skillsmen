@@ -18,10 +18,15 @@
         <a href="?action=backhome">
             <div class="myLogo"><?php require('./public/icons/SVG/logo_typo.svg'); ?></div>
         </a>
-                <a href="?action=admin" class="iconCircle" style="position: absolute; top:-3px; right:1%">
+               <?php  
+                if(!empty($_SESSION)){
+                    if($_SESSION['Uti_Droit']==='admin' || $_SESSION['Uti_Droit']==='boss'){
+                    echo '<a href="?action=admin" class="iconCircle" style="position: absolute; top:-3px; right:1%">
                     <svg id="dashboard" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#000000"><path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/>
                     </svg>
-                </a>
+                </a>';
+                }}
+                ?>
         <div class="userAction">
                 
                 
