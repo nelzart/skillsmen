@@ -341,3 +341,15 @@ p {
   align-self: center;
   align-items: center;
 }
+
+.ingredient {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-self: space-around;
+    align-items: space-around;
+}
+.list{
+    flex-wrap: wrap;
+    overflow: hidden;
+}
