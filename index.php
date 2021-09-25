@@ -176,6 +176,7 @@ try { // On essaie de faire des choses
             //if (isset($_GET['idCoc']) && $_GET['idCoc'] > 0) {
                 if (isset($_SESSION['Uti_Id'])) {
                     getDashboard();
+                    var_dump($_POST);
                 }
                 else {
                     // Autre exception
@@ -198,7 +199,7 @@ try { // On essaie de faire des choses
         }
 
         elseif ($_GET['action'] == 'modifDroitUti') {
- 
+ var_dump($_POST);
             if (isset($_SESSION['Uti_Id']) && ($_SESSION['Uti_Droit']) !=='contributeur') {
                // updateUti($id);
             }
