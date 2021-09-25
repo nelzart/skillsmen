@@ -133,63 +133,66 @@
             <div class="wrapper">
                 <div class="buttonWrapper">
                 <?php 
+                
                 foreach($cocs as $coc){
+                   
                     echo '
-                        <button class="tab-button"  data-id="'.$coc['Coc_Id'].'">
+                        <button class="tab-button"  data-id="'.$coc[0].'">
                         '.$coc['Coc_Nom'].' - publié le ' .date('d-m-Y ',strtotime($coc['Coc_DateCreation'])).' par '.$coc['Uti_Pseudo'].'
                         </button>
                         '; 
                         }
-                ?></div>
-            
+                ?>
+                </div>
                 <div class="contentWrapper">
                 <?php 
-                foreach($cocs as $coc){
-                echo '
-                    <div class="content" id="'.$coc['Coc_Id'].'">
-                        <img src="./public/images/'.$coc['Img_Nom'].'"  alt="">
-                    
-                        <div class="title">
-                            <h2>'.$coc['Coc_Nom'].'</h2>
-                            <h4>une recette proposé par '.$coc['Uti_Pseudo'].'</h4>
 
-                            <div class="text">
-                                <div class="ingredient">
-                                    <h2>Ingredients</h2>
-                                    <ul>
-                                        <li>1 cl de rhum</li>
-                                        <li>1 cl de rhum</li>
-                                        <li>1 cl de rhum</li>
-                                        <li>ipsum</li>
-                                        <li>dolor</li>
-                                    </ul>
+                foreach($cocs as $coc){
+                    echo '    
+                        <div class="content" id="'.$coc[0].'">
+                            <img src="./public/images/'.$coc['Img_Nom'].'"  alt="">
+                        
+                            <div class="title">
+                                <h2>'.$coc['Coc_Nom'].'</h2>
+                                <h4>une recette proposé par '.$coc['Uti_Pseudo'].'</h4>
+
+                                <div class="text">
+                                    <div class="ingredient">
+                                        <h2>Ingredients</h2>
+                                        <ul>
+                                            <li>1 cl de rhum</li>
+                                            <li>1 cl de rhum</li>
+                                            <li>1 cl de rhum</li>
+                                            <li>ipsum</li>
+                                            <li>dolor</li>
+                                        </ul>
+                                    </div>
+
+                                    <div class="stepByStep">                                
+                                        <p>
+                                            '.$coc['Coc_Recette'].'
+                                        </p>
+                                    </div> 
+
                                 </div>
 
-                                <div class="stepByStep">                                
-                                    <p>
-                                        '.$coc['Coc_Recette'].'
-                                    </p>
-                                </div> 
+                                <div class="administrer">
+                                    <button class="delete">
+                                        <svg id="deleteThis" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"  fill="#000000"><path d="M0 0h24v24H0z" fill="none"/><path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"/></svg>
+                                    </button>
 
+                                    <button class="editer">
+                                        <svg id="edit" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24"  fill="#000000"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/></svg>
+                                    </button>
+                                    
+                                    <button class="valider"><svg id="send" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24"  fill="#000000"><path d="M0 0h24v24H0z" fill="none"/><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+                                    </button>
+                                </div>
                             </div>
-
-                            <div class="administrer">
-                                <button class="delete">
-                                    <svg id="deleteThis" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"  fill="#000000"><path d="M0 0h24v24H0z" fill="none"/><path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"/></svg>
-                                </button>
-
-                                <button class="editer">
-                                    <svg id="edit" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24"  fill="#000000"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/></svg>
-                                </button>
-                                
-                                <button class="valider"><svg id="send" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24"  fill="#000000"><path d="M0 0h24v24H0z" fill="none"/><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
-                                </button>
-                            </div>
-                        </div>
-                    </div> ';} ?>
-                
+                        </div> ';} ?>
+                    
+                    </div>
                 </div>
-            </div>
         
             
 

@@ -52,11 +52,12 @@ $title =  $coc[1]  ;
                 
 				<div class="iconCover print" style="margin-left:20px;" onclick="convertHTMLToPDF()" id="printPDF" height="15%" width="15%">
                     <svg id="print" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><path d="M19 8H5c-1.66 0-3 1.34-3 3v6h4v4h12v-4h4v-6c0-1.66-1.34-3-3-3zm-3 11H8v-5h8v5zm3-7c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm-1-9H6v4h12V3z"/></svg>	  
-				</div>			  
+				</div>
+                			  
 			</div>
 		</div>
         
-		
+
 
         <div id="thoseIngredients" class="thoseIngredients">
             <div class="iconCircle slideIn slideToggle" type="button" value="ajouter">
@@ -99,7 +100,22 @@ $title =  $coc[1]  ;
                 <svg class="iconCircle" id="addItem" xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="30px" viewBox="0 0 24 24" width="30px" fill="#000000"><g>
                 <rect fill="none" height="24" width="24"/></g><g><g><path d="M19,13h-6v6h-2v-6H5v-2h6V5h2v6h6V13z"/></g></g></svg>
             </button>
-
+<script>
+    function addRow() {
+        let myBtn = document.querySelector('#addInput');
+        let mySection = document.querySelector('#newSection');
+        myBtn.style.display = 'none';
+        mySection.style.padding = '40px 0px 0px 0px';
+        document.querySelector('#comments').insertAdjacentHTML(
+            'afterbegin',
+            `<form class="commentThis" action="?action=addComment&id=<?=$coc['Coc_Id']?>" method="post">
+                <textarea class="sendComment"  name="sendComment" charswidth="23" name="title" type="textarea" placeholder="Entrez votre commentaire. Soyez respectueux pour les autres comme pour vous." value=""></textarea>
+                <button style="box-shadow: 0px 0px 0px; width: 50px"  type="submit" id='send' value=""><svg id="sendIt" xmlns="http://www.w3.org/2000/svg" height="25px" viewBox="0 0 24 24" width="30px" fill="#000000"><path d="M0 0h24v24H0z" fill="none"/><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg></button>
+            </form>
+            `      
+        )                                                
+    }
+</script>
             <div id="newSection" class="newSection">
                 <div class="sectionTitle"></div>
                 <h2>Commentaires</h2>
@@ -142,6 +158,7 @@ $title =  $coc[1]  ;
     </div>
 
 <?php 
+var_dump($coc['Coc_Id']);
     include('./components/footer.php');
 
 ?>
@@ -149,46 +166,29 @@ $title =  $coc[1]  ;
 
 <script>
 
-function convertHTMLToPDF() {
-    const { jsPDF } = window.jspdf;
+        function convertHTMLToPDF() {
+            const { jsPDF } = window.jspdf;
 
-    let doc = new jsPDF();
-    let pdfjs = document.getElementById('html-template');
+            let doc = new jsPDF();
+            let pdfjs = document.getElementById('html-template');
 
-    doc.addImage("./public/images/logo_typo.png", "JPEG", 55, 5, 100, 20);
-    doc.setFont("Ogg");
-    doc.text(" • <?=$coc['Coc_Nom']?> •", 100, 35, null, null, "center");
-    doc.text(" Une recette proposée par <?=$coc[7];?>", 100, 45, null, null, "center");
-    doc.text("Liste des Ingredients", 20, 65);
-    doc.text("<?php foreach ($ing as $composition){?>
-                <?= $composition['comp_Quantite'] . $composition['comp_Unite'] ?> de <?php echo $composition['Ing_Nom']; }?>\n", 20, 75);
-    doc.text(" <?= $coc[2] ?>", 20, 165, null, null, "center");
-    doc.html(pdfjs, {
-        callback: function(doc) {
-            doc.save("output.pdf");
-        },
-        x: 10,
-        y: 10
-    });
-    doc.output('dataurlnewwindow');
-}
-
-
-function addRow() {
-        let myBtn = document.querySelector('#addInput');
-        let mySection = document.querySelector('#newSection');
-        myBtn.style.display = 'none';
-        mySection.style.padding = '40px 0px 0px 0px';
-        document.querySelector('#comments').insertAdjacentHTML(
-            'afterbegin',
-            `<form class="commentThis" action="?action=addComment&id=<?=$coc['Coc_Id']?>" method="post">
-                <textarea class="sendComment"  name="sendComment" charswidth="23" name="title" type="textarea" placeholder="Entrez votre commentaire. Soyez respectueux pour les autres comme pour vous." value=""></textarea>
-                <button style="box-shadow: 0px 0px 0px; width: 50px"  type="submit" id='send' value=""><svg id="sendIt" xmlns="http://www.w3.org/2000/svg" height="25px" viewBox="0 0 24 24" width="30px" fill="#000000"><path d="M0 0h24v24H0z" fill="none"/><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg></button>
-            </form>
-            `      
-        )                                                
-    }
-
+            doc.addImage("./public/images/logo_typo.png", "JPEG", 55, 5, 100, 20);
+            doc.setFont("Ogg");
+            doc.text(" • <?=$coc['Coc_Nom']?> •", 100, 35, null, null, "center");
+            doc.text(" Une recette proposée par <?=$coc[7];?>", 100, 45, null, null, "center");
+            doc.text("Liste des Ingredients", 20, 65);
+            doc.text("<?php foreach ($ing as $composition){?>
+                        <?= $composition['comp_Quantite'] . $composition['comp_Unite'] ?> de <?php echo $composition['Ing_Nom']; }?>\n", 20, 75);
+            doc.text(" <?= $coc[2] ?>", 20, 165, null, null, "center");
+            doc.html(pdfjs, {
+                callback: function(doc) {
+                    doc.save("output.pdf");
+                },
+                x: 10,
+                y: 10
+            });
+            doc.output('dataurlnewwindow');
+        }
 
 
     </script>
