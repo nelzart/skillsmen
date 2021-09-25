@@ -370,9 +370,9 @@
                         . date("H:i",strtotime($uti['Uti_DateInscription'])) . '</div>
                         <div>
                     </div> 
-                </div>'; 
+                </div>; 
 
-                echo'<form action="" method="POST">'; 
+                <form action="" method="POST">'; 
                 
                     if($uti["Uti_Droit"] === "admin"){
                         echo'<label for="statut" name="statut"> administrateur
@@ -390,19 +390,20 @@
                     } else {
                         echo '<label for="statut" name="statut"> contributeur
                         <input radio type="radio" id="huey" name="drone" value="contributeur">
-                        </label>';
+                        </label>;
                     } 
-                ?>
-                
-                        
-                    <div class="utibutton">
-                        <button class="delete">
-                        <svg id="deleteThis" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"  fill="#000000"><path d="M0 0h24v24H0z" fill="none"/><path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"/></svg>
-                        </button>
                     
-                        <button class="valider"><svg id="send" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24"  fill="#000000"><path d="M0 0h24v24H0z" fill="none"/><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg></button>
-                    </div>
-                    </form>
+                    
+                    <div class="utibutton">
+                        <button class="delete" href="?action=deleteUti&id='.$uti["Uti_Id"].' ">>
+                            <svg id="deleteThis" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"  fill="#000000"><path d="M0 0h24v24H0z" fill="none"/><path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"/></svg>
+                        </button>
+                        
+                        <button class="valider" href="?action=updateUti='.$uti["Uti_Id"].'"><svg id="send" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24"  fill="#000000"><path d="M0 0h24v24H0z" fill="none"/><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg></button>
+                    </div>'
+                    ?>
+                </form>
+                
                 <?php } ?>
 
                 

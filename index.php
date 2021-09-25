@@ -89,7 +89,6 @@ try { // On essaie de faire des choses
             
                 require('views/recherche.php');
             } 
-            
         
         elseif($_GET['action'] == 'getcocktail'){
             if (isset($_GET['id']) && $_GET['id'] > 0) {
@@ -186,6 +185,29 @@ try { // On essaie de faire des choses
             
         }
 
+        elseif ($_GET['action'] == 'deleteUti') {
+
+            if (isset($_SESSION['Uti_Id']) && ($_SESSION['Uti_Droit']) !=='contributeur') {
+                suppUti($id);
+            }
+            else {
+                // Autre exception
+                listCocktailsAccueil();
+            }
+
+        }
+
+        elseif ($_GET['action'] == 'modifDroitUti') {
+ 
+            if (isset($_SESSION['Uti_Id']) && ($_SESSION['Uti_Droit']) !=='contributeur') {
+               // updateUti($id);
+            }
+            else {
+                // Autre exception
+                  
+             }
+
+        }
     }
     else {
 
@@ -196,7 +218,9 @@ try { // On essaie de faire des choses
 
 
     }
+
 }
+
 catch(Exception $e) { // S'il y a eu une erreur, alors...
     echo 'Erreur : ' . $e->getMessage();
 }

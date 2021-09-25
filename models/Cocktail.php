@@ -135,6 +135,24 @@ function getLastCocktail($Uti_Id){
     }
 }
 
+function getCocktailByIdUti($Uti_Id){
+    $db = dbConnect();   
+    $sth = $db -> prepare(" SELECT * from cocktail where Uti_Id = :Uti_Id");
+
+    if($sth -> execute (
+        [
+            ':Uti_Id' => $Uti_Id
+        ]
+    )
+    ){$ups = $sth->fetchAll();
+        
+        //echo "ok";
+        return $ups; 
+    }
+    else{
+        //echo "pas ok";
+    }
+}
 function UpdateEtatCocktail($cocId,$cocEtat){
     $db = dbConnect();   
     $sth = $db -> prepare("UPDATE cocktail SET Coc_Etat = :Coc_Etat where Coc_Id = :Coc_Id");

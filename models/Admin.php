@@ -26,3 +26,18 @@ function getUtiAll(){
         throw new Exception('pas ok');
     }*/
 }
+
+function deleteIng($ing){
+
+}
+
+function deleteUti($uti){
+    $db = dbConnect();   
+    $sth = $db -> prepare("DELETE FROM utilisateurs where Uti_Id = :utiId");
+
+    $sth -> execute (
+        [
+            ':utiId' => $uti
+        ]
+        );
+}

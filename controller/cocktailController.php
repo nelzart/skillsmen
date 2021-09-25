@@ -125,8 +125,8 @@ function addCocktail($Coc_Nom, $Coc_Recette, $Uti_Id, $Ing){ //creation d'un coc
 function deleteCocktailComplet($cocId){
   // $cocNom = $_POST['title'];
   // var_dump($_GET);
-  $cocId = $_GET['id'];
-  $img = getimgCocByIdCoc($_GET['id']);
+  //$cocId = $_GET['id'];
+  $img = getimgCocByIdCoc($cocId);
   $imgTitle = $img[0]['Img_Nom'];
   deleteCategorieCoc($cocId);
   deleteIngredientsCoc($cocId);
@@ -141,7 +141,7 @@ function deleteCocktailComplet($cocId){
 }
 
 function updateCocktail($cocId){
-  $img = getimgCocByIdCoc($_GET['id']);
+  $img = getimgCocByIdCoc($cocId);
   $imgTitle = $img[0]['Img_Nom'];
   deleteCategorieCoc($cocId);
   deleteIngredientsCoc($cocId);
