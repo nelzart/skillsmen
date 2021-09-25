@@ -1,5 +1,7 @@
 <?php
 session_start();
+
+var_dump($_GET)
 ?>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
 <?php
@@ -177,6 +179,7 @@ try { // On essaie de faire des choses
                 if (isset($_SESSION['Uti_Id'])) {
                     getDashboard();
                     var_dump($_POST);
+
                 }
                 else {
                     // Autre exception
@@ -189,7 +192,11 @@ try { // On essaie de faire des choses
         elseif ($_GET['action'] == 'deleteUti') {
 
             if (isset($_SESSION['Uti_Id']) && ($_SESSION['Uti_Droit']) !=='contributeur') {
-                suppUti($id);
+                if ($_GET['id']){
+                    
+                    // echo '<script> alert("coucou") </script>';
+                    suppUti($_GET['id']);
+                }
             }
             else {
                 // Autre exception
@@ -199,9 +206,8 @@ try { // On essaie de faire des choses
         }
 
         elseif ($_GET['action'] == 'modifDroitUti') {
- var_dump($_POST);
             if (isset($_SESSION['Uti_Id']) && ($_SESSION['Uti_Droit']) !=='contributeur') {
-               // updateUti($id);
+               updateUti($_GET['id']);
             }
             else {
                 // Autre exception
