@@ -207,7 +207,7 @@ try { // On essaie de faire des choses
 
         elseif ($_GET['action'] == 'modifDroitUti') {
             if (isset($_SESSION['Uti_Id']) && ($_SESSION['Uti_Droit']) !=='contributeur') {
-               updateUti($_GET['id']);
+            //    updateUti($_GET['id']);
             }
             else {
                 // Autre exception
