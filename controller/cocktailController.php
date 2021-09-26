@@ -13,11 +13,11 @@ function addCocktail($Coc_Nom, $Coc_Recette, $Uti_Id, $Ing){ //creation d'un coc
   $resultLastCoc = getLastCocktail($Uti_Id); // on recupere l'id du cocktail qu'on vient de créer
 
  //Var_dump($resultLastCoc);
- var_dump($_POST);
+ //var_dump($_POST);
   $Ing = explode(",", $_POST['tabIng'][0]);//on met $Ing en tab
   //Var_dump($Ing);
-  Var_dump($_POST['tabIng'][0]);
-  Var_dump($Ing);
+  //Var_dump($_POST['tabIng'][0]);
+  //Var_dump($Ing);
   //for($i=0;$i<sizeof($Ing);$i++){
 
     for($y=2;$y<sizeof($Ing);$y+=3){
@@ -38,7 +38,7 @@ function addCocktail($Coc_Nom, $Coc_Recette, $Uti_Id, $Ing){ //creation d'un coc
         insertIngredient($Ing[$y]);
         UpdateEtatCocktail($resultLastCoc[0],$etat);
         $resultName = getIngredientByNameExact($Ing[$y],'publie'); //on recup l'id de l'ingredient
-        var_dump($resultName);
+        //var_dump($resultName);
         createIngregientCocktail ($resultName[0], $resultLastCoc[0], $Ing[$y-2], $Ing[$y-1]);  
         echo "Ingredient inconnu: ".$Ing[$y]." cocktail soumis à validation- ";
       }
@@ -337,7 +337,7 @@ function addLike($cocId,$uti){
   //$uti = $_SESSION['Uti_Id'];
   
   $ups = createLike($cocId,$uti);
-  var_dump($ups);
+  //var_dump($ups);
   if($ups === 0 ){
     die('Impossible d\'ajouter le like !');
   }
