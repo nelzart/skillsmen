@@ -103,7 +103,14 @@
 
                         <div class="splitComments"></div>'; }
                     }
-                    else{ echo 'pas de commentaires publiés';}
+                    else{ 
+                        echo '
+                        <div id="comments" class="comments">
+                            <div class="author" ><span class="unvariable"></span></div>
+                            <div class="thisComments">
+                                pas de commentaires publiés
+                            </div> <br>
+                        </div>';}
                        
             ?>
                     </div> </div>
@@ -124,7 +131,7 @@
             </div>	
 
             <label for='Uti_Pseudo'>Changer votre nom d'utilisateur <br>
-            <input type="text" class="input-username" name='Uti_Pseudo' placeholder="Votre nom d'utilisateur"  value="<?=  $com['Uti_Pseudo']  ?>"></label>
+            <input type="text" class="input-username" name='Uti_Pseudo' placeholder="Votre nom d'utilisateur"  value="<?=  $datas['Uti_Pseudo'] ?>"></label>
             
 <!--     
             <label for="Uti_Mdp">Votre mot de passe actuel<br>

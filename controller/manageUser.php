@@ -179,18 +179,19 @@ function modifProfil($user){
     
     if($_GET['action'] == 'updateProfil'){
         echo 'yo 2';
+        var_Dump($_GET);
 
         $userId = $_GET['id'];
         $userName = $_POST['Uti_Pseudo'];
         updateProfil($userId, $userName);  //on met lable utilisateur à jour
-        deleteImageUti($userId);  //on vide la table image
-
+        
         // insertion de l'image
-        if(isset($_FILES)){
+        if(!empty(isset($_FILES))){
+            deleteImageUti($userId) ; //on vide la table image
            // echo "<script>alert(\"there is an image...\")</script>";
             $logo=$_FILES['photo']['name'];
             //var_dump($logo);
-           // var_Dump($_FILES);
+           var_Dump($_FILES);
             //var_dump(date('Y-m-d H:i:s', time()));
             if ($logo != "") {
                 require "uploadImage.php";
