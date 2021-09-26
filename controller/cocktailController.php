@@ -13,10 +13,10 @@ function addCocktail($Coc_Nom, $Coc_Recette, $Uti_Id, $Ing){ //creation d'un coc
   $resultLastCoc = getLastCocktail($Uti_Id); // on recupere l'id du cocktail qu'on vient de créer
 
  //Var_dump($resultLastCoc);
- //var_dump($_POST);
+ var_dump($_POST);
   $Ing = explode(",", $_POST['tabIng'][0]);//on met $Ing en tab
   //Var_dump($Ing);
-  Var_dump(sizeof($Ing));
+  Var_dump($_POST['tabIng'][0]);
   Var_dump($Ing);
   //for($i=0;$i<sizeof($Ing);$i++){
 
@@ -183,28 +183,28 @@ function updateCocktail($cocId){
   //var_dump($_FILES);
   $Ing = explode(",", $_POST['tabIng'][0]);//on met $Ing en tab
 
-  for($i=0;$i<sizeof($Ing);$i++){
+ // for($i=0;$i<sizeof($Ing);$i++){
 
-    for($y=2;$y<sizeof($Ing);$y+=3){
-      //echo $i;
-      $resultName = getIngredientByNameExact($Ing[$y]); //on recup l'id de l'ingredient
-      
-      if($resultName == TRUE){// on alimente la table composition Cocktail
-        createIngregientCocktail ($resultName[0], $cocId, $Ing[$y-2], $Ing[$y-1]);  
-        //echo "Ingredient integré: ".$resultName[1]." - ";
-       // require('/views/editCocktail.php');
-      }
-      else{ // on créé l'ingredient, on alimente la table composition Cocktail et le cocktail passe en controle
-        $etat='controle';
-        insertIngredient($Ing[$y]);
-        UpdateEtatCocktail($cocId,$etat);
-        $resultName = getIngredientByNameExact($Ing[$y]); //on recup l'id de l'ingredient
-        createIngregientCocktail ($resultName[0], $cocId, $Ing[$y-2], $Ing[$y-1]);  
-        echo "Ingredient inconnu: ".$Ing[$y]." cocktail soumis à validation- ";
-      }
-
+  for($y=2;$y<sizeof($Ing);$y+=3){
+    //echo $i;
+    $resultName = getIngredientByNameExact($Ing[$y]); //on recup l'id de l'ingredient
+    
+    if($resultName == TRUE){// on alimente la table composition Cocktail
+      createIngregientCocktail ($resultName[0], $cocId, $Ing[$y-2], $Ing[$y-1]);  
+      //echo "Ingredient integré: ".$resultName[1]." - ";
+      // require('/views/editCocktail.php');
     }
+    else{ // on créé l'ingredient, on alimente la table composition Cocktail et le cocktail passe en controle
+      $etat='controle';
+      insertIngredient($Ing[$y]);
+      UpdateEtatCocktail($cocId,$etat);
+      $resultName = getIngredientByNameExact($Ing[$y],'publie'); //on recup l'id de l'ingredient
+      createIngregientCocktail ($resultName[0], $cocId, $Ing[$y-2], $Ing[$y-1]);  
+      echo "Ingredient inconnu: ".$Ing[$y]." cocktail soumis à validation- ";
+    }
+
   }
+  
 
 
   //categorisation du cocktail
@@ -217,9 +217,9 @@ function updateCocktail($cocId){
     $test = getTypeCocktailByName($key);
     if($test !== FALSE){//si le resultat existe c'est donc une categorie
       //var_dump($test);
-      $compteur = 0; 
-      foreach($Ing as $value){ // on tourne sur les ingredients postés
-        if($key == $value){ // si la cat identifié correspond à un ingredient on alimente $cat
+      //$compteur = 0; 
+     // foreach($Ing as $value){ // on tourne sur les ingredients postés
+        /*if($key == $value){ // si la cat identifié correspond à un ingredient on alimente $cat
           $compteur +=1;        
           $ligneAinserer = array($test[0],$cocId,$value);
           array_push($cat,$ligneAinserer);
@@ -236,16 +236,20 @@ function updateCocktail($cocId){
       }
       if($compteur == 0){
         echo $message;
-      }
-    
-    
+      }*/
+      
+      
       //$test2 = getTypeCocktailByName($_POST[$value]);
+      $ligneAinserer = array($test[0],$cocId,$value);
+      if (!in_array($ligneAinserer,$cat)) {//pour chaque cocktail on recup la categorie
+        array_push($cat,$ligneAinserer);
+      }
     }
-
     
-
+    
+    
   }
-  $test = 0;   //gestion de la categorie sans alcool
+ /* $test = 0;   //gestion de la categorie sans alcool
   for($i=2;$i<sizeof($Ing);$i+=3){
     //var_dump()
     $result = getIngredientByNameExact($Ing[$i]);
@@ -264,8 +268,7 @@ function updateCocktail($cocId){
     array_push($cat,$ligneAinserer);
   }
 
-
-
+*/
  //var_dump($result[1]);
   for($i=0;$i<sizeof($cat);$i++){   //categorisation du cocktail
 
@@ -273,6 +276,10 @@ function updateCocktail($cocId){
     echo "cocktail categorisé: ".$cat[$i][2].", ";
   }
  // var_dump($cat);
+
+
+
+
  // var_dump($_FILES);
    // insertion de l'image
    if(isset($_FILES)){
