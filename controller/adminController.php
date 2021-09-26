@@ -25,7 +25,7 @@ function suppUti($id){
 
 function modifDroitUti($id){
     $uti = getUsers_ById($id);
-    var_dump($uti);
+    //var_dump($uti);
     $utiDroit = $_POST['Uti_Droit'];
     updateProfil($id,$uti['Uti_Pseudo'], $utiDroit);
 
