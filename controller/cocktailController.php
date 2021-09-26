@@ -352,7 +352,7 @@ function addFavori($cocId,$uti){
   $cocId = $_GET['Coc_Id'];*/
   //$uti = $_SESSION['Uti_Id'];
   $ups = createFavori($cocId,$uti);
-  var_dump($ups);
+  //var_dump($ups);
   if($ups === 0 ){
     die('Impossible d\'ajouter le favori !');
   }
