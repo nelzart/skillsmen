@@ -13,9 +13,9 @@ function addCocktail($Coc_Nom, $Coc_Recette, $Uti_Id, $Ing){ //creation d'un coc
   $resultLastCoc = getLastCocktail($Uti_Id); // on recupere l'id du cocktail qu'on vient de créer
 
  //Var_dump($resultLastCoc);
- var_dump($_POST);
+ //var_dump($_POST);
   $Ing = explode(",", $_POST['tabIng'][0]);//on met $Ing en tab
-  Var_dump($Ing);
+  //Var_dump($Ing);
   for($i=0;$i<sizeof($Ing);$i++){
 
    // Var_dump(sizeof($Ing));
@@ -81,9 +81,29 @@ function addCocktail($Coc_Nom, $Coc_Recette, $Uti_Id, $Ing){ //creation d'un coc
     
 
   }
+ 
+ 
+  $test = 0;   //gestion de la categorie sans alcool
+  for($i=2;$i<sizeof($Ing);$i+=3){
+    //var_dump()
+    $result = getIngredientByNameExact($Ing[$i]);
+    if($result !== FALSE){
   
+     // var_dump($result[2]);
+      if($result[2] == 'alcool' || $result[2] == 'base' || $result[2] == 'liqueur'){
+        $test= 1;
+      }
+
+    }
+  }
+  //var_dump($test);
+  if($test===0){  //alors on categorise sans alcool en poussant dans tab
+    $ligneAinserer = array(9,$resultLastCoc[0]);
+    
+    array_push($cat,$ligneAinserer);
+  }
  // var_dump($cat);
-  for($i=0;$i<sizeof($cat);$i++){
+  for($i=0;$i<sizeof($cat);$i++){ //categorisation du cocktail
 
     createCatCocktail($cat[$i][0], $cat[$i][1]);
     echo "cocktail categorisé: ".$cat[$i][2].", ";
@@ -152,10 +172,10 @@ function updateCocktail($cocId){
  
   updateTblCocktail($cocId,$cocNom, $Coc_Recette);
   UpdateEtatCocktail($cocId,'publie');
-  var_dump($_POST);
+  //var_dump($_POST);
   //var_dump($_FILES);
   $Ing = explode(",", $_POST['tabIng'][0]);//on met $Ing en tab
-  var_dump($Ing);
+
   for($i=0;$i<sizeof($Ing);$i++){
 
     for($y=2;$y<sizeof($Ing);$y+=3){
@@ -218,15 +238,35 @@ function updateCocktail($cocId){
     
 
   }
+  $test = 0;   //gestion de la categorie sans alcool
+  for($i=2;$i<sizeof($Ing);$i+=3){
+    //var_dump()
+    $result = getIngredientByNameExact($Ing[$i]);
+    if($result !== FALSE){
   
- // var_dump($cat);
-  for($i=0;$i<sizeof($cat);$i++){
+
+      if($result[2] == 'alcool' || $result[2] == 'base' || $result[2] == 'liqueur'){
+        $test= 1;
+      }
+
+    }
+  }
+ 
+  if($test===0){  //alors on categorise sans alcool en poussant dans tab
+    $ligneAinserer = array(9,$cocId,$result[1]);
+    array_push($cat,$ligneAinserer);
+  }
+
+
+
+ //var_dump($result[1]);
+  for($i=0;$i<sizeof($cat);$i++){   //categorisation du cocktail
 
     createCatCocktail($cat[$i][0], $cat[$i][1]);
     echo "cocktail categorisé: ".$cat[$i][2].", ";
   }
-
-
+ // var_dump($cat);
+ // var_dump($_FILES);
    // insertion de l'image
    if(isset($_FILES)){
     //echo "<script>alert(\"there is an image...\")</script>";
