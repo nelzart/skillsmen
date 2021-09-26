@@ -158,7 +158,7 @@ $title =  $coc[1]  ;
     </div>
 
 <?php 
-var_dump($coc['Coc_Id']);
+//var_dump($coc['Coc_Id']);
     include('./components/footer.php');
 
 ?>
