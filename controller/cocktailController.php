@@ -53,8 +53,8 @@ function addCocktail($Coc_Nom, $Coc_Recette, $Uti_Id, $Ing){ //creation d'un coc
     $test = getTypeCocktailByName($key);
     if($test !== FALSE){//si le resultat existe c'est donc une categorie
       //var_dump($test);
-      $compteur = 0; 
-      foreach($Ing as $value){ // on tourne sur les ingredients postés
+      //$compteur = 0; 
+      /*foreach($Ing as $value){ // on tourne sur les ingredients postés
         if($key == $value){ // si la cat identifié correspond à un ingredient on alimente $cat
           $compteur +=1;        
           $ligneAinserer = array($test[0],$resultLastCoc[0],$value);
@@ -65,25 +65,33 @@ function addCocktail($Coc_Nom, $Coc_Recette, $Uti_Id, $Ing){ //creation d'un coc
           
           //echo $key;
           //echo $value;
-         //break;
+        //break;
           $message =  "categorie ".$key." non retenue car il n' y pas d'ingredient correspondant - ";
         }
 
-      }
-      if($compteur == 0){
+      }*/
+      /*if($compteur == 0){
         echo $message;
+      }*/
+      $ligneAinserer = array($test[0],$resultLastCoc[0],$value);
+      if (!in_array($ligneAinserer,$cat)) {//pour chaque cocktail on recup la categorie
+        array_push($cat,$ligneAinserer);
       }
-    
-    
-      //$test2 = getTypeCocktailByName($_POST[$value]);
+      
+        //$test2 = getTypeCocktailByName($_POST[$value]);
+      }
     }
+    for($i=0;$i<sizeof($cat);$i++){ //categorisation du cocktail
+  
+      createCatCocktail($cat[$i][0], $cat[$i][1]);
+      echo "cocktail categorisé: ".$cat[$i][2].", ";
+    } 
 
     
 
-  }
  
  
-  $test = 0;   //gestion de la categorie sans alcool
+  /*$test = 0;   //gestion de la categorie sans alcool
   for($i=2;$i<sizeof($Ing);$i+=3){
     //var_dump()
     $result = getIngredientByNameExact($Ing[$i]);
@@ -102,12 +110,7 @@ function addCocktail($Coc_Nom, $Coc_Recette, $Uti_Id, $Ing){ //creation d'un coc
     
     array_push($cat,$ligneAinserer);
   }
- // var_dump($cat);
-  for($i=0;$i<sizeof($cat);$i++){ //categorisation du cocktail
-
-    createCatCocktail($cat[$i][0], $cat[$i][1]);
-    echo "cocktail categorisé: ".$cat[$i][2].", ";
-  }
+ // var_dump($cat);*/
 
 
    // insertion de l'image
@@ -140,6 +143,8 @@ function addCocktail($Coc_Nom, $Coc_Recette, $Uti_Id, $Ing){ //creation d'un coc
     }
   }
   listCocktailsAccueil();
+  
+
 }
 
 function deleteCocktailComplet($cocId){
