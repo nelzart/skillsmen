@@ -192,11 +192,7 @@ try { // On essaie de faire des choses
 
         elseif ($_GET['action'] == 'modifDroitUti') {
             if (isset($_SESSION['Uti_Id']) && ($_SESSION['Uti_Droit']) !=='contributeur') {
-<<<<<<< HEAD
-            //    updateUti($_GET['id']);
-=======
                 modifDroitUti($_GET['id']);
->>>>>>> 3d9436f00c50c7411522e063d29855396c213715
             }
             else {
                 // Autre exception
