@@ -16,9 +16,10 @@ function addCocktail($Coc_Nom, $Coc_Recette, $Uti_Id, $Ing){ //creation d'un coc
  //var_dump($_POST);
   $Ing = explode(",", $_POST['tabIng'][0]);//on met $Ing en tab
   //Var_dump($Ing);
-  for($i=0;$i<sizeof($Ing);$i++){
+  Var_dump(sizeof($Ing));
+  Var_dump($Ing);
+  //for($i=0;$i<sizeof($Ing);$i++){
 
-   // Var_dump(sizeof($Ing));
     for($y=2;$y<sizeof($Ing);$y+=3){
       //Var_dump($y);
       $resultName = getIngredientByNameExact($Ing[$y]); //on recup l'id de l'ingredient
@@ -36,13 +37,14 @@ function addCocktail($Coc_Nom, $Coc_Recette, $Uti_Id, $Ing){ //creation d'un coc
         $etat='controle';
         insertIngredient($Ing[$y]);
         UpdateEtatCocktail($resultLastCoc[0],$etat);
-        $resultName = getIngredientByName($Ing[$y]); //on recup l'id de l'ingredient
+        $resultName = getIngredientByNameExact($Ing[$y],'publie'); //on recup l'id de l'ingredient
+        var_dump($resultName);
         createIngregientCocktail ($resultName[0], $resultLastCoc[0], $Ing[$y-2], $Ing[$y-1]);  
         echo "Ingredient inconnu: ".$Ing[$y]." cocktail soumis à validation- ";
       }
 
     }
-  }
+  //}
   //categorisation du cocktail
   $cat = []; //tableau qui contiendra les valeurs à ajouter dans la table categorieCocktail
 
