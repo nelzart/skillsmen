@@ -17,7 +17,7 @@ function suppUti($id){
         deleteCocktailComplet($cocUti['Coc_Id']);        
     }
     $imgNom = getimgUti_ByIdUti($id);  // on recup le nom de l'image
-    unlink("public/images/$imgNom[0]['Img_Nom']"); //on supp l'image ds le dossier
+    // unlink("public/images/$imgNom[0]['Img_Nom']"); //on supp l'image ds le dossier
     deleteImageUti($id);  // on supprime l'image de l'uti dans la table image
     deleteUti($id);  // on supprime l'utilisateur
 
