@@ -555,7 +555,7 @@ function getCommentbyIdCoc($cocId){
         ]
     )
     ){
-        echo "com ok";
+        //echo "com ok";
         $ups = $sth->fetchAll();
     
         return $ups; 
