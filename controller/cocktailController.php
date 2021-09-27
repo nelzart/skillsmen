@@ -136,7 +136,7 @@ function addCocktail($Coc_Nom, $Coc_Recette, $Uti_Id, $Ing){ //creation d'un coc
       else { $logo="pas ok"; }
       
       if($logo != "notdid" ) {
-      echo "upload reussi!!!";
+      //echo "upload reussi!!!";
       
       }
       else{
@@ -303,7 +303,7 @@ function updateCocktail($cocId){
       else { $logo="pas ok"; }
       
       if($logo != "notdid" ) {
-      echo "upload reussi!!!";
+      //echo "upload reussi!!!";
       
       }
       else{
