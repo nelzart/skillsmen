@@ -178,8 +178,8 @@ function getUserProfil($userId){
 function modifProfil($user){
     
     if($_GET['action'] == 'updateProfil'){
-        echo 'yo 2';
-        var_Dump($_GET);
+        //echo 'yo 2';
+       // var_Dump($_GET);
 
         $userId = $_GET['id'];
         $userName = $_POST['Uti_Pseudo'];
@@ -191,12 +191,12 @@ function modifProfil($user){
            // echo "<script>alert(\"there is an image...\")</script>";
             $logo=$_FILES['photo']['name'];
             //var_dump($logo);
-           var_Dump($_FILES);
+          // var_Dump($_FILES);
             //var_dump(date('Y-m-d H:i:s', time()));
             if ($logo != "") {
                 require "uploadImage.php";
                 $nomUti = uploadImages($userId,'_uti.');
-                var_Dump($nomUti );
+               // var_Dump($nomUti );
                 
                 if ( $nomUti ) {               
                     //$logo = $dest_dossier . $dest_fichier;
@@ -204,7 +204,7 @@ function modifProfil($user){
                     createUtiImage($nomUti,'public/images',$_SESSION['Uti_Id']);
                 }
                 else { 
-                    $logo="pas ok";  var_dump($logo);
+                    $logo="pas ok";  //var_dump($logo);
                 }
                 
                 if($logo != "notdid" ) {
